@@ -1,0 +1,111 @@
+body {
+  font-family: Helvetica, Georgia, Verdana;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+a {
+  margin: 0px;
+  color: #EF4984;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.plain {
+  color: #000000;
+  text-decoration: none;
+}
+
+a.header {
+  color: #000000;
+  text-decoration: underline;
+}
+
+a.header:hover {
+  color: #FF69B4;
+  text-decoration: none;
+}
+
+span.nextline {
+  padding-top: 3px;
+  display: block;
+}
+
+p.copyright {
+  font-size: 80%;
+  margin: 5px;
+}
+
+p.page_msg {
+  margin: 0px;
+  padding-top: 10px;
+  padding-left: 5px;
+  display: block;
+  color: red;
+}
+
+p.page_heading {
+  margin: 0px;
+  padding-bottom: 0px;
+  display: block;
+}
+
+p.footer_links {
+  margin: 0px;
+  padding: 5px;
+}
+
+form {
+  margin: 0px;
+  padding-bottom: 10px;
+  display: block;
+}
+
+div.textcontrols {
+  padding: 5px;
+  padding-left: 0px;
+}
+
+div.content {
+  padding: 10px;
+}
+
+div.title_bar {
+  padding: 5px;
+  border: solid #333333 1px;
+  background-color: #dddddd;
+}
+
+div.title_box {
+  padding: 4px;
+  border: solid #000000 1px;
+}
+
+div.title_content {
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
