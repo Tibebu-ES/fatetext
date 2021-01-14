@@ -1,7 +1,36 @@
+<?php /* MIT License
+
+Copyright (c) 2021 Todd Perry
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */ ?>
+
 <h2>Hall of Fame</h2>
 <div class="content">
 
-<p class="page_heading"><b>7.</b> [<a href="index.php?page=art&datestr=01_13_21">1/13/21</a>]
+<p class="page_heading"><b>7.</b> [<a href="index.php?page=art&datestr=01_14_21">1/14/21</a>]
+<a class="header" href="https://www.newsweek.com/pelosi-says-5000-will-deducted-salaries-lawmakers-who-bypass-metal-detectors-1561438">
+</a>
+https://www.newsweek.com/pelosi-says-5000-will-deducted-salaries-lawmakers-who-bypass-metal-detectors-1561438
+
+<p><b>Summary:</b> TODO</p>
+
+<p><b>7.</b> [<a href="index.php?page=art&datestr=01_13_21">1/13/21</a>]
 <a class="header" href="https://www.nbcnews.com/politics/2020-election/biden-nominate-samantha-power-lead-foreign-aid-agency-n1254023">
 https://www.nbcnews.com/politics/2020-election/biden-nominate-samantha-power-lead-foreign-aid-agency-n1254023</a>
 

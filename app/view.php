@@ -1,4 +1,24 @@
-<?php
+<?php /* MIT License
+
+Copyright (c) 2021 Todd Perry
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');
@@ -11,7 +31,7 @@ define('APP_SPLASH', 'splash');
 define('SEARCH_ROWS', 40);
 define('LOGIN_ROWS', 18);
 
-function app_get_header_extra($page) {
+function app_get_header_extra($page, $add_el = true) {
   $css_class = 'header';
   $lower_ident = strtolower(APP_IDENT);
 
@@ -31,7 +51,7 @@ function app_get_header_extra($page) {
     $rv .= gen_link($link_url, $link_str, $css_class);
     break;
 
-   case 'fame':
+   case 'hall':
    case 'art':
     $link_text = FAME_IDENT;
     $link_url = FAME_URL;
@@ -56,6 +76,7 @@ function app_get_header_extra($page) {
     break;
   }
 
+  if ($add_el) $rv .= "\n";
   return $rv;
 }
 
@@ -86,16 +107,18 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
   return $rv;
 }
 
-function app_get_smart_spacer() {
+function app_get_smart_spacer($page, $add_el = true) {
   $loid = strtolower(APP_IDENT);
   $rv = PADDING_STR;
-  if ($GLOBALS['DATA_PAGE'] == 'fame' ||
+  if ($page == 'hall' ||
       (!web_logged_in() &&
-       $GLOBALS['DATA_PAGE'] == $loid)) {
+       $page == $loid)) {
     $rv .= gen_b(SPACER_STR);
   } else {
-    $rv .= gen_link('?page=fame', gen_b(SPACER_STR));
+    $rv .= gen_link('index.php?page=hall', gen_b(SPACER_STR));
   }
+
+  if ($add_el) $rv .= "\n";
   return $rv;
 }
 

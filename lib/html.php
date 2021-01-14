@@ -1,5 +1,24 @@
-<?php
-/* Copyright 2021 Tsuzy LLC.  All rights reserved. */
+<?php /* MIT License
+
+Copyright (c) 2021 Todd Perry
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 define('PADDING_STR', '&nbsp;&nbsp;');
 
@@ -179,8 +198,14 @@ function gen_two_col_table($left_col, $right_col, $add_el = true) {
 function gen_two_cols($left_col, $right_col, $add_el = true) {
   $rv = '';
   $rv .= '<div class="row">';
-  $rv .= '<div class="column">' . $left_col . '</div>';
-  $rv .= '<div class="column">' . $right_col . '</div>';
+  $rv .= '<div class="column">';
+  if ($add_el) $rv .= "\n";
+
+  $rv .= $left_col . '</div>';
+  $rv .= '<div class="column">';
+  if ($add_el) $rv .= "\n";
+
+  $rv .= $right_col . '</div>';
   $rv .= '</div>';
   if ($add_el) $rv .= "\n";
   return $rv;
@@ -196,6 +221,7 @@ function gen_title_bar($title_html, $is_box = false, $add_el = true) {
 function gen_title_box($title_bar_html, $content_html, $add_el = true) {
   $rv = '';
   $rv .= '<div class="title_box">' . $title_bar_html . '</div>';
+  if ($add_el) $rv .= "\n";
   $rv .= '<div class="title_box">';
   $rv .= '<div class="title_content">';
   $rv .= $content_html . '</div></div>';
