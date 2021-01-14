@@ -28,7 +28,7 @@ define('USER_SEARCH_ROWS', 'searchrows');
 define('USER_SEARCH_COLS', 'searchcols');
 
 function mod_get_hall_art() {
-  $sql = 'SELECT * FROM hallart ORDER BY datestr';
+  $sql = 'SELECT * FROM hallart ORDER BY artid DESC';
   $rs = queryf_all($sql);
   if (count($rs) == 0) {
     $rs = array(

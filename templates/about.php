@@ -28,7 +28,7 @@ SOFTWARE. */ ?>
 
 <p><a href="http://tperry256.com">Todd Perry</a> released the latest version of FATE (0.51) on January 14, 2021 from <a href="http://fatetext.com">fatetext.com</a>, and he also runs a proprietary version at <a href="http://fametext.com">FameText</a>.</p>
 
-<p>The latest version is available as a <a href="https://tsuzy.com/fatetext.zip">ZIP file on (TODO)</a> and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT  repository on Github</a>.</p>
+<p>The latest version is available as a <a href="https://tsuzy.com/fatetext_0_51.zip">ZIP file on (TODO)</a> (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT  repository on Github</a>.</p>
 
 Please see the following demo videos for more information about how to <b>create your own instance</b>:</p>
 
