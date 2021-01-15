@@ -36,7 +36,6 @@ if (isset(${TEMPLATE_PAGE_MSG}) && ${TEMPLATE_PAGE_MSG} != '') {
   $local_page_msg = ${TEMPLATE_PAGE_MSG};
 }
 
-$content_class = 'content';
 $left_col = '';
 $left_col .= app_get_page_ident($page);
 $left_col .= app_get_smart_spacer($page);
@@ -45,7 +44,7 @@ if (web_logged_in()) {
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
 
-  if (!$atf || $GLOBALS['APPIDENT'] == 'fate') {
+  if (!$atf || $GLOBALS['APPPREFIX'] == 'fate') {
 
     echo app_get_tos_page($local_page_msg);
 
@@ -67,9 +66,9 @@ if (web_logged_in()) {
     $chat_open = web_get_user_flag(web_get_user(), CHAT_OPEN_FLAG);
     $right_col = gen_chat_with_fate($page, $chat_data, $chat_open);
     if ($chat_open) {
-      $left_col = gen_div(${TEMPLATE_CONTENT}, $content_class);
+      $left_col = gen_div(${TEMPLATE_CONTENT}, 'content');
     } else { //if chat is collapsed
-      echo gen_div(${TEMPLATE_CONTENT}, $content_class);
+      echo gen_div(${TEMPLATE_CONTENT}, 'content');
       $left_col = '';
     }
     $left_col .= gen_copyright_notice();
@@ -83,15 +82,16 @@ if (web_logged_in()) {
   echo $left_col;
   $links_arr = array('TOS', 'News', 'About');
   echo app_get_header_links($page, $links_arr);
-  if ($page == $GLOBALS['APPPREFIX']) {
+
+  if ($page == 'hall') {
     echo app_get_header_extra($page);
   }
   if ($local_page_msg != '') {
     echo gen_p($local_page_msg, 'page_msg');
   }
-  echo gen_div(${TEMPLATE_CONTENT}, $content_class);
-  $br_page = ($page == strtolower($GLOBALS['APPIDENT'])) || $page == strtolower($GLOBALS['APPPREFIX']);
-  $add_br = (!web_logged_in() && $br_page);
+
+  echo gen_div(${TEMPLATE_CONTENT}, 'wide_content');
+  $add_br = (!web_logged_in() && ($page == 'home'));
   echo gen_copyright_notice($add_br);
 
 }

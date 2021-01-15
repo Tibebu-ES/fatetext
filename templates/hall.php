@@ -34,7 +34,7 @@ $css_class = 'page_heading';
 foreach ($art_arr as $ar) {
   if (ctype_alpha($ar['datestr'][0]) && $first2020) {
     echo '</div><h3><i>Articles from 2020</i></h3>';
-    echo '<div class="content">';
+    echo '<div class="innerc">';
     $first2020 = false;
     $css_class = 'page_heading';
   }

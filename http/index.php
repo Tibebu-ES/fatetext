@@ -23,14 +23,14 @@ SOFTWARE. */
 include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
-web_set_page($GLOBALS['APPIDENT']);
+web_set_page('home');
 $data = web_init_data();
-app_main_loop($data);
+appcon_main_loop($data);
 
 try {
 
   if (isset($data['cmd'])) {
-    app_do_cmd($data);
+    appcon_do_cmd($data);
   }
 
   net_log_user_and_session_info();

@@ -104,6 +104,12 @@ div.textcontrols {
 
 div.content {
   padding: 10px;
+  max-width: 625px;
+  min-width: 375px;
+}
+
+div.wide_content {
+  padding: 10px;
 }
 
 div.innerc {

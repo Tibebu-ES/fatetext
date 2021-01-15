@@ -54,9 +54,6 @@ function web_logged_in() {
 }
 
 function web_get_user() {
-  if (!web_logged_in()) {
-    xbp('');
-  }
   util_assert(web_logged_in(), 'tried to get user while not logged in');
   return $GLOBALS['USER_ID'];
 }

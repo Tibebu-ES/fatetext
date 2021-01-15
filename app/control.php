@@ -53,7 +53,7 @@ function appcon_tos_action(&$data) {
     util_except('invalid paramaters for tos action');
   }
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
-  if ($atf) {
+  if ($atf && $GLOBALS['APPPREFIX'] != 'fate') {
     util_except('trying to approve tos more than once');
   }
 

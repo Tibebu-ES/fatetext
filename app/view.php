@@ -52,29 +52,34 @@ function app_get_tos_page($local_page_msg) {
 
 function app_get_header_extra($page, $add_el = true) {
   $css_class = 'header';
-  $lower_ident = strtolower($GLOBALS['APPIDENT']);
-
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
 
+  if (!web_logged_in()) {
+
+    if (!(($page == 'hall') || ($page == 'art'))) {
+      util_except('getting header extra on invalid page');
+    }
+  }
+
   switch ($page) {
-   case $lower_ident:
+   case 'hall':
+   case 'art':
+    $link_text = FAME_IDENT;
+    $link_url = FAME_URL;
+    $rv .= gen_link($link_url, $link_text, $css_class, false);
+    break;
+
+   case 'home':
    case 'data':
     $link_url = 'index.php?cmd=';
     $fatesplash = web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG);
     $link_str = 'splash';
-    //do the opposite for 'data' and strtolower($GLOBALS['APPIDENT'])
+    //do the opposite for 'data' and 'home'
     if ($fatesplash == ($page == 'data')) {
       $link_str = strtoupper($link_str);
     }
     $link_url .= TOGGLE_SPLASH_CMD . '&page=' . $page;
     $rv .= gen_link($link_url, $link_str, $css_class);
-    break;
-
-   case 'hall':
-   case 'art':
-    $link_text = FAME_IDENT;
-    $link_url = FAME_URL;
-    $rv .= gen_link($link_url, $link_text, $css_class);
     break;
 
    case 'search':
@@ -125,11 +130,10 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
 }
 
 function app_get_smart_spacer($page, $add_el = true) {
-  $loid = strtolower($GLOBALS['APPIDENT']);
   $rv = PADDING_STR;
   if ($page == 'hall' ||
       (!web_logged_in() &&
-       $page == $loid)) {
+       $page == 'home')) {
     $rv .= gen_b(SPACER_STR);
   } else {
     $rv .= gen_link('index.php?page=hall', gen_b(SPACER_STR));
@@ -141,24 +145,17 @@ function app_get_smart_spacer($page, $add_el = true) {
 
 function app_get_page_ident($page) {
   $rv = '';
-  $lower_ident = strtolower($GLOBALS['APPIDENT']);
-  if ($page != $lower_ident) {
-    $home_url = 'index.php?page=' . $lower_ident;
+  if ($page != 'home') {
+    $home_url = 'index.php?page=home';
     $rv .= gen_link($home_url, $GLOBALS['APPIDENT'], 'header');
   } else {
-    $rv .= gen_b($GLOBALS['APPIDENT']);
+    $rv .= $GLOBALS['APPIDENT'];
   }
   return $rv;
 }
 
 function app_get_page_title($page) {
-  util_assert($page == $GLOBALS['DATA_PAGE'], 'page != data_page');
-  $rv = $GLOBALS['APPTITLE'] . SPACER_STR;
-  if ($page == strtolower($GLOBALS['APPIDENT'])) {
-    $rv .= 'home';
-  } else {
-    $rv .= $page;
-  }
+  $rv = $GLOBALS['APPTITLE'] . SPACER_STR . $page;
   return $rv;
 }
 
@@ -221,8 +218,7 @@ function gen_login_form($add_el = true) {
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
 
-  $loid = strtolower($GLOBALS['APPIDENT']);
-  $elem_arr []= gen_input('hidden', 'page', $loid, $add_el);
+  $elem_arr []= gen_input('hidden', 'page', 'home', $add_el);
 
   $rv = gen_form($elem_arr);
   return $rv;
