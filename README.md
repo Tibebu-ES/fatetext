@@ -1,12 +1,12 @@
-# FATEtext, Version 0.5
+# FATEtext, Version 0.52
 
 "hosting for decentralized open source online communities since 2021"
 
 FATEtext (aka. FATE) is an open source (MIT License) reference implementation for a novel approach to hosting online communities that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."
 
-I tested this version of FATE (0.5) on my personal computer using MAMP (5.7), which runs PHP (7.4.2), but I avoided using any Javascript, and future versions of FATE will not use cookies for session management, etc.
+I tested this version of FATE (0.52) on my personal computer using MacOS and MAMP (5.7), which runs PHP (7.4.2), but I avoided using any Javascript, and future versions of FATE will not use cookies for session management, etc.
 
-You can [download the source code directly](TODO) or get it from Github via: https://github.com/tperry256/fatetext
+The source code is available as a ZIP file (22 MB) upon request, and I originally released version 0.5 on January 13, 2021 as a GIT repository on Github via: https://github.com/tperry256/fatetext
 
 Please see the following demo videos for more information about how to create a your own instance of FATEtext:
 
