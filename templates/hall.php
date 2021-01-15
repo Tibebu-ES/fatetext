@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$titlestr = 'Hall of ' . strtoupper(APP_PREFIX);
+$titlestr = 'Hall of ' . strtoupper($GLOBALS['APPPREFIX']);
 
 $art_arr = mod_get_hall_art();
 ?>
@@ -41,7 +41,7 @@ foreach ($art_arr as $ar) {
   $rowstr = gen_b($ar['artid']);
   $dateurl = 'index.php?page=art&datestr=' . $ar['datestr'];
   $rowstr .= '. [' . gen_link($dateurl, $ar['datestr']) . '] ';
-  $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header');
+  $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header', false);
   echo gen_p($rowstr, $css_class);
   $css_class = '';
   echo gen_p(gen_b('Summary: ') . $ar['sumstr']);

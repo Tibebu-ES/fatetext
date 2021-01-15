@@ -20,15 +20,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$heading_class = 'page_heading';
-$link_str = 'Back to the Hall of ' . strtoupper(APP_PREFIX);
+$link_str = 'Back to the Hall of ' . strtoupper($GLOBALS['APPPREFIX']);
 $hall_str = gen_link('index.php?page=hall', $link_str); 
 ?>
 
 <h2>Articles on <?php echo $datestr; ?></h2>
 <div class="innerc">
 <?php
-echo gen_p($hall_str, $heading_class);
+echo gen_p($hall_str, 'page_heading');
 echo gen_p('TODO', 'lastline');
 ?>
 </div>

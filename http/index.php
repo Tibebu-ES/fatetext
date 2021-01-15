@@ -23,7 +23,7 @@ SOFTWARE. */
 include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
-web_set_page(APP_IDENT);
+web_set_page($GLOBALS['APPIDENT']);
 $data = web_init_data();
 app_main_loop($data);
 

@@ -25,7 +25,7 @@ define('TOGGLE_CHAT_CMD', 'tochat');
 define('TOGGLE_TEXT_CMD', 'totext');
 define('LOGOUT_CMD', 'logout');
 
-function app_main_loop(&$data) {
+function appcon_main_loop(&$data) {
   if (isset($_REQUEST['page'])) {
     check_string_param('page', $data, $_REQUEST);
     if (isset($data['page'])) {
@@ -48,7 +48,23 @@ function app_main_loop(&$data) {
   fl('INIT COMPLETED with session;');
 }
 
-function app_do_cmd(&$data) {
+function appcon_tos_action(&$data) {
+  if (!isset($data['toscheck'])) {
+    util_except('invalid paramaters for tos action');
+  }
+  $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
+  if ($atf) {
+    util_except('trying to approve tos more than once');
+  }
+
+  if ($data['toscheck']) {
+    web_toggle_user_flag(web_get_user(), AGREE_TOS_FLAG);
+  } else {
+    $data[TEMPLATE_PAGE_MSG] = 'You must agree to the terms before proceeding.';
+  }
+}
+
+function appcon_do_cmd(&$data) {
   $data[TEMPLATE_PAGE_MSG] = '';
 
   switch ($data['cmd']) {
@@ -63,9 +79,19 @@ function app_do_cmd(&$data) {
     web_login_user($data);
     break;
 
+   case 'nologout':
    case 'logout':
-    net_logout_user($data);
+    net_logout_user($data, ($data['cmd'] == 'logout'));
     break;
+
+   case 'proceed':
+     if (isset($_REQUEST['toscheck'])) {
+       $data['toscheck'] = true;
+     } else {
+       $data['toscheck'] = false;
+     }
+     appcon_tos_action($data);
+     break;
 
    case 'endsession':
     net_end_session();

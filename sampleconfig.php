@@ -29,8 +29,10 @@ $GLOBALS['DBNAME'] = 'fametext';
 $GLOBALS['ISPROD'] = false;
 $GLOBALS['LOGPATH'] = '/Users/conr/fatelog';
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
-$GLOBALS['WEBROOT'] = 'http://localhost:8888/fametext';
-$GLOBALS['RELURLS'] = true;
+
+$GLOBALS['APPTITLE'] = 'FameText';
+$GLOBALS['APPIDENT'] = 'FaTe';
+$GLOBALS['APPPREFIX'] = 'fame';
 
 $GLOBALS['PARAMEX'] = true;
 $GLOBALS['ASSERTEX'] = true;

@@ -39,15 +39,16 @@ function gen_copyright_notice($add_break = false, $add_llc = true) {
   return $rv;
 }
 
-function gen_link($url, $text, $css_class = '', $relative = true) {
-  if ($relative) {
-    $url = util_url($url);
+function gen_link($inurl, $intext, $css_class = '', $windex = true) {
+  if ($windex && substr($inurl, 0, 5) != 'index') {
+    xbp(substr($inurl, 0, 5));
+    util_except('windex link did not start with "index"');
   }
-  $rv = '<a href="' . $url . '"';
+  $rv = '<a href="' . $inurl . '"';
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';
   }
-  $rv .= '>' . $text . '</a>';
+  $rv .= '>' . $intext . '</a>';
   return $rv;
 }
 
@@ -71,16 +72,6 @@ function gen_img($img_url, $alt_text,
   } else {
     return gen_link($link_url, $rv);
   }
-}
-
-function gen_video($video_id, $alt_text, $width, $height) {
-  $rv = '';
-  $rv .= '<iframe width="' . $width . '" ';
-  $rv .= 'height="' . $height . '" alt="' . $alt_text . '"';
-  $rv .= 'src="http://www.youtube.com/embed/';
-  $rv .= $video_id . '?rel=0" ';
-  $rv .= 'frameborder="0" allowfullscreen></iframe>';
-  return $rv;
 }
 
 function gen_h($hnum, $h_text) {
@@ -182,15 +173,6 @@ function gen_form($elem_arr, $fomethod = 'post',
     $rv .= $elem;
   }
   $rv .= '</form>';
-  if ($add_el) $rv .= "\n";
-  return $rv;
-}
-
-function gen_two_col_table($left_col, $right_col, $add_el = true) {
-  $rv = '';
-  $rv .= '<table><tr><td valign="top">';
-  $rv .= $left_col . '</td><td valign="top">' . $right_col;
-  $rv .= '</td></tr></table>';
   if ($add_el) $rv .= "\n";
   return $rv;
 }

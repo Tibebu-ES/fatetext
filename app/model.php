@@ -23,6 +23,7 @@ SOFTWARE. */
 define('CHAT_OPEN_FLAG', 'chatopen');
 define('TEXT_AREA_FLAG', 'textarea');
 define('FATE_SPLASH_FLAG', 'fatesplash');
+define('AGREE_TOS_FLAG', 'agreetos');
 
 define('USER_SEARCH_ROWS', 'searchrows');
 define('USER_SEARCH_COLS', 'searchcols');

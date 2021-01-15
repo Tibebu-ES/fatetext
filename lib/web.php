@@ -54,6 +54,9 @@ function web_logged_in() {
 }
 
 function web_get_user() {
+  if (!web_logged_in()) {
+    xbp('');
+  }
   util_assert(web_logged_in(), 'tried to get user while not logged in');
   return $GLOBALS['USER_ID'];
 }
@@ -135,16 +138,20 @@ function web_login_user(&$data) {
   return true;
 }
 
-function net_logout_user(&$data) {
+function net_logout_user(&$data, $show_msg = true) {
   if (!isset($_SESSION['FATE_BROWSER_ID'])) {
     util_log('warning', 'tried to logout without a session');
+    $show_msg = false;
   } else if (!isset($GLOBALS['USER_ID'])) {
     util_log('warning', 'tried to logout without a user_id');
+    $show_msg = false;
   }
   session_unset();
   unset($GLOBALS['USER_ID']);
   unset($GLOBALS['BROWSER_ID']);
   $username = '';
-  $data[TEMPLATE_PAGE_MSG] = 'Logout successful';
+  if ($show_msg) {
+    $data[TEMPLATE_PAGE_MSG] = 'Logout successful';
+  }
   return true;
 }

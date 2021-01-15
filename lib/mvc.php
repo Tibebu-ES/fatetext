@@ -60,17 +60,6 @@ function check_string_param($name, &$rv, &$p, $default=null) {
   }
 }
 
-function util_url($rel) {
-    if ($GLOBALS['RELURLS']) {
-      return $rel;
-    }
-
-    //$absWebPath = parse_url($GLOBALS['WEBROOT'], PHP_URL_PATH);
-    //return $absWebPath . '/' . $rel;
-
-    return $GLOBALS['WEBROOT'] . '/' . $rel;
-}
-
 function util_show_page($vars = null) {
   if ($vars === null) {
     $vars = array();

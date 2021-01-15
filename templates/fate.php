@@ -36,10 +36,10 @@ if (web_logged_in()) {
   $heading_html .= gen_i('Last updated: ' . $last_date_html);
   echo gen_p('(' . $heading_html . ')', $heading_class); 
 
-} else {
+} else { //not logged in
 
   echo gen_login_form();
-  $link_str = 'Hall of ' . strtoupper(APP_PREFIX);
+  $link_str = 'Hall of ' . strtoupper($GLOBALS['APPPREFIX']);
   $artnum = count(mod_get_hall_art());
   $hall_str = '[' . $artnum . ']' . PADDING_STR;
   $hall_str .= gen_link('index.php?page=hall', $link_str); 

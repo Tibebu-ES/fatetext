@@ -24,16 +24,35 @@ define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');
 define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
 define('SPACER_STR', '::');
-define('APP_TITLE', 'FameText');
-define('APP_IDENT', 'FaTe');
-define('APP_PREFIX', 'fame');
-define('APP_SPLASH', 'splash');
 define('SEARCH_ROWS', 40);
 define('LOGIN_ROWS', 18);
 
+function app_get_tos_page($local_page_msg) {
+  $rv = gen_h(2, $GLOBALS['APPTITLE'] . ' Terms of Service');
+  $rv .= '<div class="content">';
+  $home_link = gen_link('index.php?cmd=nologout', 'Go back to the login page');
+  $rv .= gen_p($home_link, 'page_heading');
+  $c1 = 'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
+  $c2 = 'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.';
+  $c3 = 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.';
+  $tosmsg = 'Please agree to the following terms before proceeding:';
+  $rv .= gen_p(gen_i($tosmsg), 'lastline');
+  if ($local_page_msg != '') {
+    $rv .= gen_p($local_page_msg, 'page_msg');
+  }
+  $rv .= '<div class="content">';
+  $rv .= gen_tos_form();
+  $rv .= gen_p($c1, 'page_heading');
+  $rv .= gen_p($c2);
+  $rv .= gen_p($c3, 'lastline');
+  $rv .= '</div></div>';
+  $rv .= gen_copyright_notice();
+  return $rv;
+}
+
 function app_get_header_extra($page, $add_el = true) {
   $css_class = 'header';
-  $lower_ident = strtolower(APP_IDENT);
+  $lower_ident = strtolower($GLOBALS['APPIDENT']);
 
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
 
@@ -42,8 +61,8 @@ function app_get_header_extra($page, $add_el = true) {
    case 'data':
     $link_url = 'index.php?cmd=';
     $fatesplash = web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG);
-    $link_str = APP_SPLASH;
-    //do the opposite for 'data' and strtolower(APP_IDENT)
+    $link_str = 'splash';
+    //do the opposite for 'data' and strtolower($GLOBALS['APPIDENT'])
     if ($fatesplash == ($page == 'data')) {
       $link_str = strtoupper($link_str);
     }
@@ -93,8 +112,6 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
     }
 
     $lower_link = strtolower($link_str);
-    $lower_home = strtolower(APP_IDENT);
-
     if ($lower_link == $page) {
       $rv .= gen_b($link_str);
     } else {
@@ -108,7 +125,7 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
 }
 
 function app_get_smart_spacer($page, $add_el = true) {
-  $loid = strtolower(APP_IDENT);
+  $loid = strtolower($GLOBALS['APPIDENT']);
   $rv = PADDING_STR;
   if ($page == 'hall' ||
       (!web_logged_in() &&
@@ -124,24 +141,34 @@ function app_get_smart_spacer($page, $add_el = true) {
 
 function app_get_page_ident($page) {
   $rv = '';
-  $lower_ident = strtolower(APP_IDENT);
+  $lower_ident = strtolower($GLOBALS['APPIDENT']);
   if ($page != $lower_ident) {
     $home_url = 'index.php?page=' . $lower_ident;
-    $rv .= gen_link($home_url, APP_IDENT, 'header');
+    $rv .= gen_link($home_url, $GLOBALS['APPIDENT'], 'header');
   } else {
-    $rv .= gen_b(APP_IDENT);
+    $rv .= gen_b($GLOBALS['APPIDENT']);
   }
   return $rv;
 }
 
 function app_get_page_title($page) {
   util_assert($page == $GLOBALS['DATA_PAGE'], 'page != data_page');
-  $rv = APP_TITLE . SPACER_STR;
-  if ($page == strtolower(APP_IDENT)) {
+  $rv = $GLOBALS['APPTITLE'] . SPACER_STR;
+  if ($page == strtolower($GLOBALS['APPIDENT'])) {
     $rv .= 'home';
   } else {
     $rv .= $page;
   }
+  return $rv;
+}
+
+function gen_tos_form($add_el = true) {
+  $rv = '';
+  $elem_arr = array();
+  $elem_arr []= gen_input('submit', 'cmd', 'Proceed', $add_el);
+  $elem_arr []= gen_input('checkbox', 'toscheck', '1', $add_el);
+  $elem_arr []= gen_span('I agree to the following terms:');
+  $rv = gen_form($elem_arr);
   return $rv;
 }
 
@@ -194,6 +221,9 @@ function gen_login_form($add_el = true) {
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
 
+  $loid = strtolower($GLOBALS['APPIDENT']);
+  $elem_arr []= gen_input('hidden', 'page', $loid, $add_el);
+
   $rv = gen_form($elem_arr);
   return $rv;
 }
@@ -215,7 +245,7 @@ function gen_chat_with_fate($page, $chat_data, $is_open) {
 }
 
 function gen_chat_title($page, $chat_data, $action_cmd, $action_word, $action_char) {
-  $chat_url = '?page=' . $page;
+  $chat_url = 'index.php?page=' . $page;
   $chat_url .= '&cmd=' . $action_cmd;
   if (isset($chat_data['datestr'])) {
     $chat_url .= '&datestr=' . $chat_data['datestr'];
