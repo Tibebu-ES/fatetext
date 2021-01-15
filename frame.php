@@ -43,8 +43,13 @@ $left_col .= app_get_smart_spacer($page);
 if (web_logged_in()) {
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
+  if (!isset($_SESSION['AGREETOS'])) {
+    if ($GLOBALS['APPPREFIX'] == 'fate') {
+      $atf = false;
+    }
+  }
 
-  if (!$atf || $GLOBALS['APPPREFIX'] == 'fate') {
+  if (!$atf) {
 
     echo app_get_tos_page($local_page_msg);
 

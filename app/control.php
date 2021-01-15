@@ -52,15 +52,16 @@ function appcon_tos_action(&$data) {
   if (!isset($data['toscheck'])) {
     util_except('invalid paramaters for tos action');
   }
-  $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
-  if ($atf && $GLOBALS['APPPREFIX'] != 'fate') {
-    util_except('trying to approve tos more than once');
+
+  if (!$data['toscheck']) {
+    $data[TEMPLATE_PAGE_MSG] = 'You must agree to the terms before proceeding.';
+    return;
   }
 
-  if ($data['toscheck']) {
+  $_SESSION['AGREETOS'] = true;
+  $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
+  if (!$atf ) {
     web_toggle_user_flag(web_get_user(), AGREE_TOS_FLAG);
-  } else {
-    $data[TEMPLATE_PAGE_MSG] = 'You must agree to the terms before proceeding.';
   }
 }
 

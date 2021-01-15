@@ -28,14 +28,11 @@ $data = web_init_data();
 appcon_main_loop($data);
 
 try {
-
   if (isset($data['cmd'])) {
     appcon_do_cmd($data);
   }
-
   net_log_user_and_session_info();
   echo util_show_page($data);
-
 } catch (Exception $ex) {
   util_log('Uncaught exception', $ex->getMessage());
   include('error.php');

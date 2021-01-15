@@ -26,7 +26,7 @@ define('MIN_PASSWORD_LENGTH', 4);
 $g_found_existing_session = false;
 
 function net_log_user_and_session_info() {
-  $tempstr = isset($GLOBALS['BROWSER_ID']) ? $GLOBALS['BROWSER_ID'] : 'n/a';
+  $tempstr = isset($GLOBALS['FATE_BROWSER_ID']) ? $GLOBALS['FATE_BROWSER_ID'] : 'n/a';
   util_log('session::browserid', $tempstr);
   $tempstr = (net_is_found_existing_session() ? 'true' : 'false');
   util_log('session::found_existing', $tempstr);
@@ -48,7 +48,7 @@ function net_init_session() {
   }
 
   session_start();
-  $GLOBALS['BROWSER_ID'] = net_get_or_create_browser_id(DEFAULT_DURATION);
+  $GLOBALS['FATE_BROWSER_ID'] = net_get_or_create_browser_id(DEFAULT_DURATION);
   if (isset($_SESSION['USER_ID'])) {
     $GLOBALS['USER_ID'] = $_SESSION['USER_ID'];
   }
@@ -62,7 +62,7 @@ function net_end_session() {
   }
   session_unset();
   session_destroy();
-  unset($GLOBALS['BROWSER_ID']);
+  unset($GLOBALS['FATE_BROWSER_ID']);
   return true;
 }
 

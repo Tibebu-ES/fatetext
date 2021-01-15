@@ -90,6 +90,10 @@ function gen_i($text) {
   return '<i>' . $text . '</i>';
 }
 
+function gen_u($text) {
+  return '<u>' . $text . '</u>';
+}
+
 function gen_tag($tagstr, $text, $css_class, $add_el = true) {
   $rv = '';
   $rv .= '<' . $tagstr;

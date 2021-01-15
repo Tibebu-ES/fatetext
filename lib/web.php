@@ -143,10 +143,8 @@ function net_logout_user(&$data, $show_msg = true) {
     util_log('warning', 'tried to logout without a user_id');
     $show_msg = false;
   }
-  session_unset();
   unset($GLOBALS['USER_ID']);
-  unset($GLOBALS['BROWSER_ID']);
-  $username = '';
+  net_end_session();
   if ($show_msg) {
     $data[TEMPLATE_PAGE_MSG] = 'Logout successful';
   }
