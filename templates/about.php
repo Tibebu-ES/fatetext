@@ -30,15 +30,15 @@ SOFTWARE. */ ?>
 
 <p>v0.53's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
-<p>You can take this instance of FATE for a test drive by logging in with username = "demo" and password = "the", but the data you create during such test drives will all be maintined via increasingly bulky URL parameters, and that data will cease to exist after you logout, because FATE will automatically logout demo users after their 15 minutes of fame are done or after they create more than 10k bytes of user generated data.</p>
+<p>You can take this instance of FATE for a test drive by logging in with username = "demo" and password = "the", but your data will cease to exist after you logout, because (TODO) FATE will automatically logout demo users after 15 minutes or whenever they create more than 10k bytes of user generated data.</p>
 
-Please get the following demo videos in order to
+Please find the following demo videos in order to
 <b>take fatetext.com for a test drive</b>:
 
 <p><u>TODO</u></p>
 
 Or take the next step in a fateful journey while
-<b>creating an account on FameText.com</b>:
+<b>creating an account on the FameText</b>:
 
 <p><u>TODO</u></p>
 
@@ -47,7 +47,7 @@ Or play a leadership role and hopefully lead by
 
 <p><u>TODO</u></p>
 
-Or become a developer by modifing the FATE code
+Or become a developer by modifing the FATEtext
 <b>to support more and more new features</b>:</p>
 
 <p class="lastline"><u>TODO</u></p>
