@@ -32,22 +32,22 @@ SOFTWARE. */ ?>
 
 <p>You can take this instance of FATE for a test drive by logging in with username = "demo" and password = "the", but the data you create during such test drives will all be maintined via increasingly bulky URL parameters, and that data will cease to exist after you logout, because FATE will automatically logout demo users after their 15 minutes of fame are done or after they create more than 10k bytes of user generated data.</p>
 
-Please get the following demo videos for more info on
-<b>taking fatetext.com for a test drive</b>:
+Please get the following demo videos in order to
+<b>take fatetext.com for a test drive</b>:
 
 <p><u>TODO</u></p>
 
-Or take your relationship with FATE to the next level while
+Or take the next step in a fateful journey while
 <b>creating an account on FameText.com</b>:
 
 <p><u>TODO</u></p>
 
-Or play a leadership role and maybe even lead an audience by
-<b>creating your own instance of FATE</b>:</p>
+Or play a leadership role and hopefully lead by
+<b>hosting an instance of the FATE code</b>:</p>
 
 <p><u>TODO</u></p>
 
-Or become immortal by modifing any FATE instance (aka. FI) to
-<b>support additional software features</b>:</p>
+Or become a developer by modifing the FATE code
+<b>to support more and more new features</b>:</p>
 
 <p class="lastline"><u>TODO</u></p>
