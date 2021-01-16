@@ -26,14 +26,28 @@ SOFTWARE. */ ?>
 
 <p>FATEtext (aka. FATE) is an open source (MIT License) reference implementation for a novel approach to hosting online communities that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
 
-<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (0.52) on January 15, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a proprietary instance called <a href="http://fametext.com">FameText</a>.</p>
+<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (v0.53) on January 16, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a separate, proprietary instance of FATE called <a href="http://fametext.com">FameText</a>.</p>
 
-<p>v0.52's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
+<p>v0.53's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
-Please see the following demo videos for more information about how to <b>create your own instance</b>:</p>
+<p>You can take this instance of FATE for a test drive by logging in with username = "demo" and password = "the", but the data you create during such test drives will all be maintined via increasingly bulky URL parameters, and that data will cease to exist after you logout, because FATE will automatically logout demo users after their 15 minutes of fame are done or after they create more than 10k bytes of user generated data.</p>
+
+Please get the following demo videos for more info on
+<b>taking fatetext.com for a test drive</b>:
 
 <p><u>TODO</u></p>
 
-Or modify the code to <b>support additional features</b>:</p>
+Or take your relationship with FATE to the next level while
+<b>creating an account on FameText.com</b>:
+
+<p><u>TODO</u></p>
+
+Or play a leadership role and maybe even lead an audience by
+<b>creating your own instance of FATE</b>:</p>
+
+<p><u>TODO</u></p>
+
+Or become immortal by modifing any FATE instance (aka. FI) to
+<b>support additional software features</b>:</p>
 
 <p class="lastline"><u>TODO</u></p>
