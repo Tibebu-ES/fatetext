@@ -47,6 +47,13 @@ function net_init_session() {
     error_reporting(E_ALL);
   }
 
+  if ($GLOBALS['NOCOOKIES']) {
+    ini_set('session.name', 'FATESID');
+    ini_set('session.use_cookies', 0);
+    ini_set('session.use_only_cookies', 0);
+    ini_set('session.use_trans_sid', 1);
+  }
+
   session_start();
   $GLOBALS['FATE_BROWSER_ID'] = net_get_or_create_browser_id(DEFAULT_DURATION);
   if (isset($_SESSION['USER_ID'])) {

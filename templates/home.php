@@ -38,11 +38,16 @@ if (web_logged_in()) {
 
 } else { //not logged in
 
+  $hall_url = 'hall';
+  if (!$GLOBALS['CLEANURLS']) {
+    $hall_url = 'index.php?page=hall';
+  };
+
   echo gen_login_form();
   $link_str = 'Hall of ' . strtoupper($GLOBALS['APPPREFIX']);
   $artnum = count(mod_get_hall_art());
   $hall_str = '[' . $artnum . ']' . PADDING_STR;
-  $hall_str .= gen_link('index.php?page=hall', $link_str); 
+  $hall_str .= gen_link($hall_url, $link_str); 
   echo gen_p($hall_str, $heading_class);
 
 }

@@ -39,11 +39,7 @@ function gen_copyright_notice($add_break = false, $add_llc = true) {
   return $rv;
 }
 
-function gen_link($inurl, $intext, $css_class = '', $windex = true) {
-  if ($windex && substr($inurl, 0, 5) != 'index') {
-    xbp(substr($inurl, 0, 5));
-    util_except('windex link did not start with "index"');
-  }
+function gen_link($inurl, $intext, $css_class = '') {
   $rv = '<a href="' . $inurl . '"';
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';

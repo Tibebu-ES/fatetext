@@ -31,6 +31,8 @@ $GLOBALS['LOGPATH'] = '/Users/conr/fatelog';
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
 $GLOBALS['FILESDIR'] = '/Users/conr/fate/fatefiles';
 
+$GLOBALS['CLEANURLS'] = true;
+$GLOBALS['NOCOOKIES'] = true;
 $GLOBALS['APPTITLE'] = 'FameText';
 $GLOBALS['APPIDENT'] = 'FaTe';
 $GLOBALS['APPPREFIX'] = 'fame';

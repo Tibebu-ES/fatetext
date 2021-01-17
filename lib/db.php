@@ -22,49 +22,12 @@ SOFTWARE. */
 
 define('BULK_BLOCK_SIZE', 200);
 
-$g_insert_id_map = array();
-$g_abstract_sql = '';
-$g_doing_bulk = false;
-$g_report_bulk_stats = false;
-$g_report_stats_only = false;
-
-function get_report_bulk_stats() {
-  global $g_report_bulk_stats;
-  return $g_report_bulk_stats;
-}
-
-function get_report_stats_only() {
-  global $g_report_stats_only;
-  return $g_report_stats_only;
-}
-
-function set_report_bulk_stats($value, $stats_only = false) {
-  global $g_report_bulk_stats;
-  global $g_report_stats_only;
-  $g_report_bulk_stats = $value;
-  $g_report_stats_only = $stats_only;
-}
-
-function get_doing_bulk() {
-  global $g_doing_bulk;
-  return $g_doing_bulk;
-}
-
-function set_doing_bulk($value) {
-  global $g_doing_bulk;
-  $g_doing_bulk = $value;
-}
-
-function set_abstract_sql($value) {
-  global $g_abstract_sql;
-  $g_abstract_sql = $value;
-}
-
 function get_or_create_conn() {
   if (!isset($GLOBALS['DBCONN']) || $GLOBALS['DBCONN'] === null) {
     $GLOBALS['DBCONN'] = mysqli_connect($GLOBALS['DBHOST'],
-                                         $GLOBALS['DBUSER'], $GLOBALS['DBPASS'], $GLOBALS['DBNAME']
-                                         );
+                                         $GLOBALS['DBUSER'],
+                                         $GLOBALS['DBPASS'],
+                                         $GLOBALS['DBNAME']);
   }
 
   if (!$GLOBALS['DBCONN']) {
@@ -75,20 +38,14 @@ function get_or_create_conn() {
 }
 
 function unsafe_query($sql) {
-  global $g_insert_id_map;
-  global $g_abstract_sql;
-
   $conn = get_or_create_conn();
   if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
-    $temp_as = $g_abstract_sql;
     util_log('dbquery', $sql);
-    $g_abstract_sql = $temp_as;
   }
 
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_insert_id($conn) != 0) {
-    $g_insert_id_map[$g_abstract_sql] = mysqli_insert_id($conn);
     if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
       util_log('db insert', mysqli_insert_id($conn));
     }
@@ -105,16 +62,7 @@ function unsafe_query($sql) {
   return $result;
 }
 
-function last_insert_id($sql = NULL) {
-  global $g_insert_id_map;
-  global $g_abstract_sql;
-
-  //FIXME(tcp): need a better abstraction for solving this problem
-  //  that is caused by debuglog code only
-  if ($sql !== NULL && isset($g_insert_id_map[$sql])) {    
-    return $g_insert_id_map[$sql];
-  }
-
+function last_insert_id() {
   return mysqli_insert_id(get_or_create_conn());
 }
 
@@ -132,7 +80,9 @@ function queryf_one($string) {
   if (gettype($rs) == 'object') {
     if ($row = mysqli_fetch_assoc($rs)) {
       if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
-        util_log('dbresult', str_replace(array("\n", "\t", " "), '', print_r($row, true)));
+        util_log('dbresult', str_replace(array("\n", "\t", " "),
+                                         '',
+                                         print_r($row, true)));
       }
       return $row;
     }
@@ -151,9 +101,9 @@ function queryf_all($string) {
 }
 
 function vqueryf($string, $args) {
-  //the conn is needed in this function for mysqli_real_escape_string to work
+  //$conn is needed in this function
+  //. for mysqli_real_escape_string to work
   $conn = get_or_create_conn();
-  set_abstract_sql($string);
 
   $len = strlen($string);
   $sql_query = "";
