@@ -29,6 +29,7 @@ $GLOBALS['DBNAME'] = 'fametext';
 $GLOBALS['ISPROD'] = false;
 $GLOBALS['LOGPATH'] = '/Users/conr/fatelog';
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
+$GLOBALS['FILESDIR'] = '/Users/conr/fate/fatefiles';
 
 $GLOBALS['APPTITLE'] = 'FameText';
 $GLOBALS['APPIDENT'] = 'FaTe';

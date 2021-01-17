@@ -66,14 +66,19 @@ function util_show_page($vars = null) {
   }
 
   $rv = '';
-  $dpt = $GLOBALS['FATEPATH'] . '/templates/';
-  $dpt .= $GLOBALS['DATA_PAGE'] . '.php';
-
-  if (!file_exists($dpt)) {
-    include('404.php');
-  } else {
-    $framepath = $GLOBALS['FATEPATH'] . '/frame.php';
-    $rv .= util_frame_template($framepath, $dpt, $vars);
+  $framepath = $GLOBALS['FATEPATH'] . '/frame.php';
+  $ldpt = $GLOBALS['FILESDIR'] . '/templates/';
+  $ldpt .= $GLOBALS['DATA_PAGE'] . '.php';
+  if (file_exists($ldpt)) {
+    $rv .= util_frame_template($framepath, $ldpt, $vars);
+  } else {   
+    $dpt = $GLOBALS['FATEPATH'] . '/templates/';
+    $dpt .= $GLOBALS['DATA_PAGE'] . '.php';
+    if (!file_exists($dpt)) {
+      include('404.php');
+    } else {
+      $rv .= util_frame_template($framepath, $dpt, $vars);
+    }
   }
 
   return $rv;  
