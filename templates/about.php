@@ -24,7 +24,7 @@ SOFTWARE. */ ?>
 
 <p><i>"hosting for decentralized open source online communities since 2021"</i></p>
 
-<p>FATEtext (aka. FATE) is an open source (MIT License) reference implementation for a novel approach to hosting online communities that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
+<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="index.php?page=faqreport">a novel approach to hosting online communities</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
 
 <p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (v0.53) on January 16, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a separate, proprietary instance of FATE called <a href="http://fametext.com">FameText</a>.</p>
 
