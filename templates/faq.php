@@ -2,7 +2,7 @@
 
 <p><u>June 1, 2021</u>, <i>by Todd Perry</i></p>
 
-<p>At 12noon, Todd released a video in which he demonstrated the following features of fatetext.com:</p>
+<p>At 12noon, Todd released a video in which he demonstrated the following features of the FATE software:</p>
 
 <p>TODO</p>
 
