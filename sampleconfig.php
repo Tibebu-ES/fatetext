@@ -30,13 +30,15 @@ $GLOBALS['LOGTABLE'] = 'log1';
 $GLOBALS['APPTITLE'] = 'Fame';
 $GLOBALS['APPIDENT'] = 'FaTe';
 
+$GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';
 $GLOBALS['LOGFILE'] = '/Users/conr/fatelogs/errorlog.txt';
+
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
 $GLOBALS['FILESDIR'] = '/Users/conr/fatefiles';
+
 $GLOBALS['USERNAME'] = 'club';
 $GLOBALS['PASSWORD'] = 'the';
 
-$GLOBALS['CLEANURLS'] = true;
 $GLOBALS['NOCOOKIES'] = true;
 $GLOBALS['ISPROD'] = false;
 

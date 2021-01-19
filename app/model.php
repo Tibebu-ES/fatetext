@@ -74,8 +74,7 @@ array('artid' => '10', 'datestr' => '01_14_21',
 
 function mod_log_search($logtxt) {
   $logtxt = '[' . fd(time()) . ']' . $logtxt . "\n";
-  $logfile = $GLOBALS['LOGPATH'] . '/searchlog.txt';
-  file_put_contents($logfile, $logtxt, FILE_APPEND);
+  file_put_contents($GLOBALS['SLOGFILE'], $logtxt, FILE_APPEND);
 }
 
 function mod_update_user_rows($userid, $inrows) {

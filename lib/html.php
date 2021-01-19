@@ -23,16 +23,9 @@ SOFTWARE. */
 function gen_url($pagestr, $cmdstr = null, $deststr = '') {
   $rv = $deststr;
 
-  if ($GLOBALS['CLEANURLS']) {
-    $rv .= $pagestr;
-    if (isset($doidint)) {
-      $rv .= $doidint;
-    }
-  } else {
-    $rv .= $deststr . '?page=' . $pagestr;
-    if (isset($cmdstr)) {
-      $rv .= '&cmd=' . $cmdstr;
-    }
+  $rv .= $deststr . '?page=' . $pagestr;
+  if (isset($cmdstr)) {
+    $rv .= '&cmd=' . $cmdstr;
   }
 
   return $rv;
