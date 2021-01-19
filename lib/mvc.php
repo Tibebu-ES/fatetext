@@ -21,8 +21,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 define('TEMPLATE_CONTENT', '__content');
-define('TEMPLATE_PAGE', '__page');
-define('TEMPLATE_DOID', '__doid');
+define('TEMPLATE_PAGE', 'page');
+define('TEMPLATE_DOID', 'doid');
 define('TEMPLATE_MSG', '__msg');
 
 function check_array_param($name, &$rv, &$p, $default=null) {

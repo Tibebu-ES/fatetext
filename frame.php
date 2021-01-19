@@ -34,9 +34,9 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
 <body>
 
 <?php
-$local_page_msg = '';
-if (isset($data[TEMPLATE_MSG]) && $data[TEMPLATE_MSG] != '') {
-  $local_page_msg = $data[TEMPLATE_MSG];
+$page_msg = '';
+if ($data[TEMPLATE_MSG] != '') {
+  $page_msg = $data[TEMPLATE_MSG];
 }
 
 $left_col = '';
@@ -54,7 +54,7 @@ if (web_logged_in()) {
 
   if (!$atf) {
 
-    echo app_get_tos_page($local_page_msg);
+    echo app_get_tos_page($page_msg);
 
   } else { //if tos has been agreed to
 
@@ -62,7 +62,7 @@ if (web_logged_in()) {
     $left_col .= app_get_header_links($page, $links_arr);
     $left_col .= app_get_header_extra($page);
     if ($local_page_msg != '') {
-      $left_col .= gen_p($local_page_msg, 'page_msg');
+      $left_col .= gen_p($page_msg, 'page_msg');
     }
 
     echo $left_col;
@@ -94,8 +94,8 @@ if (web_logged_in()) {
   if ($page == 'hall') {
     echo app_get_header_extra($page);
   }
-  if ($local_page_msg != '') {
-    echo gen_p($local_page_msg, 'page_msg');
+  if ($page_msg != '') {
+    echo gen_p($page_msg, 'page_msg');
   }
 
   echo gen_div($data[TEMPLATE_CONTENT], 'wide_content');

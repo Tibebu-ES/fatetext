@@ -24,24 +24,19 @@ $g_user_id = null;
 
 function web_init_data($inpage) {
   $rv = array(TEMPLATE_PAGE => $inpage);
-  return $rv;
-}
-
-function web_main_loop(&$data) {
   if (isset($_REQUEST['page'])) {
-    check_string_param('page', $data, $_REQUEST);
-    $data[TEMPLATE_PAGE] = htmlspecialchars($data['page']);
+    check_string_param('page', $rv, $_REQUEST);
   }
   
   if (isset($_REQUEST['doid'])) {
-    check_string_param('doid', $data, $_REQUEST);
-    $data[TEMPLATE_DOID] = htmlspecialchars($data['doid']);
+    check_string_param('doid', $rv, $_REQUEST);
   } else {
     $data[TEMPLATE_DOID] = '';
   }
 
   net_init_session(true);
   fl('INIT COMPLETED with session;');
+  return $rv;
 }
 
 function web_logged_in() {

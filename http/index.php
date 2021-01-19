@@ -26,8 +26,6 @@ include($GLOBALS['FATEPATH'] . '/fate.php');
 //set $data[TEMPLATE_PAGE] = 'home' by default
 $data = web_init_data('home');
 util_log('debug', 'web_init_data() done', LLDEBUG);
-web_main_loop($data);
-util_log('debug', 'web_main_loop() done', LLDEBUG);
 
 try {
 
