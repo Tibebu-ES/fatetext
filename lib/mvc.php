@@ -20,11 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('TEMPLATE_CONTENT', '__content');
-define('TEMPLATE_PAGE', 'page');
-define('TEMPLATE_DOID', 'doid');
-define('TEMPLATE_MSG', '__msg');
-
 function check_array_param($name, &$rv, &$p, $default=null) {
   $boolrv = check_string_param($name, $rv, $p, $default);
   if (!is_array($rv[$name])) {
@@ -111,7 +106,7 @@ function util_frame_template($framename, $filename, $data) {
 function util_show_template($filename, $data = null) {
   util_assert(isset($data[TEMPLATE_PAGE]),
               'page not set in util_show_template()');
-  util_assert(isset($data[TEMPLATE_DOID]),
+  util_assert(isset($data[TEMPLATE_CMD]),
               'doid not set in util_show_template()');
 
   if (!isset($data[TEMPLATE_CONTENT])) {

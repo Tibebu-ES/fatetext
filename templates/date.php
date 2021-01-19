@@ -1,14 +1,4 @@
-# FATEtext, Version 0.6
-
-"hosting for decentralized open source online communities since 2021"
-
-FATEtext (aka. FATE) is an open source (MIT License) reference implementation for a novel approach to hosting online communities that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."
-
-I tested this version of FATE (0.6) on my personal computer using MacOS and MAMP (5.7), which runs PHP (7.4.2), but I avoided using any Javascript, and future versions of FATE will not use cookies for session management, etc.
-
-The about page template (which mostly consists of plain HTML) in templates/about.php includes more information about what you can do once you get an instance of FATE up and running.
-
-MIT License
+<?php /* MIT License
 
 Copyright (c) 2021 Todd Perry
 
@@ -28,4 +18,16 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE. */
+
+$link_str = 'Back to the Hall of ' . strtoupper($GLOBALS['APPTITLE']);
+$hall_str = gen_link(gen_url('hall'), $link_str); 
+?>
+
+<h2>Articles on <?php echo $data[TEMPLATE_CMD]; ?></h2>
+<div class="innerc">
+<?php
+echo gen_p($hall_str, 'page_heading');
+echo gen_p('TODO', 'lastline');
+?>
+</div>

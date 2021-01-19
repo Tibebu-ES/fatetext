@@ -20,8 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('DB_BULK_BLOCK_SIZE', 200);
-
 function get_or_create_conn() {
   if (!isset($GLOBALS['DBCONN']) ||
       $GLOBALS['DBCONN'] === null) {
@@ -172,11 +170,11 @@ function vqueryf_all($sql, $arr, $key = null) {
 
 function db_make_log_entry($data, $inuser = null) {
   $page = $_SERVER['PHP_SELF'];
-  if (isset($data[TEMPLATE_DOID])) {
+  if (isset($data[TEMPLATE_CMD])) {
     $page .= '/' . $data[TEMPLATE_PAGE];
   }
-  if (isset($data[TEMPLATE_DOID])) {
-    $page .= '/' . $data[TEMPLATE_DOID];
+  if (isset($data[TEMPLATE_CMD])) {
+    $page .= '/' . $data[TEMPLATE_CMD];
   }
 
   $ip = '';
@@ -215,5 +213,4 @@ function db_make_log_entry($data, $inuser = null) {
   queryf($sql, $nowtime, $ip, $agent, $page, $ref, $host, $elapsed, $user);
 
   fl('PAGE COMPLETED in ' . $elapsed . ' seconds.');
-  fl("\n");
 }

@@ -20,20 +20,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('PADDING_STR', '&nbsp;&nbsp;');
-
-function gen_url($pagestr, $doidint = null, $deststr = '') {
+function gen_url($pagestr, $cmdstr = null, $deststr = '') {
   $rv = $deststr;
 
   if ($GLOBALS['CLEANURLS']) {
     $rv .= $pagestr;
     if (isset($doidint)) {
-      $rv .= '/' . $doidint;
+      $rv .= $doidint;
     }
   } else {
     $rv .= $deststr . '?page=' . $pagestr;
-    if (isset($doidint)) {
-      $rv .= '&doid=' . $doidint;
+    if (isset($cmdstr)) {
+      $rv .= '&cmd=' . $cmdstr;
     }
   }
 
@@ -180,9 +178,10 @@ function gen_select_input($inname, $option_arr, $selcat, $add_el = true) {
   return $rv;
 }
 
-function gen_form($elem_arr, $foaction,
+function gen_form($elem_arr, $foaction = '',
                   $fomethod = 'post', $add_el = true) {
   $rv = '<form method="' . $fomethod . '" action="' . $foaction . '">';
+  if ($add_el) $rv .= "\n";
   foreach ($elem_arr as $elem) {
     //if ($add_el) $rv .= "\n";
     $rv .= $elem;

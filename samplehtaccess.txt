@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteRule ^([_0-9a-zA-Z]+)$ /Applications/MAMP/htdocs/fametext/index.php?page=$1
-RewriteRule ^([_0-9a-zA-Z]+)/([_0-9a-zA-Z]+)$ /Applications/MAMP/htdocs/fametext/index.php?page=$1&oid=$2

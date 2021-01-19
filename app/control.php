@@ -20,11 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('TOGGLE_SPLASH_CMD', 'tosplash');
-define('TOGGLE_CHAT_CMD', 'tochat');
-define('TOGGLE_TEXT_CMD', 'totext');
-define('LOGOUT_CMD', 'logout');
-
 function con_tos_action(&$data) {
   if (!isset($data['toscheck'])) {
     util_except('invalid paramaters for tos action');
@@ -43,12 +38,12 @@ function con_tos_action(&$data) {
 }
 
 function con_do_cmd(&$data) {
-  util_assert(isset($data[TEMPLATE_DOID]),
+  util_assert(isset($data[TEMPLATE_CMD]),
               'doid not set in con_do_cmd()');
-  $doid = $data[TEMPLATE_DOID];
+  $cmd = $data[TEMPLATE_CMD];
 
-  if ($doid != '') {
-    switch ($doid) {
+  if ($cmd != '') {
+    switch ($cmd) {
      case 'Login':
       check_string_param('username', $data, $_REQUEST);
       check_string_param('password', $data, $_REQUEST);
@@ -57,10 +52,10 @@ function con_do_cmd(&$data) {
 
      case 'silentlogout':
      case LOGOUT_CMD:
-      net_logout_user($data, ($doid == 'logout'));
+      net_logout_user($data, ($cmd == 'logout'));
       break;
 
-     case 'proceed':
+     case 'Proceed':
        if (isset($_REQUEST['toscheck'])) {
          $data['toscheck'] = true;
        } else {
@@ -80,7 +75,7 @@ function con_do_cmd(&$data) {
       web_update_user_lastdate(web_get_user());
       break;
 
-     case 'search':
+     case 'Search':
       check_string_param('stxt', $data, $_REQUEST);
       if (isset($_REQUEST['category'])) {
         $textarea = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
@@ -94,26 +89,24 @@ function con_do_cmd(&$data) {
      case TOGGLE_SPLASH_CMD:
      case TOGGLE_CHAT_CMD:
      case TOGGLE_TEXT_CMD:
-      web_toggle_user_flag(web_get_user(), mod_flag_from_toggle());
-      if (isset($_SESSION['doid'])) {
-        //merge all the $data for display,
-        //. except the previous 'doid'
-        foreach ($_SESSION['doid'] as $namestr => $valuestr) {
-          if ($namestr != 'doid') {
-            $data[$namestr] = $valuestr;
-          }
-        }
-      }
+      web_toggle_user_flag(web_get_user(), mod_flag_from_toggle($cmd));
+      $data[TEMPLATE_CMD] = $_SESSION[TEMPLATE_CMD][TEMPLATE_CMD];
+      break;
+
+     case '=>':
+     case '<=':
+     case '\\/':
+     case '/\\';
+      $data[TEMPLATE_MSG] = 'TODO: ' . $cmd . ' the textarea';
       break;
 
      default:
-      $safedoid = htmlentities($doid);
-      $data[TEMPLATE_MSG] = 'Unknown cmd = "' . $safedoid . '"';
+      //do nothing if $cmd is not recognized
       break;
     }
-  } //end if $doid != ''
+  } //end if $cmd != ''
 
   //preserve the state of this page for
   //. the benefit of the next page load
-  $_SESSION['doid'] = $data;
+  $_SESSION[TEMPLATE_CMD] = $data;
 }

@@ -20,10 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('LLRUN', 1);
-define('LLWORK', 2);
-define('LLDEBUG', 4);
-
 $g_log = '';
 
 function get_backtrace_string($ignore_args = true) {
@@ -87,7 +83,7 @@ function util_assert($cond, $msg = 'no description was provided') {
   }
 }
 
-function fl($msg) {
+function fl($msg = "\n") {
   util_log('fate', $msg);
 }
 

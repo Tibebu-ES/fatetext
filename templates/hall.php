@@ -38,10 +38,14 @@ foreach ($art_arr as $ar) {
     $first2020 = false;
     $css_class = 'page_heading';
   }
-  $rowstr = gen_b($ar['artid']);
-  $dateurl = 'index.php?page=art&datestr=' . $ar['datestr'];
-  $rowstr .= '. [' . gen_link($dateurl, $ar['datestr']) . '] ';
+
+  $rowstr = '';
+  $art_url = gen_url('art', $ar['artid']);
+  $rowstr .= gen_b(gen_link($art_url, $ar['artid'], 'plain'));
+  $date_url = gen_url('date', $ar['datestr']);
+  $rowstr .= '. [' . gen_link($date_url, $ar['datestr']) . '] ';
   $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header', false);
+
   echo gen_p($rowstr, $css_class);
   $css_class = '';
   echo gen_p(gen_b('Summary: ') . $ar['sumstr']);

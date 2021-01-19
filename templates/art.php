@@ -21,10 +21,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 $link_str = 'Back to the Hall of ' . strtoupper($GLOBALS['APPTITLE']);
-$hall_str = gen_link('index.php?page=hall', $link_str); 
+$hall_str = gen_link(gen_url('hall'), $link_str); 
 ?>
 
-<h2>Articles on <?php echo $datestr; ?></h2>
+<h2>Article #<?php echo $data[TEMPLATE_CMD]; ?></h2>
 <div class="innerc">
 <?php
 echo gen_p($hall_str, 'page_heading');

@@ -37,3 +37,27 @@ include('app/control.php');
 define('OSTITLE', 'Fate');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
+
+define('TOGGLE_SPLASH_CMD', 'tosplash');
+define('TOGGLE_CHAT_CMD', 'tochat');
+define('TOGGLE_TEXT_CMD', 'totext');
+define('LOGOUT_CMD', 'logout');
+
+define('FAME_IDENT', 'TheSuzy');
+define('FAME_URL', 'http://thesuzy.com');
+define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
+define('SPACER_STR', '::');
+define('SEARCH_ROWS', 40);
+define('LOGIN_ROWS', 18);
+
+define('TEMPLATE_CONTENT', '__content');
+define('TEMPLATE_PAGE', 'page');
+define('TEMPLATE_CMD', 'cmd');
+define('TEMPLATE_MSG', '__msg');
+
+define('LLRUN', 1);
+define('LLWORK', 2);
+define('LLDEBUG', 4);
+
+define('PADDING_STR', '&nbsp;&nbsp;');
+define('DB_BULK_BLOCK_SIZE', 200);

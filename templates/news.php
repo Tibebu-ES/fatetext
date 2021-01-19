@@ -20,10 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$faq_url = 'faq';
-if (!$GLOBALS['CLEANURLS']) {
-  $faq_url = 'index.php?page=faq';
-};
+$faq_url = gen_url('faq');
 ?>
 
 <h2>News: <a href="<?php echo $faq_url; ?>">FAQ</a></h2>

@@ -24,14 +24,14 @@ $g_user_id = null;
 
 function web_init_data($inpage) {
   $rv = array(TEMPLATE_PAGE => $inpage);
-  if (isset($_REQUEST['page'])) {
-    check_string_param('page', $rv, $_REQUEST);
+  if (isset($_REQUEST[TEMPLATE_PAGE])) {
+    check_string_param(TEMPLATE_PAGE, $rv, $_REQUEST);
   }
   
-  if (isset($_REQUEST['doid'])) {
-    check_string_param('doid', $rv, $_REQUEST);
+  if (isset($_REQUEST[TEMPLATE_CMD])) {
+    check_string_param(TEMPLATE_CMD, $rv, $_REQUEST);
   } else {
-    $data[TEMPLATE_DOID] = '';
+    $rv[TEMPLATE_CMD] = '';
   }
 
   net_init_session(true);

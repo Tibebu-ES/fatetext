@@ -22,11 +22,11 @@ SOFTWARE. */
 
 $safetext = '';
 $incat = '';
-if (isset($stxt)) {
-  $safetext = htmlentities($stxt);
+if (isset($data['stxt'])) {
+  $safetext = htmlentities($data['stxt']);
 }
-if (isset($category)) {
-  $incat = $category;
+if (isset($data['category'])) {
+  $incat = $data['category'];
 }
 $textarea = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
 echo gen_search_form($safetext, $textarea, $incat);

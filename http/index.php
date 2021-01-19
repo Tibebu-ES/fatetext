@@ -24,16 +24,22 @@ include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
 //set $data[TEMPLATE_PAGE] = 'home' by default
-$data = web_init_data('home');
+fl(); $data = web_init_data('home');
 util_log('debug', 'web_init_data() done', LLDEBUG);
 
 try {
 
   con_do_cmd($data);
-  util_log('debug', 'con_do_cmd() done', LLDEBUG);
+
+  $ds = 'con_do_cmd(' . print_r($data, true) . ')';
+  util_log('debug', 'finished: ' . $ds, LLDEBUG);
+
   net_log_user_and_session_info();
+
   echo util_show_page($data);
-  util_log('debug', 'con_show_page() done', LLDEBUG);
+
+  $ds = 'con_show_page(' . print_r($data, true) . ')';
+  util_log('debug', 'finished: ' . $ds, LLDEBUG);
 
 } catch (Exception $ex) {
 
@@ -43,5 +49,5 @@ try {
 } //end try
 
 db_make_log_entry($data);
-print_log();
+fl(); print_log();
 ?>

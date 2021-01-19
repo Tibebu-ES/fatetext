@@ -61,7 +61,7 @@ if (web_logged_in()) {
     $links_arr = array('Data', 'Search', 'Settings');
     $left_col .= app_get_header_links($page, $links_arr);
     $left_col .= app_get_header_extra($page);
-    if ($local_page_msg != '') {
+    if ($page_msg != '') {
       $left_col .= gen_p($page_msg, 'page_msg');
     }
 
@@ -72,7 +72,7 @@ if (web_logged_in()) {
       $chat_data['datestr'] = $datestr;
     }
     $chat_open = web_get_user_flag(web_get_user(), CHAT_OPEN_FLAG);
-    $right_col = gen_chat_with_fate($page, $chat_data, $chat_open);
+    $right_col = gen_chat_with_fate($page, $chat_open);
     if ($chat_open) {
       $left_col = gen_div($data[TEMPLATE_CONTENT], 'content');
     } else { //if chat is collapsed

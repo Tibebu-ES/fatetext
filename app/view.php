@@ -20,13 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('FAME_IDENT', 'TheSuzy');
-define('FAME_URL', 'http://thesuzy.com');
-define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
-define('SPACER_STR', '::');
-define('SEARCH_ROWS', 40);
-define('LOGIN_ROWS', 18);
-
 function app_get_tos_page($local_page_msg) {
   $rv = gen_h(2, $GLOBALS['APPTITLE'] . 'Text: Terms of Service');
   $rv .= '<div class="content">';
@@ -86,7 +79,7 @@ function app_get_header_extra($inpage, $add_el = true) {
     break;
 
    case 'search':
-    $link_url = gen_link($inpage, TOGGLE_TEXT_CMD);
+    $link_url = gen_url($inpage, TOGGLE_TEXT_CMD);
     if (web_get_user_flag(web_get_user(), TEXT_AREA_FLAG)) {
       $rv .= gen_link($link_url, 'area--', $css_class);
     } else {
@@ -95,7 +88,7 @@ function app_get_header_extra($inpage, $add_el = true) {
     break;
 
    case 'settings':
-    $link_url = gen_link('home', LOGOUT_CMD);
+    $link_url = gen_url('home', LOGOUT_CMD);
     $rv .= gen_link($link_url, 'LOGOUT', $css_class);
     break;
   }
@@ -179,23 +172,22 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
     $elem_arr []= gen_text_area('stxt', $safetext, $inrows, $incols,
                                 SEARCH_PLACEHOLDER, $add_el);
     $elem_arr []= '<div class="textcontrols">';
-    $elem_arr []= gen_input('submit', 'doid', 'Search', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
     $option_arr = array('fate', 'data', 'docs',
                         'suzyThe', 'theBard',
                         'bibleOS', 'ancienT');
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
-    $elem_arr []= gen_input('submit', 'doid', '&lt;=', $add_el);
-    $elem_arr []= gen_input('submit', 'doid', '=&gt;', $add_el);
-    $elem_arr []= gen_input('submit', 'doid', '/\\', $add_el);
-    $elem_arr []= gen_input('submit', 'doid', '\\/', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '&lt;=', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '=&gt;', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '/\\', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '\\/', $add_el);
     $elem_arr []= '</div>';
   } else {
-    $elem_arr []= gen_input('submit', 'doid', 'Search', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
     $insize = SEARCH_ROWS;
     $elem_arr []= gen_txt_input('stxt', $safetext, $insize,
                             SEARCH_PLACEHOLDER, $add_el);
   }
-  //$elem_arr []= gen_input('hidden', 'page', 'search', $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
 }
@@ -205,7 +197,7 @@ function gen_login_form($add_el = true) {
   $insize = LOGIN_ROWS;
 
   $elem_arr = array();
-  $elem_arr []= gen_input('submit', 'doid', 'Login', $add_el);
+  $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
 
   $usertxt = gen_txt_input('username', '', $insize,
                            'Username', $add_el);
@@ -218,7 +210,6 @@ function gen_login_form($add_el = true) {
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
 
-  //$elem_arr []= gen_input('hidden', 'page', 'home', $add_el);
   $rv = gen_form($elem_arr, gen_url('home'));
   return $rv;
 }
