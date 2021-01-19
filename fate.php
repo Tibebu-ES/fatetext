@@ -20,6 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+$GLOBALS['START_TIME'] = microtime(true);
+
 include('lib/db.php');
 include('lib/web.php');
 include('lib/net.php');
@@ -32,6 +34,6 @@ include('app/model.php');
 include('app/view.php');
 include('app/control.php');
 
-$GLOBALS['START_TIME'] = microtime(true);
-$GLOBALS['COPYRIGHT_HOLDER'] = 'TSUZY';
-$GLOBALS['COPYRIGHT_URL'] = 'http://tsuzy.com';
+define('OSTITLE', 'Fate');
+define('COPYRIGHT_HOLDER', 'TSUZY');
+define('COPYRIGHT_URL', 'http://tsuzy.com');

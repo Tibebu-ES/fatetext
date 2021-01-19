@@ -20,7 +20,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+$page = $data[TEMPLATE_PAGE];
 $page_title = app_get_page_title($page);
+util_assert(isset($data[TEMPLATE_CONTENT]),
+            '$data[TEMPLATE_CONTENT] not set in frame.php');
 ?>
 
 <html>
@@ -32,8 +35,8 @@ $page_title = app_get_page_title($page);
 
 <?php
 $local_page_msg = '';
-if (isset(${TEMPLATE_PAGE_MSG}) && ${TEMPLATE_PAGE_MSG} != '') {
-  $local_page_msg = ${TEMPLATE_PAGE_MSG};
+if (isset($data[TEMPLATE_MSG]) && $data[TEMPLATE_MSG] != '') {
+  $local_page_msg = $data[TEMPLATE_MSG];
 }
 
 $left_col = '';
@@ -44,7 +47,7 @@ if (web_logged_in()) {
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
   if (!isset($_SESSION['AGREETOS'])) {
-    if ($GLOBALS['APPPREFIX'] == 'fate') {
+    if ($GLOBALS['APPTITLE'] == OSTITLE) {
       $atf = false;
     }
   }
@@ -71,9 +74,9 @@ if (web_logged_in()) {
     $chat_open = web_get_user_flag(web_get_user(), CHAT_OPEN_FLAG);
     $right_col = gen_chat_with_fate($page, $chat_data, $chat_open);
     if ($chat_open) {
-      $left_col = gen_div(${TEMPLATE_CONTENT}, 'content');
+      $left_col = gen_div($data[TEMPLATE_CONTENT], 'content');
     } else { //if chat is collapsed
-      echo gen_div(${TEMPLATE_CONTENT}, 'content');
+      echo gen_div($data[TEMPLATE_CONTENT], 'content');
       $left_col = '';
     }
     $left_col .= gen_copyright_notice();
@@ -95,9 +98,11 @@ if (web_logged_in()) {
     echo gen_p($local_page_msg, 'page_msg');
   }
 
-  echo gen_div(${TEMPLATE_CONTENT}, 'wide_content');
+  echo gen_div($data[TEMPLATE_CONTENT], 'wide_content');
   $add_br = (!web_logged_in() && ($page == 'home'));
   echo gen_copyright_notice($add_br);
 
 }
 ?>
+
+</body></html>

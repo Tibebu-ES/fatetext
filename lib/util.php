@@ -43,3 +43,59 @@ function util_strip_ident($word) {
   return preg_replace("/[^A-Za-z0-9 ]/", '', $word);
 }
 
+function util_check_password($passtxt) {
+  if (strlen($passtxt) < MIN_PASSWORD_LENGTH) {
+    return 'Please enter a longer password.';
+  }
+  return '';
+}
+
+function util_check_handle($handle) {
+  if(preg_match("/^([a-zA-Z])+([a-zA-Z0-9\._-])*$/", $handle)) {
+    return true;
+  }
+  return false;
+}
+
+function util_check_email($email) {
+  if(preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",
+                $email)){
+    list($username, $domain) = explode('@', $email);
+    //if(!checkdnsrr($domain, 'MX')) {
+    //  return false;
+    //}
+    return true;
+  }
+  return false;
+}
+
+function util_curl($url, $post_fields = NULL) {
+  $options = array(
+                   CURLOPT_RETURNTRANSFER => true,     // return web page
+                   CURLOPT_HEADER         => false,    // don't return headers
+                   CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+                   CURLOPT_ENCODING       => "",       // handle all encodings
+                   CURLOPT_USERAGENT      => "spider", // who am i
+                   CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+                   CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+                   CURLOPT_TIMEOUT        => 120,      // timeout on response
+                   CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+                   );
+  if ($post_fields !== NULL) {
+    $options[CURLOPT_POST] = true;
+    $options[CURLOPT_POSTFIELDS] = $post_fields;
+  }
+
+  $ch = curl_init($url);
+  curl_setopt_array($ch, $options);
+  $content = curl_exec($ch);
+  $err = curl_errno($ch);
+  $errmsg = curl_error($ch);
+  $header = curl_getinfo($ch);
+  curl_close($ch);
+
+  $header['errno'] = $err;
+  $header['errmsg'] = $errmsg;
+  $header['content'] = $content;
+  return $header;
+}

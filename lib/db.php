@@ -20,10 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('BULK_BLOCK_SIZE', 200);
+define('DB_BULK_BLOCK_SIZE', 200);
 
 function get_or_create_conn() {
-  if (!isset($GLOBALS['DBCONN']) || $GLOBALS['DBCONN'] === null) {
+  if (!isset($GLOBALS['DBCONN']) ||
+      $GLOBALS['DBCONN'] === null) {
     $GLOBALS['DBCONN'] = mysqli_connect($GLOBALS['DBHOST'],
                                          $GLOBALS['DBUSER'],
                                          $GLOBALS['DBPASS'],
@@ -39,24 +40,29 @@ function get_or_create_conn() {
 
 function unsafe_query($sql) {
   $conn = get_or_create_conn();
-  if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
+  if (isset($GLOBALS['DBVERBOSE']) &&
+      $GLOBALS['DBVERBOSE'] == true) {
     util_log('dbquery', $sql);
   }
 
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_insert_id($conn) != 0) {
-    if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
+    if (isset($GLOBALS['DBVERBOSE']) &&
+        $GLOBALS['DBVERBOSE'] == true) {
       util_log('db insert', mysqli_insert_id($conn));
     }
   }
 
   if (!$result) {
     if (!$GLOBALS['ISPROD']) {
-      if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
-        util_log('db', "Invalid query -- $sql -- " . mysqli_error($conn));
+      if (isset($GLOBALS['DBVERBOSE']) &&
+          $GLOBALS['DBVERBOSE'] == true) {
+        util_log('db', "Invalid query -- $sql -- "
+                 . mysqli_error($conn));
       }
-      util_except("Invalid query -- $sql -- " . mysqli_error($conn), 'db');
+      util_except("Invalid query -- $sql -- "
+                  . mysqli_error($conn), 'db');
     }
   }
   return $result;
@@ -79,7 +85,8 @@ function queryf_one($string) {
 
   if (gettype($rs) == 'object') {
     if ($row = mysqli_fetch_assoc($rs)) {
-      if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
+      if (isset($GLOBALS['DBVERBOSE']) &&
+          $GLOBALS['DBVERBOSE'] == true) {
         util_log('dbresult', str_replace(array("\n", "\t", " "),
                                          '',
                                          print_r($row, true)));
@@ -88,7 +95,8 @@ function queryf_one($string) {
     }
   }
 
-  if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
+  if (isset($GLOBALS['DBVERBOSE']) &&
+      $GLOBALS['DBVERBOSE'] == true) {
     util_log('dbresult', 'NULL');
   }
   return NULL;
@@ -154,17 +162,21 @@ function vqueryf_all($sql, $arr, $key = null) {
     }
   }
 
-  if (isset($GLOBALS['DBVERBOSE']) && $GLOBALS['DBVERBOSE'] == true) {
+  if (isset($GLOBALS['DBVERBOSE']) &&
+      $GLOBALS['DBVERBOSE'] == true) {
     util_log('dbresult', count($rv) . ' rows returned');
   }
 
   return $rv;
 }
 
-function db_make_log_entry() {
+function db_make_log_entry($data, $inuser = null) {
   $page = $_SERVER['PHP_SELF'];
-  if (isset($GLOBALS['DATA_PAGE'])) {
-    $page .= '/' . $GLOBALS['DATA_PAGE'];
+  if (isset($data[TEMPLATE_DOID])) {
+    $page .= '/' . $data[TEMPLATE_PAGE];
+  }
+  if (isset($data[TEMPLATE_DOID])) {
+    $page .= '/' . $data[TEMPLATE_DOID];
   }
 
   $ip = '';
@@ -190,16 +202,18 @@ function db_make_log_entry() {
   $nowtime = time();
   $elapsed = microtime(true) - $GLOBALS['START_TIME'];
 
-  if (isset($GLOBALS['USER_ID'])) {
-    $user = $GLOBALS['USER_ID'];
+  if (web_logged_in()) {
+    $user = web_get_user();
   } else {
     $user = 0;
   }
 
-  $sql = 'INSERT INTO ' . $GLOBALS['LOGTABLE'] . ' (nowtime, ipaddr, webagent, pagename, refpage, hostname, elapsed, userid)';
-
+  $sql = 'INSERT INTO ' . $GLOBALS['LOGTABLE'];
+  $sql .= ' (nowtime, ipaddr, webagent, pagename,';
+  $sql .= ' refpage, hostname, elapsed, userid)';
   $sql .= ' VALUES (%d, %s, %s, %s, %s, %s, %s, %d)';
   queryf($sql, $nowtime, $ip, $agent, $page, $ref, $host, $elapsed, $user);
 
   fl('PAGE COMPLETED in ' . $elapsed . ' seconds.');
+  fl("\n");
 }

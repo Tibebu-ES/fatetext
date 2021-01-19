@@ -22,20 +22,35 @@ SOFTWARE. */
 
 define('PADDING_STR', '&nbsp;&nbsp;');
 
-function gen_copyright_notice($add_break = false, $add_llc = true) {
-  $cw_holder = $GLOBALS['COPYRIGHT_HOLDER'];
-  $cw_url = $GLOBALS['COPYRIGHT_URL'];
+function gen_url($pagestr, $doidint = null, $deststr = '') {
+  $rv = $deststr;
 
-  $rv = '';
-  $rv .= '<p class="copyright">© ';
-  $rv .= gen_link($cw_url, $cw_holder, '', false);
+  if ($GLOBALS['CLEANURLS']) {
+    $rv .= $pagestr;
+    if (isset($doidint)) {
+      $rv .= '/' . $doidint;
+    }
+  } else {
+    $rv .= $deststr . '?page=' . $pagestr;
+    if (isset($doidint)) {
+      $rv .= '&doid=' . $doidint;
+    }
+  }
+
+  return $rv;
+}
+
+function gen_copyright_notice($add_break = false, $add_llc = true) {
+  $rv = '© ';
+  $rv .= gen_link(COPYRIGHT_URL, COPYRIGHT_HOLDER, '', false);
   if ($add_llc) {
     $rv .= ' LLC';
   }
   if ($add_break) {
     $rv .= '<br>';
   }
-  $rv .= ' All Rights Reserved.</p>';
+  $rv .= ' All Rights Reserved.';
+  $rv = gen_p($rv, 'copyright');
   return $rv;
 }
 
@@ -165,8 +180,8 @@ function gen_select_input($inname, $option_arr, $selcat, $add_el = true) {
   return $rv;
 }
 
-function gen_form($elem_arr, $fomethod = 'post',
-                  $foaction = 'index.php', $add_el = true) {
+function gen_form($elem_arr, $foaction,
+                  $fomethod = 'post', $add_el = true) {
   $rv = '<form method="' . $fomethod . '" action="' . $foaction . '">';
   foreach ($elem_arr as $elem) {
     //if ($add_el) $rv .= "\n";

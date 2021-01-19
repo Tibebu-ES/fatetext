@@ -29,7 +29,7 @@ if (web_logged_in()) {
   $link_url = 'index.php?page=settings';
   $heading_html .= gen_link($link_url, 'Current user', 'header');
   $heading_html .= gen_b(': ');
-  $link_str = web_get_user_name($GLOBALS['USER_ID']);
+  $link_str = web_get_user_name(web_get_user());
   $heading_html .= gen_link('index.php?cmd=updateuser', $link_str);
   $heading_html .= PADDING_STR;
   $last_date_html = fd(web_get_user_lastdate(web_get_user()));
@@ -44,7 +44,7 @@ if (web_logged_in()) {
   };
 
   echo gen_login_form();
-  $link_str = 'Hall of ' . strtoupper($GLOBALS['APPPREFIX']);
+  $link_str = 'Hall of ' . strtoupper($GLOBALS['APPTITLE']);
   $artnum = count(mod_get_hall_art());
   $hall_str = '[' . $artnum . ']' . PADDING_STR;
   $hall_str .= gen_link($hall_url, $link_str); 

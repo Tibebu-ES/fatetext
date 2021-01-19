@@ -20,10 +20,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+define('LLRUN', 1);
+define('LLWORK', 2);
+define('LLDEBUG', 4);
+
 $g_log = '';
 
 function get_backtrace_string($ignore_args = true) {
   if ($ignore_args) {
+    //this saves a lot of memory,
+    //. by ignoring all the arg values
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
   } else {
     $trace = debug_backtrace();
@@ -35,20 +41,29 @@ function get_backtrace_string($ignore_args = true) {
 
 function print_log() {
   global $g_log;
-  echo $g_log;
+
+  if ($GLOBALS['ISPROD']) {
+    util_log_to_file('call to print_log() ignored because ISPROD = true');
+  } else {
+    echo $g_log;
+  }
+
   $g_log = '';
+}
+
+function util_log_to_file($logstr) {
+  file_put_contents($GLOBALS['LOGFILE'], $logstr, FILE_APPEND);
 }
 
 function util_log($str, $msg, $level = 1) {
   global $g_log;
 
-  $logstr = $str . '::' . $msg . "\n";
+  $logstr = '::' . strtoupper($str) . '::' . $msg . "\n";
   if ($GLOBALS['LOGLEVEL'] >= $level) {
-    $g_log .= $logstr . "<br>\n";
-  } else {
-    $logfile = $GLOBALS['LOGPATH'] . '/errorlog.txt';
-    file_put_contents($logfile, $logstr, FILE_APPEND);
+    $g_log .= $logstr . "<br>";
   }
+
+  util_log_to_file($logstr);
 }
 
 function util_except($msg = 'unspecified', $str = 'web') {
@@ -62,6 +77,9 @@ function util_except($msg = 'unspecified', $str = 'web') {
 function util_assert($cond, $msg = 'no description was provided') {
   if (!$cond) {
     if ($GLOBALS['ASSERTEX']) {
+      if ($GLOBALS['LOGLEVEL'] >= LLDEBUG) {
+        bp(true);
+      }
       util_except($msg, 'assert');
     } else {
       util_log('assert', $msg);      

@@ -21,7 +21,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 define('TEMPLATE_CONTENT', '__content');
-define('TEMPLATE_PAGE_MSG', '__page_msg');
+define('TEMPLATE_PAGE', '__page');
+define('TEMPLATE_DOID', '__doid');
+define('TEMPLATE_MSG', '__msg');
 
 function check_array_param($name, &$rv, &$p, $default=null) {
   $boolrv = check_string_param($name, $rv, $p, $default);
@@ -60,49 +62,72 @@ function check_string_param($name, &$rv, &$p, $default=null) {
   }
 }
 
-function util_show_page($vars = null) {
-  if ($vars === null) {
-    $vars = array();
+//this function is the entry point from index.php
+function util_show_page($data = null) {
+  if (!isset($data) || !isset($data[TEMPLATE_PAGE])) {
+    util_except('missing data[TEMPLATE_PAGE] in util_show_page()');
   }
 
   $rv = '';
   $framepath = $GLOBALS['FATEPATH'] . '/frame.php';
   $ldpt = $GLOBALS['FILESDIR'] . '/templates/';
-  $ldpt .= $GLOBALS['DATA_PAGE'] . '.php';
+  $ldpt .= $data[TEMPLATE_PAGE] . '.php';
   if (file_exists($ldpt)) {
-    $rv .= util_frame_template($framepath, $ldpt, $vars);
+
+    util_log('debug', 'framing custom template: ' . $ldpt);
+    $rv .= util_frame_template($framepath, $ldpt, $data);
+
   } else {   
+
     $dpt = $GLOBALS['FATEPATH'] . '/templates/';
-    $dpt .= $GLOBALS['DATA_PAGE'] . '.php';
+    $dpt .= $data[TEMPLATE_PAGE] . '.php';
     if (!file_exists($dpt)) {
+
+      //TODO silently log attempts to load invalid pages
       include('404.php');
+
     } else {
-      $rv .= util_frame_template($framepath, $dpt, $vars);
-    }
-  }
+
+      util_log('debug', 'framing default template: ' . $ldpt);
+      $rv .= util_frame_template($framepath, $dpt, $data);
+
+    } //end if default template exists
+
+  } //end if custom template exists
 
   return $rv;  
 }
 
-function util_show_content($content, $vars) {
-  return util_frame_content('frame.php', $content, $vars);
+//get the content from a template and put it in frame.php
+function util_frame_template($framename, $filename, $data) {
+  //get the content from a template
+  $data[TEMPLATE_CONTENT] = util_show_template($filename, $data);
+  //put the content within frame.php
+  return util_show_template($framename, $data);  
 }
 
-function util_frame_content($framename, $content, $vars) {
-  $vars[TEMPLATE_CONTENT] = $content;
-  return util_show_template($framename, $vars);  
-}
+//use $filename as a ".php template," with no global variables
+//. only pre-escaped $data is passed to the ".php template"
+function util_show_template($filename, $data = null) {
+  util_assert(isset($data[TEMPLATE_PAGE]),
+              'page not set in util_show_template()');
+  util_assert(isset($data[TEMPLATE_DOID]),
+              'doid not set in util_show_template()');
 
-function util_frame_template($framename, $filename, $vars) {
-  $content = util_show_template($filename, $vars);
-  return util_frame_content($framename, $content, $vars);
-}
-
-function util_show_template($filename, $vars = null) {
-  //TODO put all the vars through htmlescape
-  if ($vars !== null) {
-    extract($vars);
+  if (!isset($data[TEMPLATE_CONTENT])) {
+    $data[TEMPLATE_CONTENT] = '';
   }
+  if (!isset($data[TEMPLATE_MSG])) {
+    $data[TEMPLATE_MSG] = '';
+  }
+
+  //escape all data that could be output as html
+  foreach ($data as $namestr => $valuestr) {
+    if ($namestr != TEMPLATE_CONTENT) {
+      $data[$namestr] = htmlspecialchars($valuestr);
+    }
+  }
+
   ob_start();
   include($filename);
   $rv = ob_get_contents();

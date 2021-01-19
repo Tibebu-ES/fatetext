@@ -28,9 +28,10 @@ define('SEARCH_ROWS', 40);
 define('LOGIN_ROWS', 18);
 
 function app_get_tos_page($local_page_msg) {
-  $rv = gen_h(2, $GLOBALS['APPTITLE'] . ' Terms of Service');
+  $rv = gen_h(2, $GLOBALS['APPTITLE'] . 'Text: Terms of Service');
   $rv .= '<div class="content">';
-  $home_link = gen_link('index.php?cmd=nologout', 'Go back to the login page');
+  $home_url = gen_url('home', 'silentlogout');
+  $home_link = gen_link($home_url, 'Go back to the login page');
   $rv .= gen_p($home_link, 'page_heading');
   $c0 = 'The following langauge was derived from the MIT License without modification';
   $c1 = 'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
@@ -52,18 +53,18 @@ function app_get_tos_page($local_page_msg) {
   return $rv;
 }
 
-function app_get_header_extra($page, $add_el = true) {
+function app_get_header_extra($inpage, $add_el = true) {
   $css_class = 'header';
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
 
   if (!web_logged_in()) {
 
-    if (!(($page == 'hall') || ($page == 'art'))) {
+    if (!(($inpage == 'hall') || ($inpage == 'art'))) {
       util_except('getting header extra on invalid page');
     }
   }
 
-  switch ($page) {
+  switch ($inpage) {
    case 'hall':
    case 'art':
     $link_text = FAME_IDENT;
@@ -73,31 +74,28 @@ function app_get_header_extra($page, $add_el = true) {
 
    case 'home':
    case 'data':
-    $link_url = 'index.php?cmd=';
     $fatesplash = web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG);
     $link_str = 'splash';
     //do the opposite for 'data' and 'home'
-    if ($fatesplash == ($page == 'data')) {
+    if ($fatesplash == ($inpage == 'data')) {
       $link_str = strtoupper($link_str);
     }
-    $link_url .= TOGGLE_SPLASH_CMD . '&page=' . $page;
+
+    $link_url = gen_url($inpage, TOGGLE_SPLASH_CMD);
     $rv .= gen_link($link_url, $link_str, $css_class);
     break;
 
    case 'search':
+    $link_url = gen_link($inpage, TOGGLE_TEXT_CMD);
     if (web_get_user_flag(web_get_user(), TEXT_AREA_FLAG)) {
-      $link_url = 'index.php?cmd=' . TOGGLE_TEXT_CMD;
-      $link_url .= '&page=' . $page;
       $rv .= gen_link($link_url, 'area--', $css_class);
     } else {
-      $link_url = 'index.php?cmd=' . TOGGLE_TEXT_CMD;
-      $link_url .= '&page=' . $page;
       $rv .= gen_link($link_url, 'text++', $css_class);            
     }
     break;
 
    case 'settings':
-    $link_url = 'index.php?cmd=logout';
+    $link_url = gen_link('home', LOGOUT_CMD);
     $rv .= gen_link($link_url, 'LOGOUT', $css_class);
     break;
   }
@@ -106,7 +104,7 @@ function app_get_header_extra($page, $add_el = true) {
   return $rv;
 }
 
-function app_get_header_links($page, $links_arr, $add_el = true) {
+function app_get_header_links($inpage, $links_arr, $add_el = true) {
   $rv = PADDING_STR;
 
   $first = true;
@@ -119,10 +117,10 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
     }
 
     $lower_link = strtolower($link_str);
-    if ($lower_link == $page) {
+    if ($lower_link == $inpage) {
       $rv .= gen_b($link_str);
     } else {
-      $link_url = 'index.php?page=' . $lower_link;
+      $link_url = gen_url($lower_link);
       $rv .= gen_link($link_url, $link_str, 'header');
     }
   }
@@ -131,24 +129,24 @@ function app_get_header_links($page, $links_arr, $add_el = true) {
   return $rv;
 }
 
-function app_get_smart_spacer($page, $add_el = true) {
+function app_get_smart_spacer($inpage, $add_el = true) {
   $rv = PADDING_STR;
-  if ($page == 'hall' ||
+  if ($inpage == 'hall' ||
       (!web_logged_in() &&
-       $page == 'home')) {
+       $inpage == 'home')) {
     $rv .= gen_b(SPACER_STR);
   } else {
-    $rv .= gen_link('index.php?page=hall', gen_b(SPACER_STR));
+    $rv .= gen_link(gen_url('hall'), gen_b(SPACER_STR));
   }
 
   if ($add_el) $rv .= "\n";
   return $rv;
 }
 
-function app_get_page_ident($page) {
+function app_get_page_ident($inpage) {
   $rv = '';
-  if ($page != 'home') {
-    $home_url = 'index.php?page=home';
+  if ($inpage != 'home') {
+    $home_url = gen_url('home');
     $rv .= gen_link($home_url, $GLOBALS['APPIDENT'], 'header');
   } else {
     $rv .= $GLOBALS['APPIDENT'];
@@ -156,8 +154,8 @@ function app_get_page_ident($page) {
   return $rv;
 }
 
-function app_get_page_title($page) {
-  $rv = $GLOBALS['APPTITLE'] . SPACER_STR . $page;
+function app_get_page_title($inpage) {
+  $rv = $GLOBALS['APPTITLE'] . 'Text' . SPACER_STR . $inpage;
   return $rv;
 }
 
@@ -167,7 +165,7 @@ function gen_tos_form($add_el = true) {
   $elem_arr []= gen_input('submit', 'cmd', 'Proceed', $add_el);
   $elem_arr []= gen_input('checkbox', 'toscheck', '1', $add_el);
   $elem_arr []= gen_span('I agree to the following terms:');
-  $rv = gen_form($elem_arr);
+  $rv = gen_form($elem_arr, gen_url('home'));
   return $rv;
 }
 
@@ -181,24 +179,24 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
     $elem_arr []= gen_text_area('stxt', $safetext, $inrows, $incols,
                                 SEARCH_PLACEHOLDER, $add_el);
     $elem_arr []= '<div class="textcontrols">';
-    $elem_arr []= gen_input('submit', 'cmd', 'Search', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', 'Search', $add_el);
     $option_arr = array('fate', 'data', 'docs',
                         'suzyThe', 'theBard',
                         'bibleOS', 'ancienT');
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
-    $elem_arr []= gen_input('submit', 'cmd', '&lt;=', $add_el);
-    $elem_arr []= gen_input('submit', 'cmd', '=&gt;', $add_el);
-    $elem_arr []= gen_input('submit', 'cmd', '/\\', $add_el);
-    $elem_arr []= gen_input('submit', 'cmd', '\\/', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', '&lt;=', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', '=&gt;', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', '/\\', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', '\\/', $add_el);
     $elem_arr []= '</div>';
   } else {
-    $elem_arr []= gen_input('submit', 'cmd', 'Search', $add_el);
+    $elem_arr []= gen_input('submit', 'doid', 'Search', $add_el);
     $insize = SEARCH_ROWS;
     $elem_arr []= gen_txt_input('stxt', $safetext, $insize,
                             SEARCH_PLACEHOLDER, $add_el);
   }
-  $elem_arr []= gen_input('hidden', 'page', 'search', $add_el);
-  $rv = gen_form($elem_arr);
+  //$elem_arr []= gen_input('hidden', 'page', 'search', $add_el);
+  $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
 }
 
@@ -207,7 +205,7 @@ function gen_login_form($add_el = true) {
   $insize = LOGIN_ROWS;
 
   $elem_arr = array();
-  $elem_arr []= gen_input('submit', 'cmd', 'Login', $add_el);
+  $elem_arr []= gen_input('submit', 'doid', 'Login', $add_el);
 
   $usertxt = gen_txt_input('username', '', $insize,
                            'Username', $add_el);
@@ -220,34 +218,29 @@ function gen_login_form($add_el = true) {
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
 
-  $elem_arr []= gen_input('hidden', 'page', 'home', $add_el);
-
-  $rv = gen_form($elem_arr);
+  //$elem_arr []= gen_input('hidden', 'page', 'home', $add_el);
+  $rv = gen_form($elem_arr, gen_url('home'));
   return $rv;
 }
 
-function gen_chat_with_fate($page, $chat_data, $is_open) {
+function gen_chat_with_fate($inpage, $is_open) {
   $rv = '';
   if ($is_open) {
     $chat_arr = array('hello fate?', 'world _______!',
                       'fate world?', 'hello _______!');
     $chat_win = gen_chat_win($chat_arr);
-    $title_html = gen_chat_title($page, $chat_data, TOGGLE_CHAT_CMD, 'Collapse', '-');
+    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, 'Collapse', '-');
     $title_bar = gen_title_bar($title_html);
     $rv = gen_title_box($title_bar, $chat_win);
   } else {
-    $title_html = gen_chat_title($page, $chat_data, TOGGLE_CHAT_CMD, 'Expand', '+');
+    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, 'Expand', '+');
     $rv = gen_title_bar($title_html, true);
   }
   return $rv;
 }
 
-function gen_chat_title($page, $chat_data, $action_cmd, $action_word, $action_char) {
-  $chat_url = 'index.php?page=' . $page;
-  $chat_url .= '&cmd=' . $action_cmd;
-  if (isset($chat_data['datestr'])) {
-    $chat_url .= '&datestr=' . $chat_data['datestr'];
-  }
+function gen_chat_title($inpage, $action_cmd, $action_word, $action_char) {
+  $chat_url = gen_url($inpage, $action_cmd);
   $rv = gen_link($chat_url, $action_word, 'header');
   $plain_str = ' Chat with FaTe [';
   $rv .= gen_link($chat_url, $plain_str, 'plain');

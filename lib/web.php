@@ -20,42 +20,45 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('TEMPLATE_PAGE', 'page');
+$g_user_id = null;
 
-function web_init_data() {
-  if (!isset($GLOBALS['DATA_PAGE'])) {
-    util_except('tried to init data without setting DATA_PAGE');
-  }
-  $rv = array(TEMPLATE_PAGE => $GLOBALS['DATA_PAGE']);
+function web_init_data($inpage) {
+  $rv = array(TEMPLATE_PAGE => $inpage);
   return $rv;
 }
 
-function web_set_page($dp) {
-  $GLOBALS['DATA_PAGE'] = strtolower($dp);
-}
-
-function web_get_page() {
-  if (!isset($GLOBALS['DATA_PAGE'])) {
-    util_except('trying to get_page when no page has been set');
+function web_main_loop(&$data) {
+  if (isset($_REQUEST['page'])) {
+    check_string_param('page', $data, $_REQUEST);
+    $data[TEMPLATE_PAGE] = htmlspecialchars($data['page']);
   }
-  return $GLOBALS['DATA_PAGE'];
-}
-
-function web_is_page($inpage) {
-  if (!isset($GLOBALS['DATA_PAGE'])) {
-    return false;
+  
+  if (isset($_REQUEST['doid'])) {
+    check_string_param('doid', $data, $_REQUEST);
+    $data[TEMPLATE_DOID] = htmlspecialchars($data['doid']);
+  } else {
+    $data[TEMPLATE_DOID] = '';
   }
-  $lopage = strtoloser($inpage);
-  return (GLOBALS['DATA_PAGE'] == $lopage);
+
+  net_init_session(true);
+  fl('INIT COMPLETED with session;');
 }
 
 function web_logged_in() {
-  return isset($GLOBALS['USER_ID']);
+  global $g_user_id;
+  return isset($g_user_id);
 }
 
 function web_get_user() {
-  util_assert(web_logged_in(), 'tried to get user while not logged in');
-  return $GLOBALS['USER_ID'];
+  global $g_user_id;
+  util_assert(web_logged_in(),
+              'tried to get user while not logged in');
+  return $g_user_id;
+}
+
+function web_set_user($inuser) {
+  global $g_user_id;
+  $g_user_id = $inuser;
 }
 
 function web_toggle_user_flag($userid, $flagname) {
@@ -96,7 +99,7 @@ function web_get_user_lastdate($userid) {
   return $rs['lastdate'];
 }
 
-function web_update_user($userid) {
+function web_update_user_lastdate($userid) {
   $nowtime = time();
   $sql = 'UPDATE users SET lastdate = %d';
   $sql .= ' WHERE userid = %d';
@@ -104,11 +107,12 @@ function web_update_user($userid) {
 }
 
 function web_login_user(&$data) {
+  global $g_user_id;
   $inuser = $data['username'];
   $inpass = $data['password'];
 
-  if (isset($GLOBALS['USER_ID'])) {
-    if (web_get_user_name($GLOBALS['USER_ID']) != $inuser) {
+  if (isset($g_user_id)) {
+    if (web_get_user_name($g_user_id) != $inuser) {
       util_except('login called while a different username is set');
     }
     return true;
@@ -124,29 +128,31 @@ function web_login_user(&$data) {
     $rs = queryf_one($sql, $userid);
     if (isset($rs) && $rs['hashpass'] == $hashpass) {
       $_SESSION['USER_ID'] = $userid;
-      $GLOBALS['USER_ID'] = $_SESSION['USER_ID'];
+      $g_user_id = $_SESSION['USER_ID'];
       $username = $inuser;
     } else {
-      $data[TEMPLATE_PAGE_MSG] = 'BAD PASSWORD';
+      $data[TEMPLATE_MSG] = 'BAD PASSWORD';
     }
   } else {
-    $data[TEMPLATE_PAGE_MSG] = 'BAD USERNAME';
+    $data[TEMPLATE_MSG] = 'BAD USERNAME';
   }
   return true;
 }
 
 function net_logout_user(&$data, $show_msg = true) {
+  global $g_user_id;
+
   if (!isset($_SESSION['FATE_BROWSER_ID'])) {
     util_log('warning', 'tried to logout without a session');
     $show_msg = false;
-  } else if (!isset($GLOBALS['USER_ID'])) {
+  } else if (!isset($g_user_id)) {
     util_log('warning', 'tried to logout without a user_id');
     $show_msg = false;
   }
-  unset($GLOBALS['USER_ID']);
+  $g_user_id = null;
   net_end_session();
   if ($show_msg) {
-    $data[TEMPLATE_PAGE_MSG] = 'Logout successful';
+    $data[TEMPLATE_MSG] = 'Logout successful';
   }
   return true;
 }

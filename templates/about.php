@@ -26,9 +26,9 @@ SOFTWARE. */ ?>
 
 <p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to hosting online communities</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
 
-<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (v0.53) on January 16, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a separate, proprietary instance of FATE called <a href="http://fametext.com">FameText</a>.</p>
+<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (v0.6) on January 19, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a separate, proprietary instance of FATE called <a href="http://fametext.com">FameText</a>.</p>
 
-<p>v0.53's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
+<p>v0.6's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
 <p>You can take this instance of FATE for a test drive by logging in with username = "demo" and password = "the", but your data will cease to exist after you logout, because (TODO) FATE will automatically logout demo users after 15 minutes or whenever they create more than 10k bytes of user generated data.</p>
 

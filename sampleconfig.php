@@ -25,21 +25,23 @@ $GLOBALS['DBHOST'] = 'localhost:8889';
 $GLOBALS['DBUSER'] = 'root';
 $GLOBALS['DBPASS'] = 'root';
 $GLOBALS['DBNAME'] = 'fametext';
+$GLOBALS['LOGTABLE'] = 'log1';
 
-$GLOBALS['ISPROD'] = false;
-$GLOBALS['LOGPATH'] = '/Users/conr/fatelog';
+$GLOBALS['APPTITLE'] = 'Fame';
+$GLOBALS['APPIDENT'] = 'FaTe';
+
+$GLOBALS['LOGFILE'] = '/Users/conr/fatelogs/errorlog.txt';
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
-$GLOBALS['FILESDIR'] = '/Users/conr/fate/fatefiles';
+$GLOBALS['FILESDIR'] = '/Users/conr/fatefiles';
+$GLOBALS['USERNAME'] = 'club';
+$GLOBALS['PASSWORD'] = 'the';
 
 $GLOBALS['CLEANURLS'] = true;
 $GLOBALS['NOCOOKIES'] = true;
-$GLOBALS['APPTITLE'] = 'FameText';
-$GLOBALS['APPIDENT'] = 'FaTe';
-$GLOBALS['APPPREFIX'] = 'fame';
+$GLOBALS['ISPROD'] = false;
 
 $GLOBALS['PARAMEX'] = true;
 $GLOBALS['ASSERTEX'] = true;
 $GLOBALS['CATCHEX'] = false;
 $GLOBALS['LOGLEVEL'] = 1;
 $GLOBALS['DBVERBOSE'] = true;
-$GLOBALS['LOGTABLE'] = 'log1';

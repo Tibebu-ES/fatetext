@@ -95,7 +95,19 @@ function mod_get_user_int($userid, $intname) {
   $sql .= ' WHERE userid = %d';
   $rs = queryf_one($sql, $userid);
   if (!isset($rs) || !isset($rs[$intname])) {
-    util_except('get_user_flag(' . $intname . ') query result missing ' . $intname);
+    util_except('get_user_flag(' . $intname
+                . ') query result missing '
+                . $intname);
   }
   return $rs[$intname];
+}
+
+function mod_flag_from_toggle($intoggle) {
+  switch ($intoggle) {
+   case TOGGLE_SPLASH_CMD: return FATE_SPLASH_FLAG;
+   case TOGGLE_CHAT_CMD: return CHAT_OPEN_FLAG;
+   case TOGGLE_TEXT_CMD: return TEXT_AREA_FLAG;
+  }
+  util_except('attempted to toggle an unknown flag: '
+              . $intoggle);
 }

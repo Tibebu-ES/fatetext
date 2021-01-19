@@ -23,21 +23,27 @@ SOFTWARE. */
 include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
-web_set_page('home');
-$data = web_init_data();
-appcon_main_loop($data);
+//set $data[TEMPLATE_PAGE] = 'home' by default
+$data = web_init_data('home');
+util_log('debug', 'web_init_data() done', LLDEBUG);
+web_main_loop($data);
+util_log('debug', 'web_main_loop() done', LLDEBUG);
 
 try {
-  if (isset($data['cmd'])) {
-    appcon_do_cmd($data);
-  }
+
+  con_do_cmd($data);
+  util_log('debug', 'con_do_cmd() done', LLDEBUG);
   net_log_user_and_session_info();
   echo util_show_page($data);
+  util_log('debug', 'con_show_page() done', LLDEBUG);
+
 } catch (Exception $ex) {
+
   util_log('Uncaught exception', $ex->getMessage());
   include('error.php');
-}
 
-db_make_log_entry();
-print_log(); ?>
-</body></html>
+} //end try
+
+db_make_log_entry($data);
+print_log();
+?>
