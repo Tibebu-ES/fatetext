@@ -34,6 +34,21 @@ include('app/model.php');
 include('app/view.php');
 include('app/control.php');
 
+define('SYSUSER', 1);
+define('VOIDOID', 1);
+
+define('FATE_TYPE_VOID', 1);
+define('FATE_TYPE_USER', 2);
+define('FATE_TYPE_BOOK', 3);
+define('FATE_TYPE_TOK', 4);
+define('FATE_TYPE_GEM', 5);
+define('FATE_TYPE_STEP', 6);
+define('FATE_TYPE_DIFF', 7);
+define('FATE_TYPE_CONCEPT', 8);
+define('FATE_TYPE_COMMENT', 9);
+define('FATE_TYPE_SEARCH', 10);
+define('FATE_TYPE_RESULT', 11);
+
 define('OSTITLE', 'Fate');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
