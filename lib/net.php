@@ -55,6 +55,10 @@ function net_init_session() {
     ini_set('session.use_trans_sid', 1);
   }
 
+  if (isset($GLOBALS['SESSIONSAVEPATH'])) {
+    ini_set('session.save_path', $GLOBALS['SESSIONSAVEPATH']);
+  }
+
   session_start();
   $GLOBALS['FATE_BROWSER_ID'] =
            net_get_or_create_browser_id(DEFAULT_DURATION);
