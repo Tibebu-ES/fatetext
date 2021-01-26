@@ -20,14 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-define('CHAT_OPEN_FLAG', 'chatopen');
-define('TEXT_AREA_FLAG', 'textarea');
-define('FATE_SPLASH_FLAG', 'fatesplash');
-define('AGREE_TOS_FLAG', 'agreetos');
-
-define('USER_SEARCH_ROWS', 'searchrows');
-define('USER_SEARCH_COLS', 'searchcols');
-
 function mod_get_hall_art() {
   $sql = 'SELECT * FROM hallart ORDER BY artid DESC';
   $rs = queryf_all($sql);

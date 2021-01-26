@@ -56,22 +56,29 @@ function web_set_user($inuser) {
   $g_user_id = $inuser;
 }
 
-function web_toggle_user_flag($userid, $flagname) {
-  $curval = web_get_user_flag($userid, $flagname);
-  $curval = !$curval;
-  $sql = 'UPDATE users set ' . $flagname . ' = %d';
+function web_toggle_user_flag($userid, $flagvalue) {
+  $flags = mod_get_user_int($userid, 'flagsint');
+  if ($flags & $flagvalue) {
+    $flags &= ~$flagvalue;
+  } else {
+    $flags |= $flagvalue;
+  }
+ 
+  $sql = 'UPDATE users set flagsint = %d';
   $sql .= ' WHERE userid = %d';
-  queryf_one($sql, $curval, $userid);
+  queryf_one($sql, $flags, $userid);
 }
 
-function web_get_user_flag($userid, $flagname) {
-  $sql = 'SELECT ' . $flagname . ' FROM users';
+function web_get_user_flag($userid, $flagvalue) {
+  $flags = mod_get_user_int($userid, 'flagsint');
+  return $flags & $flagvalue;
+  /*$sql = 'SELECT ' . $flagname . ' FROM users';
   $sql .= ' WHERE userid = %d';
   $rs = queryf_one($sql, $userid);
   if (!isset($rs) || !isset($rs[$flagname])) {
     util_except('get_user_flag(' . $flagname . ') query result missing ' . $flagname);
   }
-  return $rs[$flagname];
+  return $rs[$flagname];*/
 }
 
 function web_get_user_name($userid) {

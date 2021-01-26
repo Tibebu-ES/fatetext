@@ -53,6 +53,14 @@ define('OSTITLE', 'Fate');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
 
+define('USER_SEARCH_ROWS', 'searchrows');
+define('USER_SEARCH_COLS', 'searchcols');
+
+define('CHAT_OPEN_FLAG', 1); //'chatopen');
+define('TEXT_AREA_FLAG', 2); //'textarea');
+define('FATE_SPLASH_FLAG', 4); //'fatesplash');
+define('AGREE_TOS_FLAG', 8); //'agreetos');
+
 define('TOGGLE_SPLASH_CMD', 'tosplash');
 define('TOGGLE_CHAT_CMD', 'tochat');
 define('TOGGLE_TEXT_CMD', 'totext');
