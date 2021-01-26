@@ -92,18 +92,18 @@ function web_get_user_name($userid) {
 }
 
 function web_get_user_lastdate($userid) {
-  $sql = 'SELECT lastdate FROM users';
+  $sql = 'SELECT lastlogin FROM users';
   $sql .= ' WHERE userid = %d';
   $rs = queryf_one($sql, $userid);
-  if (!isset($rs) || !isset($rs['lastdate'])) {
-    util_except('get_user_lastdate missing lastdate');
+  if (!isset($rs) || !isset($rs['lastlogin'])) {
+    util_except('get_user_lastdate missing lastlogin');
   }
-  return $rs['lastdate'];
+  return $rs['lastlogin'];
 }
 
 function web_update_user_lastdate($userid) {
   $nowtime = time();
-  $sql = 'UPDATE users SET lastdate = %d';
+  $sql = 'UPDATE users SET lastlogin = %d';
   $sql .= ' WHERE userid = %d';
   queryf($sql, $nowtime, $userid);
 }
