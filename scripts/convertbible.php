@@ -28,7 +28,7 @@ $starttime = time();
 $datapath = '../data';
 //$files = scandir($datapath);
 
-$filepath = $datapath . '/thebible/kjbible.txt';
+$filepath = $datapath . '/thebible/pgbible.txt';
 $text = file_get_contents($filepath);
 
 $textlen = strlen($text);

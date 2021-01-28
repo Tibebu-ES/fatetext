@@ -22,6 +22,6 @@ SOFTWARE. */
 
 /*TODO move this sample scriptconfig file to the parent directory of the fate git repository, and then make changes*/
 
-$GLOBALS['CONFIGURL'] = '/Applications/MAMP/htdocs/config/fametext.php';
+$GLOBALS['CONFIGURL'] = '/Applications/MAMP/htdocs/config/fatetext.php';
 
 include($GLOBALS['CONFIGURL']);
