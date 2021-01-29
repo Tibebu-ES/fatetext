@@ -24,10 +24,10 @@ SOFTWARE. */ ?>
 
 <pre><b>*<u>Account</u>*</b> | Archive | TheDocs (or AdminHQ)</pre>
 
-<p class="lastline">Change Username or Password<br>
-Send Verification Link<br>
+<p class="lastline">
+Change Username & Password<br>
 Add/Remove Emails<br>
-Row and Col OR<br>
+Rows and Cols<br>
 Splash Page<br>
 Chat State
 </p>

@@ -31,6 +31,12 @@ function gen_url($pagestr, $cmdstr = null, $deststr = '') {
   return $rv;
 }
 
+function gen_url_param($paramname, $paramvalue) {
+  $rv = '&' . $paramname;
+  $rv .= '=' . $paramvalue;
+  return $rv;
+}
+
 function gen_copyright_notice($add_break = false, $add_llc = true) {
   $rv = '© ';
   $rv .= gen_link(COPYRIGHT_URL, COPYRIGHT_HOLDER, '', false);

@@ -42,20 +42,29 @@ function mod_generate_gem($userid, $stxt, $category) {
   $chestidstr = $rs['chestidstr'];
 
   $chestidarr = explode(',', $chestidstr);
-  $wordcount = count($chestidarr);
-  $randindex = rand(0, $wordcount - 1);
+  $chestcount = count($chestidarr);
+  $randindex = rand(0, $chestcount - 1);
   $randchestid = $chestidarr[$randindex];
 
   $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
   $rs = queryf_one($sql, $randchestid);
-  $randtxt = $rs['datastr'];
+  $datastr = $rs['datastr'];
+
+  $wordcount = count(explode(' ', $datastr));
+  $charcount = strlen($datastr) - $wordcount;
 
   $nowtime = time();
-  $sql = 'INSERT INTO gems (userid, chestid,';
-  $sql .= ' tokid, stepint, datecreated)';
-  $sql .= ' VALUES (%d, %d, %d, %d, %d)';
-  queryf($sql, $userid, $randchestid, $randtokid, 0, $nowtime);
+  $sql = 'INSERT INTO gems (userid, chestid, tokid,';
+  $sql .= ' stepint, datecreated, wordcount, charcount)';
+  $sql .= ' VALUES (%d, %d, %d, %d, %d, %d, %d)';
+  queryf($sql, $userid, $randchestid, $randtokid,
+         0, $nowtime, $wordcount, $charcount);
   return last_insert_id();
+}
+
+function mod_load_guess($gemid) {
+  //TODO
+  return '';
 }
 
 function mod_load_gem($gemid) {
@@ -76,7 +85,8 @@ function mod_load_gem($gemid) {
 }
 
 function mod_get_user_gems($userid, $maxgems = 5) {
-  $sql = 'SELECT gems.tokid, datecreated, tokstr FROM gems, toks';
+  $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';
+  $sql .= ' wordcount, charcount, stepint FROM gems, toks';
   $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
   $sql .= ' ORDER BY datecreated DESC LIMIT %d';
   $rs = queryf_all($sql, $userid, $maxgems);

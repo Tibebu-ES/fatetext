@@ -43,9 +43,19 @@ a:hover {
   text-decoration: underline;
 }
 
+a.chars {
+  color: #000000;
+  text-decoration: none;
+}
+
 a.plain {
   color: #000000;
   text-decoration: none;
+}
+
+a.plain:hover {
+  color: #FF69B4;
+  text-decoration: underline;
 }
 
 a.header {
@@ -146,6 +156,10 @@ div.title_content {
 /* Create two equal columns that floats next to each other */
 .column {
   float: left;
+}
+
+.right_column {
+  float: right;
 }
 
 .row:after {

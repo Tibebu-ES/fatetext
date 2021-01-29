@@ -40,7 +40,11 @@ if ($data[TEMPLATE_MSG] != '') {
 }
 
 $left_col = '';
-$left_col .= app_get_page_ident($page);
+if ($page != 'home') {
+  $left_col .= gen_link(gen_url('home'), $GLOBALS['APPIDENT'], 'header');
+} else {
+  $left_col .= $GLOBALS['APPIDENT'];
+}
 $left_col .= app_get_smart_spacer($page);
 
 if (web_logged_in()) {

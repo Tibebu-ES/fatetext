@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 function app_get_tos_page($local_page_msg) {
-  $rv = gen_h(2, $GLOBALS['APPTITLE'] . 'Text: Terms of Service');
+  $rv = gen_h(2, app_get_page_title() . ' ' . gen_i('Terms of Service'));
   $rv .= '<div class="content">';
   $home_url = gen_url('home', 'silentlogout');
   $home_link = gen_link($home_url, 'Go back to the login page');
@@ -81,9 +81,9 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'search':
     $link_url = gen_url($inpage, TOGGLE_TEXT_CMD);
     if (web_get_user_flag(web_get_user(), TEXT_AREA_FLAG)) {
-      $rv .= gen_link($link_url, 'area--', $css_class);
+      $rv .= gen_link($link_url, '-AREA-', $css_class);
     } else {
-      $rv .= gen_link($link_url, 'text++', $css_class);            
+      $rv .= gen_link($link_url, '+text+', $css_class);            
     }
     break;
 
@@ -136,19 +136,11 @@ function app_get_smart_spacer($inpage, $add_el = true) {
   return $rv;
 }
 
-function app_get_page_ident($inpage) {
-  $rv = '';
-  if ($inpage != 'home') {
-    $home_url = gen_url('home');
-    $rv .= gen_link($home_url, $GLOBALS['APPIDENT'], 'header');
-  } else {
-    $rv .= $GLOBALS['APPIDENT'];
+function app_get_page_title($inpage = '') {
+  $rv = $GLOBALS['APPTITLE'] . 'Text';
+  if ($inpage != '') {
+    $rv .= SPACER_STR . $inpage;
   }
-  return $rv;
-}
-
-function app_get_page_title($inpage) {
-  $rv = $GLOBALS['APPTITLE'] . 'Text' . SPACER_STR . $inpage;
   return $rv;
 }
 
@@ -222,29 +214,41 @@ function gen_chat_with_fate($inpage, $is_open) {
     $chat_arr = array();
     $gemarr = mod_get_user_gems(web_get_user(), 5);
     foreach ($gemarr as $gem) {
-      $chatstr = gen_u(fd($gem['datecreated'])) . '<br>';
-      $chatstr .= gen_i('hidden: ') . $gem['tokstr'] . '<br>';
-      $chatstr .= gen_i('guess: ') . gen_b('_______!');
+      $dateurl = gen_url($inpage, 'loadgem');
+      $dateurl .= gen_url_param('gemid', $gem['gemid']);
+      $datestr = fd($gem['datecreated']);
+      $chatstr = gen_link($dateurl, $datestr, 'header') . '<br>';
+      if ($gem['stepint'] == 0) {
+        $chatstr .= $gem['wordcount'] . ' words (';
+        $chatstr .= $gem['charcount'] . ' letters)<br>';
+        $chatstr .= gen_i('guess: ') . gen_b('_______!');
+      } else {
+        $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
+        $guesstxt = mod_load_guess($gem['gemid']);
+        $chatstr .= gen_i('guess: ') . gen_u($guesstxt);
+      }
       $chat_arr []= $chatstr;
     }
     $chat_win = gen_chat_win($chat_arr);
-    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, 'Collapse', '-');
+    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
     $title_bar = gen_title_bar($title_html);
     $rv = gen_title_box($title_bar, $chat_win);
   } else {
-    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, 'Expand', '+');
+    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '+');
     $rv = gen_title_bar($title_html, true);
   }
   return $rv;
 }
 
-function gen_chat_title($inpage, $action_cmd, $action_word, $action_char) {
+function gen_chat_title($inpage, $action_cmd, $action_char) {
   $chat_url = gen_url($inpage, $action_cmd);
-  $rv = gen_link($chat_url, $action_word, 'header');
-  $plain_str = ' Chat with FaTe [';
-  $rv .= gen_link($chat_url, $plain_str, 'plain');
-  $rv .= gen_link($chat_url, $action_char);
-  $rv = $rv . ']';
+  $rv = '<div class="row"><div class="column">';
+  $action_str = 'Chat with ' . app_get_page_title();
+  $rv .= gen_link($chat_url, $action_str, 'plain');
+  $rv .= '</div><div class="right_column">';
+  $rv .= gen_link($chat_url, '&nbsp;&nbsp;&nbsp;&nbsp;[', 'chars');
+  $rv .= gen_link($chat_url, $action_char) . ']';
+  $rv .= '</div></div>';
   return $rv;
 }
 
