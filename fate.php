@@ -30,6 +30,7 @@ include('lib/util.php');
 include('lib/html.php');
 include('lib/debug.php');
 
+include('app/user.php');
 include('app/model.php');
 include('app/view.php');
 include('app/control.php');

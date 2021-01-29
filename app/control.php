@@ -72,18 +72,24 @@ function con_do_cmd(&$data) {
       if (!web_logged_in()) {
         util_except('tried to update_user without a user_id');
       }
-      web_update_user_lastdate(web_get_user());
+      mod_update_user_lastdate(web_get_user());
       break;
 
      case 'Search':
+      $category = '';
+      $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST);
       if (isset($_REQUEST['category'])) {
-        $textarea = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
-        //TODO test that this fails silently and can be seen in the logs
+        $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
         util_assert($textarea, 'search category'
                     . 'specified with a closed textarea');
         check_string_param('category', $data, $_REQUEST);
+        $category = $data['category'];
       }
+
+      $stxt = $data['stxt'];
+      $newgemid = mod_generate_gem($curuser, $stxt, $category);
+      mod_update_user_lastgem($curuser, $newgemid);
       break;
 
      case TOGGLE_SPLASH_CMD:

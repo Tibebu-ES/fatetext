@@ -101,13 +101,6 @@ function web_get_user_lastdate($userid) {
   return $rs['lastlogin'];
 }
 
-function web_update_user_lastdate($userid) {
-  $nowtime = time();
-  $sql = 'UPDATE users SET lastlogin = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf($sql, $nowtime, $userid);
-}
-
 function web_login_user(&$data) {
   global $g_user_id;
   $inuser = $data['username'];

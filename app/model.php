@@ -31,41 +31,59 @@ function mod_get_hall_art() {
   return $rs;
 }
 
+function mod_generate_gem($userid, $stxt, $category) {
+  $sql = 'SELECT MAX(tokid) as maxid FROM toks';
+  $rs = queryf_one($sql);
+  $maxid = $rs['maxid'];
+
+  $randtokid = rand(0, $maxid - 1);
+  $sql = 'SELECT chestidstr FROM toks WHERE tokid = %d';
+  $rs = queryf_one($sql, $randtokid);
+  $chestidstr = $rs['chestidstr'];
+
+  $chestidarr = explode(',', $chestidstr);
+  $wordcount = count($chestidarr);
+  $randindex = rand(0, $wordcount - 1);
+  $randchestid = $chestidarr[$randindex];
+
+  $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
+  $rs = queryf_one($sql, $randchestid);
+  $randtxt = $rs['datastr'];
+
+  $nowtime = time();
+  $sql = 'INSERT INTO gems (userid, chestid,';
+  $sql .= ' tokid, stepint, datecreated)';
+  $sql .= ' VALUES (%d, %d, %d, %d, %d)';
+  queryf($sql, $userid, $randchestid, $randtokid, 0, $nowtime);
+  return last_insert_id();
+}
+
+function mod_load_gem($gemid) {
+  $sql = 'SELECT * FROM gems WHERE gemid = %d';
+  $rv = queryf_one($sql, $gemid);
+
+  $sql = 'SELECT tokstr FROM toks WHERE tokid = %d';
+  $rs = queryf_one($sql, $rv['tokid']);
+  $rv['tokstr'] = $rs['tokstr'];
+
+  $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
+  $rs = queryf_one($sql, $rv['chestid']);
+  $rv['datastr'] = $rs['datastr'];
+
+  $rv['chester'] = preg_replace('/' . $rv['tokstr'] . '/i',
+                                '_______', $rv['datastr']);
+  return $rv;
+}
+
+function mod_get_user_gems($userid, $maxgems = 5) {
+  $sql = 'SELECT gems.tokid, datecreated, tokstr FROM gems, toks';
+  $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
+  $sql .= ' ORDER BY datecreated DESC LIMIT %d';
+  $rs = queryf_all($sql, $userid, $maxgems);
+  return $rs;
+}
+
 function mod_log_search($logtxt) {
   $logtxt = '[' . fd(time()) . ']' . $logtxt . "\n";
   file_put_contents($GLOBALS['SLOGFILE'], $logtxt, FILE_APPEND);
-}
-
-function mod_update_user_rows($userid, $inrows) {
-  $sql = 'UPDATE users set searchrows = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf_one($sql, $inrows, $userid);
-}
-
-function mod_update_user_cols($userid, $incols) {
-  $sql = 'UPDATE users set searchcols = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf_one($sql, $incols, $userid);
-}
-
-function mod_get_user_int($userid, $intname) {
-  $sql = 'SELECT ' . $intname . ' FROM users';
-  $sql .= ' WHERE userid = %d';
-  $rs = queryf_one($sql, $userid);
-  if (!isset($rs) || !isset($rs[$intname])) {
-    util_except('get_user_flag(' . $intname
-                . ') query result missing '
-                . $intname);
-  }
-  return $rs[$intname];
-}
-
-function mod_flag_from_toggle($intoggle) {
-  switch ($intoggle) {
-   case TOGGLE_SPLASH_CMD: return FATE_SPLASH_FLAG;
-   case TOGGLE_CHAT_CMD: return CHAT_OPEN_FLAG;
-   case TOGGLE_TEXT_CMD: return TEXT_AREA_FLAG;
-  }
-  util_except('attempted to toggle an unknown flag: '
-              . $intoggle);
 }

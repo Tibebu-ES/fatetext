@@ -217,8 +217,14 @@ function gen_login_form($add_el = true) {
 function gen_chat_with_fate($inpage, $is_open) {
   $rv = '';
   if ($is_open) {
-    $chat_arr = array('hello fate?', 'world _______!',
-                      'fate world?', 'hello _______!');
+    $chat_arr = array();
+    $gemarr = mod_get_user_gems(web_get_user(), 5);
+    foreach ($gemarr as $gem) {
+      $chatstr = gen_u(fd($gem['datecreated'])) . '<br>';
+      $chatstr .= gen_i('hidden: ') . $gem['tokstr'] . '<br>';
+      $chatstr .= gen_i('guess: ') . gen_b('_______!');
+      $chat_arr []= $chatstr;
+    }
     $chat_win = gen_chat_win($chat_arr);
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, 'Collapse', '-');
     $title_bar = gen_title_bar($title_html);

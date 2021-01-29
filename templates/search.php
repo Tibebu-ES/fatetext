@@ -20,6 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */ 
 
+$curuser = web_get_user();
 $safetext = '';
 $incat = '';
 if (isset($data['stxt'])) {
@@ -28,10 +29,21 @@ if (isset($data['stxt'])) {
 if (isset($data['category'])) {
   $incat = $data['category'];
 }
-$textarea = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
+$textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
 echo gen_search_form($safetext, $textarea, $incat);
 
-$safecat = '';
+$lastgemid = mod_get_user_lastgem($curuser);
+if ($lastgemid == null) {
+  echo 'Click on the SEARCH button to generate a gem!';
+} else {
+  $gemdata = mod_load_gem($lastgemid);
+  if ($gemdata['stepint'] == 0) {
+    echo gen_p(gen_b('GEM: ') . $gemdata['chester']);
+    //echo gen_p('Guess the word');
+  }
+}
+
+/*$safecat = '';
 if ($incat != '') {
   $safecat = htmlentities($incat);
   $safecat = '<b>[</b>' . $safecat . '<b>]</b><br>';
@@ -48,5 +60,5 @@ if ($safetext != '') {
   	echo ' from ' . $safecat;
   }
   mod_log_search('');
-}
+}*/
 ?>
