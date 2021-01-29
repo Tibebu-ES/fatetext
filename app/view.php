@@ -81,9 +81,9 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'search':
     $link_url = gen_url($inpage, TOGGLE_TEXT_CMD);
     if (web_get_user_flag(web_get_user(), TEXT_AREA_FLAG)) {
-      $rv .= gen_link($link_url, '-AREA-', $css_class);
+      $rv .= gen_link($link_url, '--AREA', $css_class);
     } else {
-      $rv .= gen_link($link_url, '+text+', $css_class);            
+      $rv .= gen_link($link_url, 'text++', $css_class);            
     }
     break;
 
@@ -214,13 +214,14 @@ function gen_chat_with_fate($inpage, $is_open) {
     $chat_arr = array();
     $gemarr = mod_get_user_gems(web_get_user(), 5);
     foreach ($gemarr as $gem) {
-      $dateurl = gen_url($inpage, 'loadgem');
+      $dateurl = gen_url('search', 'loadgem');
       $dateurl .= gen_url_param('gemid', $gem['gemid']);
       $datestr = fd($gem['datecreated']);
       $chatstr = gen_link($dateurl, $datestr, 'header') . '<br>';
       if ($gem['stepint'] == 0) {
         $chatstr .= $gem['wordcount'] . ' words (';
         $chatstr .= $gem['charcount'] . ' letters)<br>';
+        $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
         $chatstr .= gen_i('guess: ') . gen_b('_______!');
       } else {
         $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';

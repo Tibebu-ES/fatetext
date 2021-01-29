@@ -54,11 +54,11 @@ function mod_generate_gem($userid, $stxt, $category) {
   $charcount = strlen($datastr) - $wordcount;
 
   $nowtime = time();
-  $sql = 'INSERT INTO gems (userid, chestid, tokid,';
-  $sql .= ' stepint, datecreated, wordcount, charcount)';
-  $sql .= ' VALUES (%d, %d, %d, %d, %d, %d, %d)';
-  queryf($sql, $userid, $randchestid, $randtokid,
-         0, $nowtime, $wordcount, $charcount);
+  $sql = 'INSERT INTO gems (userid, chestid, tokid, stepint,';
+  $sql .= ' datecreated, wordcount, charcount, lastloaded)';
+  $sql .= ' VALUES (%d, %d, %d, %d, %d, %d, %d, %d)';
+  queryf($sql, $userid, $randchestid, $randtokid, 0,
+         $nowtime, $wordcount, $charcount, $nowtime);
   return last_insert_id();
 }
 
@@ -88,9 +88,16 @@ function mod_get_user_gems($userid, $maxgems = 5) {
   $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';
   $sql .= ' wordcount, charcount, stepint FROM gems, toks';
   $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
-  $sql .= ' ORDER BY datecreated DESC LIMIT %d';
+  $sql .= ' ORDER BY lastloaded DESC LIMIT %d';
   $rs = queryf_all($sql, $userid, $maxgems);
   return $rs;
+}
+
+function mod_update_gem_lastloaded($gemid) {
+  $nowtime = time();
+  $sql = 'UPDATE gems SET lastloaded = %d';
+  $sql .= ' WHERE gemid = %d';
+  queryf($sql, $nowtime, $gemid);
 }
 
 function mod_log_search($logtxt) {

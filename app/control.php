@@ -75,15 +75,19 @@ function con_do_cmd(&$data) {
       mod_update_user_lastdate(web_get_user());
       break;
 
+     case 'loadgem':
+      check_int_param('gemid', $data, $_REQUEST);
+      $curuser = web_get_user();
+      mod_update_user_lastgem($curuser, $data['gemid']);
+      mod_update_gem_lastloaded($data['gemid']);
+      break;
+
      case 'Search':
       $category = '';
       $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST);
-      if (isset($_REQUEST['category'])) {
-        check_string_param('category', $data, $_REQUEST);
-        $category = $data['category'];
-      }
-
+      check_string_param('category', $data, $_REQUEST);
+      $category = $data['category'];
       $stxt = $data['stxt'];
       $newgemid = mod_generate_gem($curuser, $stxt, $category);
       mod_update_user_lastgem($curuser, $newgemid);

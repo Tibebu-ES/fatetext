@@ -55,6 +55,7 @@ function check_string_param($name, &$rv, &$p, $default=null) {
   if (!$boolrv && $GLOBALS['PARAMEX']) {
     util_except('invalid string param: ' . $name);
   }
+  return $boolrv;
 }
 
 //this function is the entry point from index.php
