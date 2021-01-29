@@ -50,7 +50,7 @@ define('FATE_TYPE_COMMENT', 9);
 define('FATE_TYPE_SEARCH', 10);
 define('FATE_TYPE_RESULT', 11);
 
-define('OSTITLE', 'Fate');
+define('OSTITLE', 'fatetext');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
 

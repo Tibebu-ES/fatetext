@@ -143,9 +143,9 @@ function gen_txt_input($inname, $invalue, $insize,
                        $inplace, $add_el = true) {
   $rv = '<input type="';
   if ($inname == 'password') {
-    $rv .= 'text';
-  } else {
     $rv .= 'password';
+  } else {
+    $rv .= 'text';
   }
   $rv .= '" name="' . $inname;
   $rv .= '" value="' . $invalue;

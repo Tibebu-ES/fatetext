@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$link_str = 'Back to the Hall of ' . strtoupper($GLOBALS['APPTITLE']);
+$link_str = 'Back to the Hall of Fame';
 $hall_str = gen_link(gen_url('hall'), $link_str); 
 ?>
 

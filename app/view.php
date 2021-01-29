@@ -62,6 +62,7 @@ function app_get_header_extra($inpage, $add_el = true) {
   switch ($inpage) {
    case 'hall':
    case 'art':
+   case 'date':
     $link_text = FAME_IDENT;
     $link_url = FAME_URL;
     $rv .= gen_link($link_url, $link_text, $css_class, false);
@@ -139,7 +140,7 @@ function app_get_smart_spacer($inpage, $add_el = true) {
 }
 
 function app_get_page_title($inpage = '') {
-  $rv = $GLOBALS['APPTITLE'] . 'Text';
+  $rv = $GLOBALS['APPTITLE'];
   if ($inpage != '') {
     $rv .= SPACER_STR . $inpage;
   }

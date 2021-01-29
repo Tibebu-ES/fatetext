@@ -51,7 +51,7 @@ if (web_logged_in()) {
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
   if (!isset($_SESSION['AGREETOS'])) {
-    if ($GLOBALS['APPTITLE'] == OSTITLE) {
+    if (strtolower($GLOBALS['APPTITLE']) == strtolower(OSTITLE)) {
       $atf = false;
     }
   }

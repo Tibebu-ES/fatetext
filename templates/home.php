@@ -42,7 +42,7 @@ if (web_logged_in()) {
   $hall_url = gen_url('hall');
 
   echo gen_login_form();
-  $link_str = 'Hall of ' . strtoupper($GLOBALS['APPTITLE']);
+  $link_str = 'Hall of Fame';
   $artnum = count(mod_get_hall_art());
   $hall_str = '[' . $artnum . ']' . PADDING_STR;
   $hall_str .= gen_link($hall_url, $link_str); 
