@@ -28,7 +28,7 @@ $GLOBALS['DBPASS'] = 'root';
 $GLOBALS['DBNAME'] = 'fatetext';
 $GLOBALS['LOGTABLE'] = 'log1';
 
-$GLOBALS['APPTITLE'] = 'Fatetext';
+$GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
 
 $GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';
