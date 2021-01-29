@@ -98,8 +98,15 @@ form {
 }
 
 div.textcontrols {
-  padding: 5px;
+  padding: 10px;
   padding-left: 0px;
+  padding-top: 0px;
+}
+
+div.simpleborder {
+  border: dashed black 1px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
 div.content {

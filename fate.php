@@ -71,8 +71,8 @@ define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');
 define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
 define('SPACER_STR', '::');
-define('SEARCH_ROWS', 40);
-define('LOGIN_ROWS', 18);
+define('SEARCH_COLS', 30);
+define('LOGIN_COLS', 18);
 
 define('TEMPLATE_CONTENT', '__content');
 define('TEMPLATE_PAGE', 'page');

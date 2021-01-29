@@ -80,9 +80,6 @@ function con_do_cmd(&$data) {
       $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST);
       if (isset($_REQUEST['category'])) {
-        $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
-        util_assert($textarea, 'search category'
-                    . 'specified with a closed textarea');
         check_string_param('category', $data, $_REQUEST);
         $category = $data['category'];
       }

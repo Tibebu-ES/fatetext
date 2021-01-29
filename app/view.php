@@ -165,26 +165,28 @@ function gen_tos_form($add_el = true) {
 function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
+  $option_arr = array('fate', 'data', 'docs',
+                      'suzyThe', 'theBard',
+                      'bibleOS', 'ancienT');
   if ($istextarea) {
     $inuser = web_get_user();
     $inrows = mod_get_user_int($inuser, USER_SEARCH_ROWS);
     $incols = mod_get_user_int($inuser, USER_SEARCH_COLS);
-    $elem_arr []= gen_text_area('stxt', $safetext, $inrows, $incols,
-                                SEARCH_PLACEHOLDER, $add_el);
+    $elem_arr []= '<div class="row">';
+    $elem_arr []= '<div class="column">';
     $elem_arr []= '<div class="textcontrols">';
+    $elem_arr []= '<div class="simpleborder">';
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $option_arr = array('fate', 'data', 'docs',
-                        'suzyThe', 'theBard',
-                        'bibleOS', 'ancienT');
-    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '&lt;=', $add_el);
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '=&gt;', $add_el);
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '/\\', $add_el);
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, '\\/', $add_el);
     $elem_arr []= '</div>';
+    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
+    $elem_arr []= '</div></div><div class="column">';    
+    $elem_arr []= gen_text_area('stxt', $safetext, 4, SEARCH_COLS,
+                                SEARCH_PLACEHOLDER, $add_el);
+    $elem_arr []= '</div></div>';
   } else {
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $insize = SEARCH_ROWS;
+    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
+    $insize = SEARCH_COLS;
     $elem_arr []= gen_txt_input('stxt', $safetext, $insize,
                             SEARCH_PLACEHOLDER, $add_el);
   }
@@ -194,7 +196,7 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
 
 function gen_login_form($add_el = true) {
   $rv = '';
-  $insize = LOGIN_ROWS;
+  $insize = LOGIN_COLS;
 
   $elem_arr = array();
   $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
