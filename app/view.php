@@ -26,7 +26,8 @@ function app_get_tos_page($local_page_msg) {
   $home_url = gen_url('home', 'silentlogout');
   $home_link = gen_link($home_url, 'Go back to the login page');
   $rv .= gen_p($home_link, 'page_heading');
-  $c0 = 'The following langauge was derived from the MIT License without modification';
+  $c0 = 'The following langauge was derived from the MIT License';
+  $cc = 'Copyright (c) 2021 Todd Perry';
   $c1 = 'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
   $c2 = 'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.';
   $c3 = 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.';
@@ -38,6 +39,7 @@ function app_get_tos_page($local_page_msg) {
   $rv .= '<div class="content">';
   $rv .= gen_tos_form();
   $rv .= gen_p(gen_u($c0) . ':');
+  $rv .= gen_p($cc);
   $rv .= gen_p($c1);
   $rv .= gen_p($c2);
   $rv .= gen_p($c3, 'lastline');

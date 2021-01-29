@@ -141,8 +141,12 @@ function gen_text_area($inname, $invalue, $inrows,
 
 function gen_txt_input($inname, $invalue, $insize,
                        $inplace, $add_el = true) {
-  $rv = '';
-  $rv .= '<input type ="text';
+  $rv = '<input type="';
+  if ($inname == 'password') {
+    $rv .= 'text';
+  } else {
+    $rv .= 'password';
+  }
   $rv .= '" name="' . $inname;
   $rv .= '" value="' . $invalue;
   $rv .= '" size="' . $insize;
