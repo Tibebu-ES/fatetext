@@ -23,7 +23,8 @@ SOFTWARE. */
 function app_get_tos_page($local_page_msg) {
   $rv = gen_h(2, app_get_page_title() . ' ' . gen_i('Terms of Service'));
   $rv .= '<div class="content">';
-  $home_url = gen_url('home', 'silentlogout');
+
+  $home_url = gen_url($splash, 'silentlogout');
   $home_link = gen_link($home_url, 'Go back to the login page');
   $rv .= gen_p($home_link, 'page_heading');
   $c0 = 'The following langauge was derived from the MIT License';
@@ -179,7 +180,11 @@ function gen_tos_form($add_el = true) {
   $elem_arr []= gen_input('submit', 'cmd', 'Proceed', $add_el);
   $elem_arr []= gen_input('checkbox', 'toscheck', '1', $add_el);
   $elem_arr []= gen_span('I agree to the following terms:');
-  $rv = gen_form($elem_arr, gen_url('home'));
+  $splash = 'home';
+  if (web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG)) {
+    $splash = 'data';
+  }
+  $rv = gen_form($elem_arr, gen_url($splash));
   return $rv;
 }
 
@@ -253,10 +258,9 @@ function gen_chat_with_fate($inpage, $is_open) {
         if ($gem['stepint'] == 0) {
           $chatstr .= $gem['wordcount'] . ' words (';
           $chatstr .= $gem['charcount'] . ' letters)<br>';
-          $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
           $chatstr .= gen_i('guess: ') . gen_b('_______!');
         } else {
-          $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
+          $chatstr .= gen_i('blank: ') . gen_b($gem['tokstr']) . '<br>';
           $guessdata = mod_load_step($gem['gemid'], 1);
           $chatstr .= gen_i('guess: ') . gen_u($guessdata['stepstr']);
         }

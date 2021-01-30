@@ -25,7 +25,10 @@ $home_str = gen_link(gen_url('home'), $link_str);
 $username = web_get_user_name(web_get_user());
 $user_link = gen_link(gen_url('settings'), $username);
 $numcoins = mod_get_user_coins(web_get_user());
-$num_str = 'You have ' . gen_b($numcoins) . ' storycoins.';
+$num_str = 'You have ' . gen_b($numcoins) . ' storycoin';
+if ($numcoins != 1) {
+  $num_str .= 's';
+}
 echo gen_h(2, 'StoryCoin( ' . $user_link . ' )');
 $tempstr = gen_p($home_str, 'page_heading');
 echo gen_div($tempstr . gen_p($num_str), 'content');
