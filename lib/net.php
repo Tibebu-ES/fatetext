@@ -130,7 +130,7 @@ function net_check_for_fatal() {
 }
 
 function net_show_fail_page($errno, $errstr) {
-  p($errstr);
+  bp($errstr);
   include('error.php');
   exit(0);
 }

@@ -48,8 +48,10 @@ function con_do_cmd(&$data) {
       check_string_param('username', $data, $_REQUEST);
       check_string_param('password', $data, $_REQUEST);
       web_login_user($data);
-      if (web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG)) {
-        $data['page'] = 'data';
+      if (web_logged_in()) {
+        if (web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG)) {
+          $data['page'] = 'data';
+        }
       }
       break;
 
