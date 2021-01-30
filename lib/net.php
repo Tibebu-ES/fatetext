@@ -129,7 +129,8 @@ function net_check_for_fatal() {
   //TODO $error = error_get_last();
 }
 
-function net_show_fail_page() {
+function net_show_fail_page($errno, $errstr) {
+p($errstr);
   include('error.php');
   exit(0);
 }

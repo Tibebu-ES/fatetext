@@ -24,7 +24,7 @@ function app_get_tos_page($local_page_msg) {
   $rv = gen_h(2, app_get_page_title() . ' ' . gen_i('Terms of Service'));
   $rv .= '<div class="content">';
 
-  $home_url = gen_url($splash, 'silentlogout');
+  $home_url = gen_url('home', 'silentlogout');
   $home_link = gen_link($home_url, 'Go back to the login page');
   $rv .= gen_p($home_link, 'page_heading');
   $c0 = 'The following langauge was derived from the MIT License';
