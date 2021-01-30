@@ -41,6 +41,7 @@ function net_init_session() {
 
   //if IS_PROD?
   //register_shutdown_function("net_check_for_fatal");
+  ini_set('pcre.jit', 0);
   error_reporting(E_ALL); //0);
   set_error_handler('net_show_fail_page', E_ALL);
   set_exception_handler('net_show_fail_page');
