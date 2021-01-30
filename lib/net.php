@@ -42,8 +42,8 @@ function net_init_session() {
   if ($GLOBALS['ISPROD']) {
     error_reporting(E_ALL); //0);
     //register_shutdown_function("net_check_for_fatal");
-    set_error_handler('net_show_fail_page', E_ALL);
-    set_exception_handler('net_show_fail_page');
+    //set_error_handler('net_show_fail_page', E_ALL);
+    //set_exception_handler('net_show_fail_page');
   } else {
     error_reporting(E_ALL);
   }
@@ -126,11 +126,11 @@ function net_get_or_create_browser_id($duration = DEFAULT_DURATION) {
 }
 
 function net_check_for_fatal() {
-  //TODO $error = error_get_last();
+  
 }
 
 function net_show_fail_page($errno, $errstr) {
-p($errstr);
+  p($errstr);
   include('error.php');
   exit(0);
 }

@@ -196,8 +196,6 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
                       'bibleOS', 'ancienT');
   if ($istextarea) {
     $inuser = web_get_user();
-    $inrows = mod_get_user_int($inuser, USER_SEARCH_ROWS);
-    $incols = mod_get_user_int($inuser, USER_SEARCH_COLS);
     $elem_arr []= '<div class="row">';
     $elem_arr []= '<div class="column">';
     $elem_arr []= '<div class="textcontrols">';
