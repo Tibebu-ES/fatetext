@@ -39,14 +39,11 @@ function net_init_session() {
     util_except('$_SESSION should not be set before session_start()');
   }
 
-  if ($GLOBALS['ISPROD']) {
-    error_reporting(E_ALL); //0);
-    //register_shutdown_function("net_check_for_fatal");
-    set_error_handler('net_show_fail_page', E_ALL);
-    set_exception_handler('net_show_fail_page', E_ALL);
-  } else {
-    error_reporting(E_ALL);
-  }
+  //if IS_PROD?
+  //register_shutdown_function("net_check_for_fatal");
+  error_reporting(E_ALL); //0);
+  set_error_handler('net_show_fail_page', E_ALL);
+  set_exception_handler('net_show_fail_page');
 
   if ($GLOBALS['NOCOOKIES']) {
     ini_set('session.name', 'FATESID');
