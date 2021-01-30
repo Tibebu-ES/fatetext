@@ -55,48 +55,44 @@ function con_do_cmd(&$data) {
       net_logout_user($data, ($cmd == 'logout'));
       break;
 
+     case 'Guess':
      case 'Ask Question':
-      check_int_param('gemid', $data, $_REQUEST);
-      check_string_param('steptxt', $data, $_REQUEST);
-
-      $curuser = web_get_user();
-      $curgem = $data['gemid'];
-      mod_update_user_lastgem($curuser, $curgem);
-      if ($data['steptxt'] == '') {
-        $data[TEMPLATE_MSG] = 'The question cannot be empty.';
-      } else {
-        mod_record_step($curgem, $data['steptxt'], 2);
-        mod_update_gem_step($curgem, 2);
-      }
-      break;
-
      case 'Record Answer':
       check_int_param('gemid', $data, $_REQUEST);
       check_string_param('steptxt', $data, $_REQUEST);
 
       $curuser = web_get_user();
       $curgem = $data['gemid'];
-      mod_update_user_lastgem($curuser, $curgem);
-      if ($data['steptxt'] == '') {
-        $data[TEMPLATE_MSG] = 'The answer cannot be empty.';
+      util_assert($curgem = mod_get_user_lastgem($curuser));
+
+      $gemdata = mod_load_gem($curgem);
+      $whichint = 1;
+      if ($cmd == 'Guess') {
+        if ($gemdata['stepint'] >= 1) {
+          $data[TEMPLATE_MSG] = 'Did you REALLY just hit reload?  Move on!';
+          break;
+        }
+        if (strtolower($data['steptxt']) == $gemdata['tokstr']) {
+          $data[TEMPLATE_MSG] = 'You got a storycoin!';
+          mod_increment_user_coins($curuser);          
+        }
+      } else if ($cmd == 'Ask Question') {
+        $whichint = 2;
+        if ($gemdata['stepint'] >= 2) {
+          $data[TEMPLATE_MSG] = 'Yo. The question is immutable.';
+          break;
+        }
+      } else if ($cmd == 'Record Answer') {
+        $whichint = 3;
       } else {
-        mod_record_step($curgem, $data['steptxt'], 3);
-        mod_update_gem_step($curgem, 3);
+        util_assert(false, 'gem step error');
       }
-      break;
 
-     case 'Guess':
-      check_int_param('gemid', $data, $_REQUEST);
-      check_string_param('steptxt', $data, $_REQUEST);
-
-      $curuser = web_get_user();
-      $curgem = $data['gemid'];
-      mod_update_user_lastgem($curuser, $curgem);
       if ($data['steptxt'] == '') {
-        $data[TEMPLATE_MSG] = 'The guess cannot be empty.';
+        $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
       } else {
-        mod_record_step($curgem, $data['steptxt'], 1);
-        mod_update_gem_step($curgem, 1);
+        mod_record_step($curgem, $data['steptxt'], $whichint);
+        mod_update_gem_step($curgem, $whichint);
       }
       break;
 
@@ -133,9 +129,13 @@ function con_do_cmd(&$data) {
       check_string_param('stxt', $data, $_REQUEST);
       check_string_param('category', $data, $_REQUEST);
       $category = $data['category'];
-      $stxt = $data['stxt'];
-      $newgemid = mod_generate_gem($curuser, $stxt, $category);
-      mod_update_user_lastgem($curuser, $newgemid);
+      if (strlen($category) == 'CLEAR') {
+        mod_update_user_lastgem($curuser, 0);
+      } else {
+        $stxt = $data['stxt'];
+        $newgemid = mod_generate_gem($curuser, $stxt, $category);
+        mod_update_user_lastgem($curuser, $newgemid);
+      }
       break;
 
      case TOGGLE_SPLASH_CMD:

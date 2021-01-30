@@ -35,7 +35,7 @@ echo gen_search_form($safetext, $textarea, $incat);
 $guessdata = null;
 $lastgemid = mod_get_user_lastgem($curuser);
 if ($lastgemid == null) {
-  echo 'Click on the SEARCH button to generate a gem!';
+  echo gen_p('Choose a text and then click on the [Search] button in order to generate a gem!');
 } else {
   $gemdata = mod_load_gem($lastgemid);
   $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
@@ -60,7 +60,7 @@ if ($lastgemid == null) {
 
     util_assert(isset($guessdata));
     $tempstr = gen_b('Step 1: ') . ' you guessed ';
-    if ($guesstxt == $gemdata['tokstr']) {
+    if (strtolower($guessdata['stepstr']) == strtolower($gemdata['tokstr'])) {
       $coin_url = gen_url('coin');
       $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
       $tempstr .= gen_b($gemdata['tokstr']) . ')';

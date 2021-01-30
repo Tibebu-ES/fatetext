@@ -20,19 +20,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$link_str = 'Back to Search';
-$search_str = gen_link(gen_url('search'), $link_str);
+$link_str = 'Back to Home';
+$home_str = gen_link(gen_url('home'), $link_str);
 $username = web_get_user_name(web_get_user());
-$user_link = gen_link(gen_url('home'), $username);
-$numcoins = 2; //TODO
-$numcoin_str = 'User "' . $user_link . '" has ';
-$numcoin_str .= gen_b($numcoins) . ' storycoins.'
-?>
-
-<h2>StoryCoin( <?php echo $user_link; ?> )</h2>
-<div class="innerc">
-<?php
-echo gen_p($search_str, 'page_heading');
-echo gen_p($numcoin_str, 'lastline');
-?>
-</div>
+$user_link = gen_link(gen_url('settings'), $username);
+$numcoins = mod_get_user_coins(web_get_user());
+$num_str = 'You have ' . gen_b($numcoins) . ' storycoins.';
+echo gen_h(2, 'StoryCoin( ' . $user_link . ' )');
+$tempstr = gen_p($home_str, 'page_heading');
+echo gen_div($tempstr . gen_p($num_str), 'content');

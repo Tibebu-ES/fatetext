@@ -42,7 +42,7 @@ function app_get_tos_page($local_page_msg) {
   $rv .= gen_p($cc);
   $rv .= gen_p($c1);
   $rv .= gen_p($c2);
-  $rv .= gen_p($c3, 'lastline');
+  $rv .= gen_p($c3);
   $rv .= '</div></div>';
   $rv .= gen_copyright_notice();
   return $rv;
@@ -53,14 +53,6 @@ function app_get_header_extra($inpage, $add_el = true) {
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
   
   switch ($inpage) {
-   case 'hall':
-   case 'art':
-   case 'date':
-    $link_text = FAME_IDENT;
-    $link_url = FAME_URL;
-    $rv .= gen_link($link_url, $link_text, $css_class, false);
-    break;
-
    case 'home':
    case 'data':
     $fatesplash = web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG);
@@ -86,6 +78,12 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'settings':
     $link_url = gen_url('home', LOGOUT_CMD);
     $rv .= gen_link($link_url, 'LOGOUT', $css_class);
+    break;
+
+   default:
+    $link_text = FAME_IDENT;
+    $link_url = FAME_URL;
+    $rv .= gen_link($link_url, $link_text, $css_class, false);
     break;
   }
 
@@ -188,7 +186,7 @@ function gen_tos_form($add_el = true) {
 function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array('fate', 'data', 'docs',
+  $option_arr = array('fate', 'data', 'docs', 'CLEAR',
                       'suzyThe', 'theBard',
                       'bibleOS', 'ancienT');
   if ($istextarea) {
@@ -243,24 +241,28 @@ function gen_chat_with_fate($inpage, $is_open) {
   $rv = '';
   if ($is_open) {
     $chat_arr = array();
-    $gemarr = mod_get_user_gems(web_get_user(), 5);
-    foreach ($gemarr as $gem) {
-      $dateurl = gen_url('search', 'loadgem');
-      $dateurl .= gen_url_param('gemid', $gem['gemid']);
-      $datestr = fd($gem['datecreated']);
-      $chatstr = gen_link($dateurl, $datestr, 'header') . '<br>';
-      if ($gem['stepint'] == 0) {
-        $chatstr .= $gem['wordcount'] . ' words (';
-        $chatstr .= $gem['charcount'] . ' letters)<br>';
-        $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
-        $chatstr .= gen_i('guess: ') . gen_b('_______!');
-      } else {
-        $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
-        $guessdata = mod_load_step($gem['gemid'], 1);
-        $chatstr .= gen_i('guess: ') . gen_u($guessdata['stepstr']);
-      }
-      $chat_arr []= $chatstr;
-    }
+    $gemarr = mod_get_user_gems(web_get_user(), NUM_CHAT_ROWS);
+    if (count($gemarr) == 0) {
+      $chat_arr []= gen_i('No gems.');
+    } else {
+      foreach ($gemarr as $gem) {
+        $dateurl = gen_url('search', 'loadgem');
+        $dateurl .= gen_url_param('gemid', $gem['gemid']);
+        $datestr = fd($gem['datecreated']);
+        $chatstr = gen_link($dateurl, $datestr, 'header') . '<br>';
+        if ($gem['stepint'] == 0) {
+          $chatstr .= $gem['wordcount'] . ' words (';
+          $chatstr .= $gem['charcount'] . ' letters)<br>';
+          $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
+          $chatstr .= gen_i('guess: ') . gen_b('_______!');
+        } else {
+          $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
+          $guessdata = mod_load_step($gem['gemid'], 1);
+          $chatstr .= gen_i('guess: ') . gen_u($guessdata['stepstr']);
+        }
+        $chat_arr []= $chatstr;
+      } //end foreach gems
+    } //end if no gems
     $chat_win = gen_chat_win($chat_arr);
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
     $title_bar = gen_title_bar($title_html);

@@ -102,7 +102,7 @@ if (web_logged_in()) {
     echo gen_p($page_msg, 'page_msg');
   }
 
-  echo gen_div($data[TEMPLATE_CONTENT], 'wide_content');
+  echo gen_div($data[TEMPLATE_CONTENT], 'innerc');
   $add_br = (!web_logged_in() && ($page == 'home'));
   echo gen_copyright_notice($add_br);
 

@@ -35,20 +35,7 @@ include('app/model.php');
 include('app/view.php');
 include('app/control.php');
 
-define('SYSUSER', 1);
-define('VOIDOID', 1);
-
-define('FATE_TYPE_VOID', 1);
-define('FATE_TYPE_USER', 2);
-define('FATE_TYPE_BOOK', 3);
-define('FATE_TYPE_TOK', 4);
-define('FATE_TYPE_GEM', 5);
-define('FATE_TYPE_STEP', 6);
-define('FATE_TYPE_DIFF', 7);
-define('FATE_TYPE_CONCEPT', 8);
-define('FATE_TYPE_COMMENT', 9);
-define('FATE_TYPE_SEARCH', 10);
-define('FATE_TYPE_RESULT', 11);
+define('NUM_CHAT_ROWS', 10);
 
 define('OSTITLE', 'fatetext');
 define('COPYRIGHT_HOLDER', 'TSUZY');
@@ -68,6 +55,7 @@ define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');
 define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
 define('SPACER_STR', '::');
+
 define('SEARCH_COLS', 30);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);

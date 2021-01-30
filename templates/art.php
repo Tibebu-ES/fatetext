@@ -28,6 +28,6 @@ $hall_str = gen_link(gen_url('hall'), $link_str);
 <div class="innerc">
 <?php
 echo gen_p($hall_str, 'page_heading');
-echo gen_p('TODO', 'lastline');
+echo gen_p('TODO');
 ?>
 </div>

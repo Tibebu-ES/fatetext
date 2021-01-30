@@ -18,13 +18,31 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. */ ?>
+SOFTWARE. */
 
-<?php echo gen_search_form(); ?>
+$hashmsg = '';
+if (isset($_REQUEST['inpass'])) {
+  $inpass = $_REQUEST['inpass'];
+  $salt = 'asdf';
+  $hashpass = sha1($inpass . $salt);
+  $inpass = htmlspecialchars($inpass);
+  $hashmsg = 'haspass for "' . gen_b(gen_i($inpass));
+  $hashmsg = gen_p($hashmsg . '" =<br>' . $hashpass);
+}
+
+echo gen_search_form();
+?>
 
 <pre><b>*<u>Account</u>*</b> | Archive | TheDocs (or AdminHQ)</pre>
 
-<p class="lastline">
+<?php echo $hashmsg; ?>
+<form action="?page=settings" method="post">
+<input type="text" name="inpass" size="30"><br>
+<input type="submit" value="Get HASHPASS">
+</form>
+
+
+<p>
 Change Username & Password<br>
 Add/Remove Emails<br>
 Rows and Cols<br>

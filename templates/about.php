@@ -48,4 +48,4 @@ Or play a leadership role and hopefully lead by
 Or become a developer by modifing the FATEtext
 <b>to support more and more new features</b>:</p>
 
-<p class="lastline"><u>TODO</u></p>
+<p><u>TODO</u></p>

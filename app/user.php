@@ -20,16 +20,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-function mod_update_user_rows($userid, $inrows) {
-  $sql = 'UPDATE users set searchrows = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf_one($sql, $inrows, $userid);
+function mod_get_user_coins($userid) {
+  return mod_get_user_int($userid, 'storycoins');
 }
 
-function mod_update_user_cols($userid, $incols) {
-  $sql = 'UPDATE users set searchcols = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf_one($sql, $incols, $userid);
+function mod_increment_user_coins($userid) {
+  $coins = mod_get_user_coins($userid) + 1;
+  mod_update_user_int($userid, 'storycoins', $coins);
 }
 
 function mod_update_user_lastgem($userid, $gemid) {
