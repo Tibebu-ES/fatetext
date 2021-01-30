@@ -134,6 +134,17 @@ div.innerc {
   padding-bottom: 0px;
 }
 
+div.gem_step {
+  padding: 10px;
+  padding-top: 0px;
+}
+
+div.gem_text {
+  padding: 10px;
+  margin-right: 20px;
+  border: dotted #000000 1px;
+}
+
 div.title_bar {
   padding: 5px;
   border: solid #333333 1px;

@@ -95,7 +95,7 @@ if (web_logged_in()) {
   $links_arr = array('TOS', 'News', 'About');
   echo app_get_header_links($page, $links_arr);
 
-  if ($page == 'hall') {
+  if ($page == 'hall' || $page == 'art' || $page == 'date') {
     echo app_get_header_extra($page);
   }
   if ($page_msg != '') {

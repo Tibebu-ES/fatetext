@@ -62,9 +62,28 @@ function mod_generate_gem($userid, $stxt, $category) {
   return last_insert_id();
 }
 
+function mod_update_gem_step($gemid, $newstep) {
+  $sql = 'UPDATE gems SET stepint = %d';
+  $sql .= ' WHERE gemid = %d';
+  queryf($sql, $newstep, $gemid);
+}
+
 function mod_load_guess($gemid) {
-  //TODO
-  return '';
+  $sql = 'SELECT stepstr FROM steps';
+  $sql .= ' WHERE gemid = %d';
+  $sql .= ' AND whichint = 1';
+  $rs = queryf_one($sql, $gemid);
+  return $rs['stepstr'];
+}
+
+function mod_record_guess($gemid, $guesstxt) {
+  $nowtime = time();
+  $sql = 'DELETE FROM steps WHERE gemid = %d AND whichint = 1';
+  queryf($sql, $gemid);
+
+  $sql = 'INSERT INTO steps (gemid, stepstr, whichint, datecreated)';
+  $sql .= ' VALUES (%d, %s, %d, %d)';
+  queryf($sql, $gemid, $guesstxt, 1, $nowtime);
 }
 
 function mod_load_gem($gemid) {

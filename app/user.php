@@ -48,7 +48,7 @@ function mod_get_user_int($userid, $intname) {
   $sql .= ' WHERE userid = %d';
   $rs = queryf_one($sql, $userid);
   if (!isset($rs) || !isset($rs[$intname])) {
-    util_except('get_user_flag(' . $intname
+    util_except('get_user_int(' . $intname
                 . ') query result missing '
                 . $intname);
   }

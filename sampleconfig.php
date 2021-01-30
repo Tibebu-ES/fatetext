@@ -38,9 +38,6 @@ $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
 $GLOBALS['FILESDIR'] = '/Users/conr/fate/fatefiles';
 $GLOBALS['SESSIONSAVEPATH'] = '/Users/conr/tmp';
 
-$GLOBALS['HASHPASS'] = '9ef490f9e924e819b55ff92310c0339229250f6a';
-$GLOBALS['ADMINPASS'] = 'theclub';
-
 $GLOBALS['NOCOOKIES'] = true;
 $GLOBALS['ISPROD'] = false;
 

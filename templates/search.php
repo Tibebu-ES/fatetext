@@ -37,9 +37,39 @@ if ($lastgemid == null) {
   echo 'Click on the SEARCH button to generate a gem!';
 } else {
   $gemdata = mod_load_gem($lastgemid);
+  $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
+  $tempstr .= PADDING_STR . gen_b('(') . 'Created ';
+  $tempstr .= gen_i(fd($gemdata['datecreated'])) . gen_b(')')  ;
+  echo gen_p(gen_u($tempstr . PADDING_STR));
+
   if ($gemdata['stepint'] == 0) {
-    echo gen_p(gen_b('GEM: ') . $gemdata['chester']);
-    //echo gen_p('Guess the word');
+
+    $tempstr = 'Guess the blanked out word in the following sentence:';
+    $tempstr = gen_p(gen_b('Step 1: ') . $tempstr);
+    $tempstr .= gen_div($gemdata['chester'], 'gem_text');
+    $tempstr .= gen_p(gen_gem_guess_form($gemdata));
+    echo gen_div($tempstr, 'gem_step');
+
+  } else if ($gemdata['stepint'] == 1) {
+
+    $guesstxt = mod_load_guess($gemdata['gemid']);
+    $tempstr = gen_b('Step 1: ') . 'you guessed ' . gen_u($guesstxt);
+    if ($guesstxt == $gemdata['tokstr']) {
+      $tempstr .= ' (' . gen_b('CORRECT!') . ')';
+    } else {
+      $tempstr .= ' (ACTUAL: ' . gen_b($gemdata['tokstr']) . ')';
+    }
+    $tempstr = gen_p($tempstr);
+    $tempstr .= gen_div($gemdata['chester'], 'gem_text');
+    echo gen_div($tempstr, 'gem_step');
+
+    $tempstr = 'Now, ask a question about that same sentence:';
+    $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+    $tempstr .= gen_gem_quest_form($gemdata);
+    echo gen_div($tempstr, 'gem_step');
+
+    //echo gen_div($tempstr, 'gem_step');
+
   }
 }
 

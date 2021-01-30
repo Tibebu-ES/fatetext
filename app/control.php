@@ -55,14 +55,25 @@ function con_do_cmd(&$data) {
       net_logout_user($data, ($cmd == 'logout'));
       break;
 
+     case 'Guess':
+      check_int_param('gemid', $data, $_REQUEST);
+      check_string_param('steptxt', $data, $_REQUEST);
+
+      $curuser = web_get_user();
+      $curgem = $data['gemid'];
+      mod_update_user_lastgem($curuser, $curgem);
+      mod_record_guess($curgem, $data['steptxt']);
+      mod_update_gem_step($curgem, 1);
+      break;
+
      case 'Proceed':
-       if (isset($_REQUEST['toscheck'])) {
-         $data['toscheck'] = true;
-       } else {
-         $data['toscheck'] = false;
-       }
-       con_tos_action($data);
-       break;
+      if (isset($_REQUEST['toscheck'])) {
+        $data['toscheck'] = true;
+      } else {
+        $data['toscheck'] = false;
+      }
+      con_tos_action($data);
+      break;
 
      case 'endsession':
       net_end_session();

@@ -51,14 +51,7 @@ function app_get_tos_page($local_page_msg) {
 function app_get_header_extra($inpage, $add_el = true) {
   $css_class = 'header';
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
-
-  if (!web_logged_in()) {
-
-    if (!(($inpage == 'hall') || ($inpage == 'art'))) {
-      util_except('getting header extra on invalid page');
-    }
-  }
-
+  
   switch ($inpage) {
    case 'hall':
    case 'art':
@@ -144,6 +137,26 @@ function app_get_page_title($inpage = '') {
   if ($inpage != '') {
     $rv .= SPACER_STR . $inpage;
   }
+  return $rv;
+}
+
+function gen_gem_quest_form($gemdata, $add_el = true) {
+  $rv = '';
+  $elem_arr = array();
+  $elem_arr []= gen_text_area('steptxt', '', 4, QUEST_COLS, '', $add_el);
+  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Record Question', $add_el));
+  $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
+  $rv = gen_form($elem_arr, gen_url('search'));
+  return $rv;
+}
+
+function gen_gem_guess_form($gemdata, $add_el = true) {
+  $rv = '';
+  $elem_arr = array();
+  $elem_arr []= gen_input('submit', 'cmd', 'Guess', $add_el);
+  $elem_arr []= gen_txt_input('steptxt', '', GUESS_COLS, '', $add_el);
+  $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
+  $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
 }
 
