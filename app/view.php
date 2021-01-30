@@ -143,8 +143,23 @@ function app_get_page_title($inpage = '') {
 function gen_gem_quest_form($gemdata, $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $elem_arr []= gen_text_area('steptxt', '', 4, QUEST_COLS, '', $add_el);
-  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Record Question', $add_el));
+  $elem_arr []= gen_text_area('steptxt', '', 3, STEP_COLS, '', $add_el);
+  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Ask Question', $add_el));
+  $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
+  $rv = gen_form($elem_arr, gen_url('search'));
+  return $rv;
+}
+
+function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
+  $rv = '';
+  $elem_arr = array();
+  $elem_arr []= gen_text_area('steptxt', $stepvalue, 5, STEP_COLS, '', $add_el);
+  $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
+  if ($lastsaved != 0) {
+    $recrow .= PADDING_STR . ' (' . gen_i('last saved at ');
+    $recrow .= fd($lastsaved) . ')';
+  }
+  $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
@@ -241,8 +256,8 @@ function gen_chat_with_fate($inpage, $is_open) {
         $chatstr .= gen_i('guess: ') . gen_b('_______!');
       } else {
         $chatstr .= gen_i('hidden: ') . gen_b($gem['tokstr']) . '<br>';
-        $guesstxt = mod_load_guess($gem['gemid']);
-        $chatstr .= gen_i('guess: ') . gen_u($guesstxt);
+        $guessdata = mod_load_step($gem['gemid'], 1);
+        $chatstr .= gen_i('guess: ') . gen_u($guessdata['stepstr']);
       }
       $chat_arr []= $chatstr;
     }

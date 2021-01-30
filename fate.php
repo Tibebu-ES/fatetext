@@ -54,9 +54,6 @@ define('OSTITLE', 'fatetext');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
 
-define('USER_SEARCH_ROWS', 'searchrows');
-define('USER_SEARCH_COLS', 'searchcols');
-
 define('CHAT_OPEN_FLAG', 1); //'chatopen');
 define('TEXT_AREA_FLAG', 2); //'textarea');
 define('FATE_SPLASH_FLAG', 4); //'fatesplash');
@@ -74,7 +71,7 @@ define('SPACER_STR', '::');
 define('SEARCH_COLS', 30);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);
-define('QUEST_COLS', 50);
+define('STEP_COLS', 50);
 
 define('TEMPLATE_CONTENT', '__content');
 define('TEMPLATE_PAGE', 'page');

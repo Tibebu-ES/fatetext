@@ -55,6 +55,36 @@ function con_do_cmd(&$data) {
       net_logout_user($data, ($cmd == 'logout'));
       break;
 
+     case 'Ask Question':
+      check_int_param('gemid', $data, $_REQUEST);
+      check_string_param('steptxt', $data, $_REQUEST);
+
+      $curuser = web_get_user();
+      $curgem = $data['gemid'];
+      mod_update_user_lastgem($curuser, $curgem);
+      if ($data['steptxt'] == '') {
+        $data[TEMPLATE_MSG] = 'The question cannot be empty.';
+      } else {
+        mod_record_step($curgem, $data['steptxt'], 2);
+        mod_update_gem_step($curgem, 2);
+      }
+      break;
+
+     case 'Record Answer':
+      check_int_param('gemid', $data, $_REQUEST);
+      check_string_param('steptxt', $data, $_REQUEST);
+
+      $curuser = web_get_user();
+      $curgem = $data['gemid'];
+      mod_update_user_lastgem($curuser, $curgem);
+      if ($data['steptxt'] == '') {
+        $data[TEMPLATE_MSG] = 'The answer cannot be empty.';
+      } else {
+        mod_record_step($curgem, $data['steptxt'], 3);
+        mod_update_gem_step($curgem, 3);
+      }
+      break;
+
      case 'Guess':
       check_int_param('gemid', $data, $_REQUEST);
       check_string_param('steptxt', $data, $_REQUEST);
@@ -62,8 +92,12 @@ function con_do_cmd(&$data) {
       $curuser = web_get_user();
       $curgem = $data['gemid'];
       mod_update_user_lastgem($curuser, $curgem);
-      mod_record_guess($curgem, $data['steptxt']);
-      mod_update_gem_step($curgem, 1);
+      if ($data['steptxt'] == '') {
+        $data[TEMPLATE_MSG] = 'The guess cannot be empty.';
+      } else {
+        mod_record_step($curgem, $data['steptxt'], 1);
+        mod_update_gem_step($curgem, 1);
+      }
       break;
 
      case 'Proceed':

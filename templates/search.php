@@ -32,15 +32,21 @@ if (isset($data['category'])) {
 $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
 echo gen_search_form($safetext, $textarea, $incat);
 
+$guessdata = null;
 $lastgemid = mod_get_user_lastgem($curuser);
 if ($lastgemid == null) {
   echo 'Click on the SEARCH button to generate a gem!';
 } else {
   $gemdata = mod_load_gem($lastgemid);
   $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
-  $tempstr .= PADDING_STR . gen_b('(') . 'Created ';
-  $tempstr .= gen_i(fd($gemdata['datecreated'])) . gen_b(')')  ;
-  echo gen_p(gen_u($tempstr . PADDING_STR));
+  $tempstr .= PADDING_STR . gen_b('(') . 'Created ' . gen_b('at ');
+  $tempstr .= gen_i(fd($gemdata['datecreated']));
+  if ($gemdata['stepint'] > 0) {
+    $guessdata = mod_load_step($gemdata['gemid'], 1);
+    $duration = $guessdata['datecreated'] - $gemdata['datecreated'];
+    $tempstr .= PADDING_STR . gen_b('\'in ') . $duration . ' secs';
+  }
+  echo gen_p(gen_u($tempstr . gen_b(')') . PADDING_STR));
 
   if ($gemdata['stepint'] == 0) {
 
@@ -50,26 +56,52 @@ if ($lastgemid == null) {
     $tempstr .= gen_p(gen_gem_guess_form($gemdata));
     echo gen_div($tempstr, 'gem_step');
 
-  } else if ($gemdata['stepint'] == 1) {
+  } else {
 
-    $guesstxt = mod_load_guess($gemdata['gemid']);
-    $tempstr = gen_b('Step 1: ') . 'you guessed ' . gen_u($guesstxt);
+    util_assert(isset($guessdata));
+    $tempstr = gen_b('Step 1: ') . ' you guessed ';
     if ($guesstxt == $gemdata['tokstr']) {
-      $tempstr .= ' (' . gen_b('CORRECT!') . ')';
+      $coin_url = gen_url('coin');
+      $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
+      $tempstr .= gen_b($gemdata['tokstr']) . ')';
     } else {
-      $tempstr .= ' (ACTUAL: ' . gen_b($gemdata['tokstr']) . ')';
+      $tempstr .= gen_b(gen_u($guessdata['stepstr']));
+      $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
     }
     $tempstr = gen_p($tempstr);
     $tempstr .= gen_div($gemdata['chester'], 'gem_text');
     echo gen_div($tempstr, 'gem_step');
 
-    $tempstr = 'Now, ask a question about that same sentence:';
-    $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
-    $tempstr .= gen_gem_quest_form($gemdata);
-    echo gen_div($tempstr, 'gem_step');
+    if ($gemdata['stepint'] == 1) {
 
-    //echo gen_div($tempstr, 'gem_step');
+      $tempstr = 'Now, ask a question about that same sentence:';
+      $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+      $tempstr .= gen_gem_quest_form($gemdata);
+      echo gen_div($tempstr, 'gem_step');
 
+    } else {
+
+      $questdata = mod_load_step($gemdata['gemid'], 2);
+      $tempstr = 'You asked the following question at ';
+      $tempstr .= fd($questdata['datecreated']) . ':';
+      $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+      $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
+      echo gen_div($tempstr, 'gem_step');      
+
+      $stepvalue = '';
+      $lastsaved = 0;
+      if ($gemdata['stepint'] > 2) {
+        $ansdata = mod_load_step($gemdata['gemid'], 3);
+        $stepvalue = $ansdata['stepstr'];
+        $lastsaved = $ansdata['datecreated'];
+      }
+
+      $tempstr = 'Please record the best answer to your question:';
+      $tempstr = gen_p(gen_b('Step 3: ') . $tempstr);
+      $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
+      echo gen_div($tempstr, 'gem_step');
+
+    }
   }
 }
 

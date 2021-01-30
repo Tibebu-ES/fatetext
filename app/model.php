@@ -68,22 +68,22 @@ function mod_update_gem_step($gemid, $newstep) {
   queryf($sql, $newstep, $gemid);
 }
 
-function mod_load_guess($gemid) {
-  $sql = 'SELECT stepstr FROM steps';
+function mod_load_step($gemid, $whichint) {
+  $sql = 'SELECT stepstr, datecreated FROM steps';
   $sql .= ' WHERE gemid = %d';
-  $sql .= ' AND whichint = 1';
-  $rs = queryf_one($sql, $gemid);
-  return $rs['stepstr'];
+  $sql .= ' AND whichint = %d';
+  $rs = queryf_one($sql, $gemid, $whichint);
+  return $rs;
 }
 
-function mod_record_guess($gemid, $guesstxt) {
+function mod_record_step($gemid, $guesstxt, $whichint) {
   $nowtime = time();
-  $sql = 'DELETE FROM steps WHERE gemid = %d AND whichint = 1';
-  queryf($sql, $gemid);
+  $sql = 'DELETE FROM steps WHERE gemid = %d AND whichint = %d';
+  queryf($sql, $gemid, $whichint);
 
   $sql = 'INSERT INTO steps (gemid, stepstr, whichint, datecreated)';
   $sql .= ' VALUES (%d, %s, %d, %d)';
-  queryf($sql, $gemid, $guesstxt, 1, $nowtime);
+  queryf($sql, $gemid, $guesstxt, $whichint, $nowtime);
 }
 
 function mod_load_gem($gemid) {
