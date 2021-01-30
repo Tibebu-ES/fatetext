@@ -43,7 +43,7 @@ function net_init_session() {
     error_reporting(E_ALL); //0);
     //register_shutdown_function("net_check_for_fatal");
     set_error_handler('net_show_fail_page', E_ALL);
-    //set_exception_handler('net_show_fail_page');
+    set_exception_handler('net_show_fail_page', E_ALL);
   } else {
     error_reporting(E_ALL);
   }
