@@ -56,6 +56,8 @@ function gen_link($inurl, $intext, $css_class = '') {
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';
   }
+  //$colorstr = rand(10, 99) . rand(10, 99) . rand(10, 99);
+  //$rv .= 'style="color:#' . $colorstr . '"';
   $rv .= '>' . $intext . '</a>';
   return $rv;
 }

@@ -289,7 +289,8 @@ function gen_chat_title($inpage, $action_cmd, $action_char) {
   $rv .= gen_link($chat_url, $action_str, 'plain');
   $rv .= '</div><div class="right_column">';
   $rv .= gen_link($chat_url, '&nbsp;&nbsp;&nbsp;&nbsp;[', 'chars');
-  $rv .= gen_link($chat_url, $action_char) . ']';
+  $rv .= gen_link($chat_url, $action_char);
+  $rv .= gen_link($chat_url, ']', 'chars');
   $rv .= '</div></div>';
   return $rv;
 }
