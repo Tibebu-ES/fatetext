@@ -31,6 +31,18 @@ function mod_get_hall_art() {
   return $rs;
 }
 
+function mod_max_tokid() {
+  $sql = 'SELECT MAX(tokid) as maxid FROM toks';
+  $rs = queryf_one($sql);
+  return $rs['maxid'];
+}
+
+function mod_max_chestid() {
+  $sql = 'SELECT MAX(chestid) as maxid FROM chests';
+  $rs = queryf_one($sql);
+  return $rs['maxid'];
+}
+
 function mod_generate_gem($userid, $stxt, $category) {
   $sql = 'SELECT MAX(tokid) as maxid FROM toks';
   $rs = queryf_one($sql);
@@ -100,6 +112,12 @@ function mod_load_gem($gemid) {
 
   $rv['chester'] = preg_replace('/' . $rv['tokstr'] . '/i',
                                 '_______', $rv['datastr']);
+  return $rv;
+}
+
+function mod_load_chest($chestid) {
+  $sql = 'SELECT * FROM chests WHERE chestid = %d';
+  $rv = queryf_one($sql, $chestid);
   return $rv;
 }
 

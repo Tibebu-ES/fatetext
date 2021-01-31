@@ -44,7 +44,7 @@ function net_init_session() {
   ini_set('pcre.jit', 0);
   error_reporting(E_ALL); //0);
   set_error_handler('net_show_fail_page', E_ALL);
-  set_exception_handler('net_show_fail_page');
+  set_exception_handler('net_show_exception');
 
   if ($GLOBALS['NOCOOKIES']) {
     ini_set('session.name', 'FATESID');
@@ -124,7 +124,11 @@ function net_get_or_create_browser_id($duration = DEFAULT_DURATION) {
 }
 
 function net_check_for_fatal() {
-  
+  //TODO
+}
+
+function net_show_exception($err) {
+  xbp($err->getMessage());
 }
 
 function net_show_fail_page($errno, $errstr) {

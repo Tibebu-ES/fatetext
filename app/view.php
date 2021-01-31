@@ -265,6 +265,12 @@ function gen_chat_with_fate($inpage, $is_open) {
         $chat_arr []= $chatstr;
       } //end foreach gems
     } //end if no gems
+    
+    $tempstr = gen_link(gen_url(''), 'top');
+    $tempstr .= ' | ' . gen_link(gen_url(''), 'prev');
+    $tempstr .= ' | ' . gen_link(gen_url(''), 'next');
+    $tempstr .= ' | ' . gen_link(gen_url(''), 'end');
+    $chat_arr []= $tempstr;
     $chat_win = gen_chat_win($chat_arr);
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
     $title_bar = gen_title_bar($title_html);

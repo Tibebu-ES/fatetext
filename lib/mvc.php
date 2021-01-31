@@ -51,6 +51,9 @@ function check_string_param($name, &$rv, &$p, $default=null) {
     $boolrv = true;
   } else {
     $rv[$name] = $default;
+    if ($default !== null) {
+      $boolrv = true;
+    }
   }
   if (!$boolrv && $GLOBALS['PARAMEX']) {
     util_except('invalid string param: ' . $name);

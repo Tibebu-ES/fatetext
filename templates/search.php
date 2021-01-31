@@ -23,14 +23,19 @@ SOFTWARE. */
 $curuser = web_get_user();
 $safetext = '';
 $incat = '';
+$stxt = '';
 if (isset($data['stxt'])) {
+  $stxt = $data['stxt'];
   $safetext = htmlentities($data['stxt']);
 }
 if (isset($data['category'])) {
   $incat = $data['category'];
 }
+
 $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
 echo gen_search_form($safetext, $textarea, $incat);
+
+if ($stxt == '') {
 
 $guessdata = null;
 $lastgemid = mod_get_user_lastgem($curuser);
@@ -68,8 +73,12 @@ if ($lastgemid == null) {
       $tempstr .= gen_b(gen_u($guessdata['stepstr']));
       $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
     }
+    $dataurl = gen_url('data', 'chest');
+    $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
+    $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
+    $datastr = gen_link($dataurl, $gemdata['chester'], 'plain');
     $tempstr = gen_p($tempstr);
-    $tempstr .= gen_div($gemdata['chester'], 'gem_text');
+    $tempstr .= gen_div($datastr, 'gem_text');
     echo gen_div($tempstr, 'gem_step');
 
     if ($gemdata['stepint'] == 1) {
@@ -105,22 +114,59 @@ if ($lastgemid == null) {
   }
 }
 
-/*$safecat = '';
-if ($incat != '') {
-  $safecat = htmlentities($incat);
-  $safecat = '<b>[</b>' . $safecat . '<b>]</b><br>';
+} else { //$stxt != ''
+  $stoks = explode(' ', $stxt);
+  $chestidarr = array();
+  foreach ($stoks as $tok) {
+    $allalpha = '';
+    $toklen = strlen($tok);
+    for ($j = 0; $j < $toklen; $j++) {
+      if (ctype_alpha($tok[$j])) {
+        $allalpha .= $tok[$j];
+      }
+    }
+
+    $sql = 'SELECT chestidstr FROM toks WHERE tokstr = %s';
+    $rs = queryf_one($sql, $allalpha);
+    if ($rs !== null) {
+      $tempidarr = explode(' ', $rs['chestidstr']);
+      foreach ($tempidarr as $chestid) {
+        if (!isset($chestidarr[$chestid])) {
+          $chestidarr[$chestid] = 1;
+        } else {
+          $chestidarr[$chestid]++;
+        }
+      }
+    }
+  }
+
+  foreach ($chestidarr as $chestid => $count) {
+    $chestdata = mod_load_chest($chestid);
+    $outstr = '';
+    $toks = explode(' ', $chestdata['datastr']);
+    foreach ($toks as $tok) {
+      $allalpha = '';
+      $toklen = strlen($tok);
+      for ($j = 0; $j < $toklen; $j++) {
+        if (ctype_alpha($tok[$j])) {
+          $allalpha .= $tok[$j];
+        }
+      }
+      $searchurl = gen_url('search', 'Search');
+      $searchurl .= gen_url_param('stxt', $allalpha);
+      $linkstr = gen_link($searchurl, $tok, 'plain');
+      foreach ($stoks as $stok) {
+        if (strtolower($allalpha) == strtolower($stok)) {
+          $linkstr = gen_u(gen_b($linkstr));
+          break;
+        }
+      }
+      $outstr .=  $linkstr . ' ' . "\n";
+    }
+    echo gen_p($outstr);
+  }
+
+  mod_log_search($stxt);
 }
 
-if ($safetext != '') {
-  $safetext = str_replace("\n", '<br>', $safetext);
-  $huttxt = $safecat . $safetext;
-  echo 'Safe hut = "<br>' . $huttxt . '"';
-  mod_log_search($huttxt);
-} else {
-  echo 'TODO generate new hug';
-  if ($incat != '') {
-  	echo ' from ' . $safecat;
-  }
-  mod_log_search('');
-}*/
 ?>

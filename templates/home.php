@@ -33,8 +33,8 @@ if (web_logged_in()) {
   $heading_html .= gen_link($heading_url, $link_str);
   $heading_html .= PADDING_STR;
   $last_date_html = fd(web_get_user_lastdate(web_get_user()));
-  $heading_html .= gen_i('Last updated: ' . $last_date_html);
-  echo gen_p('(' . $heading_html . ')'); 
+  $heading_html .= gen_i('Last login: ' . $last_date_html);
+  echo gen_p('(' . $heading_html . ')');
 
 } else { //not logged in
 

@@ -44,6 +44,11 @@ function con_do_cmd(&$data) {
 
   if ($cmd != '') {
     switch ($cmd) {
+     case 'chest':
+      check_int_param('chestid', $data, $_REQUEST);
+      check_string_param('tokstr', $data, $_REQUEST);
+      break;
+
      case 'Login':
       check_string_param('username', $data, $_REQUEST);
       check_string_param('password', $data, $_REQUEST);
@@ -131,15 +136,17 @@ function con_do_cmd(&$data) {
      case 'Search':
       $category = '';
       $curuser = web_get_user();
-      check_string_param('stxt', $data, $_REQUEST);
-      check_string_param('category', $data, $_REQUEST);
+      check_string_param('stxt', $data, $_REQUEST, '');
+      check_string_param('category', $data, $_REQUEST, '');
       $category = $data['category'];
-      if (strlen($category) == 'CLEAR') {
+      if ($category == 'CLEAR') {
         mod_update_user_lastgem($curuser, 0);
       } else {
         $stxt = $data['stxt'];
-        $newgemid = mod_generate_gem($curuser, $stxt, $category);
-        mod_update_user_lastgem($curuser, $newgemid);
+        if ($stxt == '') {
+          $newgemid = mod_generate_gem($curuser, $stxt, $category);
+          mod_update_user_lastgem($curuser, $newgemid);
+        }
       }
       break;
 

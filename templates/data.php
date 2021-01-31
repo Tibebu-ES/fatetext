@@ -21,7 +21,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 echo gen_search_form();
-?>
+
+if (isset($data['chestid'])) {
+
+  $minid = max(1, $data['chestid'] - 3);
+  $maxid = min(mod_max_chestid(), $data['chestid'] + 3);
+
+  for ($i = $minid; $i < $maxid; $i++) {
+    $chestdata = mod_load_chest($i);
+    $outstr = '';
+    $toks = explode(' ', $chestdata['datastr']);
+    foreach ($toks as $tok) {
+      $allalpha = '';
+      $toklen = strlen($tok);
+      for ($j = 0; $j < $toklen; $j++) {
+      	if (ctype_alpha($tok[$j])) {
+      	  $allalpha .= $tok[$j];
+      	}
+      }
+  	  $searchurl = gen_url('search', 'Search');
+      $searchurl .= gen_url_param('stxt', $allalpha);
+      $linkstr = gen_link($searchurl, $tok, 'plain');
+      if (strtolower($allalpha) == strtolower($data['tokstr'])) {
+      	$linkstr = gen_u(gen_b($linkstr));
+      }
+      $outstr .=  $linkstr . ' ' . "\n";
+    }
+    echo gen_p($outstr);
+  }
+
+} else { ?>
 
 <pre>
 <b>::</b> Profile History <b>*<u>Library</u>*</b> TheDocs
@@ -40,3 +69,5 @@ https://toddperry.medium.com/this-working-mans-fake-c6b96189ba2d</a></p>
 
 <p><a href="https://toddperry.medium.com/sharkinjury-1-01-ca7142a7c16c">
 https://toddperry.medium.com/sharkinjury-1-01-ca7142a7c16c</a></p>
+
+<?php } ?>
