@@ -139,7 +139,7 @@ function con_do_cmd(&$data) {
       check_string_param('stxt', $data, $_REQUEST, '');
       check_string_param('category', $data, $_REQUEST, '');
       $category = $data['category'];
-      if ($category == 'CLEAR') {
+      if ($category == 'clear') {
         mod_update_user_lastgem($curuser, 0);
       } else {
         $stxt = $data['stxt'];

@@ -53,10 +53,12 @@ define('LOGOUT_CMD', 'logout');
 
 define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');
-define('SEARCH_PLACEHOLDER', 'Empty Search = The Oracular');
+define('SEARCH_PLACEHOLDER', '&lt;Search for Words or Gems&gt;');
+define('CUSTOM_PLACEHOLDER', '&lt;Custom Search Category&gt;');
 define('SPACER_STR', '::');
 
-define('SEARCH_COLS', 30);
+define('CUSTOM_COLS', 30);
+define('SEARCH_COLS', 60);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);
 define('STEP_COLS', 50);

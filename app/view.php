@@ -191,28 +191,23 @@ function gen_tos_form($add_el = true) {
 function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array('fate', 'data', 'docs', 'CLEAR',
-                      'suzyThe', 'theBard',
-                      'bibleOS', 'ancienT');
+  $option_arr = array('', 'fate', 'data', 'docs', 'CLEAR',
+                      'suzyThe', 'theBard', 'bibleOS', 'ancienT',
+                      'FashionText', 'Suzybot', 'SharkInjury', 'ClicheCourse');
   if ($istextarea) {
     $inuser = web_get_user();
-    $elem_arr []= '<div class="row">';
-    $elem_arr []= '<div class="column">';
-    $elem_arr []= '<div class="textcontrols">';
-    $elem_arr []= '<div class="simpleborder">';
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $elem_arr []= '</div>';
-    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
-    $elem_arr []= '</div></div><div class="column">';    
-    $elem_arr []= gen_text_area('stxt', $safetext, 4, SEARCH_COLS,
+    $elem_arr []= gen_text_area('stxt', $safetext, 3, SEARCH_COLS,
                                 SEARCH_PLACEHOLDER, $add_el);
-    $elem_arr []= '</div></div>';
+    $elem_arr []= '<div class="textcontrols">';
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
+    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
+    $elem_arr []= gen_txt_input('custom', $safetext, CUSTOM_COLS,
+                                CUSTOM_PLACEHOLDER, $add_el);
+    $elem_arr []= '</div>';
   } else {
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
-    $insize = SEARCH_COLS;
-    $elem_arr []= gen_txt_input('stxt', $safetext, $insize,
-                            SEARCH_PLACEHOLDER, $add_el);
+    $elem_arr []= gen_txt_input('stxt', $safetext, STEP_COLS,
+                                SEARCH_PLACEHOLDER, $add_el);
   }
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
