@@ -169,7 +169,7 @@ function gen_input($intype, $inname, $invalue, $add_el = true) {
   return $rv;
 }
 
-function gen_select_input($inname, $option_arr, $selcat, $add_el = true) {
+function gen_select_input($inname, $option_arr, $selcat = '', $add_el = true) {
   $rv = '<select name="' . $inname . '">';
   foreach ($option_arr as $opt) {
     if ($add_el) $rv .= "\n";

@@ -83,9 +83,28 @@ if ($lastgemid == null) {
 
     if ($gemdata['stepint'] == 1) {
 
+      $auth_arr = array('', 'Shakespeare', 'Marcus', 'Todd', 'God');
+      $text_arr = array('', 'The Complete Works of Shakespeare', 'The Bible', 'Meditations', 'TheSuzy.com Show', 'Suzy\'s Memoir', 'TheSuzy Memoirs');
+
       $tempstr = 'Now, ask a question about that same sentence:';
       $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
-      $tempstr .= gen_gem_quest_form($gemdata);
+
+      $toggleurl = gen_url('search', TOGGLE_OPTION_CMD);
+      $atf = web_get_user_flag(web_get_user(), AUTHORTEXT_FLAG);
+      if ($atf) {
+        $optstr = '(' . gen_u(gen_link($toggleurl, 'OPTIONAL', 'header'));
+        $optstr .= ') <i>Guess the AUTHOR</i>: ';
+        $optstr .= gen_select_input('authguess', $auth_arr) . '<br>';
+        $linestr = '&nbsp; <i>and the TEXT</i>: ';
+        $linestr .= gen_select_input('textguess', $text_arr);
+        $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
+        $tempstr .= gen_gem_quest_form($gemdata);
+      } else {
+        $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
+        $leftcol = gen_link($toggleurl, $togglestr, 'chars');
+        $rightcol = gen_gem_quest_form($gemdata);
+        $tempstr .= gen_two_cols($leftcol, $rightcol);
+      }
       echo gen_div($tempstr, 'gem_step');
 
     } else {
@@ -95,7 +114,7 @@ if ($lastgemid == null) {
       $tempstr .= fd($questdata['datecreated']) . ':';
       $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
       $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
-      echo gen_div($tempstr, 'gem_step');      
+      echo gen_div($tempstr, 'gem_step');
 
       $stepvalue = '';
       $lastsaved = 0;
