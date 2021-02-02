@@ -29,7 +29,11 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
 <html>
   <head>
     <title><?php echo $page_title; ?></title>
-    <link rel="stylesheet" href="css/fate.css" />
+      <?php if ($GLOBALS['INVERTEDCS']) { ?>
+        <link rel="stylesheet" href="css/fate.css" />
+      <?php } else { ?>
+        <link rel="stylesheet" href="css/etaf.css" />
+      <?php } ?>
   </head>
 <body>
 
@@ -50,10 +54,8 @@ $left_col .= app_get_smart_spacer($page);
 if (web_logged_in()) {
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
-  if (!isset($_SESSION['AGREETOS'])) {
-    if (strtolower($GLOBALS['APPTITLE']) == strtolower(OSTITLE)) {
-      $atf = false;
-    }
+  if (!isset($_SESSION['AGREETOS']) && $GLOBALS['AGREEONLOGIN']) {
+    $atf = false;
   }
 
   if (!$atf) {

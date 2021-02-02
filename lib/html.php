@@ -55,6 +55,8 @@ function gen_link($inurl, $intext, $css_class = '') {
   $rv = '<a href="' . $inurl . '"';
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';
+  } else if (isset($GLOBALS['CUSTOMCOLOR']) && $GLOBALS['CUSTOMCOLOR'] != '') {
+    $rv .= ' style="color: ' . $GLOBALS['CUSTOMCOLOR'] . '"';
   }
   //$colorstr = rand(10, 99) . rand(10, 99) . rand(10, 99);
   //$rv .= 'style="color:#' . $colorstr . '"';

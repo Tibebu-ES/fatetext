@@ -20,17 +20,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-<?php
-//settings for local dev server running MAMP
 $GLOBALS['DBHOST'] = 'localhost:8889';
 $GLOBALS['DBUSER'] = 'root';
 $GLOBALS['DBPASS'] = 'root';
 $GLOBALS['DBNAME'] = 'fatetext';
 $GLOBALS['LOGTABLE'] = 'log1';
 
+$GLOBALS['LOGLEVEL'] = 4;
+$GLOBALS['DBVERBOSE'] = true;
+$GLOBALS['SHOWERRMSG'] = true;
+$GLOBALS['SHOWEXTRACE'] = false;
+
 $GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
+$GLOBALS['INVERTEDCS'] = 'FaTe';
+$GLOBALS['CUSTOMCOLOR'] = '';
 
+$GLOBALS['AGREEONLOGIN'] = true;
 $GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';
 $GLOBALS['LOGFILE'] = '/Users/conr/fatelogs/errorlog.txt';
 
@@ -44,5 +50,3 @@ $GLOBALS['ISPROD'] = false;
 $GLOBALS['PARAMEX'] = true;
 $GLOBALS['ASSERTEX'] = true;
 $GLOBALS['CATCHEX'] = false;
-$GLOBALS['LOGLEVEL'] = 4;
-$GLOBALS['DBVERBOSE'] = true;

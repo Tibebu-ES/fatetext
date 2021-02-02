@@ -128,13 +128,26 @@ function net_check_for_fatal() {
 }
 
 function net_show_exception($err) {
-  xbp($err->getMessage());
+  if ($GLOBALS['SHOWEXTRACE']) {
+    echo 'net_show_exception:<br>';
+    xbp($err->getMessage());
+  } else if ($GLOBALS['SHOWERRMSG']) {
+    //p($err);
+    echo $err->getFile() . '<br>on line ';
+    echo $err->getLine() . ':<br>';
+    echo $err->getMessage() . '<br>';
+  }
+  include('error.php');
 }
 
 function net_show_fail_page($errno, $errstr) {
-  bp($errstr);
+  if ($GLOBALS['SHOWEXTRACE']) {
+    echo 'net_show_fail_page:<br>';
+    bp($errstr);
+  } else if ($GLOBALS['SHOWERRMSG']) {
+    echo $errstr . '<br>';
+  }
   include('error.php');
-  exit(0);
 }
 
 function net_util_redirect($url) {

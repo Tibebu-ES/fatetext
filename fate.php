@@ -37,7 +37,6 @@ include('app/control.php');
 
 define('NUM_CHAT_ROWS', 10);
 
-define('OSTITLE', 'fatetext');
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');
 

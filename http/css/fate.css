@@ -111,6 +111,12 @@ div.textcontrols {
   padding-left: 0px;
 }
 
+div.simpleborder {
+  border: dashed #000000 1px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
 div.content {
   padding: 10px;
   max-width: 625px;
