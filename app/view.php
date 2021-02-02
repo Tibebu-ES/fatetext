@@ -155,8 +155,13 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $elem_arr []= gen_text_area('steptxt', $stepvalue, 5, STEP_COLS, '', $add_el);
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
   if ($lastsaved != 0) {
-    $recrow .= PADDING_STR . ' (' . gen_i('last saved at ');
-    $recrow .= fd($lastsaved) . ')';
+    $recrow .= PADDING_STR . ' (last saved at ';
+    $recrow .= gen_i(fd($lastsaved)) . ')';
+  } else {
+    //TODO docs link
+    $recrow .= PADDING_STR . ' (';
+    $tempstr = 'Click here for more information';
+    $recrow .= gen_link(gen_url(''), $tempstr) . ')';
   }
   $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);

@@ -64,7 +64,7 @@ if ($lastgemid == null) {
   } else {
 
     util_assert(isset($guessdata));
-    $tempstr = gen_b('Step 1: ') . ' you guessed ';
+    $tempstr = gen_b('Step 1: ') . gen_i('your guess') . ': ';
     if (strtolower($guessdata['stepstr']) == strtolower($gemdata['tokstr'])) {
       $coin_url = gen_url('coin');
       $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
@@ -93,9 +93,9 @@ if ($lastgemid == null) {
       $atf = web_get_user_flag(web_get_user(), AUTHORTEXT_FLAG);
       if ($atf) {
         $optstr = '(' . gen_u(gen_link($toggleurl, 'OPTIONAL', 'header'));
-        $optstr .= ') <i>Guess the AUTHOR</i>: ';
+        $optstr .= ') ' . gen_i('Guess the AUTHOR') . ': ';
         $optstr .= gen_select_input('authguess', $auth_arr) . '<br>';
-        $linestr = '&nbsp; <i>and the TEXT</i>: ';
+        $linestr = '&nbsp; ' . gen_i('and the TEXT') . ': ';
         $linestr .= gen_select_input('textguess', $text_arr);
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
         $tempstr .= gen_gem_quest_form($gemdata);
@@ -110,9 +110,17 @@ if ($lastgemid == null) {
     } else {
 
       $questdata = mod_load_step($gemdata['gemid'], 2);
-      $tempstr = 'You asked the following question at ';
-      $tempstr .= fd($questdata['datecreated']) . ':';
+      $tempstr = 'You asked the following question ' . gen_b('at ');
+      $tempstr .= gen_i(fd($questdata['datecreated'])) . gen_b(':');
       $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+
+      $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
+      $optstr .= gen_link(gen_url('coin'), 'correct!');
+      $optstr .= ' (ANSWER: TODO)<br>';
+      $linestr = PADDING_STR . gen_i('TEXT guess') . ': ';
+      $linestr .= gen_link(gen_url('coin'), 'correct!');
+      $linestr .= ' (ANSWER: TODO)';
+      $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
       $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
       echo gen_div($tempstr, 'gem_step');
 
@@ -124,8 +132,8 @@ if ($lastgemid == null) {
         $lastsaved = $ansdata['datecreated'];
       }
 
-      $tempstr = 'Please record the best answer to your question:';
-      $tempstr = gen_p(gen_b('Step 3: ') . $tempstr);
+      $tempstr = 'Please record the best answer to your question';
+      $tempstr = gen_p(gen_b('Step 3: ') . $tempstr . gen_b(':'));
       $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
       echo gen_div($tempstr, 'gem_step');
 
