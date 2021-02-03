@@ -117,7 +117,7 @@ function p($var, $print = true, $msg = '') {
   return $rv;
 }
 
-function xp($var, $print = true) {
+function xp($var = "\n", $print = true) {
   p($var, $print);
   exit(0);
 }

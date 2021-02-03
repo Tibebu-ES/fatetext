@@ -129,6 +129,7 @@ function vqueryf($string, $args) {
         $unsafe_str = $args[$args_i];
         //$safe_str = str_replace('\'', '\\\'', $unsafe_str);
         $safe_str = mysqli_real_escape_string($conn, $args[$args_i]);
+        //$safe_str = utf8_encode($safe_str);
         //echo 'safe_str: ' . $safe_str . "\n";
         $sql_query .= "'" . $safe_str . "'"; 
         break;
