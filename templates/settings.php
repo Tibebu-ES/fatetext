@@ -41,11 +41,7 @@ echo gen_search_form();
 <input type="submit" value="Get HASHPASS">
 </form>
 
+<p><?php
+echo gen_link(gen_url('admin'), 'AdminHQ');
 
-<p>
-Change Username & Password<br>
-Add/Remove Emails<br>
-Rows and Cols<br>
-Splash Page<br>
-Chat State
-</p>
+?></p>
