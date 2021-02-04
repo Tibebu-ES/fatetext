@@ -24,6 +24,7 @@ $sql = 'SELECT * FROM gems ORDER BY userid, lastloaded';
 $rs = queryf_all($sql);
 
 foreach ($rs as $row) {
+  $guess = $quest = $answer = '';
   $username = web_get_user_name($row['userid']);
   $gemdata = mod_load_gem($row['gemid']);
 
@@ -67,6 +68,4 @@ foreach ($rs as $row) {
   echo '</td></tr>' . "\n";
 
   echo '</table></p>';
-
-  $quess = $quest = $answer = '';
 }

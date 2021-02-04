@@ -23,7 +23,7 @@ SOFTWARE. */
 echo gen_search_form();
 
 if (web_is_admin()) {
-  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ')), 'page_heading');
+  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ', 'header')));
 } else {
   $tempstr = 'Account' . ' | ';
   $tempstr .= gen_u('Archive') . ' | ';
