@@ -72,10 +72,12 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   echo gen_p($tempstr);
 }
 
-$flagarr = array(TOGGLE_SPLASH_CMD => 'Splash page is Data (not Home)',
-                 TOGGLE_CHAT_CMD => 'Expand the Chat with ' . $GLOBALS['APPTITLE'],
-                 TOGGLE_TEXT_CMD => 'Show a multi-line textarea in Search',
-                 TOGGLE_OPTION_CMD => 'Record book and author guesses');
+$apptitle = $GLOBALS['APPTITLE'];
+$flagarr = array(TOGGLE_CHAT_CMD => 'Expand the Chat with ' . $apptitle,
+                 TOGGLE_TEXT_CMD => 'Accomodate multi-line searches',
+                 TOGGLE_SPLASH_CMD => 'Use the Data tab as splash page',
+                 TOGGLE_OPTION_CMD => 'Record book and author guesses',
+                 TOGGLE_INVERTEDCS_CMD => 'Invert the color scheme');
 
 echo gen_p(gen_h(3, 'Click each LINK to toggle each FLAG:'));
 $flagstr = '';
@@ -93,9 +95,9 @@ foreach ($flagarr as $cmdstr => $link_text) {
 
 echo gen_p($flagstr);
 
-echo gen_p(gen_h(3, 'Export your gems (DUTY FREE!)'));
+echo gen_p(gen_h(3, 'Export My Gems (DUTY FREE!)'));
 
-  $tempstr = gen_link(gen_url('export'),
-                       'All Gems (JSON format)');
-  $gemco = gen_img($GLOBALS['FATEPATH'] . '/images/mini.jpg', 'Icon of the California Coast');
-  echo gen_p($gemco . PADDING_STR . $tempstr);
+$tempstr = gen_link(gen_url('export'),
+                     'Get My Export (JSON format)');
+$gemco = gen_img('images/gemco.jpg', 'Icon of the California Coast');
+echo gen_p($gemco . PADDING_STR . $tempstr);

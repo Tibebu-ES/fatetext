@@ -45,14 +45,15 @@ define('TEXT_AREA_FLAG', 2);
 define('FATE_SPLASH_FLAG', 4);
 define('AGREE_TOS_FLAG', 8);
 define('AUTHORTEXT_FLAG', 16);
+define('INVERTEDCS_FLAG', 32);
 
 define('TOGGLE_SPLASH_CMD', 'tosplash');
 define('TOGGLE_CHAT_CMD', 'tochat');
 define('TOGGLE_TEXT_CMD', 'totext');
 define('TOGGLE_OPTION_CMD', 'tooption');
+define('TOGGLE_INVERTEDCS_CMD', 'toinvcs');
 define('LOGOUT_CMD', 'logout');
 define('CHANGE_PASSWORD_CMD', 'changepass');
-
 
 define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');

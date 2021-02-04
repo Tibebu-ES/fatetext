@@ -41,6 +41,7 @@ a {
 }
 
 a:hover {
+  color: #666666;
   text-decoration: underline;
 }
 
@@ -55,7 +56,7 @@ a.plain {
 }
 
 a.plain:hover {
-  color: #EF4984;
+  color: #666666;
   text-decoration: underline;
 }
 
@@ -65,7 +66,7 @@ a.header {
 }
 
 a.header:hover {
-  color: #EF4984;
+  color: #666666;
   text-decoration: none;
 }
 
@@ -151,8 +152,8 @@ div.quest_text {
 
 div.title_bar {
   padding: 5px;
-  border: solid #333333 1px;
-  background-color: #aaaaaa;
+  border: solid #CCCCCC 1px;
+  background-color: #AAAAAA;
 }
 
 div.title_box {

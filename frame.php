@@ -29,7 +29,7 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
 <html>
   <head>
     <title><?php echo $page_title; ?></title>
-      <?php if ($GLOBALS['INVERTEDCS']) { ?>
+      <?php if (web_logged_in() && web_get_flag(INVERTEDCS_FLAG)) { ?>
         <link rel="stylesheet" href="css/etaf.css" />
       <?php } else { ?>
         <link rel="stylesheet" href="css/fate.css" />

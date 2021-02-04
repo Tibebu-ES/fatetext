@@ -148,7 +148,8 @@ function mod_flag_from_toggle($intoggle) {
    case TOGGLE_CHAT_CMD: return CHAT_OPEN_FLAG;
    case TOGGLE_TEXT_CMD: return TEXT_AREA_FLAG;
    case TOGGLE_OPTION_CMD: return AUTHORTEXT_FLAG;
+   case TOGGLE_INVERTEDCS_CMD: return INVERTEDCS_FLAG;
   }
-  util_except('attempted to toggle an unknown flag: '
+  util_except('attempted to reference an unknown flag: '
               . $intoggle);
 }

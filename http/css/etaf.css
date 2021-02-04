@@ -43,6 +43,7 @@ a {
 }
 
 a:hover {
+  color: #AAAAAA;
   text-decoration: underline;
 }
 
@@ -57,7 +58,7 @@ a.plain {
 }
 
 a.plain:hover {
-  color: #69B4FF;
+  color: #AAAAAA;
   text-decoration: underline;
 }
 
@@ -67,7 +68,7 @@ a.header {
 }
 
 a.header:hover {
-  color: #69B4FF;
+  color: #AAAAAA;
   text-decoration: none;
 }
 
