@@ -67,6 +67,7 @@ if (web_logged_in()) {
     $links_arr = array('Data', 'Search', 'Settings');
     $left_col .= app_get_header_links($page, $links_arr);
     $left_col .= app_get_header_extra($page);
+
     if ($page_msg != '') {
       $left_col .= gen_p($page_msg, 'page_msg');
     }

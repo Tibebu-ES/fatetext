@@ -69,6 +69,11 @@ function util_check_email($email) {
   return false;
 }
 
+function util_hashpass($inpass) {
+  $salt = 'asdf';
+  return sha1($inpass . $salt);
+}
+
 function util_curl($url, $post_fields = NULL) {
   $options = array(
                    CURLOPT_RETURNTRANSFER => true,     // return web page

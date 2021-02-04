@@ -40,6 +40,17 @@ function mod_get_user_lastgem($userid) {
   return $rv;
 }
 
+function mod_get_gem_count() {
+  $userid = web_get_user();
+  $sql = 'SELECT COUNT(gemid) as gemcount FROM gems WHERE userid = %d';
+  $rs = queryf_one($sql, $userid);
+  return $rs['gemcount'];
+}
+
+function mod_get_int($intname) {
+  return mod_get_user_int(web_get_user(), $intname);
+}
+
 function mod_get_user_int($userid, $intname) {
   $sql = 'SELECT ' . $intname . ' FROM users';
   $sql .= ' WHERE userid = %d';
@@ -65,3 +76,9 @@ function mod_update_user_lastdate($userid) {
   queryf($sql, $nowtime, $userid);
 }
 
+function mod_update_user_password($userid, $hashpass) {
+  $nowtime = time();
+  $sql = 'UPDATE users SET lastchange = %d, hashpass = %s';
+  $sql .= ' WHERE userid = %d';
+  queryf($sql, $nowtime, $hashpass, $userid);
+}

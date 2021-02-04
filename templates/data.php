@@ -50,24 +50,25 @@ if (isset($data['chestid'])) {
     echo gen_p($outstr);
   }
 
-} else { ?>
+} else {
 
-<pre>
-<b>::</b> Profile History <b>*<u>Library</u>*</b> TheDocs
+  $tempstr = gen_b(gen_u('Profile')) . ' | ';
+  $tempstr .= gen_b(gen_u('Library')) . ' | ';
+  $tempstr .= gen_b('SuzyThe');
+  echo gen_p(gen_h(2, $tempstr, 'page_heading'));
 
-<b>:: ::</b> TheBard <b>*<u>SuzyThe</b>*</u> BibleOS AncienT
-</pre>
+  $urlstr = 'http://suzybot.com';
+  $tempstr = gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $urlstr = 'http://fashiontext.com';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $urlstr = 'http://sharkinjury.com';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $urlstr = 'http://clichecourse.com';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  echo gen_p($tempstr);
 
-<p><a href="https://toddperry.medium.com/a-new-book-beginning-637719e9ba65">
-https://toddperry.medium.com/a-new-book-beginning-637719e9ba65</a></p>
+  $ldpt = $GLOBALS['FATEPATH'] . '/templates/';
+  echo util_show_template($ldpt . 'news.php', $data) . '<br>';
+  echo util_show_template($ldpt . 'about.php', $data);
 
-<p><a href="https://toddperry.medium.com/20-years-to-paradise-38caac2d9cb3">
-https://toddperry.medium.com/20-years-to-paradise-38caac2d9cb3</a></p>
-
-<p><a href="https://toddperry.medium.com/this-working-mans-fake-c6b96189ba2d">
-https://toddperry.medium.com/this-working-mans-fake-c6b96189ba2d</a></p>
-
-<p><a href="https://toddperry.medium.com/sharkinjury-1-01-ca7142a7c16c">
-https://toddperry.medium.com/sharkinjury-1-01-ca7142a7c16c</a></p>
-
-<?php } ?>
+}

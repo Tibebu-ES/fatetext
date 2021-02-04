@@ -62,7 +62,13 @@ function con_do_cmd(&$data) {
 
      case 'silentlogout':
      case LOGOUT_CMD:
-      net_logout_user($data, ($cmd == 'logout'));
+      web_logout_user($data, ($cmd == 'logout'));
+      break;
+
+     case 'Change Password':
+      check_string_param('oldpasstxt', $data, $_REQUEST);
+      check_string_param('newpasstxt', $data, $_REQUEST);
+      web_change_password($data);
       break;
 
      case 'Guess':
@@ -146,6 +152,8 @@ function con_do_cmd(&$data) {
         if ($stxt == '') {
           $newgemid = mod_generate_gem($curuser, $stxt, $category);
           mod_update_user_lastgem($curuser, $newgemid);
+        } else if (strlen($stxt) < 5) {
+          $data[TEMPLATE_MSG] = 'Search terms must be longer than 4 chars.';
         }
       }
       break;

@@ -89,13 +89,6 @@ function web_get_flag($flagvalue) {
 function web_get_user_flag($userid, $flagvalue) {
   $flags = mod_get_user_int($userid, 'flagsint');
   return $flags & $flagvalue;
-  /*$sql = 'SELECT ' . $flagname . ' FROM users';
-  $sql .= ' WHERE userid = %d';
-  $rs = queryf_one($sql, $userid);
-  if (!isset($rs) || !isset($rs[$flagname])) {
-    util_except('get_user_flag(' . $flagname . ') query result missing ' . $flagname);
-  }
-  return $rs[$flagname];*/
 }
 
 function web_get_user_name($userid) {
@@ -118,6 +111,23 @@ function web_get_user_lastdate($userid) {
   return $rs['lastlogin'];
 }
 
+function web_change_password(&$data) {
+  global $g_user_id;
+
+  $oldpass = $data['oldpasstxt'];
+  $newpass = $data['newpasstxt'];
+  $hashpass = util_hashpass($oldpass);
+  $sql = 'SELECT hashpass FROM users WHERE userid = %d';
+  $rs = queryf_one($sql, $g_user_id);
+  if (isset($rs) && $rs['hashpass'] == $hashpass) {
+    $newhashpass = util_hashpass($newpass);
+    mod_update_user_password($g_user_id, $newhashpass);
+    $data[TEMPLATE_MSG] = 'PASSWORD UPDATED';
+  } else {
+    $data[TEMPLATE_MSG] = 'INCORRECT OLD PASSWORD';
+  }
+}
+
 function web_login_user(&$data) {
   global $g_user_id;
   $inuser = $data['username'];
@@ -134,8 +144,7 @@ function web_login_user(&$data) {
   $rs = queryf_one($sql, $inuser);
   if (isset($rs) && count($rs) > 0) {
     $userid = $rs['userid'];
-    $salt = 'asdf';
-    $hashpass = sha1($inpass . $salt);
+    $hashpass = util_hashpass($inpass);
     $sql = 'SELECT hashpass FROM users WHERE userid = %d';
     $rs = queryf_one($sql, $userid);
     if (isset($rs) && $rs['hashpass'] == $hashpass) {
@@ -151,7 +160,7 @@ function web_login_user(&$data) {
   return true;
 }
 
-function net_logout_user(&$data, $show_msg = true) {
+function web_logout_user(&$data, $show_msg = true) {
   global $g_user_id;
 
   if (!isset($_SESSION['FATE_BROWSER_ID'])) {

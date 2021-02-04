@@ -20,20 +20,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$hashmsg = '';
-if (isset($_REQUEST['inpass'])) {
-  $inpass = $_REQUEST['inpass'];
-  $salt = 'asdf';
-  $hashpass = sha1($inpass . $salt);
-  $inpass = htmlspecialchars($inpass);
-  $hashmsg = 'haspass for "' . gen_b(gen_i($inpass));
-  $hashmsg = gen_p($hashmsg . '" =<br>' . $hashpass);
-}
+echo gen_search_form();
 
 if (web_is_admin()) {
-  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ')));
+  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ')), 'page_heading');
 } else {
-  echo gen_p(gen_h(2, '<b>*<u>Account</u>*</b> | Archive | TheDocs'));
+  $tempstr = 'Account' . ' | ';
+  $tempstr .= gen_u('Archive') . ' | ';
+  $tempstr .= gen_u('TheDocs');
+  echo gen_p(gen_h(2, $tempstr));
 }
 
 if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
@@ -44,11 +39,10 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $elem_arr []= $tempstr . ' (Old Password)<br>';
   $tempstr = gen_txt_input('newpasstxt', '', LOGIN_COLS, '', $add_el);
   $elem_arr []= gen_span($tempstr . ' (New Password)<br>', 'nextline');
-  $elem_arr []= gen_p(gen_input('submit', 'button', 'Change Password', $add_el));
-  $elem_arr []= gen_input('hidden', 'cmd', CHANGE_PASSWORD_CMD, $add_el);
+  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Change Password', $add_el));
   echo gen_form($elem_arr, gen_url('settings'));
 
-} else if ($data['cmd'] == 'customizeui') {
+} else if ($data['cmd'] == CUSTOMIZE_UI_CMD) {
 
   echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
   $elem_arr = array(); $add_el = true;
@@ -56,18 +50,26 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $elem_arr []= $tempstr . ' cols' . PADDING_STR;
   $tempstr = gen_txt_input('numrowstxt', '', 5, '', $add_el);
   $elem_arr []= $tempstr . ' rows<br>';
-  $elem_arr []= gen_p(gen_input('submit', 'button', 'Make Changes', $add_el));
-  $elem_arr []= gen_input('hidden', 'cmd', CHANGE_PASSWORD_CMD, $add_el);
+  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Make Changes', $add_el));
   echo gen_form($elem_arr, gen_url('settings'));
 
+} else if ($data['cmd'] == ARCHIVE_GEMS_CMD) {
+
+  echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
+  echo 'TODO';
 
 } else {
+
+  $infostr = '(' . gen_i(fd(mod_get_int('lastchange'))) . ')<br>';
   $tempstr = gen_link(gen_url('settings', CHANGE_PASSWORD_CMD),
-  	                  'Change Password') . '<br>';
-  $tempstr .= gen_link(gen_url('settings', 'customizeui'),
-  	                   'Customize the UI') . '<br>';
-  $tempstr .= gen_link(gen_url('settings', 'customizeui'),
-                       'Archive Gems');
+  	                  'Change Password') . PADDING_STR . $infostr;
+  $infostr = '(' . mod_get_int('datarows');
+  $infostr .= ', ' . mod_get_int('datacols') . ')<br>';
+  $tempstr .= gen_link(gen_url('settings', CUSTOMIZE_UI_CMD),
+  	                   'Customize the UI') . PADDING_STR . $infostr;
+  $infostr = '(' . mod_get_gem_count() . ')';
+  $tempstr .= gen_link(gen_url('settings', ARCHIVE_GEMS_CMD),
+                       'Archive Gems') . PADDING_STR . $infostr;
 
   echo gen_p($tempstr);
 }
