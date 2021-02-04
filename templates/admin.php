@@ -20,17 +20,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$sql = 'SELECT * FROM gems ORDER BY userid, lastloaded';
-$rs = queryf_all($sql);
+$sql = 'SELECT * FROM gems WHERE userid = %d ORDER BY userid, lastloaded';
+$rs = queryf_all($sql, web_get_user());
 
 foreach ($rs as $row) {
-  $guess = $quest = $answer = '';
+  $guess = $quest = $answer = 'n/a';
   $username = web_get_user_name($row['userid']);
   $gemdata = mod_load_gem($row['gemid']);
 
   $sql = 'SELECT * FROM steps WHERE gemid=%d ORDER BY whichint';
   $rs2 = queryf_all($sql, $row['gemid']);
   $numrows = count($rs2);
+  if ($numrows == 0) {
+    $gemdata['tokstr'] = '_______';
+  }
   if ($numrows > 0) {
     $guess = $rs2[0]['stepstr'];
   }

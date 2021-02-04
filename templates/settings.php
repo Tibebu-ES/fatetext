@@ -99,7 +99,7 @@ echo gen_p($flagstr);
 
 echo gen_p(gen_h(3, 'Export My Gems (DUTY FREE!)'));
 
-$tempstr = gen_link(gen_url('export'),
+$tempstr = gen_link(gen_url('admin'),
                      'Get My Export (JSON format)');
 $gemco = gen_img('images/gemco.jpg', 'Icon of the California Coast');
 echo gen_p($gemco . PADDING_STR . $tempstr);

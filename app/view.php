@@ -161,7 +161,7 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
     //TODO docs link
     $recrow .= PADDING_STR . ' (';
     $tempstr = 'Click here for more information';
-    $recrow .= gen_link(gen_url(''), $tempstr) . ')';
+    $recrow .= gen_link(gen_url('search'), $tempstr) . ')';
   }
   $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
