@@ -83,7 +83,8 @@ if ($lastgemid == null) {
 
     if ($gemdata['stepint'] == 1) {
 
-      $auth_arr = array('', 'Shakespeare', 'Marcus', 'Todd', 'God');
+      $auth_arr = array('', 'Shakespeare', 'Marcus Aurelius',
+                        'Todd Perry', 'Conri Stonewall', 'BIBLICAL');
       $text_arr = array('', 'The Complete Works of Shakespeare', 'The Bible', 'Meditations', 'TheSuzy.com Show', 'Suzy\'s Memoir', 'TheSuzy Memoirs');
 
       $tempstr = 'Now, ask a question about that same sentence:';
