@@ -141,3 +141,14 @@ function mod_log_search($logtxt) {
   $logtxt = '[' . fd(time()) . ']' . $logtxt . "\n";
   file_put_contents($GLOBALS['SLOGFILE'], $logtxt, FILE_APPEND);
 }
+
+function mod_flag_from_toggle($intoggle) {
+  switch ($intoggle) {
+   case TOGGLE_SPLASH_CMD: return FATE_SPLASH_FLAG;
+   case TOGGLE_CHAT_CMD: return CHAT_OPEN_FLAG;
+   case TOGGLE_TEXT_CMD: return TEXT_AREA_FLAG;
+   case TOGGLE_OPTION_CMD: return AUTHORTEXT_FLAG;
+  }
+  util_except('attempted to toggle an unknown flag: '
+              . $intoggle);
+}

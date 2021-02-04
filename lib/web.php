@@ -39,6 +39,12 @@ function web_init_data($inpage) {
   return $rv;
 }
 
+function web_is_admin() {
+  global $g_user_id;
+  if ($g_user_id == 1) return true;
+  return false;
+}
+
 function web_logged_in() {
   global $g_user_id;
   return isset($g_user_id);
@@ -67,6 +73,17 @@ function web_toggle_user_flag($userid, $flagvalue) {
   $sql = 'UPDATE users set flagsint = %d';
   $sql .= ' WHERE userid = %d';
   queryf_one($sql, $flags, $userid);
+}
+
+function web_get_flag($flagvalue) {
+  global $g_user_id;
+
+  if (!isset($g_user_id)) {
+    util_assert('tryign to get a flag while not logged in');
+  }
+
+  $flags = mod_get_user_int($g_user_id, 'flagsint');
+  return $flags & $flagvalue;
 }
 
 function web_get_user_flag($userid, $flagvalue) {

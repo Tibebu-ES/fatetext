@@ -51,6 +51,8 @@ define('TOGGLE_CHAT_CMD', 'tochat');
 define('TOGGLE_TEXT_CMD', 'totext');
 define('TOGGLE_OPTION_CMD', 'tooption');
 define('LOGOUT_CMD', 'logout');
+define('CHANGE_PASSWORD_CMD', 'changepass');
+
 
 define('FAME_IDENT', 'TheSuzy');
 define('FAME_URL', 'http://thesuzy.com');

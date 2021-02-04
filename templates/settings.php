@@ -30,18 +30,72 @@ if (isset($_REQUEST['inpass'])) {
   $hashmsg = gen_p($hashmsg . '" =<br>' . $hashpass);
 }
 
-echo gen_search_form();
-?>
+if (web_is_admin()) {
+  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ')));
+} else {
+  echo gen_p(gen_h(2, '<b>*<u>Account</u>*</b> | Archive | TheDocs'));
+}
 
-<pre><b>*<u>Account</u>*</b> | Archive | TheDocs (or AdminHQ)</pre>
+if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
-<?php echo $hashmsg; ?>
-<form action="?page=settings" method="post">
-<input type="text" name="inpass" size="30"><br>
-<input type="submit" value="Get HASHPASS">
-</form>
+  echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
+  $elem_arr = array(); $add_el = true;
+  $tempstr = gen_txt_input('oldpasstxt', '', LOGIN_COLS, '', $add_el);
+  $elem_arr []= $tempstr . ' (Old Password)<br>';
+  $tempstr = gen_txt_input('newpasstxt', '', LOGIN_COLS, '', $add_el);
+  $elem_arr []= gen_span($tempstr . ' (New Password)<br>', 'nextline');
+  $elem_arr []= gen_p(gen_input('submit', 'button', 'Change Password', $add_el));
+  $elem_arr []= gen_input('hidden', 'cmd', CHANGE_PASSWORD_CMD, $add_el);
+  echo gen_form($elem_arr, gen_url('settings'));
 
-<p><?php
-echo gen_link(gen_url('admin'), 'AdminHQ');
+} else if ($data['cmd'] == 'customizeui') {
 
-?></p>
+  echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
+  $elem_arr = array(); $add_el = true;
+  $tempstr = gen_txt_input('numcolstxt', '', 5, '', $add_el);
+  $elem_arr []= $tempstr . ' cols' . PADDING_STR;
+  $tempstr = gen_txt_input('numrowstxt', '', 5, '', $add_el);
+  $elem_arr []= $tempstr . ' rows<br>';
+  $elem_arr []= gen_p(gen_input('submit', 'button', 'Make Changes', $add_el));
+  $elem_arr []= gen_input('hidden', 'cmd', CHANGE_PASSWORD_CMD, $add_el);
+  echo gen_form($elem_arr, gen_url('settings'));
+
+
+} else {
+  $tempstr = gen_link(gen_url('settings', CHANGE_PASSWORD_CMD),
+  	                  'Change Password') . '<br>';
+  $tempstr .= gen_link(gen_url('settings', 'customizeui'),
+  	                   'Customize the UI') . '<br>';
+  $tempstr .= gen_link(gen_url('settings', 'customizeui'),
+                       'Archive Gems');
+
+  echo gen_p($tempstr);
+}
+
+$flagarr = array(TOGGLE_SPLASH_CMD => 'Splash page is Data (not Home)',
+                 TOGGLE_CHAT_CMD => 'Expand the Chat with ' . $GLOBALS['APPTITLE'],
+                 TOGGLE_TEXT_CMD => 'Show a multi-line textarea in Search',
+                 TOGGLE_OPTION_CMD => 'Record book and author guesses');
+
+echo gen_p(gen_h(3, 'Click each LINK to toggle each FLAG:'));
+$flagstr = '';
+foreach ($flagarr as $cmdstr => $link_text) {
+  if ($flagstr != '') {
+  	$flagstr .= '<br>';
+  }
+  if (web_get_flag(mod_flag_from_toggle($cmdstr))) {
+  	$flagstr .= '[' . gen_b('ON') . ']&nbsp; ';
+  } else {
+  	$flagstr .= '[OFF] ';
+  }
+  $flagstr .= gen_link(gen_url('settings', $cmdstr), $link_text);
+}
+
+echo gen_p($flagstr);
+
+echo gen_p(gen_h(3, 'Export your gems (DUTY FREE!)'));
+
+  $tempstr = gen_link(gen_url('export'),
+                       'All Gems (JSON format)');
+  $gemco = gen_img($GLOBALS['FATEPATH'] . '/images/mini.jpg', 'Icon of the California Coast');
+  echo gen_p($gemco . PADDING_STR . $tempstr);

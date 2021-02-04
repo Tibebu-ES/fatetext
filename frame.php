@@ -30,9 +30,9 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
   <head>
     <title><?php echo $page_title; ?></title>
       <?php if ($GLOBALS['INVERTEDCS']) { ?>
-        <link rel="stylesheet" href="css/fate.css" />
-      <?php } else { ?>
         <link rel="stylesheet" href="css/etaf.css" />
+      <?php } else { ?>
+        <link rel="stylesheet" href="css/fate.css" />
       <?php } ?>
   </head>
 <body>
