@@ -39,12 +39,13 @@ function net_init_session() {
     util_except('$_SESSION should not be set before session_start()');
   }
 
-  //if IS_PROD?
-  //register_shutdown_function("net_check_for_fatal");
   ini_set('pcre.jit', 0);
-  //error_reporting(E_ALL); //0);
-  //set_error_handler('net_show_fail_page', E_ALL);
-  //set_exception_handler('net_show_exception');
+  if ($GLOBALS['ISPROD']) {
+    //register_shutdown_function("net_check_for_fatal");
+    error_reporting(E_ALL);
+    set_exception_handler('net_show_exception');
+    set_error_handler('net_show_fail_page', E_ALL);
+  }
 
   if ($GLOBALS['NOCOOKIES']) {
     ini_set('session.name', 'FATESID');
@@ -129,23 +130,22 @@ function net_check_for_fatal() {
 
 function net_show_exception($err) {
   if ($GLOBALS['SHOWEXTRACE']) {
-    echo 'net_show_exception:<br>';
-    xbp($err->getMessage());
+    util_log_to_file('net_show_exception:' . "\n\n");
+    util_log_to_file(bp($err->getMessage()), true);
   } else if ($GLOBALS['SHOWERRMSG']) {
-    //p($err);
-    echo $err->getFile() . '<br>on line ';
-    echo $err->getLine() . ':<br>';
-    echo $err->getMessage() . '<br>';
+    util_log_to_file($err->getFile() . ' on line ');
+    util_log_to_file($err->getLine() . ":\n");
+    util_log_to_file($err->getMessage() . "\n\n");
   }
   include('error.php');
 }
 
 function net_show_fail_page($errno, $errstr) {
   if ($GLOBALS['SHOWEXTRACE']) {
-    echo 'net_show_fail_page:<br>';
-    bp($errstr);
+    util_log_to_file('net_show_fail_page:' . "\n\n");
+    util_log_to_file(bp($errstr, true));
   } else if ($GLOBALS['SHOWERRMSG']) {
-    echo $errstr . '<br>';
+    util_log_to_file($errstr . "\n\n");
   }
   include('error.php');
 }

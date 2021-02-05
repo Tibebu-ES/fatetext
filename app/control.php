@@ -85,7 +85,7 @@ function con_do_cmd(&$data) {
       $whichint = 1;
       if ($cmd == 'Guess') {
         if ($gemdata['stepint'] >= 1) {
-          $data[TEMPLATE_MSG] = 'Did you REALLY just hit reload?  Move on!';
+          $data[TEMPLATE_MSG] = 'Please move onto to the next step.';
           break;
         }
         if (strtolower($data['steptxt']) == $gemdata['tokstr']) {
@@ -95,7 +95,7 @@ function con_do_cmd(&$data) {
       } else if ($cmd == 'Ask Question') {
         $whichint = 2;
         if ($gemdata['stepint'] >= 2) {
-          $data[TEMPLATE_MSG] = 'Yo. The question is immutable.';
+          $data[TEMPLATE_MSG] = 'The question is immutable.';
           break;
         }
       } else if ($cmd == 'Record Answer') {
@@ -107,6 +107,7 @@ function con_do_cmd(&$data) {
       if ($data['steptxt'] == '') {
         $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
       } else {
+        //TODO: record book and answer guess
         mod_record_step($curgem, $data['steptxt'], $whichint);
         mod_update_gem_step($curgem, $whichint);
       }
