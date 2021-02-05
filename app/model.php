@@ -74,6 +74,24 @@ function mod_generate_gem($userid, $stxt, $category) {
   return last_insert_id();
 }
 
+function mod_get_gem_book($gem_id) {
+  $sql = 'SELECT bookguess FROM gems WHERE gemid = %d';
+  $rs = queryf_one($sql, $gem_id);
+  return $rs['bookguess'];
+}
+
+function mod_get_gem_auth($gem_id) {
+  $sql = 'SELECT authguess FROM gems WHERE gemid = %d';
+  $rs = queryf_one($sql, $gem_id);
+  return $rs['authguess'];
+}
+
+function mod_update_gem_auth_and_text($gem_id, $auth_str, $text_str) {
+  $sql = 'UPDATE gems SET authguess = %s and bookguess = %s';
+  $sql .= ' WHERE gemid = %d';
+  queryf($sql, $auth_str, $text_str, $gem_id);
+}
+
 function mod_update_gem_step($gemid, $newstep) {
   $sql = 'UPDATE gems SET stepint = %d';
   $sql .= ' WHERE gemid = %d';
@@ -101,6 +119,21 @@ function mod_record_step($gemid, $guesstxt, $whichint) {
 function mod_load_gem($gemid) {
   $sql = 'SELECT * FROM gems WHERE gemid = %d';
   $rv = queryf_one($sql, $gemid);
+
+  if ($rv['authguess'] == 0) {
+    $rv['authstr'] = 'n/a';
+  } else {
+    $rv['authstr'] = $rv['authguess'];
+  }
+
+  if ($rv['bookguess'] == 0) {
+    $rv['bookstr'] = 'n/a';
+  } else {
+    $sql = 'SELECT titlestr FROM books WHERE bookid = %d';
+    $rs = queryf_one($sql, $rv['bookguess']);
+    //TODO error handling
+    $rv['bookstr'] = $rs['titlestr'];
+  }
 
   $sql = 'SELECT tokstr FROM toks WHERE tokid = %d';
   $rs = queryf_one($sql, $rv['tokid']);

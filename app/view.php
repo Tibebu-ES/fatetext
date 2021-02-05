@@ -196,9 +196,15 @@ function gen_tos_form($add_el = true) {
 function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array('', 'fate', 'data', 'docs', 'CLEAR',
-                      'suzyThe', 'theBard', 'bibleOS', 'ancienT',
-                      'FashionText', 'Suzybot', 'SharkInjury', 'ClicheCourse');
+  $option_arr = array('fate' => 'fate',
+                      'bibleos' => 'King James Bible',
+                      'suzymem' => 'Suzy\'s Memoir',
+                      );
+
+//'fate', 'data', 'docs', 'CLEAR',
+//'suzyThe', 'theBard', 'bibleOS', 'ancienT',
+//'FashionText', 'Suzybot', 'SharkInjury', 'ClicheCourse'
+
   if ($istextarea) {
     $inuser = web_get_user();
     $elem_arr []= gen_text_area('stxt', $safetext, 3, SEARCH_COLS,

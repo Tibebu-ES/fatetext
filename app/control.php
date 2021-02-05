@@ -107,7 +107,35 @@ function con_do_cmd(&$data) {
       if ($data['steptxt'] == '') {
         $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
       } else {
-        //TODO: record book and answer guess
+        //record book and answer guess
+        if ($whichint == 2) {
+          check_string_param('authguess', $data, $_REQUEST, '');
+          check_string_param('textguess', $data, $_REQUEST, '');
+          mod_update_gem_auth_and_text($curgem, $data['authguess'],
+                                       $data['textguess']);
+
+          $correct_text = mod_get_gem_book($curgem);
+          $text_coin = 0;
+          if ($correct_text == $data['textguess']) {
+            $text_coin = 1;
+          }
+
+          $correct_auth = mod_get_gem_auth($curgem);
+          $auth_coin = 0;
+          if ($correct_auth == $data['authguess']) {
+            $auth_coin = 1;
+          }
+
+          if ($auth_coin == 1 && $text_coin == 1) {
+            $data[TEMPLATE_MSG] = 'You got 2 storycoins!';
+            mod_increment_user_coins($curuser);
+            mod_increment_user_coins($curuser);
+          } else if ($auth_coin == 1 || $text_coin == 1) {
+            $data[TEMPLATE_MSG] = 'You got a storycoin!';
+            mod_increment_user_coins($curuser);          
+          }
+        }
+
         mod_record_step($curgem, $data['steptxt'], $whichint);
         mod_update_gem_step($curgem, $whichint);
       }

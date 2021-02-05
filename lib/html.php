@@ -171,10 +171,9 @@ function gen_input($intype, $inname, $invalue, $add_el = true) {
 
 function gen_select_input($inname, $option_arr, $selcat = '', $add_el = true) {
   $rv = '<select name="' . $inname . '">';
-  foreach ($option_arr as $opt) {
+  foreach ($option_arr as $opt_val => $opt) {
     if ($add_el) $rv .= "\n";
-    $loweropt = strtolower($opt);
-    $rv .= '<option value="' . $loweropt . '"';
+    $rv .= '<option value="' . $opt_val . '"';
     if ($selcat == $loweropt) $rv .= ' selected';
     $rv .= '>' . $opt . '</option>';
   }

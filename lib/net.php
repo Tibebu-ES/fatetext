@@ -45,7 +45,6 @@ function net_init_session() {
     error_reporting(E_ALL);
     set_exception_handler('net_show_exception');
     set_error_handler('net_show_fail_page', E_ALL);
-sdf;  
   }
 
   if ($GLOBALS['NOCOOKIES']) {
