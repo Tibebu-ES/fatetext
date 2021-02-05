@@ -45,6 +45,7 @@ function net_init_session() {
     error_reporting(E_ALL);
     set_exception_handler('net_show_exception');
     set_error_handler('net_show_fail_page', E_ALL);
+sdf;  
   }
 
   if ($GLOBALS['NOCOOKIES']) {
@@ -131,23 +132,25 @@ function net_check_for_fatal() {
 function net_show_exception($err) {
   if ($GLOBALS['SHOWEXTRACE']) {
     util_log_to_file('net_show_exception:' . "\n\n");
-    util_log_to_file(bp($err->getMessage()), true);
+    util_log_to_file(bp($err->getMessage(), false));
   } else if ($GLOBALS['SHOWERRMSG']) {
     util_log_to_file($err->getFile() . ' on line ');
     util_log_to_file($err->getLine() . ":\n");
     util_log_to_file($err->getMessage() . "\n\n");
+  } else {
+    include('error.php');
   }
-  include('error.php');
 }
 
 function net_show_fail_page($errno, $errstr) {
   if ($GLOBALS['SHOWEXTRACE']) {
     util_log_to_file('net_show_fail_page:' . "\n\n");
-    util_log_to_file(bp($errstr, true));
+    util_log_to_file(bp($errstr, false));
   } else if ($GLOBALS['SHOWERRMSG']) {
     util_log_to_file($errstr . "\n\n");
+  } else {
+    include('error.php');
   }
-  include('error.php');
 }
 
 function net_util_redirect($url) {
