@@ -24,8 +24,8 @@ function mod_get_user_coins($userid) {
   return mod_get_user_int($userid, 'storycoins');
 }
 
-function mod_increment_user_coins($userid) {
-  $coins = mod_get_user_coins($userid) + 1;
+function mod_increment_user_coins($userid, $incr_amount = 1) {
+  $coins = mod_get_user_coins($userid) + $incr_amount;
   mod_update_user_int($userid, 'storycoins', $coins);
 }
 

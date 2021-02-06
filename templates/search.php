@@ -84,6 +84,7 @@ if ($lastgemid == null) {
 
     if ($gemdata['stepint'] == 1) {
 
+      //TODO load these automatically from the DB
       $auth_arr = array('Todd Perry' => 'Todd Perry',
                         'Conri Stonewall' => 'Conri Stonewall',
                         'BIBLICAL' => 'BIBLICAL');
@@ -124,7 +125,7 @@ if ($lastgemid == null) {
       $correct_book_id = mod_get_gem_book($gemdata['gemid']);
       $correct_text = mod_get_book_title($correct_book_id);
       $text_coin = 0;
-      if ($correct_text == $gemdata['bookstr']) {
+      if ($correct_book_id == $gemdata['bookguess']) {
         $text_coin = 1;
       }
 
@@ -136,7 +137,7 @@ if ($lastgemid == null) {
 
       $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
       if ($auth_coin) {
-        $linestr .= gen_link(gen_url('coin'), 'correct!');        
+        $optstr .= gen_link(gen_url('coin'), 'correct!');        
       } else {
         $optstr .= $gemdata['authstr'];
       }
