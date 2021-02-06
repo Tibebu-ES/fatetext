@@ -20,18 +20,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */ ?>
 
-<h2>About FATEtext</h2>
+<h2>About FameText</h2>
 
-<p><i>"hosting for decentralized open source online communities since 2021"</i></p>
+<p><i>"decentralized open source community online"</i></p>
 
-<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to hosting online communities</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
+<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence online</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
 
-<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FATE (v0.7) on January 29, 2021 at <a href="http://fatetext.com">fatetext.com</a>, and he also runs a separate, proprietary instance of FATE called <a href="http://fametext.com">FameText</a>.</p>
+<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FaTe (v0.8) on Feb. 8, 2021 at <a href="http://fatetext.com">fametext.com</a>.</p>
 
-<p>v0.7's available upon request as a ZIP file (22 MB) and the source code was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
+<p><a href="https://github.com/tperry256/fametext">v0.8's source code</a> is available upon request as a ZIP file (22 MB) and the first iteration was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
-<p>Please find the following demo videos in order to
-<b>take fatetext.com for a test drive</b>:</p>
+<p>
+Please find the following demo videos in order to
+<b>take fametext.com for a test drive</b>:</p>
 
 <p><u>TODO</u></p>
 
@@ -40,12 +41,12 @@ Or take the next step in a fateful journey while
 
 <p><u>TODO</u></p>
 
-Or play a leadership role and hopefully lead by
-<b>hosting an instance of the FATE code</b>:</p>
+Or play a leadership role and take the world by
+<b>hosting an instance of the FaTe code</b>:</p>
 
 <p><u>TODO</u></p>
 
-Or become a developer by modifing the FATEtext
-<b>to support more and more new features</b>:</p>
+Or become a developer by modifing the storm by
+<b>supporting more and more new features</b>:</p>
 
 <p><u>TODO</u></p>

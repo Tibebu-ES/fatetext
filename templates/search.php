@@ -87,8 +87,8 @@ if ($lastgemid == null) {
       $auth_arr = array('Todd Perry' => 'Todd Perry',
                         'Conri Stonewall' => 'Conri Stonewall',
                         'BIBLICAL' => 'BIBLICAL');
-      $text_arr = array(1 => 'The Bible',
-                        2 => 'Suzy\'s Memoir',
+      $text_arr = array(2 => 'The Bible',
+                        1 => 'Suzy\'s Memoir',
                         3 => 'TheSuzy.com Show',
                         4 => 'TheSuzy Memoirs');
 
@@ -104,7 +104,8 @@ if ($lastgemid == null) {
         $linestr = '&nbsp; ' . gen_i('and the TEXT') . ': ';
         $linestr .= gen_select_input('textguess', $text_arr);
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
-        $tempstr .= gen_gem_quest_form($gemdata);
+        //NOTE: tempstr is passed into this form gen function
+        $tempstr = gen_gem_quest_form($gemdata, $tempstr);
       } else {
         $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
         $leftcol = gen_link($toggleurl, $togglestr, 'plain');
@@ -120,7 +121,8 @@ if ($lastgemid == null) {
       $tempstr .= gen_i(fd($questdata['datecreated'])) . gen_b(':');
       $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
 
-      $correct_text = mod_get_gem_book($gemdata['gemid']);
+      $correct_book_id = mod_get_gem_book($gemdata['gemid']);
+      $correct_text = mod_get_book_title($correct_book_id);
       $text_coin = 0;
       if ($correct_text == $gemdata['bookstr']) {
         $text_coin = 1;
@@ -132,7 +134,6 @@ if ($lastgemid == null) {
         $auth_coin = 1;
       }
 
-p($gemdata);
       $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
       if ($auth_coin) {
         $linestr .= gen_link(gen_url('coin'), 'correct!');        

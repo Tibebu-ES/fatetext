@@ -139,9 +139,10 @@ function app_get_page_title($inpage = '') {
   return $rv;
 }
 
-function gen_gem_quest_form($gemdata, $add_el = true) {
+function gen_gem_quest_form($gemdata, $tempstr = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
+  $elem_arr []= $tempstr;
   $elem_arr []= gen_text_area('steptxt', '', 3, STEP_COLS, '', $add_el);
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Ask Question', $add_el));
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
