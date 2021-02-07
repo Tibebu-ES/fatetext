@@ -143,7 +143,10 @@ function gen_gem_quest_form($gemdata, $tempstr = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
   $elem_arr []= $tempstr;
-  $elem_arr []= gen_text_area('steptxt', '', 3, STEP_COLS, '', $add_el);
+  //$elem_arr []= gen_text_area('steptxt', '', 3, STEP_COLS, '', $add_el);
+  $elem_arr []= gen_txt_input('steptxt', '', STEP_COLS,
+                              '<your question>', $add_el, true);
+ 
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Ask Question', $add_el));
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
@@ -162,8 +165,8 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   } else {
     //TODO docs link
     $recrow .= PADDING_STR . ' (';
-    $tempstr = 'Click here for more information';
-    $recrow .= gen_link(gen_url('search'), $tempstr) . ')';
+    $tempstr = 'Click here to generate a new gem!';
+    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true) . ')';
   }
   $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
@@ -176,6 +179,7 @@ function gen_gem_guess_form($gemdata, $add_el = true) {
   $elem_arr = array();
   $elem_arr []= gen_input('submit', 'cmd', 'Guess', $add_el);
   $elem_arr []= gen_txt_input('steptxt', '', GUESS_COLS, '', $add_el);
+  //$elem_arr []= PADDING_STR . gen_input('checkbox', '')
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;

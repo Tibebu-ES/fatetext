@@ -88,10 +88,10 @@ if ($lastgemid == null) {
       $auth_arr = array('Todd Perry' => 'Todd Perry',
                         'Conri Stonewall' => 'Conri Stonewall',
                         'BIBLICAL' => 'BIBLICAL');
-      $text_arr = array(2 => 'The Bible',
+      $text_arr = array(4 => 'The Bible',
                         1 => 'Suzy\'s Memoir',
-                        3 => 'TheSuzy.com Show',
-                        4 => 'TheSuzy Memoirs');
+                        2 => 'TheSuzy.com Show',
+                        3 => 'TheSuzy Memoirs');
 
       $tempstr = 'Now, ask a question about that same sentence:';
       $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);

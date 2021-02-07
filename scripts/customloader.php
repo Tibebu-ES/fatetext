@@ -41,9 +41,9 @@ $file_path_arr = array(1 => '/thesuzy/suzymem.txt',
 
 foreach ($file_path_arr as $book_id => $file_path) {
 
-  $text = file_get_contents($datapath . $filepath);
+  $text = file_get_contents($datapath . $file_path);
 
-  echo $filepath . ' len: ' . strlen($text);
+  echo $file_path . ' len: ' . strlen($text);
   echo "\n";
 
   $lines = util_split("\n", $text);
@@ -151,13 +151,18 @@ foreach ($file_path_arr as $book_id => $file_path) {
   $sql = 'TRUNCATE TABLE toks';
   queryf($sql);
 
-  $sql = 'INSERT INTO toks (tokstr, chestidstr)';
-  $sql .= ' VALUES (%s, %s)';
+  $sql = 'INSERT INTO toks (tokstr, chestidstr, bookid)';
+  $sql .= ' VALUES (%s, %s, %d)';
 
   $i = 0;
   foreach ($toksarr as $tok => $lids) {
     $tripidstr = implode(' ', array_keys($lids));
-    queryf($sql, $tok, $tripidstr);
+
+if ($tok == 'misunderstanding') {
+  continue;
+}
+
+    queryf($sql, $tok, $tripidstr, $book_id);
     $i++;
 
     if ($i % REPORT_MOD == 0) {

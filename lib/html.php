@@ -51,13 +51,16 @@ function gen_copyright_notice($add_break = false, $add_llc = true) {
   return $rv;
 }
 
-function gen_link($inurl, $intext, $css_class = '') {
+function gen_link($inurl, $intext, $css_class = '', $autofocus = false) {
   $rv = '<a href="' . $inurl . '"';
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';
   }
   //$colorstr = rand(10, 99) . rand(10, 99) . rand(10, 99);
   //$rv .= 'style="color:#' . $colorstr . '"';
+  if ($autofocus) {
+    $rv .= ' autofocus';
+  }
   $rv .= '>' . $intext . '</a>';
   return $rv;
 }
@@ -142,7 +145,8 @@ function gen_text_area($inname, $invalue, $inrows,
 }
 
 function gen_txt_input($inname, $invalue, $insize,
-                       $inplace = '', $add_el = true) {
+                       $inplace = '', $add_el = true,
+                       $autofocus = false) {
   $rv = '<input type="';
   if ($inname == 'password') {
     $rv .= 'password';
@@ -155,7 +159,11 @@ function gen_txt_input($inname, $invalue, $insize,
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }
-  $rv .= '">';
+  $rv .= '"';
+  if ($autofocus) {
+    $rv .= ' autofocus';
+  }
+  $rv .= '>';
   if ($add_el) $rv .= "\n";
   return $rv;
 }
