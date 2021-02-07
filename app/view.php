@@ -153,7 +153,8 @@ function gen_gem_quest_form($gemdata, $tempstr = '', $add_el = true) {
 function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $elem_arr []= gen_text_area('steptxt', $stepvalue, 5, STEP_COLS, '', $add_el);
+  $elem_arr []= gen_text_area('steptxt', $stepvalue, $gemdata['ansrows'],
+                              $gemdata['anscols'], '', $add_el);
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
   if ($lastsaved != 0) {
     $recrow .= PADDING_STR . ' (last saved at ';

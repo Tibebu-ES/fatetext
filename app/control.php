@@ -65,6 +65,10 @@ function con_do_cmd(&$data) {
       web_logout_user($data, ($cmd == 'logout'));
       break;
 
+     case 'Make Changes':
+      //check_string_param('');
+      break;
+
      case 'Change Password':
       check_string_param('oldpasstxt', $data, $_REQUEST);
       check_string_param('newpasstxt', $data, $_REQUEST);
@@ -127,13 +131,6 @@ function con_do_cmd(&$data) {
             if ($correct_auth == $data['authguess']) {
               $auth_coin = 1;
             }
-
-  /*p($correct_book_id);
-  p($data['textguess']);
-  p($text_coin);
-  p($correct_auth);
-  p($data['authguess']);
-  p($auth_coin);*/
 
             if ($auth_coin == 1 && $text_coin == 1) {
               $data[TEMPLATE_MSG] = 'You got 2 storycoins!';

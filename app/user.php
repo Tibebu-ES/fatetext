@@ -20,6 +20,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+function user_get_ans_data($user_id) {
+  $sql = 'SELECT datarows, datacols FROM users WHERE userid = %d';
+  $rs = queryf_one($sql, $user_id);
+  return $rs;
+}
+
+function user_set_ans_data($user_id, $ans_row, $ans_cols) {
+  $sql = 'UPDATE users SET datarows = %d, datacols = %d';
+  $sql .= ' WHERE userid = %d';
+  queryf($sql, $user_id, $ans_rows, $ans_cols);
+}
+
 function mod_get_user_coins($userid) {
   return mod_get_user_int($userid, 'storycoins');
 }

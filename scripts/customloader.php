@@ -35,130 +35,136 @@ $starttime = time();
 $datapath = $GLOBALS['FILESDIR'];
 //$files = scandir($datapath);
 
-$filepath = $datapath . '/thesuzy/suzymem.txt';
+$file_path_arr = array(1 => '/thesuzy/suzymem.txt',
+                       2 => '/thesuzy/theshow.txt',
+                       3 => '/thesuzy/themems.txt');
 
-$text = file_get_contents($filepath);
+foreach ($file_path_arr as $book_id => $file_path) {
 
-echo $filepath . ' len: ' . strlen($text);
-echo "\n";
+  $text = file_get_contents($datapath . $filepath);
 
-$lines = util_split("\n", $text);
-$chests = array();
+  echo $filepath . ' len: ' . strlen($text);
+  echo "\n";
 
-$cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
-$cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
-$cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
+  $lines = util_split("\n", $text);
+  $chests = array();
 
-$charcounts = array();
-$cclen = strlen($cleanchars);
-for ($i = 0; $i < $cclen; $i++) {
-  $charcounts[$cleanchars[$i]] = true;
-}
+  $cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
+  $cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
+  $cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-$i = 0;
-$prevline = '';
-$trip = array('', '', '');
-foreach ($lines as $line) {
-  $linelen = strlen($line);
-  if (strlen($linelen) < 1) {
-    util_except("found empty line at i = $i");
+  $charcounts = array();
+  $cclen = strlen($cleanchars);
+  for ($i = 0; $i < $cclen; $i++) {
+    $charcounts[$cleanchars[$i]] = true;
   }
 
-  if ($line[0] == '_') {
-    echo 'Skipping: ' . $line . "\n";
-    continue;
-  }
-
-  $line = $prevline . ' ' . $line;
+  $i = 0;
   $prevline = '';
-  if ($linelen < MIN_LINE_LEN) {
-  	$prevline = $line;
-    continue;
-  }
-
-  /*if ($line != utf8_encode($line)) {
-    echo $line . "\n";
-    echo utf8_encode($line) . "\n\n";
-  }*/
-
-  $cleanline = '';
-  $linelen = strlen($line);
-  for ($j = 0; $j < $linelen; $j++) {
-    if (isset($charcounts[$line[$j]])) {
-      $cleanline .= $line[$j];
+  $trip = array('', '', '');
+  foreach ($lines as $line) {
+    $linelen = strlen($line);
+    if (strlen($linelen) < 1) {
+      util_except("found empty line at i = $i");
     }
+
+    if ($line[0] == '_') {
+      echo 'Skipping: ' . $line . "\n";
+      continue;
+    }
+
+    $line = $prevline . ' ' . $line;
+    $prevline = '';
+    if ($linelen < MIN_LINE_LEN) {
+    	$prevline = $line;
+      continue;
+    }
+
+    /*if ($line != utf8_encode($line)) {
+      echo $line . "\n";
+      echo utf8_encode($line) . "\n\n";
+    }*/
+
+    $cleanline = '';
+    $linelen = strlen($line);
+    for ($j = 0; $j < $linelen; $j++) {
+      if (isset($charcounts[$line[$j]])) {
+        $cleanline .= $line[$j];
+      }
+    }
+
+    $chests []= utf8_encode($cleanline);
+    $i++;
   }
 
-  $chests []= utf8_encode($cleanline);
-  $i++;
-}
+  util_assert($i == count($chests));
+  echo 'found ' . $i . ' chests' . "\n";
 
-util_assert($i == count($chests));
-echo 'found ' . $i . ' chests' . "\n";
+  $sql = 'TRUNCATE TABLE chests';
+  queryf($sql);
 
-$sql = 'TRUNCATE TABLE chests';
-queryf($sql);
+  $sql = 'INSERT INTO chests (datastr, bookid)';
+  $sql .= ' VALUES (%s, %d)';
 
-$sql = 'INSERT INTO chests (datastr, bookid)';
-$sql .= ' VALUES (%s, %d)';
+  $toksarr = array();
+  $i = 0;
+  foreach ($chests as $datastr) {
+    queryf($sql, $datastr, $book_id);
+    $lid = last_insert_id();
+    $i++;
 
-$toksarr = array();
-$i = 0;
-foreach ($chests as $datastr) {
-  queryf($sql, $datastr, BIBLE_BOOK_ID);
-  $lid = last_insert_id();
-  $i++;
+  	$toks = explode(" ", $datastr);
+  	foreach ($toks as $tok) {
+      $toklen = strlen($tok);
 
-	$toks = explode(" ", $datastr);
-	foreach ($toks as $tok) {
-    $toklen = strlen($tok);
-
-    $trimtok = '';
-    $started = false;
-    for ($j = 0; $j < $toklen; $j++) {
-      if (ctype_alpha($tok[$j])) {
-        //accumulate characters until a non-alphabet char is seen
-        $trimtok .= $tok[$j];
-        $started = true;
-      } else {
-        if ($started) {
-          break;
+      $trimtok = '';
+      $started = false;
+      for ($j = 0; $j < $toklen; $j++) {
+        if (ctype_alpha($tok[$j])) {
+          //accumulate characters until a non-alphabet char is seen
+          $trimtok .= $tok[$j];
+          $started = true;
+        } else {
+          if ($started) {
+            break;
+          }
         }
       }
-    }
 
-    $trimtok = strtolower($trimtok);
-    $trimtoklen = strlen($trimtok);
-    if ($trimtoklen >= MIN_TOK_LEN) {
-      if (!isset($toksarr[$trimtok])) {
-        $toksarr[$trimtok] = array();
+      $trimtok = strtolower($trimtok);
+      $trimtoklen = strlen($trimtok);
+      if ($trimtoklen >= MIN_TOK_LEN) {
+        if (!isset($toksarr[$trimtok])) {
+          $toksarr[$trimtok] = array();
+        }
+        $toksarr[$trimtok][$lid] = true;
       }
-      $toksarr[$trimtok][$lid] = true;
+
+  	} //end foreach toks
+
+    if ($i % REPORT_MOD == 0) {
+      echo "inserted $i chests into the db\n";
     }
+  } //end foreach chests
 
-	} //end foreach toks
 
-  if ($i % REPORT_MOD == 0) {
-    echo "inserted $i chests into the db\n";
+  $sql = 'TRUNCATE TABLE toks';
+  queryf($sql);
+
+  $sql = 'INSERT INTO toks (tokstr, chestidstr)';
+  $sql .= ' VALUES (%s, %s)';
+
+  $i = 0;
+  foreach ($toksarr as $tok => $lids) {
+    $tripidstr = implode(' ', array_keys($lids));
+    queryf($sql, $tok, $tripidstr);
+    $i++;
+
+    if ($i % REPORT_MOD == 0) {
+      echo "inserted $i toks into the db\n";
+    }
   }
-} //end foreach chests
 
-
-$sql = 'TRUNCATE TABLE toks';
-queryf($sql);
-
-$sql = 'INSERT INTO toks (tokstr, chestidstr)';
-$sql .= ' VALUES (%s, %s)';
-
-$i = 0;
-foreach ($toksarr as $tok => $lids) {
-  $tripidstr = implode(' ', array_keys($lids));
-  queryf($sql, $tok, $tripidstr);
-  $i++;
-
-  if ($i % REPORT_MOD == 0) {
-    echo "inserted $i toks into the db\n";
-  }
 }
 
 $elapsed = time() - $starttime;
