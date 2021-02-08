@@ -113,7 +113,7 @@ if ($lastgemid == null) {
       } else {
         $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
         $leftcol = gen_link($toggleurl, $togglestr, 'plain');
-        $rightcol = gen_gem_quest_form($gemdata);
+        $rightcol = gen_gem_quest_form($gemdata, '', $data['one_line_chk']);
         $tempstr .= gen_two_cols($leftcol, $rightcol);
       }
       echo gen_div($tempstr, 'gem_step');

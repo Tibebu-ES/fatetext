@@ -157,7 +157,7 @@ function gen_gem_quest_form($gemdata, $optional_str = '',
                             $is_one_line = true, $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $elem_arr []= $tempstr;
+  $elem_arr []= $optional_str;
   if ($is_one_line) {
     //the last parameter puts the autofocus on this text field
     $elem_arr []= gen_txt_input('steptxt', '', ANSWER_COLS,
