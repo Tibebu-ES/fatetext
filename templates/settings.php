@@ -44,12 +44,16 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
 } else if ($data['cmd'] == CUSTOMIZE_UI_CMD) {
 
+  $user_data = user_get_ans_data(web_get_user());
+
   echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
   $elem_arr = array(); $add_el = true;
-  $tempstr = gen_txt_input('numcolstxt', '', 5, '', $add_el);
-  $elem_arr []= $tempstr . ' cols' . PADDING_STR;
-  $tempstr = gen_txt_input('numrowstxt', '', 5, '', $add_el);
-  $elem_arr []= $tempstr . ' rows<br>';
+  $tempstr = gen_txt_input('numrowstxt', $user_data['datarows'], 5,
+                           '', $add_el);
+  $elem_arr []= $tempstr . ' rows' . PADDING_STR;
+  $tempstr = gen_txt_input('numcolstxt', $user_data['datacols'], 5,
+                           '', $add_el);
+  $elem_arr []= $tempstr . ' cols<br>';
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Make Changes', $add_el));
   echo gen_form($elem_arr, gen_url('settings'));
 

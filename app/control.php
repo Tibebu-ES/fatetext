@@ -66,7 +66,22 @@ function con_do_cmd(&$data) {
       break;
 
      case 'Make Changes':
-      //check_string_param('');
+      check_string_param('numcolstxt', $data, $_REQUEST);
+      check_string_param('numrowstxt', $data, $_REQUEST);
+      $num_cols = intval($data['numcolstxt']);
+      $num_rows = intval($data['numrowstxt']);
+      if ($num_cols <= 10) {
+        $data[TEMPLATE_MSG] = 'Num cols should be greater than 10';
+      } else if ($num_cols >= 100) {
+        $data[TEMPLATE_MSG] = 'Num cols should be less than 100';
+      } else if ($num_rows <= 1) {
+        $data[TEMPLATE_MSG] = 'Num rows should be greater than 1';
+      } else if ($num_rows >= 100) {
+        $data[TEMPLATE_MSG] = 'Num rows should be less than 100';
+      } else {
+        $data[TEMPLATE_MSG] = 'Default answer cols and rows updated.';
+        user_set_ans_data(web_get_user(), $num_rows, $num_cols);
+      }
       break;
 
      case 'Change Password':
@@ -88,6 +103,7 @@ function con_do_cmd(&$data) {
       $gemdata = mod_load_gem($curgem);
       $whichint = 1;
       if ($cmd == 'Guess') {
+
         if ($gemdata['stepint'] >= 1) {
           $data[TEMPLATE_MSG] = 'Please move onto to the next step.';
           break;
@@ -96,12 +112,20 @@ function con_do_cmd(&$data) {
           $data[TEMPLATE_MSG] = 'You got a storycoin!';
           mod_increment_user_coins($curuser);          
         }
+        if (isset($_REQUEST['one_line_chk'])) {
+          $data['one_line_chk'] = true;
+        } else {
+          $data['one_line_chk'] = false;
+        }
+
       } else if ($cmd == 'Ask Question') {
+
         $whichint = 2;
         if ($gemdata['stepint'] >= 2) {
           $data[TEMPLATE_MSG] = 'The question is immutable.';
           break;
         }
+
       } else if ($cmd == 'Record Answer') {
         $whichint = 3;
       } else {

@@ -28,25 +28,22 @@ SOFTWARE. */ ?>
 
 <p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FaTe (v0.8) on Feb. 8, 2021 at <a href="http://fatetext.com">fametext.com</a>.</p>
 
-<p><a href="https://github.com/tperry256/fametext">v0.8's source code</a> is available upon request as a ZIP file (22 MB) and the first iteration was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
+<p><a href="https://github.com/tperry256/fametext">v0.8's source code</a> is available upon request as a ZIP file (22 MB), and the first iteration was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">separate GIT repository on Github</a>.</p>
 
-<p>
-Please find the following demo videos in order to
-<b>take fametext.com for a test drive</b>:</p>
+<p>Please find the following videos for more info:</p>
 
-<p><u>TODO</u></p>
-
-Or take the next step in a fateful journey while
-<b>creating an account on the FameText</b>:
+<p><b>Taking fametext.com for a test drive</b></p>
 
 <p><u>TODO</u></p>
 
-Or play a leadership role and take the world by
-<b>hosting an instance of the FaTe code</b>:</p>
+<p><b>Creating an account at FameText.com</b></p>
 
 <p><u>TODO</u></p>
 
-Or become a developer by modifing the storm by
-<b>supporting more and more new features</b>:</p>
+<p><b>Hosting an instance of the FaTe code</b></p>
+
+<p><u>TODO</u></p>
+
+<p><b>Developing more and more new features</b></p>
 
 <p><u>TODO</u></p>

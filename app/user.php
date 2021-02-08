@@ -26,10 +26,10 @@ function user_get_ans_data($user_id) {
   return $rs;
 }
 
-function user_set_ans_data($user_id, $ans_row, $ans_cols) {
+function user_set_ans_data($user_id, $ans_rows, $ans_cols) {
   $sql = 'UPDATE users SET datarows = %d, datacols = %d';
   $sql .= ' WHERE userid = %d';
-  queryf($sql, $user_id, $ans_rows, $ans_cols);
+  queryf($sql, $ans_rows, $ans_cols, $user_id);
 }
 
 function mod_get_user_coins($userid) {

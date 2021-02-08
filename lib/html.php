@@ -168,6 +168,19 @@ function gen_txt_input($inname, $invalue, $insize,
   return $rv;
 }
 
+function gen_checkbox($inname, $invalue, $is_checked = false) {
+  $rv = '';
+  $rv .= '<input type="checkbox';
+  $rv .= '" name ="' . $inname;
+  $rv .= '" value="' . $invalue . '"';
+  if ($is_checked) {
+    $rv .= ' checked';
+  }
+  $rv .= '>';
+  if ($add_el) $rv .= "\n";
+  return $rv;
+}
+
 function gen_input($intype, $inname, $invalue, $add_el = true) {
   $rv = '';
   $rv .= '<input type="' . $intype;

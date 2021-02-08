@@ -69,7 +69,9 @@ define('CUSTOM_COLS', 30);
 define('SEARCH_COLS', 60);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);
-define('STEP_COLS', 50);
+define('QUESTION_ROWS', 3);
+define('ANSWER_COLS', 50);
+define('ANSWER_ROWS', 5);
 
 define('TEMPLATE_CONTENT', '__content');
 define('TEMPLATE_PAGE', 'page');

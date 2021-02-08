@@ -105,8 +105,9 @@ if ($lastgemid == null) {
         $linestr = '&nbsp; ' . gen_i('and the TEXT') . ': ';
         $linestr .= gen_select_input('textguess', $text_arr);
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
-        //NOTE: tempstr is passed into this form gen function
-        $tempstr = gen_gem_quest_form($gemdata, $tempstr);
+        //NOTE: the optional text and auth guess are in $tempstr
+        $tempstr = gen_gem_quest_form($gemdata, $tempstr,
+                                      $data['one_line_chk']);
       } else {
         $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
         $leftcol = gen_link($toggleurl, $togglestr, 'plain');

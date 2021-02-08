@@ -139,14 +139,34 @@ function app_get_page_title($inpage = '') {
   return $rv;
 }
 
-function gen_gem_quest_form($gemdata, $tempstr = '', $add_el = true) {
+function gen_gem_guess_form($gemdata, $add_el = true) {
+  $rv = '';
+  $elem_arr = array();
+  $elem_arr []= gen_input('submit', 'cmd', 'Guess', $add_el);
+  $elem_arr []= gen_txt_input('steptxt', '', GUESS_COLS,
+                              '<your guess>', $add_el, true);
+  $temp_str = PADDING_STR . gen_checkbox('one_line_chk', '', true);
+  $temp_str .= ' One-Line Question';
+  $elem_arr []= $temp_str;
+  $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
+  $rv = gen_form($elem_arr, gen_url('search'));
+  return $rv;
+}
+
+function gen_gem_quest_form($gemdata, $optional_str = '',
+                            $is_one_line, $add_el = true) {
   $rv = '';
   $elem_arr = array();
   $elem_arr []= $tempstr;
-  //$elem_arr []= gen_text_area('steptxt', '', 3, STEP_COLS, '', $add_el);
-  $elem_arr []= gen_txt_input('steptxt', '', STEP_COLS,
-                              '<your question>', $add_el, true);
- 
+  if ($is_one_line) {
+    //the last parameter puts the autofocus on this text field
+    $elem_arr []= gen_txt_input('steptxt', '', ANSWER_COLS,
+                                '<your question>', $add_el, true);
+  } else {
+    $elem_arr []= gen_text_area('steptxt', '', QUESTION_ROWS,
+                                ANSWER_COLS, '', $add_el);
+  }
+
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Ask Question', $add_el));
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
@@ -157,11 +177,13 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $rv = '';
   $elem_arr = array();
   $elem_arr []= gen_text_area('steptxt', $stepvalue, $gemdata['ansrows'],
-                              $gemdata['anscols'], '', $add_el);
+                              $gemdata['anscols'], '<your answer>', $add_el);
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
   if ($lastsaved != 0) {
     $recrow .= PADDING_STR . ' (last saved at ';
     $tempstr = gen_i(fd($lastsaved));
+    //the last parameter puts the autofocus on this link
+    //so that gems can be created without any mouse clicks
     $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true);
     $recrow .= ')';
   } else {
@@ -171,17 +193,6 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
     $recrow .= ')';
   }
   $elem_arr []= gen_p($recrow);
-  $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
-  $rv = gen_form($elem_arr, gen_url('search'));
-  return $rv;
-}
-
-function gen_gem_guess_form($gemdata, $add_el = true) {
-  $rv = '';
-  $elem_arr = array();
-  $elem_arr []= gen_input('submit', 'cmd', 'Guess', $add_el);
-  $elem_arr []= gen_txt_input('steptxt', '', GUESS_COLS, '', $add_el);
-  //$elem_arr []= PADDING_STR . gen_input('checkbox', '')
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
@@ -225,7 +236,7 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
     $elem_arr []= '</div>';
   } else {
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $elem_arr []= gen_txt_input('stxt', $safetext, STEP_COLS,
+    $elem_arr []= gen_txt_input('stxt', $safetext, ANSWER_COLS,
                                 SEARCH_PLACEHOLDER, $add_el);
   }
   $rv = gen_form($elem_arr, gen_url('search'));
