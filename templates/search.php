@@ -33,7 +33,7 @@ if (isset($data['category'])) {
 }
 
 $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
-echo gen_search_form($safetext, $textarea, $incat);
+echo gen_search_form($safetext, $textarea, $incat, true, false);
 
 if ($stxt == '') {
 

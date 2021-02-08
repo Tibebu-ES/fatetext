@@ -212,7 +212,8 @@ function gen_tos_form($add_el = true) {
   return $rv;
 }
 
-function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
+function gen_search_form($safetext = '', $istextarea = false,
+                         $selcat = '', $add_el = true, $auto_focus = true) {
   $rv = '';
   $elem_arr = array();
   $option_arr = array('FATE' => 'Random FATE',
@@ -254,7 +255,7 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
     $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('stxt', $safetext, SEARCH_COLS,
-                                SEARCH_PLACEHOLDER, $add_el, true);
+                                SEARCH_PLACEHOLDER, $add_el, $auto_focus);
   }
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
