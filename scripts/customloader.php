@@ -157,9 +157,8 @@ foreach ($file_path_arr as $book_id => $file_path) {
   foreach ($toksarr as $tok => $lids) {
     $tripidstr = implode(' ', array_keys($lids));
 
+//TODO what's this?
 if ($tok == 'misunderstanding') {
-p($tok);
-p($lids);
   continue;
 }
 

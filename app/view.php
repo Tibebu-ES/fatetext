@@ -161,12 +161,14 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
   if ($lastsaved != 0) {
     $recrow .= PADDING_STR . ' (last saved at ';
-    $recrow .= gen_i(fd($lastsaved)) . ')';
+    $tempstr = gen_i(fd($lastsaved));
+    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true);
+    $recrow .= ')';
   } else {
-    //TODO docs link
     $recrow .= PADDING_STR . ' (';
     $tempstr = 'Click here to generate a new gem!';
-    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true) . ')';
+    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true);
+    $recrow .= ')';
   }
   $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);

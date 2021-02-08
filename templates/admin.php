@@ -20,7 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$sql = 'SELECT * FROM gems WHERE userid = %d ORDER BY userid, lastloaded';
+if (web_is_admin()) {
+  $sql = 'SELECT * FROM gems ORDER BY userid, lastloaded DESC';
+} else {
+  $sql = 'SELECT * FROM gems WHERE userid = %d ORDER BY userid, lastloaded DESC';
+}
 $rs = queryf_all($sql, web_get_user());
 
 foreach ($rs as $row) {
