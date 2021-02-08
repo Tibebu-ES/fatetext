@@ -84,7 +84,7 @@ function app_get_header_extra($inpage, $add_el = true) {
    default:
     $link_text = FAME_IDENT;
     $link_url = FAME_URL;
-    $rv .= gen_link($link_url, $link_text, $css_class, false);
+    $rv .= gen_link($link_url, $link_text, $css_class, false, true);
     break;
   }
 
@@ -218,8 +218,11 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
   $option_arr = array('FATE' => 'Random FATE',
                       'CLEAR' => 'CLEAR Results',
                       'CUSTOM' => 'CUSTOM Category',
+                      'aRome' => 'Ancient Rome',
+                      'aGreek' => 'Ancient Greek',
                       'bibleOS' => 'King James Bible',
                       'theBard' => 'All Shakespeare',
+                      'classiC' => 'Classic English',
                       'ancienT' => 'Ancient Classics',
                       'notSuzy' => 'Everything Except',
                       'suzyThe' => 'TheSuzy Trilogy',
@@ -227,7 +230,7 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
                       'suzyMem' => 'Suzy\'s Memoir',
                       'theShow' => 'TheSuzy.com Show',
                       'theMems' => 'TheSuzy Memoirs',
-                      'fashTex' => 'FashionText',
+                      'fshnTxt' => 'FashionText',
                       'suzyBot' => 'Suzybot',
                       'shaJury' => 'SharkInjury',
                       'cCourse' => 'ClicheCourse');
@@ -251,7 +254,7 @@ function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
     $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('stxt', $safetext, SEARCH_COLS,
-                                SEARCH_PLACEHOLDER, $add_el);
+                                SEARCH_PLACEHOLDER, $add_el, true);
   }
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;

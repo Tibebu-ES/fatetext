@@ -58,13 +58,13 @@ if (isset($data['chestid'])) {
   echo gen_p(gen_h(2, $tempstr, 'page_heading'));
 
   $urlstr = 'http://suzybot.com';
-  $tempstr = gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $tempstr = gen_link($urlstr, $urlstr, 'header', false, true) . '<br>';
   $urlstr = 'http://fashiontext.com';
-  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header', false, true) . '<br>';
   $urlstr = 'http://sharkinjury.com';
-  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header', false, true) . '<br>';
   $urlstr = 'http://clichecourse.com';
-  $tempstr .= gen_link($urlstr, $urlstr, 'header') . '<br>';
+  $tempstr .= gen_link($urlstr, $urlstr, 'header', false, true) . '<br>';
   echo gen_p($tempstr);
 
   $ldpt = $GLOBALS['FATEPATH'] . '/templates/';

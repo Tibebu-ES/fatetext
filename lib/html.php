@@ -51,15 +51,19 @@ function gen_copyright_notice($add_break = false, $add_llc = true) {
   return $rv;
 }
 
-function gen_link($inurl, $intext, $css_class = '', $autofocus = false) {
+function gen_link($inurl, $intext, $css_class = '',
+                  $auto_focus = false, $new_window = false) {
   $rv = '<a href="' . $inurl . '"';
   if ($css_class != '') {
     $rv .= ' class="' . $css_class . '"';
   }
   //$colorstr = rand(10, 99) . rand(10, 99) . rand(10, 99);
   //$rv .= 'style="color:#' . $colorstr . '"';
-  if ($autofocus) {
+  if ($auto_focus) {
     $rv .= ' autofocus';
+  }
+  if ($new_window) {
+    $rv .= ' target="_blank"';
   }
   $rv .= '>' . $intext . '</a>';
   return $rv;
