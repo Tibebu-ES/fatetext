@@ -215,28 +215,42 @@ function gen_tos_form($add_el = true) {
 function gen_search_form($safetext = '', $istextarea = false, $selcat = '', $add_el = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array('fate' => 'fate',
-                      'bibleos' => 'King James Bible',
-                      'suzymem' => 'Suzy\'s Memoir',
-                      );
+  $option_arr = array('FATE' => 'Random FATE',
+                      'CLEAR' => 'CLEAR Results',
+                      'CUSTOM' => 'CUSTOM Category',
+                      'bibleOS' => 'King James Bible',
+                      'theBard' => 'All Shakespeare',
+                      'ancienT' => 'Ancient Classics',
+                      'notSuzy' => 'Everything Except',
+                      'suzyThe' => 'TheSuzy Trilogy',
+                      'suzyArt' => 'TheSuzy Articles',
+                      'suzyMem' => 'Suzy\'s Memoir',
+                      'theShow' => 'TheSuzy.com Show',
+                      'theMems' => 'TheSuzy Memoirs',
+                      'fashTex' => 'FashionText',
+                      'suzyBot' => 'Suzybot',
+                      'shaJury' => 'SharkInjury',
+                      'cCourse' => 'ClicheCourse');
 
-//'fate', 'data', 'docs', 'CLEAR',
-//'suzyThe', 'theBard', 'bibleOS', 'ancienT',
-//'FashionText', 'Suzybot', 'SharkInjury', 'ClicheCourse'
+  $abb_arr = array();
+  foreach ($option_arr as $abb => $cat_str) {
+    $abb_arr[$abb] = $abb;
+  }
 
   if ($istextarea) {
     $inuser = web_get_user();
-    $elem_arr []= gen_text_area('stxt', $safetext, 3, SEARCH_COLS,
+    $elem_arr []= gen_text_area('stxt', $safetext, 3, SEARCH_AREA_COLS,
                                 SEARCH_PLACEHOLDER, $add_el);
-    $elem_arr []= '<div class="textcontrols">';
+    $elem_arr []= '<br><span class="nextline">';
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('custom', $safetext, CUSTOM_COLS,
                                 CUSTOM_PLACEHOLDER, $add_el);
-    $elem_arr []= '</div>';
+    $elem_arr []= '</span>';
   } else {
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
-    $elem_arr []= gen_txt_input('stxt', $safetext, ANSWER_COLS,
+    $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
+    $elem_arr []= gen_txt_input('stxt', $safetext, SEARCH_COLS,
                                 SEARCH_PLACEHOLDER, $add_el);
   }
   $rv = gen_form($elem_arr, gen_url('search'));

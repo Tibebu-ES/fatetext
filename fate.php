@@ -65,8 +65,9 @@ define('SEARCH_PLACEHOLDER', '&lt;Search for Words or Gems&gt;');
 define('CUSTOM_PLACEHOLDER', '&lt;Custom Search Category&gt;');
 define('SPACER_STR', '::');
 
-define('CUSTOM_COLS', 30);
-define('SEARCH_COLS', 60);
+define('CUSTOM_COLS', 25);
+define('SEARCH_COLS', 35);
+define('SEARCH_AREA_COLS', 46);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);
 define('QUESTION_ROWS', 3);
