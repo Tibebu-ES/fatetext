@@ -154,7 +154,7 @@ function gen_gem_guess_form($gemdata, $add_el = true) {
 }
 
 function gen_gem_quest_form($gemdata, $optional_str = '',
-                            $is_one_line, $add_el = true) {
+                            $is_one_line = true, $add_el = true) {
   $rv = '';
   $elem_arr = array();
   $elem_arr []= $tempstr;

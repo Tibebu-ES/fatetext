@@ -26,9 +26,9 @@ SOFTWARE. */ ?>
 
 <p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence online</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
 
-<p><a href="http://tperry256.com">Todd Perry</a> posted this latest version of FaTe (v0.8) on Feb. 8, 2021 at <a href="http://fatetext.com">fametext.com</a>.</p>
+<p>This latest version of FaTe (v0.9) became available online, starting Feb. 9, 2021 at <a href="http://fametext.com">fametext.com</a>.</p>
 
-<p><a href="https://github.com/tperry256/fametext">v0.8's source code</a> is available upon request as a ZIP file (22 MB), and the first iteration was originally released by Todd on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">separate GIT repository on Github</a>.</p>
+<p><a href="https://github.com/tperry256/fametext">v0.9's source code</a> is available upon request as a ZIP file (22 MB), and the first iteration was originally released by <a href="http://tperry256.com">Todd Perry</a> on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">separate GIT repository on Github</a>.</p>
 
 <p>Please find the following videos for more info:</p>
 
