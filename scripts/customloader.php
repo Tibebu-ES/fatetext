@@ -39,6 +39,12 @@ $file_path_arr = array(1 => '/thesuzy/suzymem.txt',
                        2 => '/thesuzy/theshow.txt',
                        3 => '/thesuzy/themems.txt');
 
+$sql = 'TRUNCATE TABLE chests';
+queryf($sql);
+
+$sql = 'TRUNCATE TABLE toks';
+queryf($sql);
+
 foreach ($file_path_arr as $book_id => $file_path) {
 
   $text = file_get_contents($datapath . $file_path);
@@ -100,9 +106,6 @@ foreach ($file_path_arr as $book_id => $file_path) {
   util_assert($i == count($chests));
   echo 'found ' . $i . ' chests' . "\n";
 
-  $sql = 'TRUNCATE TABLE chests';
-  queryf($sql);
-
   $sql = 'INSERT INTO chests (datastr, bookid)';
   $sql .= ' VALUES (%s, %d)';
 
@@ -147,10 +150,6 @@ foreach ($file_path_arr as $book_id => $file_path) {
     }
   } //end foreach chests
 
-
-  $sql = 'TRUNCATE TABLE toks';
-  queryf($sql);
-
   $sql = 'INSERT INTO toks (tokstr, chestidstr, bookid)';
   $sql .= ' VALUES (%s, %s, %d)';
 
@@ -159,6 +158,8 @@ foreach ($file_path_arr as $book_id => $file_path) {
     $tripidstr = implode(' ', array_keys($lids));
 
 if ($tok == 'misunderstanding') {
+p($tok);
+p($lids);
   continue;
 }
 
