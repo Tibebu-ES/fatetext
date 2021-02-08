@@ -40,7 +40,9 @@ if ($stxt == '') {
 $guessdata = null;
 $lastgemid = mod_get_user_lastgem($curuser);
 if ($lastgemid == null) {
-  echo gen_p('Choose a text and then click on the [Search] button in order to generate a gem!');
+  echo gen_p('Chose a category and then click on the
+              <br>search button in order to
+              <br>generate a gem!');
 } else {
   $gemdata = mod_load_gem($lastgemid);
   $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
