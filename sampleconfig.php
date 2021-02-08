@@ -33,8 +33,6 @@ $GLOBALS['SHOWEXTRACE'] = false;
 
 $GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
-$GLOBALS['INVERTEDCS'] = 'FaTe';
-$GLOBALS['CUSTOMCOLOR'] = '';
 
 $GLOBALS['AGREEONLOGIN'] = true;
 $GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';

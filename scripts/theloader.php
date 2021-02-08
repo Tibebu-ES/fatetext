@@ -28,7 +28,7 @@ $GLOBALS['DBVERBOSE'] = false;
 
 define('MIN_LINE_LEN', 40);
 define('MIN_TOK_LEN', 5);
-define('BIBLE_BOOK_ID', 1);
+define('BIBLE_BOOK_ID', 4);
 define('REPORT_MOD', 1000);
 
 $starttime = time();
@@ -74,8 +74,8 @@ util_assert($i == count($chests));
 echo 'found ' . $i . ' chests' . "\n";
 
 
-$sql = 'TRUNCATE TABLE chests';
-queryf($sql);
+//$sql = 'TRUNCATE TABLE chests';
+//queryf($sql);
 
 $sql = 'INSERT INTO chests (datastr, bookid)';
 $sql .= ' VALUES (%s, %d)';
@@ -122,16 +122,16 @@ foreach ($chests as $datastr) {
 } //end foreach chests
 
 
-$sql = 'TRUNCATE TABLE toks';
-queryf($sql);
+//$sql = 'TRUNCATE TABLE toks';
+//queryf($sql);
 
-$sql = 'INSERT INTO toks (tokstr, chestidstr)';
-$sql .= ' VALUES (%s, %s)';
+$sql = 'INSERT INTO toks (tokstr, chestidstr, bookid)';
+$sql .= ' VALUES (%s, %s, %d)';
 
 $i = 0;
 foreach ($toksarr as $tok => $lids) {
   $tripidstr = implode(' ', array_keys($lids));
-  queryf($sql, $tok, $tripidstr);
+  queryf($sql, $tok, $tripidstr, BIBLE_BOOK_ID);
   $i++;
 
   if ($i % REPORT_MOD == 0) {

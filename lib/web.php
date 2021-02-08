@@ -119,9 +119,6 @@ function web_change_password(&$data) {
   $hashpass = util_hashpass($oldpass);
   $sql = 'SELECT hashpass FROM users WHERE userid = %d';
   $rs = queryf_one($sql, $g_user_id);
-p($g_user_id);
-p($hashpass);
-p($rs['hashpass']);
   if (isset($rs) && $rs['hashpass'] == $hashpass) {
     $newhashpass = util_hashpass($newpass);
     mod_update_user_password($g_user_id, $newhashpass);

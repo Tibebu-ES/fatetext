@@ -38,7 +38,7 @@ function gen_url_param($paramname, $paramvalue) {
 }
 
 function gen_copyright_notice($add_break = false, $add_llc = true) {
-  $rv = '© ';
+  $rv = '© 2021 ';
   $rv .= gen_link(COPYRIGHT_URL, COPYRIGHT_HOLDER, '', false);
   if ($add_llc) {
     $rv .= ' LLC';
