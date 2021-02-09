@@ -22,14 +22,17 @@ SOFTWARE. */
 
 echo gen_search_form();
 
+$sub_header_str .= gen_i('Account');
+//$sub_header_str = gen_link(gen_url('settings'), 'Account', 'header');
+//$temp_str = 'Archive';
+$temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
+$sub_header_str .= ' | ' . $temp_str . ' | ';
 if (web_is_admin()) {
-  echo gen_p(gen_h(2, gen_link(gen_url('admin'), 'AdminHQ', 'header')));
+  $sub_header_str .= gen_link(gen_url('admin'), 'AdminHQ', 'header');
 } else {
-  $tempstr = 'Account' . ' | ';
-  $tempstr .= gen_u('Archive') . ' | ';
-  $tempstr .= gen_u('TheDocs');
-  echo gen_p(gen_h(2, $tempstr));
+  $sub_header_str .= gen_link(gen_url('export'), 'Export', 'header');
 }
+echo gen_p(gen_h(2, $sub_header_str));
 
 if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
@@ -57,11 +60,6 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Make Changes', $add_el));
   echo gen_form($elem_arr, gen_url('settings'));
 
-} else if ($data['cmd'] == ARCHIVE_GEMS_CMD) {
-
-  echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
-  echo 'TODO';
-
 } else {
 
   $infostr = '(' . gen_i(fd(mod_get_int('lastchange'))) . ')<br>';
@@ -72,7 +70,7 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $tempstr .= gen_link(gen_url('settings', CUSTOMIZE_UI_CMD),
   	                   'Customize the UI') . PADDING_STR . $infostr;
   $infostr = '(' . mod_get_gem_count() . ')';
-  $tempstr .= gen_link(gen_url('settings', ARCHIVE_GEMS_CMD),
+  $tempstr .= gen_link(gen_url('archive'),
                        'Archive Gems') . PADDING_STR . $infostr;
 
   echo gen_p($tempstr);
@@ -103,7 +101,7 @@ echo gen_p($flagstr);
 
 echo gen_p(gen_h(3, 'Export My Gems (DUTY FREE!)'));
 
-$tempstr = gen_link(gen_url('admin'),
+$tempstr = gen_link(gen_url('export'),
                      'Get My Export (JSON format)');
 $gemco = gen_img('images/gemco.jpg', 'Icon of the California Coast');
 echo gen_p($gemco . PADDING_STR . $tempstr);

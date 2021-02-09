@@ -35,6 +35,9 @@ function web_init_data($inpage) {
   }
 
   net_init_session(true);
+  if (!isset($_SESSION['temp'])) {
+    $_SESSION['temp'] = array();
+  }
   fl('INIT COMPLETED with session;');
   return $rv;
 }

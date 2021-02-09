@@ -36,6 +36,7 @@ include('app/model.php');
 include('app/view.php');
 include('app/control.php');
 
+define('DEFAULT_CATEGORY', 'FATE');
 define('NUM_CHAT_ROWS', 10);
 
 define('COPYRIGHT_HOLDER', 'TSUZY');

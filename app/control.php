@@ -193,6 +193,7 @@ function con_do_cmd(&$data) {
 
      case 'loadgem':
       check_int_param('gemid', $data, $_REQUEST);
+      $data['stxt'] = '';
       $curuser = web_get_user();
       mod_update_user_lastgem($curuser, $data['gemid']);
       mod_update_gem_lastloaded($data['gemid']);
@@ -203,6 +204,10 @@ function con_do_cmd(&$data) {
       $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST, '');
       check_string_param('category', $data, $_REQUEST, '');
+      //if (isset($_REQUEST['customtxt'])) {
+      check_string_param('customtxt', $data, $_REQUEST, '');
+      //}
+ 
       $category = $data['category'];
       if ($category == 'CLEAR') {
         mod_update_user_lastgem($curuser, 0);
@@ -223,7 +228,6 @@ function con_do_cmd(&$data) {
      case TOGGLE_OPTION_CMD:
      case TOGGLE_INVERTEDCS_CMD:
       web_toggle_user_flag(web_get_user(), mod_flag_from_toggle($cmd));
-      $data[TEMPLATE_CMD] = $_SESSION[TEMPLATE_CMD][TEMPLATE_CMD];
       break;
 
      case '=>':
@@ -241,5 +245,12 @@ function con_do_cmd(&$data) {
 
   //preserve the state of this page for
   //. the benefit of the next page load
-  $_SESSION[TEMPLATE_CMD] = $data;
+  $temp_temp = $_SESSION['temp'];
+  $_SESSION['temp'] = $data;
+  foreach ($temp_temp as $sticky_key => $sticky_value) {
+    if (!isset($_SESSION['temp'][$sticky_key])) {
+      $_SESSION['temp'][$sticky_key] = $sticky_value;
+    }
+  }
+
 }

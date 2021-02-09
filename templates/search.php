@@ -21,19 +21,50 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */ 
 
 $curuser = web_get_user();
-$safetext = '';
+$safe_text = '';
+$safe_custom = '';
 $incat = '';
 $stxt = '';
+
+if (!isset($data['category'])) {
+  if (isset($_SESSION['temp']['category'])) {
+    $data['category'] = $_SESSION['temp']['category'];
+  } else {
+    $data['category'] = DEFAULT_CATEGORY;
+  }
+}
+
+if (!isset($data['stxt'])) {
+  if (isset($_SESSION['temp']['stxt'])) {
+    $data['stxt'] = $_SESSION['temp']['stxt'];
+  } else {
+    $data['stxt'] = '';
+  }
+}
+
+if (!isset($data['customtxt'])) {
+  if (isset($_SESSION['temp']['customtxt'])) {
+    $data['customtxt'] = $_SESSION['temp']['customtxt'];
+  } else {
+    $data['customtxt'] = '';
+  }
+}
+
+$incat = $data['category'];
+
 if (isset($data['stxt'])) {
   $stxt = $data['stxt'];
-  $safetext = htmlentities($data['stxt']);
+  $safe_text = htmlentities($data['stxt']);
 }
-if (isset($data['category'])) {
-  $incat = $data['category'];
+
+if (isset($data['customtxt'])) {
+  $custom_txt = $data['customtxt'];
+  $safe_custom = htmlentities($data['customtxt']);
 }
 
 $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
-echo gen_search_form($safetext, $textarea, $incat, true, false);
+echo gen_search_form($safe_text, $safe_custom, $textarea,
+                     $incat, true, false);
 
 if ($stxt == '') {
 
@@ -112,7 +143,8 @@ if ($lastgemid == null) {
                                       $data['one_line_chk']);
       } else {
         $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
-        $leftcol = gen_link($toggleurl, $togglestr, 'plain');
+        $leftcol = gen_div(gen_link($toggleurl, $togglestr, 'plain'),
+                           'gem_step');
         $rightcol = gen_gem_quest_form($gemdata, '', $data['one_line_chk']);
         $tempstr .= gen_two_cols($leftcol, $rightcol);
       }
@@ -187,6 +219,7 @@ if ($lastgemid == null) {
       }
     }
 
+    //TODO select the book based on category
     $sql = 'SELECT chestidstr FROM toks WHERE tokstr = %s';
     $rs = queryf_one($sql, $allalpha);
     if ($rs !== null) {
