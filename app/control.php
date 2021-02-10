@@ -216,11 +216,9 @@ function con_do_cmd(&$data) {
       $category = '';
       $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST, '');
-      check_string_param('category', $data, $_REQUEST, '');
-      //if (isset($_REQUEST['customtxt'])) {
+      check_string_param('category', $data, $_REQUEST, DEFAULT_CATEGORY);
       check_string_param('customtxt', $data, $_REQUEST, '');
-      //}
- 
+
       $category = $data['category'];
       if ($category == 'CLEAR' || $category == 'CUSTOM') {
         mod_update_user_lastgem($curuser, 0);
