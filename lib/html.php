@@ -172,7 +172,7 @@ function gen_txt_input($inname, $invalue, $insize,
   return $rv;
 }
 
-function gen_checkbox($inname, $invalue, $is_checked = false) {
+function gen_checkbox($inname, $invalue, $is_checked = false, $add_el = true) {
   $rv = '';
   $rv .= '<input type="checkbox';
   $rv .= '" name ="' . $inname;

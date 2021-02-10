@@ -24,7 +24,7 @@ echo gen_search_form();
 
 if (isset($data['chestid'])) {
 
-  $minid = max(1, $data['chestid'] - 3);
+  $minid = max(1, $data['chestid'] - 5);
   $maxid = min(mod_max_chestid(), $data['chestid'] + 3);
 
   for ($i = $minid; $i < $maxid; $i++) {

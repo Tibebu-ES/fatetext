@@ -230,9 +230,9 @@ if ($lastgemid == null) {
     }
 
     //TODO select the book based on category
-    $sql = 'SELECT chestidstr FROM toks WHERE tokstr = %s';
-    $rs = queryf_one($sql, $allalpha);
-    if ($rs !== null) {
+    $sql = 'SELECT chestidstr, bookid FROM toks WHERE tokstr = %s';
+    $rs_arr = queryf_all($sql, $allalpha);
+    foreach ($rs_arr as $rs) {
       $tempidarr = explode(' ', $rs['chestidstr']);
       foreach ($tempidarr as $chestid) {
         if (!isset($chestidarr[$chestid])) {
@@ -244,7 +244,8 @@ if ($lastgemid == null) {
     }
   }
 
-  foreach ($chestidarr as $chestid => $count) {
+  $chest_i = 0;
+  foreach ($chestidarr as $chestid => $hit_count) {
     $chestdata = mod_load_chest($chestid);
     $outstr = '';
     $toks = explode(' ', $chestdata['datastr']);
@@ -267,7 +268,15 @@ if ($lastgemid == null) {
       }
       $outstr .=  $linkstr . ' ' . "\n";
     }
+    $chest_i++;
+    $result_str = ' from ' . mod_get_book_title($chestdata['bookid']);
+    $result_str .= ' (chestid = ' . $chestid . ' hits = ' . $hit_count;
+    echo gen_p(gen_b('Result #' . $chest_i) . ':' . $result_str . ')');
     echo gen_p($outstr);
+
+    if ($chest_i >= 100) {
+      break;
+    }
   }
 
   mod_log_search($stxt);
