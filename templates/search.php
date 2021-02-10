@@ -107,12 +107,22 @@ if ($lastgemid == null) {
       $tempstr .= gen_b(gen_u($guessdata['stepstr']));
       $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
     }
-    $dataurl = gen_url('data', 'chest');
-    $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
-    $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
-    $datastr = gen_link($dataurl, $gemdata['chester'], 'plain');
-    $tempstr = gen_p($tempstr);
-    $tempstr .= gen_div($datastr, 'gem_text');
+
+    if ($gemdata['stepint'] == 1) {
+      $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
+      $link_str = 'Click here for more information about this three step process';
+      $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
+      $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+    } else {
+      //TODO show search result view
+      $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
+      $dataurl = gen_url('data', 'chest');
+      $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
+      $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
+      $link_str = 'Click here to view this "sentence with a _______" in context';
+      $help_str = '---&gt;' . PADDING_STR . gen_link(gen_url($dataurl), $link_str);
+      $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+    }
     echo gen_div($tempstr, 'gem_step');
 
     if ($gemdata['stepint'] == 1) {

@@ -20,16 +20,33 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-function user_get_ans_data($user_id) {
-  $sql = 'SELECT datarows, datacols FROM users WHERE userid = %d';
+function user_get_default_rows($user_id) {
+  $sql = 'SELECT datarows FROM users WHERE userid = %d';
   $rs = queryf_one($sql, $user_id);
-  return $rs;
+  return $rs['datarows'];
 }
 
-function user_set_ans_data($user_id, $ans_rows, $ans_cols) {
-  $sql = 'UPDATE users SET datarows = %d, datacols = %d';
-  $sql .= ' WHERE userid = %d';
-  queryf($sql, $ans_rows, $ans_cols, $user_id);
+function user_get_current_rows($user_id) {
+  $gem_id = mod_get_user_lastgem($user_id);
+  if ($gem_id === null) {
+    return 0;
+  }
+  $sql = 'SELECT ansrows FROM gems WHERE gemid = %d';
+  $rs = queryf_one($sql, $gem_id);
+  return $rs['ansrows'];
+}
+
+function user_set_default_rows($user_id, $num_rows) {
+  $sql = 'UPDATE users SET datarows = %d WHERE userid = %d';
+  queryf($sql, $num_rows, $user_id);
+}
+
+function user_set_current_rows($user_id, $num_rows) {
+  $gem_id = mod_get_user_lastgem($user_id);
+  if ($gem_id !== null) {
+    $sql = 'UPDATE gems SET ansrows = %d WHERE gemid = %d';
+    queryf($sql, $num_rows, $gem_id);
+  }
 }
 
 function mod_get_user_coins($userid) {

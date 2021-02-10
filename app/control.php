@@ -66,21 +66,22 @@ function con_do_cmd(&$data) {
       break;
 
      case 'Make Changes':
-      check_string_param('numcolstxt', $data, $_REQUEST);
+      check_string_param('defrowstxt', $data, $_REQUEST);
       check_string_param('numrowstxt', $data, $_REQUEST);
-      $num_cols = intval($data['numcolstxt']);
-      $num_rows = intval($data['numrowstxt']);
-      if ($num_cols <= 10) {
-        $data[TEMPLATE_MSG] = 'Num cols should be greater than 10';
-      } else if ($num_cols >= 100) {
-        $data[TEMPLATE_MSG] = 'Num cols should be less than 100';
-      } else if ($num_rows <= 1) {
+      $default_rows = intval($data['defrowstxt']);
+      $current_rows = intval($data['numrowstxt']);
+      if ($default_rows <= 1) {
         $data[TEMPLATE_MSG] = 'Num rows should be greater than 1';
-      } else if ($num_rows >= 100) {
+      } else if ($default_rows >= 100) {
+        $data[TEMPLATE_MSG] = 'Num rows should be less than 100';
+      } else if ($current_rows <= 1) {
+        $data[TEMPLATE_MSG] = 'Num rows should be greater than 1';
+      } else if ($current_rows >= 100) {
         $data[TEMPLATE_MSG] = 'Num rows should be less than 100';
       } else {
         $data[TEMPLATE_MSG] = 'Default answer cols and rows updated.';
-        user_set_ans_data(web_get_user(), $num_rows, $num_cols);
+        user_set_current_rows(web_get_user(), $current_rows);
+        user_set_default_rows(web_get_user(), $default_rows);
       }
       break;
 

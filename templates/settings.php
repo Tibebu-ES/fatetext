@@ -47,16 +47,17 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
 } else if ($data['cmd'] == CUSTOMIZE_UI_CMD) {
 
-  $user_data = user_get_ans_data(web_get_user());
+  $current_rows = user_get_current_rows(web_get_user());
+  $default_rows = user_get_default_rows(web_get_user());
 
   echo gen_p(gen_link(gen_url('settings'), 'Back to Account'));
   $elem_arr = array(); $add_el = true;
-  $tempstr = gen_txt_input('numrowstxt', $user_data['datarows'], 5,
+  $tempstr = gen_txt_input('numrowstxt', $current_rows, 5,
                            '', $add_el);
-  $elem_arr []= $tempstr . ' rows' . PADDING_STR;
-  $tempstr = gen_txt_input('numcolstxt', $user_data['datacols'], 5,
+  $elem_arr []= $tempstr . ' current rows' . PADDING_STR;
+  $tempstr = gen_txt_input('defrowstxt', $default_rows, 5,
                            '', $add_el);
-  $elem_arr []= $tempstr . ' cols<br>';
+  $elem_arr []= $tempstr . ' default rows<br>';
   $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Make Changes', $add_el));
   echo gen_form($elem_arr, gen_url('settings'));
 
@@ -65,11 +66,14 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $infostr = '(' . gen_i(fd(mod_get_int('lastchange'))) . ')<br>';
   $tempstr = gen_link(gen_url('settings', CHANGE_PASSWORD_CMD),
   	                  'Change Password') . PADDING_STR . $infostr;
-  $infostr = '(' . mod_get_int('datarows');
-  $infostr .= ', ' . mod_get_int('datacols') . ')<br>';
+  $num_str = gen_b('' . user_get_current_rows(web_get_user()));
+  $infostr = '(curRows = ' . $num_str;
+  $num_str = gen_b('' . user_get_default_rows(web_get_user()));
+  $infostr .= ', defRows = ' . $num_str . ')<br>';
   $tempstr .= gen_link(gen_url('settings', CUSTOMIZE_UI_CMD),
   	                   'Customize the UI') . PADDING_STR . $infostr;
-  $infostr = '(' . mod_get_gem_count() . ')';
+  $num_str = gen_i(gen_b('' . mod_get_gem_count()));
+  $infostr = '(you have ' . $num_str . ' unarchived gems)';
   $tempstr .= gen_link(gen_url('archive'),
                        'Archive Gems') . PADDING_STR . $infostr;
 

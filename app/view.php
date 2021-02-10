@@ -177,7 +177,7 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $rv = '';
   $elem_arr = array();
   $elem_arr []= gen_text_area('steptxt', $stepvalue, $gemdata['ansrows'],
-                              $gemdata['anscols'], '<your answer>', $add_el);
+                              ANSWER_COLS, '<your answer>', $add_el);
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
   if ($lastsaved != 0) {
     $recrow .= PADDING_STR . ' (last saved at ';

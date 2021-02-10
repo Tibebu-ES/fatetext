@@ -42,14 +42,14 @@ function mod_generate_gem($userid, $stxt, $category) {
   $wordcount = count(explode(' ', $datastr));
   $charcount = strlen($datastr) - $wordcount;
 
-  $user_data = user_get_ans_data($userid);
+  $default_rows = user_get_default_rows($userid);
 
   $nowtime = time();
   $sql = 'INSERT INTO gems (userid, chestid, tokid, stepint, datecreated,';
-  $sql .= ' wordcount, charcount, lastloaded, ansrows, anscols)';
-  $sql .= ' VALUES (%d, %d, %d, %d, %d, %d, %d, %d, %d, %d)';
+  $sql .= ' wordcount, charcount, lastloaded, ansrows)';
+  $sql .= ' VALUES (%d, %d, %d, %d, %d, %d, %d, %d, %d)';
   queryf($sql, $userid, $randchestid, $randtokid, 0, $nowtime, $wordcount,
-         $charcount, $nowtime, $user_data['datarows'], $user_data['datacols']);
+         $charcount, $nowtime, $default_rows);
   return last_insert_id();
 }
 
