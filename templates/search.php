@@ -120,7 +120,7 @@ if ($lastgemid == null) {
       $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
       $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
       $link_str = 'Click here to view this "sentence with a _______" in context';
-      $help_str = '---&gt;' . PADDING_STR . gen_link(gen_url($dataurl), $link_str);
+      $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
       $tempstr .= gen_div(gen_p($help_str), 'gem_step');
     }
     echo gen_div($tempstr, 'gem_step');
