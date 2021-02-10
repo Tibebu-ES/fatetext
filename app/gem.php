@@ -21,11 +21,50 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 function mod_generate_gem($userid, $stxt, $category) {
-  $sql = 'SELECT MAX(tokid) as maxid FROM toks';
+  $book_filter = ' WHERE ';
+
+  if (!isset($category)) {
+    util_except('called generate_gem without a category');
+  }
+
+  switch ($category) {
+   case 'CLEAR':
+   case 'CUSTOM':
+     util_except('called generate_gem with invalid category ' . $category);
+     break;
+
+   case DEFAULT_CATEGORY:
+     $book_filter = '';
+     break;
+
+   case 'bibleOS':
+     $book_filter .= 'bookid = 4';
+     break;
+
+   case 'suzyThe':
+     $book_filter .= 'bookid = 1 OR bookid = 2 OR bookid = 3';
+     break;
+
+   case 'suzyMem':
+     $book_filter .= 'bookid = 1';
+     break;
+
+   case 'theShow':
+     $book_filter .= 'bookid = 2';
+     break;
+
+   case 'theMems':
+     $book_filter .= 'bookid = 3';
+     break;
+  }
+
+  $sql = 'SELECT MIN(tokid) as minid, MAX(tokid) as maxid';
+  $sql .= ' FROM toks' . $book_filter;
   $rs = queryf_one($sql);
+  $minid = $rs['minid'];
   $maxid = $rs['maxid'];
 
-  $randtokid = rand(0, $maxid - 1);
+  $randtokid = rand($minid, $maxid);
   $sql = 'SELECT chestidstr FROM toks WHERE tokid = %d';
   $rs = queryf_one($sql, $randtokid);
   $chestidstr = $rs['chestidstr'];

@@ -104,19 +104,35 @@ function con_do_cmd(&$data) {
       $gemdata = mod_load_gem($curgem);
       $whichint = 1;
       if ($cmd == 'Guess') {
+        if ($data['steptxt'] == '') {
 
-        if ($gemdata['stepint'] >= 1) {
-          $data[TEMPLATE_MSG] = 'Please move onto to the next step.';
-          break;
-        }
-        if (strtolower($data['steptxt']) == $gemdata['tokstr']) {
-          $data[TEMPLATE_MSG] = 'You got a storycoin!';
-          mod_increment_user_coins($curuser);          
-        }
-        if (isset($_REQUEST['one_line_chk'])) {
-          $data['one_line_chk'] = true;
+          if (!isset($data['category'])) {
+            if (isset($_SESSION['temp']['category'])) {
+              $category = $_SESSION['temp']['category'];
+            } else {
+              $category = DEFAULT_CATEGORY;
+            }
+          }
+
+          $newgemid = mod_generate_gem($curuser, $stxt, $category);
+          mod_update_user_lastgem($curuser, $newgemid);
+
         } else {
-          $data['one_line_chk'] = false;
+
+          if ($gemdata['stepint'] >= 1) {
+            $data[TEMPLATE_MSG] = 'Please move onto to the next step.';
+            break;
+          }
+          if (strtolower($data['steptxt']) == $gemdata['tokstr']) {
+            $data[TEMPLATE_MSG] = 'You got a storycoin!';
+            mod_increment_user_coins($curuser);          
+          }
+          if (isset($_REQUEST['one_line_chk'])) {
+            $data['one_line_chk'] = true;
+          } else {
+            $data['one_line_chk'] = false;
+          }
+
         }
 
       } else if ($cmd == 'Ask Question') {
@@ -127,49 +143,45 @@ function con_do_cmd(&$data) {
           break;
         }
 
-      } else if ($cmd == 'Record Answer') {
-        $whichint = 3;
-      } else {
-        util_assert(false, 'gem step error');
-      }
+        if ($data['steptxt'] == '') {
+          $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
+          break;
+        }
 
-      if ($data['steptxt'] == '') {
-        $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
-      } else {
-        //record book and answer guess
-        if ($whichint == 2) {
-          if (isset($_REQUEST['authguess']) &&
-              isset($_REQUEST['textguess'])) {
-            check_string_param('authguess', $data, $_REQUEST);
-            check_string_param('textguess', $data, $_REQUEST);
-            mod_update_gem_auth_and_text($curgem, $data['authguess'],
-                                         $data['textguess']);
+        if (isset($_REQUEST['authguess']) &&
+            isset($_REQUEST['textguess'])) {
+          check_string_param('authguess', $data, $_REQUEST);
+          check_string_param('textguess', $data, $_REQUEST);
+          mod_update_gem_auth_and_text($curgem, $data['authguess'],
+                                       $data['textguess']);
 
-            $correct_book_id = mod_get_gem_book($curgem);
-            $text_coin = 0;
-            if ($correct_book_id == $data['textguess']) {
-              $text_coin = 1;
-            }
+          $correct_book_id = mod_get_gem_book($curgem);
+          $text_coin = 0;
+          if ($correct_book_id == $data['textguess']) {
+            $text_coin = 1;
+          }
 
-            $correct_auth = mod_get_gem_auth($curgem);
-            $auth_coin = 0;
-            if ($correct_auth == $data['authguess']) {
-              $auth_coin = 1;
-            }
+          $correct_auth = mod_get_gem_auth($curgem);
+          $auth_coin = 0;
+          if ($correct_auth == $data['authguess']) {
+            $auth_coin = 1;
+          }
 
-            if ($auth_coin == 1 && $text_coin == 1) {
-              $data[TEMPLATE_MSG] = 'You got 2 storycoins!';
-              mod_increment_user_coins($curuser, 2);
-            } else if ($auth_coin == 1 || $text_coin == 1) {
-              $data[TEMPLATE_MSG] = 'You got a storycoin!';
-              mod_increment_user_coins($curuser);          
-            }
+          if ($auth_coin == 1 && $text_coin == 1) {
+            $data[TEMPLATE_MSG] = 'You got 2 storycoins!';
+            mod_increment_user_coins($curuser, 2);
+          } else if ($auth_coin == 1 || $text_coin == 1) {
+            $data[TEMPLATE_MSG] = 'You got a storycoin!';
+            mod_increment_user_coins($curuser);          
           }
         }
 
-        mod_record_step($curgem, $data['steptxt'], $whichint);
-        mod_update_gem_step($curgem, $whichint);
+      } else if ($cmd == 'Record Answer') {
+        $whichint = 3;
       }
+
+      mod_record_step($curgem, $data['steptxt'], $whichint);
+      mod_update_gem_step($curgem, $whichint);
       break;
 
      case 'Proceed':
@@ -210,7 +222,7 @@ function con_do_cmd(&$data) {
       //}
  
       $category = $data['category'];
-      if ($category == 'CLEAR') {
+      if ($category == 'CLEAR' || $category == 'CUSTOM') {
         mod_update_user_lastgem($curuser, 0);
       } else {
         $stxt = $data['stxt'];

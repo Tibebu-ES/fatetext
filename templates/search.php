@@ -66,158 +66,164 @@ $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
 echo gen_search_form($safe_text, $safe_custom, $textarea,
                      $incat, true, false);
 
-if ($stxt == '') {
+if ($incat == 'CUSTOM') {
 
-$guessdata = null;
-$lastgemid = mod_get_user_lastgem($curuser);
-if ($lastgemid == null) {
-  echo gen_p('Chose a category and then click on the
-              <br>search button in order to
-              <br>generate a gem!');
-} else {
-  $gemdata = mod_load_gem($lastgemid);
-  $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
-  $tempstr .= PADDING_STR . gen_b('(') . 'Created ' . gen_b('at ');
-  $tempstr .= gen_i(fd($gemdata['datecreated']));
-  if ($gemdata['stepint'] > 0) {
-    $guessdata = mod_load_step($gemdata['gemid'], 1);
-    $duration = $guessdata['datecreated'] - $gemdata['datecreated'];
-    $tempstr .= PADDING_STR . gen_b('\'in ') . $duration . ' secs';
-  }
-  echo gen_p(gen_u($tempstr . gen_b(')') . PADDING_STR));
+  echo gen_p('The custom category was: ' . $safe_custom);
 
-  if ($gemdata['stepint'] == 0) {
+} else if ($stxt == '') {
 
-    $tempstr = 'Guess the blanked out word in the following sentence:';
-    $tempstr = gen_p(gen_b('Step 1: ') . $tempstr);
-    $tempstr .= gen_div($gemdata['chester'], 'gem_text');
-    $tempstr .= gen_p(gen_gem_guess_form($gemdata));
-    echo gen_div($tempstr, 'gem_step');
+  $guessdata = null;
+  $lastgemid = mod_get_user_lastgem($curuser);
 
+  if ($lastgemid == null) {
+    echo gen_p('Chose a category and then click on the
+                <br>search button in order to
+                <br>generate a gem!');
   } else {
-
-    util_assert(isset($guessdata));
-    $tempstr = gen_b('Step 1: ') . gen_i('your guess') . ': ';
-    //TODO store this as a flag
-    if (strtolower($guessdata['stepstr']) == strtolower($gemdata['tokstr'])) {
-      $coin_url = gen_url('coin');
-      $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
-      $tempstr .= gen_b($gemdata['tokstr']) . ')';
-    } else {
-      $tempstr .= gen_b(gen_u($guessdata['stepstr']));
-      $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
+    $gemdata = mod_load_gem($lastgemid);
+    $tempstr = gen_b('GEM #' . gen_i($gemdata['gemid']));
+    $tempstr .= PADDING_STR . gen_b('(') . 'Created ' . gen_b('at ');
+    $tempstr .= gen_i(fd($gemdata['datecreated']));
+    if ($gemdata['stepint'] > 0) {
+      $guessdata = mod_load_step($gemdata['gemid'], 1);
+      $duration = $guessdata['datecreated'] - $gemdata['datecreated'];
+      $tempstr .= PADDING_STR . gen_b('\'in ') . $duration . ' secs';
     }
+    echo gen_p(gen_u($tempstr . gen_b(')') . PADDING_STR));
 
-    if ($gemdata['stepint'] == 1) {
-      $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
-      $link_str = 'Click here for more information about this three step process';
-      $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
-      $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+    if ($gemdata['stepint'] == 0) {
+
+      $tempstr = 'Guess the blanked out word in the following sentence:';
+      $tempstr = gen_p(gen_b('Step 1: ') . $tempstr);
+      $tempstr .= gen_div($gemdata['chester'], 'gem_text');
+      $tempstr .= gen_p(gen_gem_guess_form($gemdata));
+      echo gen_div($tempstr, 'gem_step');
+
     } else {
-      //TODO show search result view
-      $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
-      $dataurl = gen_url('data', 'chest');
-      $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
-      $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
-      $link_str = 'Click here to view this "sentence with a _______" in context';
-      $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
-      $tempstr .= gen_div(gen_p($help_str), 'gem_step');
-    }
-    echo gen_div($tempstr, 'gem_step');
 
-    if ($gemdata['stepint'] == 1) {
+      util_assert(isset($guessdata));
+      $tempstr = gen_b('Step 1: ') . gen_i('your guess') . ': ';
+      //TODO store this as a flag
+      if (strtolower($guessdata['stepstr']) == strtolower($gemdata['tokstr'])) {
+        $coin_url = gen_url('coin');
+        $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
+        $tempstr .= gen_b($gemdata['tokstr']) . ')';
+      } else {
+        $tempstr .= gen_b(gen_u($guessdata['stepstr']));
+        $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
+      }
 
-      //TODO load these automatically from the DB
-      $auth_arr = array('Todd Perry' => 'Todd Perry',
-                        'Conri Stonewall' => 'Conri Stonewall',
-                        'BIBLICAL' => 'BIBLICAL');
-      $text_arr = array(4 => 'The Bible',
-                        1 => 'Suzy\'s Memoir',
-                        2 => 'TheSuzy.com Show',
-                        3 => 'TheSuzy Memoirs');
+      if ($gemdata['stepint'] == 1) {
+        $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
+        $link_str = 'Click here for more information about this three step process';
+        $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
+        $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+      } else {
+        //TODO show search result view
+        $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
+        $dataurl = gen_url('data', 'chest');
+        $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
+        $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
+        $link_str = 'Click here to view this "sentence with a _______" in context';
+        $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
+        $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+      }
+      echo gen_div($tempstr, 'gem_step');
 
-      $tempstr = 'Now, ask a question about that same sentence:';
-      $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+      if ($gemdata['stepint'] == 1) {
 
-      $toggleurl = gen_url('search', TOGGLE_OPTION_CMD);
-      $atf = web_get_user_flag(web_get_user(), AUTHORTEXT_FLAG);
-      if ($atf) {
-        $optstr = '(' . gen_u(gen_link($toggleurl, 'OPTIONAL', 'header'));
-        $optstr .= ') ' . gen_i('Guess the AUTHOR') . ': ';
-        $optstr .= gen_select_input('authguess', $auth_arr) . '<br>';
-        $linestr = '&nbsp; ' . gen_i('and the TEXT') . ': ';
-        $linestr .= gen_select_input('textguess', $text_arr);
+        //TODO load these automatically from the DB
+        $auth_arr = array('Todd Perry' => 'Todd Perry',
+                          'Conri Stonewall' => 'Conri Stonewall',
+                          'BIBLICAL' => 'BIBLICAL');
+        $text_arr = array(4 => 'The Bible',
+                          1 => 'Suzy\'s Memoir',
+                          2 => 'TheSuzy.com Show',
+                          3 => 'TheSuzy Memoirs');
+
+        $tempstr = 'Now, ask a question about that same sentence:';
+        $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+
+        $toggleurl = gen_url('search', TOGGLE_OPTION_CMD);
+        $atf = web_get_user_flag(web_get_user(), AUTHORTEXT_FLAG);
+        if ($atf) {
+          $optstr = '(' . gen_u(gen_link($toggleurl, 'OPTIONAL', 'header'));
+          $optstr .= ') ' . gen_i('Guess the AUTHOR') . ': ';
+          $optstr .= gen_select_input('authguess', $auth_arr) . '<br>';
+          $linestr = '&nbsp; ' . gen_i('and the TEXT') . ': ';
+          $linestr .= gen_select_input('textguess', $text_arr);
+          $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
+          //NOTE: the optional text and auth guess are in $tempstr
+          $tempstr = gen_gem_quest_form($gemdata, $tempstr,
+                                        $data['one_line_chk']);
+        } else {
+          $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
+          $leftcol = gen_div(gen_link($toggleurl, $togglestr, 'plain'),
+                             'gem_step');
+          $rightcol = gen_gem_quest_form($gemdata, '', $data['one_line_chk']);
+          $tempstr .= gen_two_cols($leftcol, $rightcol);
+        }
+        echo gen_div($tempstr, 'gem_step');
+
+      } else {
+
+        $questdata = mod_load_step($gemdata['gemid'], 2);
+        $tempstr = 'You asked the following question ' . gen_b('at ');
+        $tempstr .= gen_i(fd($questdata['datecreated'])) . gen_b(':');
+        $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+
+        $correct_book_id = mod_get_gem_book($gemdata['gemid']);
+        $correct_text = mod_get_book_title($correct_book_id);
+        $text_coin = 0;
+        if ($correct_book_id == $gemdata['bookguess']) {
+          $text_coin = 1;
+        }
+
+        $correct_auth = mod_get_gem_auth($gemdata['gemid']);
+        $auth_coin = 0;
+        if ($correct_auth == $gemdata['authstr']) {
+          $auth_coin = 1;
+        }
+
+        $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
+        if ($auth_coin) {
+          $optstr .= gen_link(gen_url('coin'), 'correct!');        
+        } else {
+          $optstr .= $gemdata['authstr'];
+        }
+        $optstr .= ' (ANSWER: ' . $correct_auth . ')<br>';
+
+        $linestr = PADDING_STR . gen_i('TEXT guess') . ': ';
+        if ($text_coin) {
+          $linestr .= gen_link(gen_url('coin'), 'correct!');        
+        } else {
+          $linestr .= $gemdata['bookstr'];
+        }
+        $linestr .= ' (ANSWER: ' . $correct_text . ')';        
+
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
-        //NOTE: the optional text and auth guess are in $tempstr
-        $tempstr = gen_gem_quest_form($gemdata, $tempstr,
-                                      $data['one_line_chk']);
-      } else {
-        $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
-        $leftcol = gen_div(gen_link($toggleurl, $togglestr, 'plain'),
-                           'gem_step');
-        $rightcol = gen_gem_quest_form($gemdata, '', $data['one_line_chk']);
-        $tempstr .= gen_two_cols($leftcol, $rightcol);
+        $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
+        echo gen_div($tempstr, 'gem_step');
+
+        $stepvalue = '';
+        $lastsaved = 0;
+        if ($gemdata['stepint'] > 2) {
+          $ansdata = mod_load_step($gemdata['gemid'], 3);
+          $stepvalue = $ansdata['stepstr'];
+          $lastsaved = $ansdata['datecreated'];
+        }
+
+        $tempstr = 'Please record the best answer to your question';
+        $tempstr = gen_p(gen_b('Step 3: ') . $tempstr . gen_b(':'));
+        $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
+        echo gen_div($tempstr, 'gem_step');
+
       }
-      echo gen_div($tempstr, 'gem_step');
-
-    } else {
-
-      $questdata = mod_load_step($gemdata['gemid'], 2);
-      $tempstr = 'You asked the following question ' . gen_b('at ');
-      $tempstr .= gen_i(fd($questdata['datecreated'])) . gen_b(':');
-      $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
-
-      $correct_book_id = mod_get_gem_book($gemdata['gemid']);
-      $correct_text = mod_get_book_title($correct_book_id);
-      $text_coin = 0;
-      if ($correct_book_id == $gemdata['bookguess']) {
-        $text_coin = 1;
-      }
-
-      $correct_auth = mod_get_gem_auth($gemdata['gemid']);
-      $auth_coin = 0;
-      if ($correct_auth == $gemdata['authstr']) {
-        $auth_coin = 1;
-      }
-
-      $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
-      if ($auth_coin) {
-        $optstr .= gen_link(gen_url('coin'), 'correct!');        
-      } else {
-        $optstr .= $gemdata['authstr'];
-      }
-      $optstr .= ' (ANSWER: ' . $correct_auth . ')<br>';
-
-      $linestr = PADDING_STR . gen_i('TEXT guess') . ': ';
-      if ($text_coin) {
-        $linestr .= gen_link(gen_url('coin'), 'correct!');        
-      } else {
-        $linestr .= $gemdata['bookstr'];
-      }
-      $linestr .= ' (ANSWER: ' . $correct_text . ')';        
-
-      $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
-      $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
-      echo gen_div($tempstr, 'gem_step');
-
-      $stepvalue = '';
-      $lastsaved = 0;
-      if ($gemdata['stepint'] > 2) {
-        $ansdata = mod_load_step($gemdata['gemid'], 3);
-        $stepvalue = $ansdata['stepstr'];
-        $lastsaved = $ansdata['datecreated'];
-      }
-
-      $tempstr = 'Please record the best answer to your question';
-      $tempstr = gen_p(gen_b('Step 3: ') . $tempstr . gen_b(':'));
-      $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
-      echo gen_div($tempstr, 'gem_step');
-
     }
   }
-}
 
 } else { //$stxt != ''
+
   $stoks = explode(' ', $stxt);
   $chestidarr = array();
   foreach ($stoks as $tok) {
@@ -270,7 +276,7 @@ if ($lastgemid == null) {
     }
     $chest_i++;
     $result_str = ' from ' . mod_get_book_title($chestdata['bookid']);
-    $result_str .= ' (chestid = ' . $chestid . ' hits = ' . $hit_count;
+    $result_str .= ' (hits = ' . $hit_count;
     echo gen_p(gen_b('Result #' . $chest_i) . ':' . $result_str . ')');
     echo gen_p($outstr);
 
@@ -280,6 +286,6 @@ if ($lastgemid == null) {
   }
 
   mod_log_search($stxt);
-}
+} // end if $stxt != ''
 
 ?>
