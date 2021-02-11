@@ -74,8 +74,10 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   	                   'Customize the UI') . PADDING_STR . $infostr;
   $num_str = gen_i(gen_b('' . mod_get_gem_count()));
   $infostr = '(you have ' . $num_str . ' unarchived gems)';
-  $tempstr .= gen_link(gen_url('archive'),
-                       'Archive Gems') . PADDING_STR . $infostr;
+  $tempstr .= gen_link(gen_url('archive'), 'Archive Gems');
+  $tempstr .= PADDING_STR . $infostr . '<br>';
+  $link_url = gen_url('home', LOGOUT_CMD);
+  $tempstr .= gen_link($link_url, 'LOGOUT', $css_class);
 
   echo gen_p($tempstr);
 }

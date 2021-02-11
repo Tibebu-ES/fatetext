@@ -71,8 +71,8 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'archive':
    case 'export':
    case 'admin':
-    $link_url = gen_url('home', LOGOUT_CMD);
-    $rv .= gen_link($link_url, 'LOGOUT', $css_class);
+    $link_url = gen_url('hall');
+    $rv .= gen_link($link_url, 'Ha110F', $css_class);
     break;
 
    default:
