@@ -55,8 +55,10 @@ function app_get_header_extra($inpage, $add_el = true) {
   
   switch ($inpage) {
    case 'home':
+   case 'coin':
+   case 'store':
     $link_url = gen_url('space');
-    $rv .= gen_link($link_url, 'Places', $css_class);
+    $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
 
    case 'data':
@@ -66,6 +68,9 @@ function app_get_header_extra($inpage, $add_el = true) {
     break;
 
    case 'settings':
+   case 'archive':
+   case 'export':
+   case 'admin':
     $link_url = gen_url('home', LOGOUT_CMD);
     $rv .= gen_link($link_url, 'LOGOUT', $css_class);
     break;

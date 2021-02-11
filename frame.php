@@ -53,9 +53,9 @@ if ($data[TEMPLATE_MSG] != '') {
 
 $left_col = '';
 if ($page != 'home') {
-  $left_col .= gen_link(gen_url('home'), $GLOBALS['APPIDENT'], 'header');
+  $left_col .= gen_link(gen_url('home'), 'Places', 'header');
 } else {
-  $left_col .= $GLOBALS['APPIDENT'];
+  $left_col .= 'Places';
 }
 $left_col .= app_get_smart_spacer($page);
 
