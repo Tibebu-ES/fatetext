@@ -35,12 +35,9 @@ if (web_logged_in()) {
 
   echo gen_h(3, 'Advertising Dashboard');
 
-  $gemco = gen_img('images/tree.png', 'Palm Trees from Stanford', 32);
-  $c_str = 'We live here' . PADDING_STR . $gemco;
-  $con_str = gen_p($c_str, 'page_heading');
-
-  $link_str = 'Back to Gems';
-  $con_str .= gen_p(gen_link(gen_url('search'), $link_str));
+  $gemco = gen_img('images/moon.png', 'The Moon over the Pacific');
+  $con_str .= gen_p($gemco, 'page_heading');
+  $con_str .= gen_p(gen_link(gen_url('search'), 'Back to Gems'));
   echo gen_div($con_str, 'content');
 
 } else { //not logged in

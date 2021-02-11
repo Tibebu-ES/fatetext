@@ -72,7 +72,7 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'export':
    case 'admin':
     $link_url = gen_url('hall');
-    $rv .= gen_link($link_url, 'Ha110F', $css_class);
+    $rv .= gen_link($link_url, 'Hall', $css_class);
     break;
 
    default:
@@ -200,11 +200,7 @@ function gen_tos_form($add_el = true) {
   $elem_arr []= gen_input('submit', 'cmd', 'Proceed', $add_el);
   $elem_arr []= gen_input('checkbox', 'toscheck', '1', $add_el);
   $elem_arr []= gen_span('I agree to the following terms:');
-  $splash = 'home';
-  if (web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG)) {
-    $splash = 'data';
-  }
-  $rv = gen_form($elem_arr, gen_url($splash));
+  $rv = gen_form($elem_arr, gen_url('profile'));
   return $rv;
 }
 
