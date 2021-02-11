@@ -48,7 +48,7 @@ if (isset($data['chestid'])) {
       	  $allalpha .= $tok[$j];
       	}
       }
-  	  $searchurl = gen_url('search', 'Search');
+  	  $searchurl = gen_url('search', 'Create');
       $searchurl .= gen_url_param('stxt', $allalpha);
       $linkstr = gen_link($searchurl, $tok, 'plain');
       if (strtolower($allalpha) == strtolower($data['tokstr'])) {
