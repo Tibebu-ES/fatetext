@@ -114,19 +114,27 @@ if ($incat == 'CUSTOM') {
       }
 
       if ($gemdata['stepint'] == 1) {
-        $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
-        $link_str = 'Click here for more information about this three step process';
-        $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
-        $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+        $sent_str = gen_link(gen_url('data'), $gemdata['chester'], 'plain');
+        $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
+        $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
+        if ($ttip_flag) {
+          $link_str = 'Click here for more information about this three step process';
+          $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
+          $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+        }
       } else {
         //TODO show search result view
-        $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
         $dataurl = gen_url('data', 'chest');
         $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
         $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
-        $link_str = 'Click here to view this "sentence with a _______" in context';
-        $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
-        $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+        $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
+        $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
+        $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
+        if ($ttip_flag) {
+          $link_str = 'Click here to view this sentence and its keyword in context';
+          $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
+          $tempstr .= gen_div(gen_p($help_str), 'gem_step');
+        }
       }
       echo gen_div($tempstr, 'gem_step');
 

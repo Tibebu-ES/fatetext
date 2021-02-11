@@ -85,7 +85,8 @@ $flagarr = array(TOGGLE_CHAT_CMD => 'Expand the Chat with ' . $apptitle,
                  TOGGLE_TEXT_CMD => 'Accomodate multi-line searches',
                  TOGGLE_SPLASH_CMD => 'Use the Data tab as splash page',
                  TOGGLE_OPTION_CMD => 'Record book and author guesses',
-                 TOGGLE_INVERTEDCS_CMD => 'Invert the color scheme');
+                 TOGGLE_INVERTEDCS_CMD => 'Invert the color scheme',
+                 TOGGLE_TOOLTIP_CMD => 'Show tool tips in Search');
 
 echo gen_p(gen_h(3, 'Click each LINK to toggle each FLAG:'));
 $flagstr = '';

@@ -238,6 +238,7 @@ function con_do_cmd(&$data) {
      case TOGGLE_TEXT_CMD:
      case TOGGLE_OPTION_CMD:
      case TOGGLE_INVERTEDCS_CMD:
+     case TOGGLE_TOOLTIP_CMD:
       web_toggle_user_flag(web_get_user(), mod_flag_from_toggle($cmd));
       break;
 
