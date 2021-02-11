@@ -20,26 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-if (web_logged_in()) {
+echo gen_search_form();
 
-  echo gen_search_form();
+$con_str = gen_p('TODO: pivot table of action stories');
 
-  $con_str = gen_p('TODO: pivot table of action stories');
-
-  $link_str = 'Back to Gems';
-  $con_str .= gen_p(gen_link(gen_url('search'), $link_str));
-  echo gen_div($con_str, 'content');
-
-} else { //not logged in
-
-  $hall_url = gen_url('hall');
-
-  echo gen_login_form();
-  $link_str = 'Hall of Fame';
-  $artnum = count(mod_get_hall_art());
-  $hall_str = '[' . $artnum . ']' . PADDING_STR;
-  $hall_str .= gen_link($hall_url, $link_str); 
-  echo gen_p($hall_str);
-
-}
+$link_str = 'Back to Gems';
+$con_str .= gen_p(gen_link(gen_url('search'), $link_str));
+echo gen_div($con_str, 'content');
 ?>
