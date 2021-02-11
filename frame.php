@@ -64,7 +64,9 @@ if (web_logged_in()) {
 
   } else { //if tos has been agreed to
 
-    $links_arr = array('Data', 'Search', 'Settings');
+    $links_arr = array('data' => 'Data',
+                       'search' => 'Gems',
+                       'settings' => 'Home');
     $left_col .= app_get_header_links($page, $links_arr);
     $left_col .= app_get_header_extra($page);
 
@@ -95,7 +97,9 @@ if (web_logged_in()) {
 } else { //not logged in
 
   echo $left_col;
-  $links_arr = array('TOS', 'News', 'About');
+  $links_arr = array('tos' => 'New',
+                     'news' => 'Gems',                
+                     'about' => 'About');
   echo app_get_header_links($page, $links_arr);
 
   if ($page == 'hall' || $page == 'art' || $page == 'date') {

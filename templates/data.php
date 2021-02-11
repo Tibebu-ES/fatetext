@@ -22,6 +22,15 @@ SOFTWARE. */
 
 echo gen_search_form();
 
+//$sub_header_str .= gen_i('Profile');
+$sub_header_str = gen_link(gen_url('profile'), 'Profile', 'header');
+//$temp_str = gen_i('Library');
+$temp_str = gen_link(gen_url('library'), 'Library', 'header');
+$sub_header_str .= ' | ' . $temp_str . ' | ';
+$sub_header_str .= gen_i('Abstract');
+//$sub_header_str .= gen_link(gen_url('data'), 'Abstract', 'header');
+echo gen_p(gen_h(2, $sub_header_str));
+
 if (isset($data['chestid'])) {
 
   $minid = max(1, $data['chestid'] - 5);
@@ -52,11 +61,6 @@ if (isset($data['chestid'])) {
 
 } else {
 
-  $tempstr = gen_b(gen_u('Profile')) . ' | ';
-  $tempstr .= gen_b(gen_u('Library')) . ' | ';
-  $tempstr .= gen_b('SuzyThe');
-  echo gen_p(gen_h(2, $tempstr, 'page_heading'));
-
   $urlstr = 'http://suzybot.com';
   $tempstr = gen_link($urlstr, $urlstr, 'header', false, true) . '<br>';
   $urlstr = 'http://fashiontext.com';
@@ -68,7 +72,7 @@ if (isset($data['chestid'])) {
   echo gen_p($tempstr);
 
   $ldpt = $GLOBALS['FATEPATH'] . '/templates/';
-  echo util_show_template($ldpt . 'news.php', $data) . '<br>';
+  echo util_show_template($ldpt . 'news.php', $data);
   echo util_show_template($ldpt . 'about.php', $data);
 
 }

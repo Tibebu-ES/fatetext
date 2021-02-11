@@ -37,7 +37,7 @@ function mod_generate_gem($userid, $stxt, $category) {
      $book_filter = '';
      break;
 
-   case 'bibleOS':
+   case 'kjBible':
      $book_filter .= 'bookid = 4';
      break;
 

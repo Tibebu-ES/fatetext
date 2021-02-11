@@ -20,37 +20,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-if (web_logged_in()) {
+echo gen_search_form();
 
-  echo gen_search_form();
+//$sub_header_str .= gen_i('Coins');
+$sub_header_str = gen_link(gen_url('coin'), 'Coins', 'header');
+$temp_str = gen_i('Store');
+//$temp_str = gen_link(gen_url('store'), 'Store', 'header');
+$sub_header_str .= ' | ' . $temp_str . ' | ';
+//$sub_header_str .= gen_i('Space');
+$sub_header_str .= gen_link(gen_url('home'), 'Space', 'header');
+echo gen_p(gen_h(2, $sub_header_str));
 
-  //$sub_header_str .= gen_i('Coins');
-  $sub_header_str = gen_link(gen_url('coin'), 'Coins', 'header');
-  //$temp_str = gen_i('Store');
-  $temp_str = gen_link(gen_url('store'), 'Store', 'header');
-  $sub_header_str .= ' | ' . $temp_str . ' | ';
-  $sub_header_str .= gen_i('Space');
-  //$sub_header_str .= gen_link(gen_url('home'), 'Space', 'header');
-  echo gen_p(gen_h(2, $sub_header_str));
+echo gen_h(3, 'The Shops at ' . $GLOBALS['APPTITLE']);
 
-  echo gen_h(3, 'Advertising Dashboard');
+$con_str = gen_p('Available in June!', 'page_heading');
 
-  $con_str = gen_p('We live here.', 'page_heading');
-
-  $link_str = 'Back to Gems';
-  $con_str .= gen_p(gen_link(gen_url('search'), $link_str));
-  echo gen_div($con_str, 'content');
-
-} else { //not logged in
-
-  $hall_url = gen_url('hall');
-
-  echo gen_login_form();
-  $link_str = 'Hall of Fame';
-  $artnum = count(mod_get_hall_art());
-  $hall_str = '[' . $artnum . ']' . PADDING_STR;
-  $hall_str .= gen_link($hall_url, $link_str); 
-  echo gen_p($hall_str);
-
-}
-?>
+$link_str = 'Back to Gems';
+$con_str .= gen_p(gen_link(gen_url('search'), $link_str));
+echo gen_div($con_str, 'content');

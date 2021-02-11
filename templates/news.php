@@ -23,4 +23,14 @@ SOFTWARE. */
 $faq_url = gen_url('faq');
 ?>
 
-<h2>News: <a href="<?php echo $faq_url; ?>">FAQ</a></h2>
+<h2>News</h2>
+
+<div class="content">
+<p class="page_heading">
+<i>Tentative Launch Date</i>: <b>June 1st, 2021</b>
+</p>
+<p>
+For more information,
+<a href="<?php echo $faq_url; ?>">please read the FAQ</a>
+</p>
+</div>

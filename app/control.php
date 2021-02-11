@@ -54,9 +54,7 @@ function con_do_cmd(&$data) {
       check_string_param('password', $data, $_REQUEST);
       web_login_user($data);
       if (web_logged_in()) {
-        if (web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG)) {
-          $data['page'] = 'data';
-        }
+        $data['page'] = 'profile';
       }
       break;
 
@@ -212,7 +210,7 @@ function con_do_cmd(&$data) {
       mod_update_gem_lastloaded($data['gemid']);
       break;
 
-     case 'Search':
+     case 'Create':
       $category = '';
       $curuser = web_get_user();
       check_string_param('stxt', $data, $_REQUEST, '');

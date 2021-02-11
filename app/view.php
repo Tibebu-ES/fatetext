@@ -55,25 +55,14 @@ function app_get_header_extra($inpage, $add_el = true) {
   
   switch ($inpage) {
    case 'home':
-   case 'data':
-    $fatesplash = web_get_user_flag(web_get_user(), FATE_SPLASH_FLAG);
-    $link_str = 'splash';
-    //do the opposite for 'data' and 'home'
-    if ($fatesplash == ($inpage == 'data')) {
-      $link_str = strtoupper($link_str);
-    }
-
-    $link_url = gen_url($inpage, TOGGLE_SPLASH_CMD);
-    $rv .= gen_link($link_url, $link_str, $css_class);
+    $link_url = gen_url('places');
+    $rv .= gen_link($link_url, 'Places', $css_class);
     break;
 
+   case 'data':
    case 'search':
-    $link_url = gen_url($inpage, TOGGLE_TEXT_CMD);
-    if (web_get_user_flag(web_get_user(), TEXT_AREA_FLAG)) {
-      $rv .= gen_link($link_url, '--AREA', $css_class);
-    } else {
-      $rv .= gen_link($link_url, 'text++', $css_class);            
-    }
+    $link_url = gen_url('cart');
+    $rv .= gen_link($link_url, 'Cart', $css_class);
     break;
 
    case 'settings':
@@ -96,7 +85,7 @@ function app_get_header_links($inpage, $links_arr, $add_el = true) {
   $rv = PADDING_STR;
 
   $first = true;
-  foreach ($links_arr as $link_str) {
+  foreach ($links_arr as $link_name => $link_str) {
 
     if ($first) {
       $first = false;
@@ -104,11 +93,10 @@ function app_get_header_links($inpage, $links_arr, $add_el = true) {
       $rv .= PADDING_STR . '|' . PADDING_STR;
     }
 
-    $lower_link = strtolower($link_str);
-    if ($lower_link == $inpage) {
+    if ($link_name == $inpage) {
       $rv .= gen_b($link_str);
     } else {
-      $link_url = gen_url($lower_link);
+      $link_url = gen_url($link_name);
       $rv .= gen_link($link_url, $link_str, 'header');
     }
   }
@@ -184,12 +172,12 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
     $tempstr = gen_i(fd($lastsaved));
     //the last parameter puts the autofocus on this link
     //so that gems can be created without any mouse clicks
-    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true);
+    $recrow .= gen_link(gen_url('search', 'Create'), $tempstr, '', true);
     $recrow .= ')';
   } else {
     $recrow .= PADDING_STR . ' (';
     $tempstr = 'Click here to generate a new gem!';
-    $recrow .= gen_link(gen_url('search', 'Search'), $tempstr, '', true);
+    $recrow .= gen_link(gen_url('search', 'Create'), $tempstr, '', true);
     $recrow .= ')';
   }
   $elem_arr []= gen_p($recrow);
@@ -219,7 +207,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
   $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
                       'CLEAR' => 'CLEAR Results',
                       'CUSTOM' => 'CUSTOM Category',
-                      'bibleOS' => 'King James Bible',
+                      'kjBible' => 'King James Bible',
                       'suzyThe' => 'TheSuzy Trilogy',
                       'suzyMem' => 'Suzy\'s Memoir',
                       'theShow' => 'TheSuzy.com Show',
@@ -241,23 +229,33 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
     $abb_arr[$abb] = $abb;
   }
 
+  $toggle_url = gen_url('search', TOGGLE_TEXT_CMD);
   if ($istextarea) {
     $inuser = web_get_user();
     $elem_arr []= gen_text_area('stxt', $safe_text, 3, SEARCH_AREA_COLS,
                                 SEARCH_PLACEHOLDER, $add_el);
     $elem_arr []= '<br><span class="nextline">';
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('customtxt', $safe_custom, CUSTOM_COLS,
                                 CUSTOM_PLACEHOLDER, $add_el);
     $elem_arr []= '</span>';
+    $left_col = gen_form($elem_arr, gen_url('search'));
+    $togglestr = 'C<br>L<br>P<br>S<br>';
+    $right_col = gen_div(gen_link($toggle_url, $togglestr, 'plain'),
+                       'gem_step');
+    $rv = gen_two_cols($left_col, $right_col);
   } else {
-    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Search', $add_el);
+    $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
     $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('stxt', $safe_text, SEARCH_COLS,
                                 SEARCH_PLACEHOLDER, $add_el, $auto_focus);
+    $atf = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
+    if (!$atf) {
+      $elem_arr []= gen_link($toggle_url, 'EA', 'plain');
+    }
+    $rv = gen_form($elem_arr, gen_url('search'));
   }
-  $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
 }
 

@@ -113,13 +113,16 @@ if ($incat == 'CUSTOM') {
         $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
       }
 
+      $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
       if ($gemdata['stepint'] == 1) {
-        $sent_str = gen_link(gen_url('data'), $gemdata['chester'], 'plain');
+        $sent_str = $gemdata['chester'];
+        if (!$ttip_flag) {
+          $sent_str = gen_link(gen_url('data'), $gemdata['chester'], 'plain');
+        }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
-        $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
         if ($ttip_flag) {
           $link_str = 'Click here for more information about this three step process';
-          $help_str = '(' . gen_link(gen_url('data'), $link_str) . ')';
+          $help_str = '(' . gen_link(gen_url('library'), $link_str) . ')';
           $tempstr .= gen_div(gen_p($help_str), 'gem_step');
         }
       } else {
@@ -127,9 +130,11 @@ if ($incat == 'CUSTOM') {
         $dataurl = gen_url('data', 'chest');
         $dataurl .= gen_url_param('chestid', $gemdata['chestid']);
         $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
-        $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
+        $sent_str = $gemdata['chester'];
+        if (!$ttip_flag) {
+          $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
+        }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
-        $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
         if ($ttip_flag) {
           $link_str = 'Click here to view this sentence and its keyword in context';
           $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);

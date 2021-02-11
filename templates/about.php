@@ -47,3 +47,12 @@ SOFTWARE. */ ?>
 <p><b>Developing more and more new features</b></p>
 
 <p><u>TODO</u></p>
+
+<?php
+$link_str = 'Back to Gems';
+if (web_logged_in()) {
+  $link_url = gen_url('search');
+} else {
+  $link_url = gen_url('news');
+}
+echo gen_p(gen_link($link_url, $link_str));

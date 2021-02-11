@@ -20,8 +20,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$link_str = 'Back to Home';
-$home_str = gen_link(gen_url('home'), $link_str);
+echo gen_search_form();
+
+$sub_header_str .= gen_i('Coins');
+//$sub_header_str = gen_link(gen_url('coin'), 'Coins', 'header');
+//$temp_str = gen_i('Store');
+$temp_str = gen_link(gen_url('store'), 'Store', 'header');
+$sub_header_str .= ' | ' . $temp_str . ' | ';
+//$sub_header_str .= gen_i('Space');
+$sub_header_str .= gen_link(gen_url('home'), 'Space', 'header');
+echo gen_p(gen_h(2, $sub_header_str));
+
 $username = web_get_user_name(web_get_user());
 $user_link = gen_link(gen_url('settings'), $username);
 $numcoins = mod_get_user_coins(web_get_user());
@@ -29,6 +38,10 @@ $num_str = 'You have ' . gen_b($numcoins) . ' storycoin';
 if ($numcoins != 1) {
   $num_str .= 's';
 }
-echo gen_h(2, 'StoryCoin( ' . $user_link . ' )');
-$tempstr = gen_p($home_str, 'page_heading');
-echo gen_div($tempstr . gen_p($num_str), 'content');
+echo gen_h(3, 'StoryCoin( ' . $user_link . ' )');
+
+$con_str = gen_p($num_str, 'page_heading');
+
+$link_str = 'Back to Gems';
+$con_str .= gen_p(gen_link(gen_url('search'), $link_str));
+echo gen_div($con_str, 'content');
