@@ -55,7 +55,7 @@ function app_get_header_extra($inpage, $add_el = true) {
   
   switch ($inpage) {
    case 'home':
-    $link_url = gen_url('places');
+    $link_url = gen_url('space');
     $rv .= gen_link($link_url, 'Places', $css_class);
     break;
 
