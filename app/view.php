@@ -160,7 +160,10 @@ function gen_gem_quest_form($gemdata, $optional_str = '',
                                 ANSWER_COLS, '', $add_el);
   }
 
-  $elem_arr []= gen_p(gen_input('submit', 'cmd', 'Ask Question', $add_el));
+  $q_str = gen_input('submit', 'cmd', 'Ask Question', $add_el) . PADDING_STR;
+  $img_str = gen_img('images/water.png', 'Long Icon of Turquoise Water');
+  $q_str .= gen_link(gen_url('search', TOGGLE_TOOLTIP_CMD), $img_str);
+  $elem_arr []= gen_p($q_str);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));
   return $rv;
