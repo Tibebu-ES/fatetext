@@ -22,3 +22,13 @@ Extra
 Prev
 Gemrl
 TheSuzy
+
+...
+
+Login
+Prev
+New
+Gems
+About
+Gemrl
+TheSuzy
