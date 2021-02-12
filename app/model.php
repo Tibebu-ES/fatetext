@@ -20,11 +20,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+function mod_get_hall_categories() {
+  $sql = 'SELECT category FROM hallart GROUP BY category';
+  $rs = queryf_all($sql);
+  $rv = array();
+  if (count($rs) == 0) {
+    $rv []= 'American';
+  } else {
+    foreach ($rs as $cat_arr) {
+      $rv []= $cat_arr['category'];
+    }
+  }
+  return $rv;
+}
+
 function mod_get_hall_art() {
   $sql = 'SELECT * FROM hallart ORDER BY artid DESC';
   $rs = queryf_all($sql);
   if (count($rs) == 0) {
-    $rs = array(array('artid' => '0', 'datestr' => '01_01_21',
+    $rs = array(array('artid' => '1',
+                      'category' => 'American',
+                      'datestr' => '01_01_21',
                       'arturl' => 'http://thesuzy.com',
                       'sumstr' => 'TheSuzy Trilogy by Todd Perry'));
   }

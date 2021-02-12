@@ -23,36 +23,39 @@ SOFTWARE. */
 $titlestr = 'Hall of Fame';
 
 $art_arr = mod_get_hall_art();
+$cat_arr = mod_get_hall_categories();
 ?>
 
 <h2><?php echo $titlestr; ?></h2>
-<div class="innerc">
 
 <?php
-$first2020 = true;
-$css_class = 'page_heading';
-foreach ($art_arr as $ar) {
-  if (ctype_alpha($ar['datestr'][0]) && $first2020) {
-    echo '</div><h3><i>Articles from 2020</i></h3>';
-    echo '<div class="innerc">';
-    $first2020 = false;
-    $css_class = 'page_heading';
+$content = '';
+foreach ($cat_arr as $cat) {
+  $art_url = gen_url('art', $cat);
+  $art_link = gen_link($art_url, 'Art Category: ' . $cat, 'header');
+  $content .= gen_h(3, $art_link);
+  $css_class = 'page_heading';
+  $div_str = '';
+
+  foreach ($art_arr as $ar) {
+    if ($ar['category'] == $cat) {
+      $rowstr = '';
+      $rowstr .= gen_b($ar['artid']);
+      $date_url = gen_url('date', $ar['datestr']);
+      $rowstr .= '. [' . gen_link($date_url, $ar['datestr']) . '] ';
+      $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header', false);
+      $rowstr .= gen_p(gen_i('Summary: ') . $ar['sumstr']);
+
+      $div_str .= gen_p($rowstr, $css_class);
+      $css_class = '';
+    }
   }
 
-  $rowstr = '';
-  $art_url = gen_url('art', $ar['artid']);
-  $rowstr .= gen_b(gen_link($art_url, $ar['artid'], 'plain'));
-  $date_url = gen_url('date', $ar['datestr']);
-  $rowstr .= '. [' . gen_link($date_url, $ar['datestr']) . '] ';
-  $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header', false);
-
-  echo gen_p($rowstr, $css_class);
-  $css_class = '';
-  echo gen_p(gen_b('Summary: ') . $ar['sumstr']);
+  $content .= gen_div($div_str, 'innerc');
 }
-?>
 
-</div>
+echo gen_div($content, 'innerc');
+?>
 
 <p class="footer_links">
 <a href="http://suzybot.com">SUZBOT</a> <b>Suzybot</b><br>

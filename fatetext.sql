@@ -78,6 +78,7 @@ CREATE TABLE `gems` (
 CREATE TABLE `hallart` (
   `artid` bigint(20) NOT NULL,
   `datestr` text NOT NULL,
+  `category` text NOT NULL,
   `arturl` text NOT NULL,
   `sumstr` text NOT NULL,
   `userid` bigint(20) NOT NULL DEFAULT '1'

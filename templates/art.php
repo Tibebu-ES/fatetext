@@ -24,7 +24,7 @@ $link_str = 'Back to the Hall of Fame';
 $hall_str = gen_link(gen_url('hall'), $link_str); 
 ?>
 
-<h2>Article #<?php echo $data[TEMPLATE_CMD]; ?></h2>
+<h2>Art Category: <?php echo $data[TEMPLATE_CMD]; ?></h2>
 <div class="innerc">
 <?php
 echo gen_p($hall_str, 'page_heading');
