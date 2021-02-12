@@ -189,19 +189,14 @@ function gen_gem_answer_form($gemdata, $stepvalue, $lastsaved, $add_el = true) {
   $elem_arr []= gen_text_area('steptxt', $stepvalue, $gemdata['ansrows'],
                               ANSWER_COLS, '<your answer>', $add_el);
   $recrow = gen_input('submit', 'cmd', 'Record Answer', $add_el);
-  if ($lastsaved != 0) {
-    $recrow .= PADDING_STR . ' (last saved at ';
-    $tempstr = gen_i(fd($lastsaved));
-    //the last parameter puts the autofocus on this link
-    //so that gems can be created without any mouse clicks
-    $recrow .= gen_link(gen_url('search', 'Create'), $tempstr, '', true);
-    $recrow .= ')';
-  } else {
-    $recrow .= PADDING_STR . ' (';
-    $tempstr = 'Click here to generate a new gem!';
-    $recrow .= gen_link(gen_url('search', 'Create'), $tempstr, '', true);
-    $recrow .= ')';
-  }
+
+  $recrow .= PADDING_STR . ' (';
+  $tempstr = 'Click here to generate a new gem!';
+  //the last parameter puts the autofocus on this link
+  //so that gems can be created without any mouse clicks
+  $recrow .= gen_link(gen_url('search', 'Create'), $tempstr, '', true);
+  $recrow .= ')';
+  
   $elem_arr []= gen_p($recrow);
   $elem_arr []= gen_input('hidden', 'gemid', $gemdata['gemid'], $add_el);
   $rv = gen_form($elem_arr, gen_url('search'));

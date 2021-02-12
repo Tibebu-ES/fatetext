@@ -142,6 +142,9 @@ function con_do_cmd(&$data) {
         }
 
         if ($data['steptxt'] == '') {
+          web_toggle_user_flag(web_get_user(),
+                               mod_flag_from_toggle(TOGGLE_TOOLTIP_CMD));
+
           $data[TEMPLATE_MSG] = 'Please give a non-empty response.';
           break;
         }

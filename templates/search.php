@@ -93,7 +93,7 @@ if ($incat == 'CUSTOM') {
 
     if ($gemdata['stepint'] == 0) {
 
-      $tempstr = 'Guess the blanked out word in the following sentence:';
+      $tempstr = 'Guess the blanked out word:';
       $tempstr = gen_p(gen_b('Step 1: ') . $tempstr);
       $tempstr .= gen_div($gemdata['chester'], 'gem_text');
       $tempstr .= gen_p(gen_gem_guess_form($gemdata));
@@ -102,15 +102,15 @@ if ($incat == 'CUSTOM') {
     } else {
 
       util_assert(isset($guessdata));
-      $tempstr = gen_b('Step 1: ') . gen_i('your guess') . ': ';
+      $tempstr = gen_b('Step 1: ') . 'Guess: ';
       //TODO store this as a flag
       if (strtolower($guessdata['stepstr']) == strtolower($gemdata['tokstr'])) {
         $coin_url = gen_url('coin');
-        $tempstr .= gen_link($coin_url, 'correctly') . '! (ANSWER: ';
+        $tempstr .= gen_link($coin_url, 'correct') . '! (BLANK: ';
         $tempstr .= gen_b($gemdata['tokstr']) . ')';
       } else {
-        $tempstr .= gen_b(gen_u($guessdata['stepstr']));
-        $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
+        $tempstr .= gen_i($guessdata['stepstr']);
+        $tempstr .= ' (BLANK: ' . gen_b($gemdata['tokstr']) . ')';
       }
       $tempstr .= PADDING_STR . gen_u('[gemcopy]');
 
@@ -123,7 +123,7 @@ if ($incat == 'CUSTOM') {
         }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
         if ($ttip_flag) {
-          $link_str = 'Click here for more information about this three step process';
+          $link_str = 'Click for more info about this three step process';
           $help_str = '(' . gen_link(gen_url('library'), $link_str) . ')';
           $tempstr .= gen_div(gen_p($help_str), 'gem_step');
         }
@@ -138,7 +138,7 @@ if ($incat == 'CUSTOM') {
         }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
         if ($ttip_flag) {
-          $link_str = 'Click here to view this sentence and its keyword in context';
+          $link_str = 'Click to view this keyword sentence in context';
           $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
           $tempstr .= gen_div(gen_p($help_str), 'gem_step');
         }
@@ -156,7 +156,7 @@ if ($incat == 'CUSTOM') {
                           2 => 'TheSuzy.com Show',
                           3 => 'TheSuzy Memoirs');
 
-        $tempstr = 'Now, ask a question about that same sentence:';
+        $tempstr = 'Ask a question about the sentence, itself:';
         $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
 
         $toggleurl = gen_url('search', TOGGLE_OPTION_CMD);
@@ -183,7 +183,7 @@ if ($incat == 'CUSTOM') {
       } else {
 
         $questdata = mod_load_step($gemdata['gemid'], 2);
-        $tempstr = 'Your question (' . gen_b('at ');
+        $tempstr = 'Question (' . gen_b('at ');
         $tempstr .= gen_i(fd($questdata['datecreated'])) . ')';
         $gem_copy_str = PADDING_STR . gen_u('[gemcopy]');
         $tempstr = gen_p(gen_b('Step 2: ') . $tempstr . $gem_copy_str);
@@ -201,21 +201,21 @@ if ($incat == 'CUSTOM') {
           $auth_coin = 1;
         }
 
-        $optstr = PADDING_STR . gen_i('AUTHOR guess') . ': ';
+        $optstr = PADDING_STR . 'AUTHOR guess: ';
         if ($auth_coin) {
           $optstr .= gen_link(gen_url('coin'), 'correct!');        
         } else {
-          $optstr .= $gemdata['authstr'];
+          $optstr .= gen_i($gemdata['authstr']);
         }
-        $optstr .= ' (ANSWER: ' . $correct_auth . ')<br>';
+        $optstr .= ' (AUTHOR: ' . gen_b($correct_auth) . ')<br>';
 
-        $linestr = PADDING_STR . gen_i('TEXT guess') . ': ';
+        $linestr = PADDING_STR . 'TEXT guess: ';
         if ($text_coin) {
           $linestr .= gen_link(gen_url('coin'), 'correct!');        
         } else {
-          $linestr .= $gemdata['bookstr'];
+          $linestr .= gen_i($gemdata['bookstr']);
         }
-        $linestr .= ' (ANSWER: ' . $correct_text . ')';        
+        $linestr .= ' (TEXT: ' . gen_b($correct_text) . ')';        
 
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
         $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
@@ -229,9 +229,9 @@ if ($incat == 'CUSTOM') {
           $lastsaved = $ansdata['datecreated'];
         }
 
-        $tempstr = 'Your answer';
+        $tempstr = 'Answer';
         if ($lastsaved != 0) {
-          $tempstr .= ' (' . gen_b('version 1') . ')';
+          $tempstr .= ' (' . gen_b('at') . gen_i(fd($lastsaved)) . ')';
         } else {
           $tempstr .= ' (this field is mutable)';
         }
