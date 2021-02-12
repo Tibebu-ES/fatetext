@@ -255,7 +255,10 @@ function con_do_cmd(&$data) {
 
   //preserve the state of this page for
   //. the benefit of the next page load
-  $temp_temp = $_SESSION['temp'];
+  $temp_temp = array();
+  if (isset($_SESSION['temp'])) {
+    $temp_temp = $_SESSION['temp'];
+  }
   $_SESSION['temp'] = $data;
   foreach ($temp_temp as $sticky_key => $sticky_value) {
     if (!isset($_SESSION['temp'][$sticky_key])) {

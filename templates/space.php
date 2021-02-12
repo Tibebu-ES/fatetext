@@ -24,7 +24,7 @@ echo gen_search_form();
 
 $con_str = gen_p('TODO: pivot table of action stories');
 
-$link_str = 'Back to Gems';
-$con_str .= gen_p(gen_link(gen_url('search'), $link_str));
+$link_str = 'Back to Home';
+$con_str .= gen_p(gen_link(gen_url('settings'), $link_str));
 echo gen_div($con_str, 'content');
 ?>

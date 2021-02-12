@@ -22,7 +22,7 @@ SOFTWARE. */
 
 echo gen_search_form();
 
-$sub_header_str .= gen_i('Profile');
+$sub_header_str = gen_i('Profile');
 //$sub_header_str = gen_link(gen_url('profile'), 'Profile', 'header');
 //$temp_str = gen_i('Library');
 $temp_str = gen_link(gen_url('library'), 'Library', 'header');

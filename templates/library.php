@@ -22,7 +22,7 @@ SOFTWARE. */
 
 echo gen_search_form();
 
-//$sub_header_str .= gen_i('Profile');
+//$sub_header_str = gen_i('Profile');
 $sub_header_str = gen_link(gen_url('profile'), 'Profile', 'header');
 $temp_str = gen_i('Library');
 //$temp_str = gen_link(gen_url('library'), 'Library', 'header');
@@ -31,7 +31,7 @@ $sub_header_str .= ' | ' . $temp_str . ' | ';
 $sub_header_str .= gen_link(gen_url('data'), 'Abstract', 'header');
 echo gen_p(gen_h(2, $sub_header_str));
 
-$heading_html = '\'is currently under construction.';
+$heading_html = 'Is under construction.';
 
 $gemco = gen_img('images/mini.jpg', 'Icon of the California Coast', 16);
 echo gen_h(3, $gemco . PADDING_STR . 'Library');

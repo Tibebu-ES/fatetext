@@ -57,8 +57,8 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'home':
    case 'coin':
    case 'store':
-    $link_url = gen_url('space');
-    $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
+    $link_url = gen_url('hall');
+    $rv .= gen_link($link_url, 'Hall', $css_class);
     break;
 
    case 'data':
@@ -71,8 +71,8 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'archive':
    case 'export':
    case 'admin':
-    $link_url = gen_url('hall');
-    $rv .= gen_link($link_url, 'Hall', $css_class);
+    $link_url = gen_url('space');
+    $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
 
    default:
@@ -245,7 +245,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                                 CUSTOM_PLACEHOLDER, $add_el);
     $elem_arr []= '</span>';
     $left_col = gen_form($elem_arr, gen_url('search'));
-    $togglestr = 'C<br>L<br>P<br>S<br>';
+    $togglestr = '-<br>-<br>-<br>-<br>';
     $right_col = gen_div(gen_link($toggle_url, $togglestr, 'plain'),
                        'gem_step');
     $rv = gen_two_cols($left_col, $right_col);
@@ -256,7 +256,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                                 SEARCH_PLACEHOLDER, $add_el, $auto_focus);
     $atf = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
     if (!$atf) {
-      $elem_arr []= gen_link($toggle_url, 'EA', 'plain');
+      $elem_arr []= gen_link($toggle_url, '++', 'plain');
     }
     $rv = gen_form($elem_arr, gen_url('search'));
   }

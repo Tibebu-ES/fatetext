@@ -70,7 +70,7 @@ define('SPACER_STR', '::');
 
 define('CUSTOM_COLS', 25);
 define('SEARCH_COLS', 35);
-define('SEARCH_AREA_COLS', 46);
+define('SEARCH_AREA_COLS', 47);
 define('LOGIN_COLS', 18);
 define('GUESS_COLS', 25);
 define('QUESTION_ROWS', 3);

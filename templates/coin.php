@@ -22,7 +22,7 @@ SOFTWARE. */
 
 echo gen_search_form();
 
-$sub_header_str .= gen_i('Coins');
+$sub_header_str = gen_i('Coins');
 //$sub_header_str = gen_link(gen_url('coin'), 'Coins', 'header');
 //$temp_str = gen_i('Store');
 $temp_str = gen_link(gen_url('store'), 'Store', 'header');

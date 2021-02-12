@@ -22,7 +22,7 @@ SOFTWARE. */
 
 echo gen_search_form();
 
-$sub_header_str .= gen_i('Account');
+$sub_header_str = gen_i('Account');
 //$sub_header_str = gen_link(gen_url('settings'), 'Account', 'header');
 //$temp_str = 'Archive';
 $temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
@@ -77,7 +77,7 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $tempstr .= gen_link(gen_url('archive'), 'Archive Gems');
   $tempstr .= PADDING_STR . $infostr . '<br>';
   $link_url = gen_url('home', LOGOUT_CMD);
-  $tempstr .= gen_link($link_url, 'LOGOUT', $css_class);
+  $tempstr .= gen_span(gen_link($link_url, 'LOGOUT'), 'nextline');
 
   echo gen_p($tempstr);
 }

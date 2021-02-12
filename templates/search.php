@@ -112,6 +112,8 @@ if ($incat == 'CUSTOM') {
         $tempstr .= gen_b(gen_u($guessdata['stepstr']));
         $tempstr .= ' (ANSWER: ' . gen_b($gemdata['tokstr']) . ')';
       }
+      $tempstr .= PADDING_STR . gen_u('[gemcopy]');
+
 
       $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
       if ($gemdata['stepint'] == 1) {
@@ -181,9 +183,10 @@ if ($incat == 'CUSTOM') {
       } else {
 
         $questdata = mod_load_step($gemdata['gemid'], 2);
-        $tempstr = 'You asked the following question ' . gen_b('at ');
-        $tempstr .= gen_i(fd($questdata['datecreated'])) . gen_b(':');
-        $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
+        $tempstr = 'Your question (' . gen_b('at ');
+        $tempstr .= gen_i(fd($questdata['datecreated'])) . ')';
+        $gem_copy_str = PADDING_STR . gen_u('[gemcopy]');
+        $tempstr = gen_p(gen_b('Step 2: ') . $tempstr . $gem_copy_str);
 
         $correct_book_id = mod_get_gem_book($gemdata['gemid']);
         $correct_text = mod_get_book_title($correct_book_id);
@@ -226,8 +229,14 @@ if ($incat == 'CUSTOM') {
           $lastsaved = $ansdata['datecreated'];
         }
 
-        $tempstr = 'Please record the best answer to your question';
-        $tempstr = gen_p(gen_b('Step 3: ') . $tempstr . gen_b(':'));
+        $tempstr = 'Your answer';
+        if ($lastsaved != 0) {
+          $tempstr .= ' (' . gen_b('version 1') . ')';
+        } else {
+          $tempstr .= ' (this field is mutable)';
+        }
+        $tempstr .= PADDING_STR . gen_u('[gemcopy]');
+        $tempstr = gen_p(gen_b('Step 3: ') . $tempstr);
         $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
         echo gen_div($tempstr, 'gem_step');
 
