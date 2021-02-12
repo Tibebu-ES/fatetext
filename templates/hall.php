@@ -20,13 +20,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$titlestr = 'Hall of Fame';
-
 $art_arr = mod_get_hall_art();
 $cat_arr = mod_get_hall_categories();
 ?>
 
-<h2><?php echo $titlestr; ?></h2>
+<h2>Hall of Fame</h2>
+
+<p class="footer_links">
+<a href="http://suzybot.com">SUZBOT</a> <b>Suzybot</b><br>
+<a href="http://fashiontext.com">fAtE</a> <b>FashionText</b><br>
+<a href="http://sharkinjury.com">$1</a> <b>SharkInjury</b><br>
+<a href="http://clichecourse.com"><b>::</b></a> <b>ClicheCourse</b>
+</p>
 
 <?php
 $content = '';
@@ -56,9 +61,3 @@ foreach ($cat_arr as $cat) {
 echo gen_div($content, 'innerc');
 ?>
 
-<p class="footer_links">
-<a href="http://suzybot.com">SUZBOT</a> <b>Suzybot</b><br>
-<a href="http://fashiontext.com">fAtE</a> <b>FashionText</b><br>
-<a href="http://sharkinjury.com">$1</a> <b>SharkInjury</b><br>
-<a href="http://clichecourse.com"><b>::</b></a> <b>ClicheCourse</b>
-</p>
