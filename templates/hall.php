@@ -32,18 +32,17 @@ $cat_arr = mod_get_hall_categories();
 $content = '';
 foreach ($cat_arr as $cat) {
   $art_url = gen_url('art', $cat);
-  $art_link = gen_link($art_url, 'Art Category: ' . $cat, 'header');
-  $content .= gen_h(3, $art_link);
+  $art_link = gen_link($art_url, $cat);
+  $content .= gen_h(3, 'Art Category: ' . $art_link);
   $css_class = 'page_heading';
   $div_str = '';
 
   foreach ($art_arr as $ar) {
     if ($ar['category'] == $cat) {
       $rowstr = '';
-      $rowstr .= gen_b($ar['artid']);
-      $date_url = gen_url('date', $ar['datestr']);
-      $rowstr .= '. [' . gen_link($date_url, $ar['datestr']) . '] ';
       $rowstr .= gen_link($ar['arturl'], $ar['arturl'], 'header', false);
+      $date_url = gen_url('date', $ar['datestr']);
+      $rowstr .= PADDING_STR . gen_link($date_url, $ar['datestr']);
       $rowstr .= gen_p(gen_i('Summary: ') . $ar['sumstr']);
 
       $div_str .= gen_p($rowstr, $css_class);
