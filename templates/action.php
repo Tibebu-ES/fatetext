@@ -24,12 +24,17 @@ echo gen_search_form();
 
 //$sub_header_str = 'Account';
 $sub_header_str = gen_link(gen_url('settings'), 'Account', 'header');
-$temp_str = gen_i('Archive');
-//$temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
+//$temp_str = gen_i('Archive');
+$temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
 $sub_header_str .= ' | ' . $temp_str . ' | ';
-//$sub_header_str .= gen_i('Actions');
-$sub_header_str .= gen_link(gen_url('action'), 'Actions', 'header');
+$sub_header_str .= gen_i('Actions');
+//$sub_header_str .= gen_link(gen_url('action'), 'Actions', 'header');
 
 echo gen_p(gen_h(2, $sub_header_str));
 
-echo gen_p('TODO');
+$con_str = gen_p('TODO: pivot table of action stories', 'page_heading');
+
+$link_str = 'Back to Home';
+$con_str .= gen_p(gen_link(gen_url('settings'), $link_str));
+echo gen_div($con_str, 'content');
+?>

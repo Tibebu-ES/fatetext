@@ -52,14 +52,13 @@ if ($data[TEMPLATE_MSG] != '') {
 }
 
 $left_col = '';
-if ($page != 'home') {
-  $left_col .= gen_link(gen_url('home'), 'Places', 'header');
-} else {
-  $left_col .= 'Places';
-}
-$left_col .= app_get_smart_spacer($page);
-
 if (web_logged_in()) {
+  if ($page != 'home') {
+    $left_col .= gen_link(gen_url('home'), 'Places', 'header');
+  } else {
+    $left_col .= 'Places';
+  }
+  $left_col .= app_get_smart_spacer($page);
 
   $atf = web_get_user_flag(web_get_user(), AGREE_TOS_FLAG);
   if (!isset($_SESSION['AGREETOS']) && $GLOBALS['AGREEONLOGIN']) {
@@ -104,15 +103,20 @@ if (web_logged_in()) {
 
 } else { //not logged in
 
+  if ($page != 'login') {
+    $left_col .= gen_link(gen_url('login'), 'Login', 'header');
+  } else {
+    $left_col .= 'Login';
+  }
+  $left_col .= app_get_smart_spacer($page);
+
   echo $left_col;
   $links_arr = array('tos' => 'New',
                      'news' => 'Gems',                
                      'about' => 'About');
   echo app_get_header_links($page, $links_arr);
+  echo app_get_header_extra($page);
 
-  if ($page == 'hall' || $page == 'art' || $page == 'date') {
-    echo app_get_header_extra($page);
-  }
   if ($page_msg != '') {
     echo gen_p($page_msg, 'page_msg');
   }

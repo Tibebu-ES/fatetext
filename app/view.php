@@ -24,7 +24,7 @@ function app_get_tos_page($local_page_msg) {
   $rv = gen_h(2, app_get_page_title() . ' ' . gen_i('Terms of Service'));
   $rv .= '<div class="content">';
 
-  $home_url = gen_url('home', 'silentlogout');
+  $home_url = gen_url('login', 'silentlogout');
   $home_link = gen_link($home_url, 'Go back to the login page');
   $rv .= gen_p($home_link, 'page_heading');
   $c0 = 'The following langauge was derived from the MIT License';
@@ -54,6 +54,11 @@ function app_get_header_extra($inpage, $add_el = true) {
   $rv = PADDING_STR . SPACER_STR . PADDING_STR;
   
   switch ($inpage) {
+   case 'login':
+    $link_url = gen_url('tos');
+    $rv .= gen_link($link_url, 'Next', $css_class);
+    break;
+
    case 'home':
    case 'coin':
    case 'store':
@@ -69,9 +74,18 @@ function app_get_header_extra($inpage, $add_el = true) {
 
    case 'settings':
    case 'archive':
+   case 'action':
+   case 'admin':
    case 'export':
    case 'admin':
     $link_url = gen_url('space');
+    $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
+    break;
+
+   case 'tos':
+   case 'news':
+   case 'about':
+    $link_url = gen_url('inspace');
     $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
 
@@ -245,7 +259,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                                 CUSTOM_PLACEHOLDER, $add_el);
     $elem_arr []= '</span>';
     $left_col = gen_form($elem_arr, gen_url('search'));
-    $togglestr = '-<br>-<br>-<br>-<br>';
+    $togglestr = '--<br>--<br>--<br>--<br>';
     $right_col = gen_div(gen_link($toggle_url, $togglestr, 'plain'),
                        'gem_step');
     $rv = gen_two_cols($left_col, $right_col);

@@ -27,11 +27,9 @@ $sub_header_str = gen_i('Account');
 //$temp_str = 'Archive';
 $temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
 $sub_header_str .= ' | ' . $temp_str . ' | ';
-if (web_is_admin()) {
-  $sub_header_str .= gen_link(gen_url('admin'), 'AdminHQ', 'header');
-} else {
-  $sub_header_str .= gen_link(gen_url('export'), 'Export', 'header');
-}
+//$sub_header_str .= gen_i('Actions');
+$sub_header_str .= gen_link(gen_url('action'), 'Actions', 'header');
+
 echo gen_p(gen_h(2, $sub_header_str));
 
 if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
@@ -63,6 +61,11 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
 } else {
 
+  $tempstr = gen_link(gen_url('export'),
+                       'Export My Gems in JSON format');
+  $gemco = gen_img('images/gemco.jpg', 'Icon of the California Coast');
+  echo gen_p($gemco . PADDING_STR . $tempstr);
+
   $infostr = '(' . gen_i(fd(mod_get_int('lastchange'))) . ')<br>';
   $tempstr = gen_link(gen_url('settings', CHANGE_PASSWORD_CMD),
   	                  'Change Password') . PADDING_STR . $infostr;
@@ -76,10 +79,16 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   $infostr = '(you have ' . $num_str . ' unarchived gems)';
   $tempstr .= gen_link(gen_url('archive'), 'Archive Gems');
   $tempstr .= PADDING_STR . $infostr . '<br>';
-  $link_url = gen_url('home', LOGOUT_CMD);
-  $tempstr .= gen_span(gen_link($link_url, 'LOGOUT'), 'nextline');
-
+  $link_url = gen_url('login', LOGOUT_CMD);
+  $logout_str = gen_link($link_url, 'LOGOUT') . PADDING_STR . '(';
+  if (web_is_admin()) {
+    $logout_str .= gen_link(gen_url('admin'), 'AdminHQ', 'header');
+  } else {
+    $logout_str .= gen_link(gen_url('stats'), 'StatsHQ', 'header');    
+  }
+  $tempstr .= gen_span($logout_str . ')', 'nextline');
   echo gen_p($tempstr);
+
 }
 
 $apptitle = $GLOBALS['APPTITLE'];
@@ -106,9 +115,6 @@ foreach ($flagarr as $cmdstr => $link_text) {
 
 echo gen_p($flagstr);
 
-echo gen_p(gen_h(3, 'Export My Gems (DUTY FREE!)'));
+$next_frame = gen_u('TODO: Click here');
+echo gen_p(gen_h(3, 'Next Frame (' . $next_frame . ')'));
 
-$tempstr = gen_link(gen_url('export'),
-                     'Get My Export (JSON format)');
-$gemco = gen_img('images/gemco.jpg', 'Icon of the California Coast');
-echo gen_p($gemco . PADDING_STR . $tempstr);

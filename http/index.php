@@ -23,8 +23,13 @@ SOFTWARE. */
 include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
-//set $data[TEMPLATE_PAGE] = 'home' by default
-fl(); $data = web_init_data('home');
+//set $data[TEMPLATE_PAGE] = 'home' or 'login' by default
+fl();
+if (web_logged_in()) {
+   $data = web_init_data('home');
+} else {
+   $data = web_init_data('login');
+}
 util_log('debug', 'web_init_data() done', LLDEBUG);
 
 try {

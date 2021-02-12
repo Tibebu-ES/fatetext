@@ -20,13 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$sub_header_str = gen_link(gen_url('settings'), 'Account', 'header');
-$temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
-$sub_header_str .= ' | ' . $temp_str . ' | ';
-$sub_header_str .= gen_i('Export');
-echo gen_p(gen_h(2, $sub_header_str));
-
-
 $sql = 'SELECT * FROM gems WHERE userid = %d ORDER BY userid, lastloaded DESC';
 $rs = queryf_all($sql, web_get_user());
 

@@ -20,16 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-echo gen_search_form();
+echo gen_h(2, 'Feedback');
 
-//$sub_header_str = 'Account';
-$sub_header_str = gen_link(gen_url('settings'), 'Account', 'header');
-$temp_str = gen_i('Archive');
-//$temp_str = gen_link(gen_url('archive'), 'Archive', 'header');
-$sub_header_str .= ' | ' . $temp_str . ' | ';
-//$sub_header_str .= gen_i('Actions');
-$sub_header_str .= gen_link(gen_url('action'), 'Actions', 'header');
+echo gen_p('TODO: mailing list management');
 
-echo gen_p(gen_h(2, $sub_header_str));
-
-echo gen_p('TODO');
+?>
