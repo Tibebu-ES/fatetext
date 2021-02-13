@@ -27,5 +27,6 @@ SOFTWARE. */ ?>
   </head>
   <body>
   	<p>The page you requested does not exist.</p>
+    <p><img src="images/tree.png"></p>
   </body>
 </html>

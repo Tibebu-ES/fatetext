@@ -25,13 +25,7 @@ $cat_arr = mod_get_hall_categories();
 ?>
 
 <h2>Hall of Fame</h2>
-
-<p class="footer_links">
-<a target="_blank" href="http://suzybot.com">SUZBOT</a> <b>Suzybot</b><br>
-<a target="_blank" href="http://fashiontext.com">fAtE</a> <b>FashionText</b><br>
-<a target="_blank" href="http://sharkinjury.com">$1</a> <b>SharkInjury</b><br>
-<a target="_blank" href="http://clichecourse.com"><b>::</b></a> <b>ClicheCourse</b>
-</p>
+<p><img src="images/water.png"></p>
 
 <?php
 $content = '';
@@ -61,3 +55,9 @@ foreach ($cat_arr as $cat) {
 echo gen_div($content, 'innerc');
 ?>
 
+<p class="footer_links">
+<a target="_blank" href="http://suzybot.com">SUZBOT</a> <b>Suzybot</b><br>
+<a target="_blank" href="http://fashiontext.com">fAtE</a> <b>FashionText</b><br>
+<a target="_blank" href="http://sharkinjury.com">$1</a> <b>SharkInjury</b><br>
+<a target="_blank" href="http://clichecourse.com"><b>::</b></a> <b>ClicheCourse</b>
+</p>

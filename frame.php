@@ -122,7 +122,7 @@ if (web_logged_in()) {
   }
 
   echo gen_div($data[TEMPLATE_CONTENT], 'innerc');
-  $add_br = (!web_logged_in() && ($page == 'login'));
+  $add_br = ($page == 'login' || $page = 'hall');
   echo gen_copyright_notice($add_br);
 
 }

@@ -24,7 +24,7 @@ SOFTWARE. */ ?>
 
 <p><i>"decentralized open source community online"</i></p>
 
-<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence online</a> that does not necessarily rely on the 1990s era liability shield for US Internet companies known as, "Section 230."</p>
+<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence online</a>.</p>
 
 <p>This latest version of FaTe (v0.9) became available online, starting Feb. 9, 2021 at <a href="http://fametext.com">fametext.com</a>.</p>
 
