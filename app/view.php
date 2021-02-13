@@ -291,7 +291,7 @@ function gen_login_form($add_el = true) {
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
 
-  $rv = gen_form($elem_arr, gen_url('home'));
+  $rv = gen_form($elem_arr, gen_url('login'));
   return $rv;
 }
 
