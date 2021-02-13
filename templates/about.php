@@ -22,13 +22,11 @@ SOFTWARE. */ ?>
 
 <h2>About FameText</h2>
 
-<p><i>"decentralized open source community online"</i></p>
+<p><i>Decentralized open source community</i> (Version <b>0.93</b>)</p>
 
-<p>FATEtext (aka. FATE) is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence online</a>.</p>
+<p><a href="http://fametext.com">FameText</a> is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence</a>.</p>
 
-<p>This latest version of FaTe (v0.9) became available online, starting Feb. 9, 2021 at <a href="http://fametext.com">fametext.com</a>.</p>
-
-<p><a href="https://github.com/tperry256/fametext">v0.9's source code</a> is available upon request as a ZIP file (22 MB), and the first iteration was originally released by <a href="http://tperry256.com">Todd Perry</a> on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">separate GIT repository on Github</a>.</p>
+<p>FaTe's source code was originally shared by <a href="http://tperry256.com">Todd Perry</a> on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
 <p>Please find the following videos for more info:</p>
 

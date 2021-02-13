@@ -98,9 +98,20 @@ function mod_get_user_gems($userid, $maxgems = 5) {
   $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';
   $sql .= ' wordcount, charcount, stepint FROM gems, toks';
   $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
-  $sql .= ' ORDER BY lastloaded DESC LIMIT %d';
+  $sql .= ' ORDER BY lastloaded DESC LIMIT 100';
   $rs = queryf_all($sql, $userid, $maxgems);
-  return $rs;
+
+  $rv = array();
+  foreach ($rs as $row) {
+    $sql = 'SELECT * from steps WHERE gemid = %d AND whichint = 1';
+    $rs2 = queryf_one($sql, $row['gemid']);
+    if (isset($rs2)) {
+      if (strlen($rs2['stepstr']) > 4) {
+        $rv []= $row;
+      }
+    }
+  }
+  return $rv;
 }
 
 function mod_log_search($logtxt) {
