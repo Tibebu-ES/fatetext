@@ -36,7 +36,13 @@ foreach ($rs as $row) {
   }
   if ($numrows > 0) {
     $guess = $rs2[0]['stepstr'];
+    if (strlen($guess) < 5) {
+      continue;
+    }
+  } else {
+    continue;
   }
+
   if ($numrows > 1) {
     $quest = $rs2[1]['stepstr'];
   }
