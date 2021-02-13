@@ -114,19 +114,8 @@ if ($incat == 'CUSTOM') {
       }
       $tempstr .= PADDING_STR . gen_u('[gemcopy]');
 
-
-      $ttip_flag = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
       if ($gemdata['stepint'] == 1) {
-        $sent_str = $gemdata['chester'];
-        if (!$ttip_flag) {
-          $sent_str = gen_link(gen_url('data'), $gemdata['chester'], 'plain');
-        }
-        $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
-        if ($ttip_flag) {
-          $link_str = 'Click for more info about this three step process';
-          $help_str = '(' . gen_link(gen_url('library'), $link_str) . ')';
-          $tempstr .= gen_div(gen_p($help_str), 'gem_step');
-        }
+        $tempstr = gen_p($tempstr) . gen_div($gemdata['chester'], 'gem_text');
       } else {
         //TODO show search result view
         $dataurl = gen_url('data', 'chest');
@@ -137,11 +126,6 @@ if ($incat == 'CUSTOM') {
           $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
         }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
-        if ($ttip_flag) {
-          $link_str = 'Click to view this keyword sentence in context';
-          $help_str = '---&gt;' . PADDING_STR . gen_link($dataurl, $link_str);
-          $tempstr .= gen_div(gen_p($help_str), 'gem_step');
-        }
       }
       echo gen_div($tempstr, 'gem_step');
 
@@ -231,7 +215,7 @@ if ($incat == 'CUSTOM') {
 
         $tempstr = 'Answer';
         if ($lastsaved != 0) {
-          $tempstr .= ' (' . gen_b('at') . gen_i(fd($lastsaved)) . ')';
+          $tempstr .= ' (' . gen_b('at ') . gen_i(fd($lastsaved)) . ')';
         } else {
           $tempstr .= ' (this field is mutable)';
         }
