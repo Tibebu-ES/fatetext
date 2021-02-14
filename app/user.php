@@ -20,6 +20,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+function user_get_last_category($user_id) {
+  $sql = 'SELECT lastcategory FROM users WHERE userid = %d';
+  $rs = queryf_one($sql, $user_id);
+  if (!isset($rs['lastcategory'])) {
+    return DEFAULT_CATEGORY;
+  }
+  return $rs['lastcategory'];
+}
+
+function user_set_last_category($user_id, $str_value) {
+  $sql = 'UPDATE users SET lastcategory = %s WHERE userid = %d';
+  queryf($sql, $str_value, $user_id);
+}
+
 function user_get_default_rows($user_id) {
   $sql = 'SELECT datarows FROM users WHERE userid = %d';
   $rs = queryf_one($sql, $user_id);

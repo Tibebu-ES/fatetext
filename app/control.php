@@ -96,6 +96,7 @@ function con_do_cmd(&$data) {
       check_string_param('steptxt', $data, $_REQUEST);
 
       $curuser = web_get_user();
+      $data['category'] = user_get_last_category($curuser);
       $curgem = $data['gemid'];
       util_assert($curgem = mod_get_user_lastgem($curuser));
 
@@ -104,15 +105,7 @@ function con_do_cmd(&$data) {
       if ($cmd == 'Guess') {
         if ($data['steptxt'] == '') {
 
-          if (!isset($data['category'])) {
-            if (isset($_SESSION['temp']['category'])) {
-              $category = $_SESSION['temp']['category'];
-            } else {
-              $category = DEFAULT_CATEGORY;
-            }
-          }
-
-          $newgemid = mod_generate_gem($curuser, $stxt, $category);
+          $newgemid = mod_generate_gem($curuser, $stxt, $data['category']);
           mod_update_user_lastgem($curuser, $newgemid);
 
         } else {
@@ -214,19 +207,24 @@ function con_do_cmd(&$data) {
       break;
 
      case 'Create':
-      $category = '';
+      $last_category = '';
       $curuser = web_get_user();
+      if (!isset($_REQUEST['category'])) {
+        $last_category = user_get_last_category($curuser);
+      }
+
       check_string_param('stxt', $data, $_REQUEST, '');
-      check_string_param('category', $data, $_REQUEST, DEFAULT_CATEGORY);
+      check_string_param('category', $data, $_REQUEST, $last_category);
       check_string_param('customtxt', $data, $_REQUEST, '');
 
-      $category = $data['category'];
-      if ($category == 'CLEAR' || $category == 'CUSTOM') {
+      user_set_last_category(web_get_user(), $data['category']);
+
+      if ($data['category'] == 'CLEAR' || $data['category'] == 'CUSTOM') {
         mod_update_user_lastgem($curuser, 0);
       } else {
         $stxt = $data['stxt'];
         if ($stxt == '') {
-          $newgemid = mod_generate_gem($curuser, $stxt, $category);
+          $newgemid = mod_generate_gem($curuser, $stxt, $data['category']);
           mod_update_user_lastgem($curuser, $newgemid);
         } else if (strlen($stxt) < 5) {
           $data[TEMPLATE_MSG] = 'Search terms must be longer than 4 chars.';
@@ -255,18 +253,5 @@ function con_do_cmd(&$data) {
       break;
     }
   } //end if $cmd != ''
-
-  //preserve the state of this page for
-  //. the benefit of the next page load
-  $temp_temp = array();
-  if (isset($_SESSION['temp'])) {
-    $temp_temp = $_SESSION['temp'];
-  }
-  $_SESSION['temp'] = $data;
-  foreach ($temp_temp as $sticky_key => $sticky_value) {
-    if (!isset($_SESSION['temp'][$sticky_key])) {
-      $_SESSION['temp'][$sticky_key] = $sticky_value;
-    }
-  }
 
 }

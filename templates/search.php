@@ -27,27 +27,15 @@ $incat = '';
 $stxt = '';
 
 if (!isset($data['category'])) {
-  if (isset($_SESSION['temp']['category'])) {
-    $data['category'] = $_SESSION['temp']['category'];
-  } else {
-    $data['category'] = DEFAULT_CATEGORY;
-  }
+  $data['category'] = user_get_last_category($curuser);
 }
 
 if (!isset($data['stxt'])) {
-  if (isset($_SESSION['temp']['stxt'])) {
-    $data['stxt'] = $_SESSION['temp']['stxt'];
-  } else {
-    $data['stxt'] = '';
-  }
+  $data['stxt'] = '';
 }
 
 if (!isset($data['customtxt'])) {
-  if (isset($_SESSION['temp']['customtxt'])) {
-    $data['customtxt'] = $_SESSION['temp']['customtxt'];
-  } else {
-    $data['customtxt'] = '';
-  }
+  $data['customtxt'] = '';
 }
 
 $incat = $data['category'];
