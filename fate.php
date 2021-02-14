@@ -37,7 +37,8 @@ include('app/view.php');
 include('app/control.php');
 
 define('DEFAULT_CATEGORY', 'FATE');
-define('NUM_CHAT_ROWS', 10);
+define('NUM_CHAT_ROWS', 5);
+define('NUM_CON_ROWS', 3);
 
 define('COPYRIGHT_HOLDER', 'TSUZY');
 define('COPYRIGHT_URL', 'http://tsuzy.com');

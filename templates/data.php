@@ -33,8 +33,23 @@ echo gen_p(gen_h(2, $sub_header_str));
 
 if (isset($data['chestid'])) {
 
-  $minid = max(1, $data['chestid'] - 5);
-  $maxid = min(mod_max_chestid(), $data['chestid'] + 3);
+  $next_prev_str = '';
+  $chest_id = $data['chestid'];
+  $data_url = gen_url('data', 'chest');
+  $data_url .= gen_url_param('chestid', $chest_id - NUM_CON_ROWS);
+  $data_url .= gen_url_param('tokstr', $data['tokstr']);
+  //TODO bounds checking
+  if ($chest_id - (2 * NUM_CHAT_ROWS) > 0) {
+    $next_prev_str .= gen_link($data_url, '&lt;prev') . ' :: ';
+  }
+  $data_url = gen_url('data', 'chest');
+  $data_url .= gen_url_param('chestid', $chest_id + NUM_CON_ROWS);
+  $data_url .= gen_url_param('tokstr', $data['tokstr']);
+  $next_prev_str .= gen_link($data_url, 'next&gt;');
+  echo gen_p($next_prev_str);
+
+  $minid = max(1, $data['chestid'] - NUM_CON_ROWS);
+  $maxid = min(mod_max_chestid(), $data['chestid'] + NUM_CON_ROWS);
 
   for ($i = $minid; $i < $maxid; $i++) {
     $chestdata = mod_load_chest($i);
@@ -56,7 +71,14 @@ if (isset($data['chestid'])) {
       }
       $outstr .=  $linkstr . ' ' . "\n";
     }
+    if ($i == $data['chestid']) {
+      echo gen_p('-------');
+    }
     echo gen_p($outstr);
+    if ($i == $data['chestid']) {
+      echo gen_p('-------');
+    }
+
   }
 
 } else {
