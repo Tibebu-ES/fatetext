@@ -93,7 +93,7 @@ function mod_generate_gem($userid, $stxt, $category) {
   $maxid = $rs['maxid'];
 
   $randtokid = rand($minid, $maxid);
-  $sql = 'SELECT chestidstr FROM toks WHERE tokid = %d';
+  $sql = 'SELECT chestidstr, bookid FROM toks WHERE tokid = %d';
   $rs = queryf_one($sql, $randtokid);
   $chestidstr = $rs['chestidstr'];
 
@@ -167,9 +167,18 @@ function mod_load_gem($gemid) {
   $rs = queryf_one($sql, $rv['tokid']);
   $rv['tokstr'] = $rs['tokstr'];
 
-  $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
+  $sql = 'SELECT datastr, bookid FROM chests WHERE chestid = %d';
   $rs = queryf_one($sql, $rv['chestid']);
   $rv['datastr'] = $rs['datastr'];
+
+  if ($rv['chestid'] > 1 && $rs['bookid'] > 4) {
+    $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
+    $rs2 = queryf_one($sql, $rv['chestid'] - 1);
+    $rv['datastr'] = $rs2['datastr'] . ' ' . $rv['datastr'];
+    $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
+    $rs2 = queryf_one($sql, $rv['chestid'] + 1);
+    $rv['datastr'] .= ' ' . $rs2['datastr'];
+  }
 
   $rv['chester'] = preg_replace('/' . $rv['tokstr'] . '/i',
                                 '_______', $rv['datastr']);
