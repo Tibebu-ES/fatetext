@@ -299,6 +299,7 @@ function gen_chat_with_fate($inpage, $is_open) {
   $rv = '';
   if ($is_open) {
     $chat_arr = array();
+    //TODO $chat_index = user_get_chat_index(web_get_user());
     $gemarr = mod_get_user_gems(web_get_user(), NUM_CHAT_ROWS);
     if (count($gemarr) == 0) {
       $chat_arr []= gen_i('No gems.');
@@ -325,7 +326,7 @@ function gen_chat_with_fate($inpage, $is_open) {
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'prev');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'next');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'end');
-    $chat_arr []= $tempstr;
+    //TODO $chat_arr []= $tempstr;
     $chat_win = gen_chat_win($chat_arr);
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
     $title_bar = gen_title_bar($title_html);

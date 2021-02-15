@@ -81,7 +81,7 @@ if (web_logged_in()) {
       $left_col .= gen_p($page_msg, 'page_msg');
     }
 
-    echo $left_col;
+    //echo $left_col;
 
     $chat_data = array();
     if (isset($datestr)) {
@@ -89,15 +89,26 @@ if (web_logged_in()) {
     }
     $chat_open = web_get_user_flag(web_get_user(), CHAT_OPEN_FLAG);
     $right_col = gen_chat_with_fate($page, $chat_open);
+    $left_col .= gen_div($data[TEMPLATE_CONTENT], 'content');
+
+    $chat_left = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
     if ($chat_open) {
-      $left_col = gen_div($data[TEMPLATE_CONTENT], 'content');
+      $left_col .= gen_copyright_notice();
+      $chat_left = web_get_user_flag(web_get_user(), HIDETOOLTIP_FLAG);
+      $left_col = gen_div($left_col, 'content');
+      if ($chat_left) {
+        echo gen_two_cols($right_col, $left_col);
+      } else {
+        echo gen_two_cols($left_col, $right_col);
+      }
     } else { //if chat is collapsed
-      echo gen_div($data[TEMPLATE_CONTENT], 'content');
-      $left_col = '';
+      if ($chat_left) {
+        $left_col .= gen_two_cols($right_col, gen_copyright_notice());
+      } else {
+        $left_col .= gen_two_cols(gen_copyright_notice(), $right_col);        
+      }
+      echo gen_div($left_col, 'content');
     }
-    $left_col .= gen_copyright_notice();
-    
-    echo gen_two_cols($left_col, $right_col);
 
   } //END logged in cases
 

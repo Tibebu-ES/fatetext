@@ -93,11 +93,11 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
 
 $apptitle = $GLOBALS['APPTITLE'];
 $flagarr = array(TOGGLE_CHAT_CMD => 'Expand the Chat with ' . $apptitle,
-                 TOGGLE_TEXT_CMD => 'Accomodate multi-line searches',
-                 TOGGLE_SPLASH_CMD => 'Color scheme is inside out',
-                 TOGGLE_OPTION_CMD => 'Record book and author guesses',
+                 TOGGLE_OPTION_CMD => 'Book and author guesses',
+                 TOGGLE_SPLASH_CMD => 'Color scheme inversion',
                  TOGGLE_INVERTEDCS_CMD => 'Invert the color scheme',
-                 TOGGLE_TOOLTIP_CMD => 'Show tool tips in Search');
+                 TOGGLE_TEXT_CMD => 'Multi-line searches',
+                 TOGGLE_TOOLTIP_CMD => 'Display chat on the left');
 
 echo gen_p(gen_h(3, 'Click each LINK to toggle each FLAG:'));
 $flagstr = '';
