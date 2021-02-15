@@ -26,7 +26,7 @@ SOFTWARE. */ ?>
 
 <p><a href="http://fametext.com">FameText</a> is an open source (<a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>) reference implementation for <a href="http://faqreport.com">a novel approach to creating convergence</a>.</p>
 
-<p>FaTe's source code was originally shared by <a href="http://tperry256.com">Todd Perry</a> on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
+<p>FaTe's source code (v0.93) was originally shared by <a href="http://tperry256.com">Todd Perry</a> on January 13, 2021 as a <a href="https://github.com/tperry256/fatetext">GIT repository on Github</a>.</p>
 
 <p>Please find the following videos for more info:</p>
 

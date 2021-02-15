@@ -1,0 +1,53 @@
+IDEAS
+
+FameText 1.0 (early March)
+. ::gems: creating gems from the Bible and TheSuzy Trilogy
+. ::data::abstract: increasingly powerful context viewer
+. ::home::account: change password, customize UI
+. ::home::actions pivot table of the user's actions
+. export gems (via the ::home::account tab)
+. delete gems (via the ::home::archive tab)
+. placeholders for FameText 2.0 features
+. . ::data::profile: currate the user's gems|stars 
+. . ::data::library: tree view of texts added by the admin
+. . creating gems from collections of gems|stars (via ::cart)
+. . creating gems from existing questions or answers (via [gemcopy])
+. . creating keyword search queries that show up in your ::data::profile
+. . creating gems that links chunks of text to queries (via search result UI)
+. . user dashboard for interacting with the admins; unsubscribing, etc.
+. . adding verified email, changing username, etc. (via ::home)
+. . UI for selling gemopts with standardized closing procedures
+. . requesting to receive transfer of gemopts (via ::places::store)
+. . viewing your gemops in the data::profile and making them public
+. . dashboard for viewing internal currency balances and making trades
+. . buying ad space, initially just for inviting people to follow gemops
+. . paying royalties (in virtual currency to our gemopt sources of new gems)
+. . affiliate program for FameText instances that sell TheSuzy Trilogy artifacts
+
+Intermission (early April)
+. LeftList and Portal views
+. reverse Coins and Space tabs
+. and then Action and Coins tabs too
+. refactor and restructure the code base
+
+FameText 2.0 (early June)
+. fill in all the empty place holders from FaTe 1.0
+. import a full library of texts from public domain sources
+. make saved query results persistent (refresh results on page load)
+. user bios, profile pics, and invite system (fake names allowed?)
+. follow users and public facing gems|stars and gemopt content
+. feed and notifications about updates and recommendations, etc.
+. internal moderation dashboard (for "Suzy's" growing security team!)
+. . scanning questions and answers for personally identifiable information
+. . reporting public facing gemopts that include unauthorized artifacts
+. . blocking and rate limiting problematic gem creation behavior
+. . user story and funnel analysis; growth hacking _______!
+
+TheSuzy Trilogy (early September)
+. prepare TheSuzy photobook (of the 200 photos that make up the cover)
+. weekly meeting to discuss read throughs and gem production goals
+. keep updating the text and version number of the printed books
+. experiment with platforms for selling printed copies
+. post ebooks on Amazon, Apple, etc.
+. attend art book fairs
+. licensing deals
