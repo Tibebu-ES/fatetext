@@ -49,7 +49,7 @@ if (isset($data['chestid'])) {
   echo gen_p($next_prev_str);
 
   $minid = max(1, $data['chestid'] - NUM_CON_ROWS);
-  $maxid = min(mod_max_chestid(), $data['chestid'] + NUM_CON_ROWS);
+  $maxid = min(mod_max_chestid(), $data['chestid'] + NUM_CON_ROWS + 1);
 
   for ($i = $minid; $i < $maxid; $i++) {
     $chestdata = mod_load_chest($i);

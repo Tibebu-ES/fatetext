@@ -302,12 +302,12 @@ function gen_login_form($add_el = true) {
   return $rv;
 }
 
-function gen_chat_with_fate($inpage, $is_open) {
+function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
   $rv = '';
   if ($is_open) {
     $chat_arr = array();
     //TODO $chat_index = user_get_chat_index(web_get_user());
-    $gemarr = mod_get_user_gems(web_get_user(), NUM_CHAT_ROWS);
+    $gemarr = mod_get_user_gems(web_get_user(), $max_gems);
     if (count($gemarr) == 0) {
       $chat_arr []= gen_i('No gems.');
     } else {
@@ -329,10 +329,10 @@ function gen_chat_with_fate($inpage, $is_open) {
       } //end foreach gems
     } //end if no gems
     
-    $tempstr = gen_link(gen_url($inpage), 'top');
+    /*$tempstr = gen_link(gen_url($inpage), 'top');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'prev');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'next');
-    $tempstr .= ' | ' . gen_link(gen_url($inpage), 'end');
+    $tempstr .= ' | ' . gen_link(gen_url($inpage), 'end');*/
     //TODO $chat_arr []= $tempstr;
     $chat_win = gen_chat_win($chat_arr);
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');

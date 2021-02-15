@@ -94,12 +94,15 @@ function mod_load_chest($chestid) {
   return $rv;
 }
 
-function mod_get_user_gems($userid, $maxgems = 5) {
+function mod_get_user_gems($userid, $maxgems = 0) {
   $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';
   $sql .= ' wordcount, charcount, stepint FROM gems, toks';
   $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
-  $sql .= ' ORDER BY lastloaded DESC LIMIT 100';
-  $rs = queryf_all($sql, $userid, $maxgems);
+  $sql .= ' ORDER BY lastloaded DESC LIMIT 500';
+  $rs = queryf_all($sql, $userid);
+  if ($maxgems == 0) {
+    return $rs;
+  }
 
   $rv = array();
   foreach ($rs as $row) {
@@ -108,6 +111,9 @@ function mod_get_user_gems($userid, $maxgems = 5) {
     if (isset($rs2)) {
       if (strlen($rs2['stepstr']) > 4) {
         $rv []= $row;
+        if (count($rv) >= $maxgems) {
+          break;
+        }
       }
     }
   }

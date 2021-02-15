@@ -32,4 +32,4 @@ $sub_header_str .= gen_link(gen_url('action'), 'Actions', 'header');
 
 echo gen_p(gen_h(2, $sub_header_str));
 
-echo gen_p('TODO');
+echo gen_chat_with_fate($data['page'], true, 0);
