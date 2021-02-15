@@ -38,7 +38,7 @@ if (!isset($data['customtxt'])) {
   $data['customtxt'] = '';
 }
 
-$incat = $data['category'];
+$incat = htmlentities($data['category']);
 
 if (isset($data['stxt'])) {
   $stxt = $data['stxt'];
@@ -46,7 +46,6 @@ if (isset($data['stxt'])) {
 }
 
 if (isset($data['customtxt'])) {
-  $custom_txt = $data['customtxt'];
   $safe_custom = htmlentities($data['customtxt']);
 }
 
@@ -54,7 +53,7 @@ $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
 echo gen_search_form($safe_text, $safe_custom, $textarea,
                      $incat, true, false);
 
-if ($incat == 'CUSTOM') {
+if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
   echo gen_p('The custom category was: ' . $safe_custom);
 
