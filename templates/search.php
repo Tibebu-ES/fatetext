@@ -121,11 +121,25 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         //TODO load these automatically from the DB
         $auth_arr = array('Todd Perry' => 'Todd Perry',
                           'Conri Stonewall' => 'Conri Stonewall',
-                          'BIBLICAL' => 'BIBLICAL');
+                          'BIBLICAL' => 'BIBLICAL',
+                          'William Shakespeare' => 'William Shakespeare',
+                          'Marcus Aurelius' => 'Marcus Aurelius',
+                          'Virgil' => 'Virgil',
+                          'Homer' => 'Homer',
+                          'Plato' => 'Plato',
+                          'Aristotle' => 'Aristotle',
+                          'Horace' => 'Horace');
         $text_arr = array(4 => 'The Bible',
                           1 => 'Suzy\'s Memoir',
                           2 => 'TheSuzy.com Show',
-                          3 => 'TheSuzy Memoirs');
+                          3 => 'TheSuzy Memoirs',
+                          5 => 'All Shakespeare',
+                          6 => 'Meditations',
+                          7 => 'The Aeneid',
+                          8 => 'The Iliad',
+                          9 => 'The Republic',
+                          10 => 'Politics',
+                          11 => 'Poetry');
 
         $tempstr = 'Ask a question about the sentence, itself:';
         $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);

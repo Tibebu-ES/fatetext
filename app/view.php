@@ -225,7 +225,14 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                       'suzyThe' => 'TheSuzy Trilogy',
                       'suzyMem' => 'Suzy\'s Memoir',
                       'theShow' => 'TheSuzy.com Show',
-                      'theMems' => 'TheSuzy Memoirs');
+                      'theMems' => 'TheSuzy Memoirs',
+                      'theBard' => 'All Shakespeare',
+                      'marcus' => 'Meditations',
+                      'aeneid' => 'The Aeneid',
+                      'iliad' => 'The Iliad',
+                      'republic' => 'The Republic',
+                      'politics' => 'Politics',
+                      'horace' => 'Poetry');
 /*                    'aRome' => 'Ancient Rome',
                       'aGreek' => 'Ancient Greek',
                       'theBard' => 'All Shakespeare',

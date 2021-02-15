@@ -37,6 +37,34 @@ function mod_generate_gem($userid, $stxt, $category) {
      $book_filter = '';
      break;
 
+   case 'horace':
+     $book_filter .= 'bookid = 11';
+     break;
+
+   case 'politics':
+     $book_filter .= 'bookid = 10';
+     break;
+
+   case 'republic':
+     $book_filter .= 'bookid = 9';
+     break;
+
+   case 'iliad':
+     $book_filter .= 'bookid = 8';
+     break;
+
+   case 'aeneid':
+     $book_filter .= 'bookid = 7';
+     break;
+
+   case 'marcus':
+     $book_filter .= 'bookid = 6';
+     break;
+
+   case 'theBard':
+     $book_filter .= 'bookid = 5';
+     break;
+
    case 'kjBible':
      $book_filter .= 'bookid = 4';
      break;
