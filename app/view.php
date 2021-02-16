@@ -90,9 +90,8 @@ function app_get_header_extra($inpage, $add_el = true) {
     break;
 
    default:
-    $link_text = FAME_IDENT;
-    $link_url = FAME_URL;
-    $rv .= gen_link($link_url, $link_text, $css_class, false, true);
+    $rv .= gen_link($GLOBALS['FAMEURL'], $GLOBALS['FAMEIDENT'],
+                    $css_class, false, true);
     break;
   }
 
@@ -320,7 +319,7 @@ function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
           $chatstr .= $gem['wordcount'] . ' words (';
           $chatstr .= $gem['charcount'] . ' letters)<br>';
           if ($maxgems == 0) {
-            $chatstr .= gen_i('skipped: ') . gen_b($gem['tokstr']);
+            $chatstr .= gen_i('found: ') . gen_b($gem['tokstr']);
           } else {
             $chatstr .= gen_i('guess: ') . gen_b('_______!');
           }

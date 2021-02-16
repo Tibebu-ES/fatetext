@@ -33,6 +33,8 @@ $GLOBALS['SHOWEXTRACE'] = false;
 
 $GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
+$GLOBALS['FAMEIDENT'] = 'TheSuzy';
+$GLOBALS['FAMEURL'] = 'http://thesuzy.com';
 
 $GLOBALS['AGREEONLOGIN'] = true;
 $GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';

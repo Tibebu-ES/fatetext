@@ -63,8 +63,6 @@ define('CHANGE_PASSWORD_CMD', 'changepass');
 define('CUSTOMIZE_UI_CMD', 'customizeui');
 define('ARCHIVE_GEMS_CMD', 'archivegems');
 
-define('FAME_IDENT', 'TheSuzy');
-define('FAME_URL', 'http://thesuzy.com');
 define('SEARCH_PLACEHOLDER', '&lt;Search for Words or Gems&gt;');
 define('CUSTOM_PLACEHOLDER', '&lt;Custom Search Category&gt;');
 define('SPACER_STR', '::');
