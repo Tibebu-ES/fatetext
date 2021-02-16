@@ -358,7 +358,7 @@ function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'next');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'end');*/
     //TODO $chat_arr []= $tempstr;
-    if ($maxgems == 0) {
+    if ($max_gems == 0) {
       $rv = gen_chat_win($chat_arr);
     } else {
       $chat_win = gen_chat_win($chat_arr);
