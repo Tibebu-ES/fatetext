@@ -88,7 +88,7 @@ function fl($msg = "\n") {
 }
 
 function fd($thetime) {
-  return date('H:i:s · D · M Y', $thetime);
+  return date('H:i:s · M j Y', $thetime);
 }
 
 function mp($msg, $var, $print = true) {

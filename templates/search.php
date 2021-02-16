@@ -55,7 +55,7 @@ echo gen_search_form($safe_text, $safe_custom, $textarea,
 
 if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
-  echo gen_p('The custom category was: ' . $safe_custom);
+  echo gen_p('The custom category was: "' . $safe_custom . '"');
 
 } else if ($stxt == '') {
 
@@ -231,7 +231,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
 } else { //$stxt != ''
 
-  $stoks = explode(' ', $stxt);
+  $stoks = explode(' ', trim($stxt));
   $chestidarr = array();
   foreach ($stoks as $tok) {
     $allalpha = '';

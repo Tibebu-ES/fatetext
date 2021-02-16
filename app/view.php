@@ -319,12 +319,36 @@ function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
         if ($gem['stepint'] == 0) {
           $chatstr .= $gem['wordcount'] . ' words (';
           $chatstr .= $gem['charcount'] . ' letters)<br>';
-          $chatstr .= gen_i('guess: ') . gen_b('_______!');
+          if ($maxgems == 0) {
+            $chatstr .= gen_i('skipped: ') . gen_b($gem['tokstr']);
+          } else {
+            $chatstr .= gen_i('guess: ') . gen_b('_______!');
+          }
         } else {
           $chatstr .= gen_i('blank: ') . gen_b($gem['tokstr']) . '<br>';
           $guessdata = mod_load_step($gem['gemid'], 1);
-          $chatstr .= gen_i('guess: ') . gen_u($guessdata['stepstr']);
-        }
+          $chatstr .= gen_i('guess: ');
+          if ($guessdata['stepstr'] == '') {
+            $chatstr .= 'n/a';
+          } else {
+            $chatstr .= gen_u($guessdata['stepstr']);
+          }
+          if ($gem['stepint'] > 1) {
+            $guessdata = mod_load_step($gem['gemid'], 2);
+            $chatstr .= '<br>';
+            if ($guessdata['stepstr'] == '') {
+              $chatstr .= '"n/a"';
+            } else {
+              $quest_str = $guessdata['stepstr'];
+              $quest_str_len = strlen($quest_str);
+              if ($quest_str_len > 80) {
+                $quest_str = substr($quest_str, 0, 90) . '...';
+              }
+              $quest_str = wordwrap($quest_str, 25, '<br>');
+              $chatstr .= '::' . gen_link($dateurl, $quest_str);
+            }
+          } //end if stepint > 1
+        } //end stepint == 0
         $chat_arr []= $chatstr;
       } //end foreach gems
     } //end if no gems
@@ -334,10 +358,14 @@ function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'next');
     $tempstr .= ' | ' . gen_link(gen_url($inpage), 'end');*/
     //TODO $chat_arr []= $tempstr;
-    $chat_win = gen_chat_win($chat_arr);
-    $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
-    $title_bar = gen_title_bar($title_html);
-    $rv = gen_title_box($title_bar, $chat_win);
+    if ($maxgems == 0) {
+      $rv = gen_chat_win($chat_arr);
+    } else {
+      $chat_win = gen_chat_win($chat_arr);
+      $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '-');
+      $title_bar = gen_title_bar($title_html);
+      $rv = gen_title_box($title_bar, $chat_win);
+    }
   } else {
     $title_html = gen_chat_title($inpage, TOGGLE_CHAT_CMD, '+');
     $rv = gen_title_bar($title_html, true);
