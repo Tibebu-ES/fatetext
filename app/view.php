@@ -344,7 +344,9 @@ function gen_chat_with_fate($inpage, $is_open, $max_gems = NUM_CHAT_ROWS) {
               if ($quest_str_len > 80) {
                 $quest_str = substr($quest_str, 0, 90) . '...';
               }
-              $quest_str = wordwrap($quest_str, 25, '<br>');
+              if ($max_gems != 0) {
+                $quest_str = wordwrap($quest_str, 25, '<br>');
+              }
               $chatstr .= '::' . gen_link($dateurl, $quest_str);
             }
           } //end if stepint > 1

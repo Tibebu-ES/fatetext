@@ -30,15 +30,15 @@ SOFTWARE. */ ?>
 
 <p>Please find the following videos for more info:</p>
 
-<p><b>Taking fametext.com for a test drive</b></p>
+<p><b>Giving a tour of the FameText demo</b></p>
 
 <p><u>TODO</u></p>
 
-<p><b>Creating an account at FameText.com</b></p>
+<p><b>Creating an account at fametext.com</b></p>
 
 <p><u>TODO</u></p>
 
-<p><b>Hosting an instance of the FaTe code</b></p>
+<p><b>Running an instance of the FaTe code</b></p>
 
 <p><u>TODO</u></p>
 
