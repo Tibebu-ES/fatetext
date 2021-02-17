@@ -22,7 +22,7 @@ SOFTWARE. */
 
 echo gen_search_form();
 
-$con_str = gen_p('TODO: mailing list and feedback management');
+$con_str = gen_p('TODO: interview with ' . $GLOBALS['APPTITLE']);
 
 $link_str = 'Back to Home';
 $con_str .= gen_p(gen_link(gen_url('settings'), $link_str));

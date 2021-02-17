@@ -116,6 +116,6 @@ foreach ($flagarr as $cmdstr => $link_text) {
 echo gen_p($flagstr);
 
 $next_frame = gen_u('Next');
-$next_frame .= ' | ' . gen_u('Pref');
+$next_frame .= ' | ' . gen_u('Prev');
 $next_frame .= ' | ' . gen_u('Frame');
 echo gen_p(gen_h(3, 'TODO:' . PADDING_STR . $next_frame));

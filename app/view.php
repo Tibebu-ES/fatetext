@@ -56,7 +56,7 @@ function app_get_header_extra($inpage, $add_el = true) {
   switch ($inpage) {
    case 'login':
     $link_url = gen_url('tos');
-    $rv .= gen_link($link_url, 'Next', $css_class);
+    $rv .= gen_link($link_url, 'Reframe', $css_class);
     break;
 
    case 'home':
@@ -66,12 +66,16 @@ function app_get_header_extra($inpage, $add_el = true) {
     $rv .= gen_link($link_url, 'Hall', $css_class);
     break;
 
+   case 'profile':
+   case 'library':
    case 'data':
    case 'search':
     $link_url = gen_url('cart');
     $rv .= gen_link($link_url, 'Cart', $css_class);
     break;
 
+   case 'faq':
+   case 'space':
    case 'settings':
    case 'archive':
    case 'action':
@@ -85,13 +89,20 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'tos':
    case 'news':
    case 'about':
+   case 'inspace':
     $link_url = gen_url('inspace');
     $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
 
-   default:
+   case 'art':
+   case 'date':
+   case 'hall':
     $rv .= gen_link($GLOBALS['FAMEURL'], $GLOBALS['FAMEIDENT'],
                     $css_class, false, true);
+    break;
+
+   default:
+    util_except('unexpected page: '  . $inpage);
     break;
   }
 
