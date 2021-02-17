@@ -25,6 +25,7 @@ FameText 1.0 (early March)
 . . affiliate program for FameText instances that sell TheSuzy Trilogy artifacts
 
 Intermission (early April)
+. "App" tab feedback
 . explore context inline
 . LeftList and Portal views
 . reverse Coins and Space tabs

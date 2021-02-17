@@ -74,7 +74,6 @@ function app_get_header_extra($inpage, $add_el = true) {
     $rv .= gen_link($link_url, 'Cart', $css_class);
     break;
 
-   case 'faq':
    case 'space':
    case 'settings':
    case 'archive':
@@ -94,6 +93,7 @@ function app_get_header_extra($inpage, $add_el = true) {
     $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
 
+   case 'faq':
    case 'art':
    case 'date':
    case 'hall':
