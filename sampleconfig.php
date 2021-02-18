@@ -31,6 +31,9 @@ $GLOBALS['DBVERBOSE'] = true;
 $GLOBALS['SHOWERRMSG'] = true;
 $GLOBALS['SHOWEXTRACE'] = false;
 
+$GLOBALS['COPYRIGHT_HOLDER'] = 'TSUZY';
+$GLOBALS['COPYRIGHT_URL'] = 'http://tsuzy.com';
+
 $GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
 $GLOBALS['FAMEIDENT'] = 'TheSuzy';
@@ -41,7 +44,7 @@ $GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';
 $GLOBALS['LOGFILE'] = '/Users/conr/fatelogs/errorlog.txt';
 
 $GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
-$GLOBALS['FILESDIR'] = '/Users/conr/fate/fatefiles';
+$GLOBALS['FILESDIR'] = '/Users/conr/fatefiles';
 $GLOBALS['SESSIONSAVEPATH'] = '/Users/conr/tmp';
 
 $GLOBALS['NOCOOKIES'] = true;

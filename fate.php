@@ -40,9 +40,6 @@ define('DEFAULT_CATEGORY', 'FATE');
 define('NUM_CHAT_ROWS', 5);
 define('NUM_CON_ROWS', 3);
 
-define('COPYRIGHT_HOLDER', 'TSUZY');
-define('COPYRIGHT_URL', 'http://tsuzy.com');
-
 define('CHAT_OPEN_FLAG', 1);
 define('TEXT_AREA_FLAG', 2);
 define('FATE_SPLASH_FLAG', 4);
