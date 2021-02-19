@@ -84,7 +84,7 @@ if ($data['cmd'] == CHANGE_PASSWORD_CMD) {
   if (web_is_admin()) {
     $logout_str .= gen_link(gen_url('admin'), 'AdminHQ', 'header');
   } else {
-    $logout_str .= gen_link(gen_url('stats'), 'StatsHQ', 'header');    
+    $logout_str .= gen_link(gen_url('export'), 'StatsHQ', 'header');    
   }
   $tempstr .= gen_span($logout_str . ')', 'nextline');
   echo gen_p($tempstr);
