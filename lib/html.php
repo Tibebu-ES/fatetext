@@ -37,17 +37,12 @@ function gen_url_param($paramname, $paramvalue) {
   return $rv;
 }
 
-function gen_copyright_notice($add_break = false, $add_llc = false) {
+function gen_copyright_notice($add_break = false) {
   $rv = '© 2021 ';
   $rv .= gen_link($GLOBALS['COPYRIGHT_URL'],
                   $GLOBALS['COPYRIGHT_HOLDER'],
                   '', false);
-  if ($GLOBALS['COPYRIGHT_HOLDER'] == 'TSUZY') {
-    $add_llc = true;
-  }
-  if ($add_llc) {
-    $rv .= ' LLC';
-  }
+
   if ($add_break) {
     $rv .= '<br>';
   }

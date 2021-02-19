@@ -151,7 +151,7 @@ function mod_load_gem($gemid) {
   $sql = 'SELECT * FROM gems WHERE gemid = %d';
   $rv = queryf_one($sql, $gemid);
 
-    if ($rv['authguess'] === null) {
+  if ($rv['authguess'] === null) {
     $rv['authstr'] = 'n/a';
   } else {
     $rv['authstr'] = $rv['authguess'];

@@ -39,7 +39,7 @@ h3 {
 
 a {
   margin: 0px;
-  color: #DF3974;
+  color: #59A4EE;
   text-decoration: none;
 }
 
@@ -131,6 +131,11 @@ div.content {
 div.innerc {
   padding: 10px;
   padding-bottom: 0px;
+}
+
+div.framec {
+  padding-top: 0px;
+  padding-left: 50px;
 }
 
 div.gem_step {

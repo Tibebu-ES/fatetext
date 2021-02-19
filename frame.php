@@ -29,19 +29,7 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
 <html>
   <head>
     <title><?php echo $page_title; ?></title>
-      <?php if (web_logged_in() && web_get_flag(INVERTEDCS_FLAG)) { ?>
-        <?php if (web_logged_in() && web_get_flag(FATE_SPLASH_FLAG)) { ?>
-          <link rel="stylesheet" href="css/etaf.css" />
-        <?php } else { ?>
-          <link rel="stylesheet" href="css/ftae.css" />
-        <?php } ?>
-      <?php } else { ?>
-        <?php if (web_logged_in() && web_get_flag(FATE_SPLASH_FLAG)) { ?>
-          <link rel="stylesheet" href="css/fate.css" />
-        <?php } else { ?>
-          <link rel="stylesheet" href="css/eatf.css" />
-        <?php } ?>
-      <?php } ?>
+      <link rel="stylesheet" href="css/fate.css" />
   </head>
 <body>
 
@@ -114,14 +102,20 @@ if (web_logged_in()) {
 
 } else { //not logged in
 
-  if ($page != 'login') {
+  /*if ($page != 'login') {
     $left_col .= gen_link(gen_url('login'), 'Login', 'header');
   } else {
     $left_col .= 'Login';
   }
-  $left_col .= app_get_smart_spacer($page);
+  $left_col .= app_get_smart_spacer($page);*/
 
-  echo $left_col;
+  $left_col .= gen_link(gen_url('login'), 'Login', 'header') . '<br>';
+  $left_col .= gen_span(gen_link(gen_url('tos'), 'ToS', 'header'), 'nextline');
+  $left_col .= gen_span(gen_link(gen_url('news'), 'News', 'header'), 'nextline');
+  $left_col .= gen_span(gen_link(gen_url('about'), 'About', 'header'), 'nextline');
+  $left_col .= gen_span(gen_link(gen_url('hall'), 'Books', 'header'), 'nextline');
+
+  /*echo $left_col;
   $links_arr = array('tos' => 'New',
                      'news' => 'Gems',                
                      'about' => 'About');
@@ -134,8 +128,15 @@ if (web_logged_in()) {
 
   echo gen_div($data[TEMPLATE_CONTENT], 'innerc');
   $add_br = ($page == 'login' || $page = 'hall');
-  echo gen_copyright_notice($add_br);
+  echo gen_copyright_notice($add_br);*/
 
+  $right_col = '';
+  if ($page_msg != '') {
+    $right_col .= gen_p($page_msg, 'page_msg');
+  }
+  $right_col .= gen_div($data[TEMPLATE_CONTENT], 'innerc');
+  $right_col .= gen_copyright_notice();
+  echo gen_two_cols($left_col, $right_col);
 }
 ?>
 
