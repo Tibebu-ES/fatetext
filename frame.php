@@ -134,8 +134,9 @@ if (web_logged_in()) {
   if ($page_msg != '') {
     $right_col .= gen_p($page_msg, 'page_msg');
   }
-  $right_col .= gen_div($data[TEMPLATE_CONTENT] . gen_copyright_notice(),
-                        'framec');
+  $right_col .= gen_div($data[TEMPLATE_CONTENT], 'innerc');
+  $right_col .= gen_copyright_notice();
+  $right_col = gen_div($right_col, 'framec');
   echo gen_two_cols($left_col, $right_col);
 }
 ?>
