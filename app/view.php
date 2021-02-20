@@ -70,6 +70,7 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'library':
    case 'data':
    case 'search':
+   case 'cart':
     $link_url = gen_url('cart');
     $rv .= gen_link($link_url, 'Cart', $css_class);
     break;
@@ -81,6 +82,7 @@ function app_get_header_extra($inpage, $add_el = true) {
    case 'admin':
    case 'export':
    case 'admin':
+   case 'stats':
     $link_url = gen_url('space');
     $rv .= gen_link($link_url, $GLOBALS['APPIDENT'], $css_class);
     break;
