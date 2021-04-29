@@ -230,34 +230,46 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                          $selcat = '', $add_el = true, $auto_focus = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
-                      'CLEAR' => 'CLEAR Results',
-                      'CUSTOM' => 'CUSTOM Category',
-                      'kjBible' => 'King James Bible',
-                      'suzyThe' => 'TheSuzy Trilogy',
-                      'suzyMem' => 'Suzy\'s Memoir',
-                      'theShow' => 'TheSuzy.com Show',
-                      'theMems' => 'TheSuzy Memoirs',
-                      'theBard' => 'All Shakespeare',
-                      'marcus' => 'Meditations',
-                      'aeneid' => 'The Aeneid',
-                      'iliad' => 'The Iliad',
-                      'republic' => 'The Republic',
-                      'politics' => 'Politics',
-                      'horace' => 'Poetry');
-/*                    'aRome' => 'Ancient Rome',
-                      'aGreek' => 'Ancient Greek',
-                      'theBard' => 'All Shakespeare',
-                      'classiC' => 'Classic English',
-                      'ancienT' => 'Ancient Classics',
-                      'notSuzy' => 'Everything Except',
-                      'suzyArt' => 'TheSuzy Articles',
-                      'fshnTxt' => 'FashionText',
-                      'suzyBot' => 'Suzybot',
-                      'shaJury' => 'SharkInjury',
-                      'cCourse' => 'ClicheCourse');*/
 
-  $abb_arr = array();
+    /*
+    $option_arr_old = array(DEFAULT_CATEGORY => 'Random FATE',
+                        'CLEAR' => 'CLEAR Results',
+                        'CUSTOM' => 'CUSTOM Category',
+                        'kjBible' => 'King James Bible',
+                        'suzyThe' => 'TheSuzy Trilogy',
+                        'suzyMem' => 'Suzy\'s Memoir',
+                        'theShow' => 'TheSuzy.com Show',
+                        'theMems' => 'TheSuzy Memoirs',
+                        'theBard' => 'All Shakespeare',
+                        'marcus' => 'Meditations',
+                        'aeneid' => 'The Aeneid',
+                        'iliad' => 'The Iliad',
+                        'republic' => 'The Republic',
+                        'politics' => 'Politics',
+                        'horace' => 'Poetry');
+                      'aRome' => 'Ancient Rome',
+                        'aGreek' => 'Ancient Greek',
+                        'theBard' => 'All Shakespeare',
+                        'classiC' => 'Classic English',
+                        'ancienT' => 'Ancient Classics',
+                        'notSuzy' => 'Everything Except',
+                        'suzyArt' => 'TheSuzy Articles',
+                        'fshnTxt' => 'FashionText',
+                        'suzyBot' => 'Suzybot',
+                        'shaJury' => 'SharkInjury',
+                        'cCourse' => 'ClicheCourse');*/
+
+  //dynamically populate drop-down options from the book table
+    $abb_arr = array();
+    $book_titles = mod_get_allbooks_title();
+    $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
+        'CLEAR' => 'CLEAR Results',
+        'CUSTOM' => 'CUSTOM Category');
+
+  foreach ($book_titles as $key => $title){
+      $option_arr[$title] = $title;
+  }
+
   foreach ($option_arr as $abb => $cat_str) {
     $abb_arr[$abb] = $abb;
   }
