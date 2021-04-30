@@ -137,3 +137,20 @@ function mod_flag_from_toggle($intoggle) {
   util_except('attempted to reference an unknown flag: '
               . $intoggle);
 }
+
+/**
+ * return array of title
+ */
+function mod_get_allbooks_title(){
+    $sql = 'SELECT titlestr FROM books';
+    $rs = queryf_all($sql);
+    $rv = array();
+    if (count($rs) == 0) {
+        $rv []= '';
+    } else {
+        foreach ($rs as $book) {
+            $rv []= $book['titlestr'];
+        }
+    }
+    return $rv;
+}
