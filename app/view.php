@@ -309,7 +309,10 @@ function gen_login_form($add_el = true) {
   $insize = LOGIN_COLS;
 
   $elem_arr = array();
-  $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
+
+  $loginAsGuestMessage = gen_p('If you have no account, check the guest box and press Login');
+
+  $elem_arr [] = $loginAsGuestMessage;
 
   $usertxt = gen_txt_input('username', '', $insize,
                            'Username', $add_el);
@@ -318,9 +321,19 @@ function gen_login_form($add_el = true) {
   $passtxt = gen_txt_input('password', '', $insize,
                            'Password', $add_el);
   $passtxt = gen_span($passtxt, 'nextline');
+  //$passtxt .= '<br>';
   
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
+
+  //add login as guest check box element
+  $loginAsGuest = gen_checkbox('login_as_a_guest','yes');
+  //add label for the checkbox
+  $loginAsGuest .=  gen_span('Login as a guest ');
+  $loginAsGuest .=  '<br>';
+  $elem_arr [] = $loginAsGuest;
+
+  $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
 
   $rv = gen_form($elem_arr, gen_url('login'));
   return $rv;

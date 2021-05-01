@@ -154,3 +154,28 @@ function mod_get_allbooks_title(){
     }
     return $rv;
 }
+
+/**
+ * check if there is a guest user,
+ * if there is no guest user create one
+ */
+function mod_add_guest_user(){
+    $guestUserName = 'guest';
+    $guestUserPass = util_hashpass('guest');
+    $sql = 'SELECT userid FROM users WHERE username = %s and hashpass = %s';
+    $rs = queryf_one($sql, $guestUserName, $guestUserPass);
+    if (isset($rs) && count($rs) > 0) {
+    } else {
+        //create one
+        //get the last user id
+        $lastUserId = 0;
+        $sql = 'SELECT userid FROM users ORDER BY userid DESC LIMIT 1';
+        $rs = queryf_one($sql);
+        if(isset($rs) && count($rs) > 0){
+            $lastUserId = $rs['userid'] +1;
+        }
+        $sql = 'INSERT INTO users (userid, username, hashpass)';
+        $sql .= ' VALUES (%d, %s, %s)';
+        queryf($sql, $lastUserId,  $guestUserName, $guestUserPass);
+    }
+}

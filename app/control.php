@@ -50,8 +50,17 @@ function con_do_cmd(&$data) {
       break;
 
      case 'Login':
-      check_string_param('username', $data, $_REQUEST);
-      check_string_param('password', $data, $_REQUEST);
+      $loginAsGuest = (isset($_REQUEST['login_as_a_guest']) && $_REQUEST['login_as_a_guest'] == 'yes') ? true : false;
+      $data['login_as_a_guest'] = $loginAsGuest;
+      if($loginAsGuest){
+          $data['username'] = 'guest';
+          $data['password'] = 'guest';
+          //make sure if guest user is in the system - if not create one
+          mod_add_guest_user();
+      }else{
+          check_string_param('username', $data, $_REQUEST);
+          check_string_param('password', $data, $_REQUEST);
+      }
       web_login_user($data);
       if (web_logged_in()) {
         $data['page'] = 'profile';
