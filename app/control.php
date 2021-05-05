@@ -232,7 +232,7 @@ function con_do_cmd(&$data) {
         mod_update_user_lastgem($curuser, 0);
       } else {
         $stxt = $data['stxt'];
-        if ($stxt == '') {
+        if ($stxt == '' || $stxt == null) {
           $newgemid = mod_generate_gem($curuser, $stxt, $data['category']);
           mod_update_user_lastgem($curuser, $newgemid);
         } else if (strlen($stxt) < 5) {
