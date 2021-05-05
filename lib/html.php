@@ -135,11 +135,14 @@ function gen_div($text, $css_class = null, $add_el = true) {
 }
 
 function gen_text_area($inname, $invalue, $inrows,
-                      $incols, $inplace = null, $add_el = true) {
+                      $incols, $inplace = null, $add_el = true, $required =false) {
   $rv = '';
   $rv .= '<textarea name="' . $inname;
   $rv .= '" rows="' . $inrows;
   $rv .= '" cols="' . $incols;
+  if($required){
+      $rv .= 'required';
+  }
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }

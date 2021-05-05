@@ -278,7 +278,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
   if ($istextarea) {
     $inuser = web_get_user();
     $elem_arr []= gen_text_area('stxt', $safe_text, 3, SEARCH_AREA_COLS,
-                                SEARCH_PLACEHOLDER, $add_el);
+                                SEARCH_PLACEHOLDER, $add_el,true);
     $elem_arr []= '<br><span class="nextline">';
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
