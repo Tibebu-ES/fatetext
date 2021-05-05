@@ -222,7 +222,7 @@ function con_do_cmd(&$data) {
         $last_category = user_get_last_category($curuser);
       }
 
-      check_string_param('stxt', $data, $_REQUEST, '');
+      check_string_param('stxt', $data, $_REQUEST);
       check_string_param('category', $data, $_REQUEST, $last_category);
       check_string_param('customtxt', $data, $_REQUEST, '');
 
