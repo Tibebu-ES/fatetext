@@ -20,19 +20,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$GLOBALS['DBHOST'] = 'localhost:3308';
-$GLOBALS['DBUSER'] = 'root';
-$GLOBALS['DBPASS'] = '';
-$GLOBALS['DBNAME'] = 'fatetext';
+$GLOBALS['DBHOST'] = 'mysql.questiontask.com';
+$GLOBALS['DBUSER'] = 'fate_db_user';
+$GLOBALS['DBPASS'] = 'fatetext_123';
+$GLOBALS['DBNAME'] = 'questiontask_fatetext_db';
 $GLOBALS['LOGTABLE'] = 'log1';
 
-$GLOBALS['LOGLEVEL'] = 0;
+$GLOBALS['LOGLEVEL'] = 4;
 $GLOBALS['DBVERBOSE'] = true;
 $GLOBALS['SHOWERRMSG'] = true;
 $GLOBALS['SHOWEXTRACE'] = false;
 
-$GLOBALS['COPYRIGHT_HOLDER'] = 'TSUZY';
-$GLOBALS['COPYRIGHT_URL'] = 'http://tsuzy.com';
+$GLOBALS['COPYRIGHT_HOLDER'] = 'Christian Pecaut';
+$GLOBALS['COPYRIGHT_URL'] = 'https://twitter.com/christianpecaut';
 
 $GLOBALS['APPTITLE'] = 'FateText';
 $GLOBALS['APPIDENT'] = 'FaTe';
@@ -40,16 +40,15 @@ $GLOBALS['FAMEIDENT'] = 'TheSuzy';
 $GLOBALS['FAMEURL'] = 'http://thesuzy.com';
 
 $GLOBALS['AGREEONLOGIN'] = true;
-//$GLOBALS['SLOGFILE'] = '/Users/conr/fatelogs/searchlog.txt';
-//$GLOBALS['LOGFILE'] = '/Users/conr/fatelogs/errorlog.txt';
+
 $GLOBALS['SLOGFILE'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext/fatelogs/searchlog.txt';
 $GLOBALS['LOGFILE'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext/fatelogs/errorlog.txt';
 
-//$GLOBALS['FATEPATH'] = '/Users/conr/fatetext';
+
 $GLOBALS['FATEPATH'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
-//$GLOBALS['FILESDIR'] = '/Users/conr/fatefiles';
+
 $GLOBALS['FILESDIR'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
-//$GLOBALS['SESSIONSAVEPATH'] = '/Users/conr/tmp';
+
 $GLOBALS['SESSIONSAVEPATH'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
 
 $GLOBALS['NOCOOKIES'] = true;
