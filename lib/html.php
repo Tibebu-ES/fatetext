@@ -144,7 +144,7 @@ function gen_text_area($inname, $invalue, $inrows,
     $rv .= '" placeholder="' . $inplace;
   }
   if($required){
-        $rv .= " required";
+        $rv .= '" required';
         $rv .= '>' . $invalue . '</textarea>';
   }else{
       $rv .= '">' . $invalue . '</textarea>';
@@ -171,7 +171,7 @@ function gen_txt_input($inname, $invalue, $insize,
   }
   $rv .= '"';
     if($required){
-        $rv .= 'required';
+        $rv .= ' required';
     }
   if ($autofocus) {
     $rv .= ' autofocus';
