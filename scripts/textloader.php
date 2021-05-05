@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 //include('../../scriptconfig.php');
-include('../myconfig.php');
+include('../serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 //ini_set('memory_limit', '2GB');
 
@@ -76,7 +76,7 @@ foreach ($file_path_arr as $book_id => $file_path) {
     echo $file_path . ' len: ' . strlen($text);
     echo "\n";
 
-    $lines = util_split("\n", $text);
+    $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $text);
     $chests = array();
 
     $cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
