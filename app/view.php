@@ -294,7 +294,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
     $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('stxt', $safe_text, SEARCH_COLS,
-                                SEARCH_PLACEHOLDER, $add_el, $auto_focus);
+                                SEARCH_PLACEHOLDER, $add_el, $auto_focus, true);
     $atf = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
     if (!$atf) {
       $elem_arr []= gen_link($toggle_url, '++', 'plain');

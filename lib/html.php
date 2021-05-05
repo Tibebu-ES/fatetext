@@ -153,7 +153,7 @@ function gen_text_area($inname, $invalue, $inrows,
 
 function gen_txt_input($inname, $invalue, $insize,
                        $inplace = '', $add_el = true,
-                       $autofocus = false) {
+                       $autofocus = false, $required =false) {
   $rv = '<input type="';
   if ($inname == 'password') {
     $rv .= 'password';
@@ -163,6 +163,9 @@ function gen_txt_input($inname, $invalue, $insize,
   $rv .= '" name="' . $inname;
   $rv .= '" value="' . $invalue;
   $rv .= '" size="' . $insize;
+  if($required){
+      $rv .= "required";
+  }
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }
