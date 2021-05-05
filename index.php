@@ -40,7 +40,6 @@ try {
   util_log('debug', 'finished: ' . $ds, LLDEBUG);
 
   net_log_user_and_session_info();
-
   echo util_show_page($data);
 
   $ds = 'con_show_page(' . print_r($data, true) . ')';
