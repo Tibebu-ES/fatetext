@@ -140,13 +140,16 @@ function gen_text_area($inname, $invalue, $inrows,
   $rv .= '<textarea name="' . $inname;
   $rv .= '" rows="' . $inrows;
   $rv .= '" cols="' . $incols;
-  if($required){
-      $rv .= " required";
-  }
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }
-  $rv .= '">' . $invalue . '</textarea>';
+  if($required){
+        $rv .= " required";
+        $rv .= '>' . $invalue . '</textarea>';
+  }else{
+      $rv .= '">' . $invalue . '</textarea>';
+  }
+
   if ($add_el) $rv .= "\n";
   return $rv;
 }
@@ -163,13 +166,13 @@ function gen_txt_input($inname, $invalue, $insize,
   $rv .= '" name="' . $inname;
   $rv .= '" value="' . $invalue;
   $rv .= '" size="' . $insize;
-  if($required){
-      $rv .= "required";
-  }
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }
   $rv .= '"';
+    if($required){
+        $rv .= 'required';
+    }
   if ($autofocus) {
     $rv .= ' autofocus';
   }
