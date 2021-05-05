@@ -20,11 +20,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-//$GLOBALS['CONFIGURL'] = "../config/fatetext.php";
-$GLOBALS['CONFIGURL'] = "../myconfig.php";
+$GLOBALS['CONFIGURL'] = $_SERVER['DOCUMENT_ROOT']."/dreamhost_questiontask_config.php";
 
 if (!file_exists($GLOBALS['CONFIGURL'])) {
-  echo '[SYSTEM ERROR] Missing config file: ' . $GLOBALS['CONFIG_URL'];
+  echo '[SYSTEM ERROR] Missing config file: ' . $_SERVER['DOCUMENT_ROOT']."/dreamhost_questiontask_config.php";;
   exit(0);
 }
 
