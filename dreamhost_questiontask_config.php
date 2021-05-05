@@ -41,15 +41,15 @@ $GLOBALS['FAMEURL'] = 'http://thesuzy.com';
 
 $GLOBALS['AGREEONLOGIN'] = true;
 
-$GLOBALS['SLOGFILE'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext/fatelogs/searchlog.txt';
-$GLOBALS['LOGFILE'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext/fatelogs/errorlog.txt';
+$GLOBALS['SLOGFILE'] = $GLOBALS['SITE_URL'].'/fatelogs/searchlog.txt';
+$GLOBALS['LOGFILE'] = $GLOBALS['SITE_URL'].'/fatelogs/errorlog.txt';
 
 
-$GLOBALS['FATEPATH'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
+$GLOBALS['FATEPATH'] = $GLOBALS['SITE_URL'];
 
-$GLOBALS['FILESDIR'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
+$GLOBALS['FILESDIR'] = $GLOBALS['SITE_URL'];
 
-$GLOBALS['SESSIONSAVEPATH'] = $_SERVER['DOCUMENT_ROOT'].'/fatetext';
+$GLOBALS['SESSIONSAVEPATH'] = $GLOBALS['SITE_URL'];
 
 $GLOBALS['NOCOOKIES'] = true;
 $GLOBALS['ISPROD'] = false;
