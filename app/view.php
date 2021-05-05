@@ -230,34 +230,46 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                          $selcat = '', $add_el = true, $auto_focus = true) {
   $rv = '';
   $elem_arr = array();
-  $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
-                      'CLEAR' => 'CLEAR Results',
-                      'CUSTOM' => 'CUSTOM Category',
-                      'kjBible' => 'King James Bible',
-                      'suzyThe' => 'TheSuzy Trilogy',
-                      'suzyMem' => 'Suzy\'s Memoir',
-                      'theShow' => 'TheSuzy.com Show',
-                      'theMems' => 'TheSuzy Memoirs',
-                      'theBard' => 'All Shakespeare',
-                      'marcus' => 'Meditations',
-                      'aeneid' => 'The Aeneid',
-                      'iliad' => 'The Iliad',
-                      'republic' => 'The Republic',
-                      'politics' => 'Politics',
-                      'horace' => 'Poetry');
-/*                    'aRome' => 'Ancient Rome',
-                      'aGreek' => 'Ancient Greek',
-                      'theBard' => 'All Shakespeare',
-                      'classiC' => 'Classic English',
-                      'ancienT' => 'Ancient Classics',
-                      'notSuzy' => 'Everything Except',
-                      'suzyArt' => 'TheSuzy Articles',
-                      'fshnTxt' => 'FashionText',
-                      'suzyBot' => 'Suzybot',
-                      'shaJury' => 'SharkInjury',
-                      'cCourse' => 'ClicheCourse');*/
 
-  $abb_arr = array();
+    /*
+    $option_arr_old = array(DEFAULT_CATEGORY => 'Random FATE',
+                        'CLEAR' => 'CLEAR Results',
+                        'CUSTOM' => 'CUSTOM Category',
+                        'kjBible' => 'King James Bible',
+                        'suzyThe' => 'TheSuzy Trilogy',
+                        'suzyMem' => 'Suzy\'s Memoir',
+                        'theShow' => 'TheSuzy.com Show',
+                        'theMems' => 'TheSuzy Memoirs',
+                        'theBard' => 'All Shakespeare',
+                        'marcus' => 'Meditations',
+                        'aeneid' => 'The Aeneid',
+                        'iliad' => 'The Iliad',
+                        'republic' => 'The Republic',
+                        'politics' => 'Politics',
+                        'horace' => 'Poetry');
+                      'aRome' => 'Ancient Rome',
+                        'aGreek' => 'Ancient Greek',
+                        'theBard' => 'All Shakespeare',
+                        'classiC' => 'Classic English',
+                        'ancienT' => 'Ancient Classics',
+                        'notSuzy' => 'Everything Except',
+                        'suzyArt' => 'TheSuzy Articles',
+                        'fshnTxt' => 'FashionText',
+                        'suzyBot' => 'Suzybot',
+                        'shaJury' => 'SharkInjury',
+                        'cCourse' => 'ClicheCourse');*/
+
+  //dynamically populate drop-down options from the book table
+    $abb_arr = array();
+    $book_titles = mod_get_allbooks_title();
+    $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
+        'CLEAR' => 'CLEAR Results',
+        'CUSTOM' => 'CUSTOM Category');
+
+  foreach ($book_titles as $key => $title){
+      $option_arr[$title] = $title;
+  }
+
   foreach ($option_arr as $abb => $cat_str) {
     $abb_arr[$abb] = $abb;
   }
@@ -297,7 +309,10 @@ function gen_login_form($add_el = true) {
   $insize = LOGIN_COLS;
 
   $elem_arr = array();
-  $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
+
+  $loginAsGuestMessage = gen_p('If you have no account, check the guest box and press Login');
+
+  $elem_arr [] = $loginAsGuestMessage;
 
   $usertxt = gen_txt_input('username', '', $insize,
                            'Username', $add_el);
@@ -306,9 +321,19 @@ function gen_login_form($add_el = true) {
   $passtxt = gen_txt_input('password', '', $insize,
                            'Password', $add_el);
   $passtxt = gen_span($passtxt, 'nextline');
+  //$passtxt .= '<br>';
   
   $elem_arr []= $usertxt;
   $elem_arr []= $passtxt;
+
+  //add login as guest check box element
+  $loginAsGuest = gen_checkbox('login_as_a_guest','yes');
+  //add label for the checkbox
+  $loginAsGuest .=  gen_span('Login as a guest ');
+  $loginAsGuest .=  '<br>';
+  $elem_arr [] = $loginAsGuest;
+
+  $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Login', $add_el);
 
   $rv = gen_form($elem_arr, gen_url('login'));
   return $rv;
