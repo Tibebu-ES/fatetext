@@ -141,7 +141,7 @@ function gen_text_area($inname, $invalue, $inrows,
   $rv .= '" rows="' . $inrows;
   $rv .= '" cols="' . $incols;
   if($required){
-      $rv .= 'required';
+      $rv .= " required";
   }
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
