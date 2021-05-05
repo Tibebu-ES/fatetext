@@ -46,7 +46,7 @@ function check_int_param($name, &$rv, &$p, $default=null) {
 
 function check_string_param($name, &$rv, &$p, $default=null) {
   $boolrv = false;
-  if (isset($p[$name])) {
+  if (isset($p[$name]) && $p[$name] != '') {
     $rv[$name] = $p[$name];
     $boolrv = true;
   } else {
