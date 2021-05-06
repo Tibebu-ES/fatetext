@@ -231,56 +231,25 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
   $rv = '';
   $elem_arr = array();
 
-    /*
-    $option_arr_old = array(DEFAULT_CATEGORY => 'Random FATE',
-                        'CLEAR' => 'CLEAR Results',
-                        'CUSTOM' => 'CUSTOM Category',
-                        'kjBible' => 'King James Bible',
-                        'suzyThe' => 'TheSuzy Trilogy',
-                        'suzyMem' => 'Suzy\'s Memoir',
-                        'theShow' => 'TheSuzy.com Show',
-                        'theMems' => 'TheSuzy Memoirs',
-                        'theBard' => 'All Shakespeare',
-                        'marcus' => 'Meditations',
-                        'aeneid' => 'The Aeneid',
-                        'iliad' => 'The Iliad',
-                        'republic' => 'The Republic',
-                        'politics' => 'Politics',
-                        'horace' => 'Poetry');
-                      'aRome' => 'Ancient Rome',
-                        'aGreek' => 'Ancient Greek',
-                        'theBard' => 'All Shakespeare',
-                        'classiC' => 'Classic English',
-                        'ancienT' => 'Ancient Classics',
-                        'notSuzy' => 'Everything Except',
-                        'suzyArt' => 'TheSuzy Articles',
-                        'fshnTxt' => 'FashionText',
-                        'suzyBot' => 'Suzybot',
-                        'shaJury' => 'SharkInjury',
-                        'cCourse' => 'ClicheCourse');*/
-
   //dynamically populate drop-down options from the book table
-    $abb_arr = array();
     $book_titles = mod_get_allbooks_title();
     $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
         'CLEAR' => 'CLEAR Results',
         'CUSTOM' => 'CUSTOM Category');
 
   foreach ($book_titles as $key => $title){
-      $option_arr[$title] = $title;
+      $option_arr[$key] = $title;
   }
 
-  foreach ($option_arr as $abb => $cat_str) {
-    $abb_arr[$abb] = $abb;
-  }
 
   $toggle_url = gen_url('search', TOGGLE_TEXT_CMD);
   if ($istextarea) {
     $inuser = web_get_user();
     $elem_arr []= gen_text_area('stxt', $safe_text, 3, SEARCH_AREA_COLS,
-                                SEARCH_PLACEHOLDER, $add_el,true);
+                                SEARCH_PLACEHOLDER, $add_el);
     $elem_arr []= '<br><span class="nextline">';
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
+      var_dump($option_arr);
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('customtxt', $safe_custom, CUSTOM_COLS,
                                 CUSTOM_PLACEHOLDER, $add_el);
@@ -292,9 +261,9 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
     $rv = gen_two_cols($left_col, $right_col);
   } else {
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
-    $elem_arr []= gen_select_input('category', $abb_arr, $selcat, $add_el);
+    $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('stxt', $safe_text, SEARCH_COLS,
-                                SEARCH_PLACEHOLDER, $add_el, $auto_focus, true);
+                                SEARCH_PLACEHOLDER, $add_el, $auto_focus);
     $atf = web_get_user_flag(web_get_user(), TEXT_AREA_FLAG);
     if (!$atf) {
       $elem_arr []= gen_link($toggle_url, '++', 'plain');
