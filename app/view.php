@@ -249,7 +249,6 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
                                 SEARCH_PLACEHOLDER, $add_el);
     $elem_arr []= '<br><span class="nextline">';
     $elem_arr []= gen_input('submit', TEMPLATE_CMD, 'Create', $add_el);
-      var_dump($option_arr);
     $elem_arr []= gen_select_input('category', $option_arr, $selcat, $add_el);
     $elem_arr []= gen_txt_input('customtxt', $safe_custom, CUSTOM_COLS,
                                 CUSTOM_PLACEHOLDER, $add_el);
