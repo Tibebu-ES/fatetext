@@ -135,7 +135,7 @@ function gen_div($text, $css_class = null, $add_el = true) {
 }
 
 function gen_text_area($inname, $invalue, $inrows,
-                      $incols, $inplace = null, $add_el = true) {
+                      $incols, $inplace = null, $add_el = true, $required =false) {
   $rv = '';
   $rv .= '<textarea name="' . $inname;
   $rv .= '" rows="' . $inrows;
@@ -143,14 +143,20 @@ function gen_text_area($inname, $invalue, $inrows,
   if (isset($inplace)) {
     $rv .= '" placeholder="' . $inplace;
   }
-  $rv .= '">' . $invalue . '</textarea>';
+  if($required){
+        $rv .= '" required';
+        $rv .= '>' . $invalue . '</textarea>';
+  }else{
+      $rv .= '">' . $invalue . '</textarea>';
+  }
+
   if ($add_el) $rv .= "\n";
   return $rv;
 }
 
 function gen_txt_input($inname, $invalue, $insize,
                        $inplace = '', $add_el = true,
-                       $autofocus = false) {
+                       $autofocus = false, $required =false) {
   $rv = '<input type="';
   if ($inname == 'password') {
     $rv .= 'password';
@@ -164,6 +170,9 @@ function gen_txt_input($inname, $invalue, $insize,
     $rv .= '" placeholder="' . $inplace;
   }
   $rv .= '"';
+    if($required){
+        $rv .= ' required';
+    }
   if ($autofocus) {
     $rv .= ' autofocus';
   }

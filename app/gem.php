@@ -36,54 +36,8 @@ function mod_generate_gem($userid, $stxt, $category) {
    case DEFAULT_CATEGORY:
      $book_filter = '';
      break;
-
-   case 'horace':
-     $book_filter .= 'bookid = 11';
-     break;
-
-   case 'politics':
-     $book_filter .= 'bookid = 10';
-     break;
-
-   case 'republic':
-     $book_filter .= 'bookid = 9';
-     break;
-
-   case 'iliad':
-     $book_filter .= 'bookid = 8';
-     break;
-
-   case 'aeneid':
-     $book_filter .= 'bookid = 7';
-     break;
-
-   case 'marcus':
-     $book_filter .= 'bookid = 6';
-     break;
-
-   case 'theBard':
-     $book_filter .= 'bookid = 5';
-     break;
-
-   case 'kjBible':
-     $book_filter .= 'bookid = 4';
-     break;
-
-   case 'suzyThe':
-     $book_filter .= 'bookid = 1 OR bookid = 2 OR bookid = 3';
-     break;
-
-   case 'suzyMem':
-     $book_filter .= 'bookid = 1';
-     break;
-
-   case 'theShow':
-     $book_filter .= 'bookid = 2';
-     break;
-
-   case 'theMems':
-     $book_filter .= 'bookid = 3';
-     break;
+   default:
+      $book_filter .= 'bookid = '.$category;
   }
 
   $sql = 'SELECT MIN(tokid) as minid, MAX(tokid) as maxid';

@@ -1,0 +1,5356 @@
+?The Project Gutenberg EBook of Les Fleurs du Mal, by Charles Baudelaire
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: Les Fleurs du Mal
+
+Author: Charles Baudelaire
+
+Posting Date: September 11, 2012 [EBook #6099]
+Release Date: July, 2004
+First Posted: November 5, 2002
+
+Language: French
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK LES FLEURS DU MAL ***
+
+
+
+
+Produced by Tonya Allen, Julie Barkley, Juliet Sutherland,
+Charles Franks and the Online Distributed Proofreading Team.
+
+
+
+
+
+
+
+
+
+
+
+
+LES FLEURS DU MAL
+
+par
+
+CHARLES BAUDELAIRE
+
+_Preface par Henry FRICHET_
+
+
+
+
+
+[Illustration]
+
+PREFACE
+
+
+Charles Baudelaire avait un ami, Auguste Poulet-Malassis, ancien eleve
+de l'ecole des Chartes, qui s'etait fait editeur par gout pour les
+raffinements typographiques et pour la litterature qu'il jugeait en
+erudit et en artiste beaucoup plus qu'en commercant; aussi bien ne fit-
+il jamais fortune, mais ses livres devenus assez rares sont depuis
+longtemps tres recherches des bibliophiles.
+
+Les poesies de Baudelaire disseminees un peu partout dans les petits
+journaux d'avant-garde comme le _Corsaire_ et jusque dans la grave
+_Revue des Deux-Mondes,_ n'avaient point encore, en 1857, ete
+reunies en volume. Poulet-Malassis, que le genie original de Baudelaire
+enthousiasmait, s'offrit de les publier sous le titre de _Fleurs du
+Mal,_ titre neuf, audacieux, longtemps cherche et trouve enfin non
+point par Baudelaire ni par l'editeur, mais par Hippolyte Babou.
+
+Les _Fleurs du Mal_ se presentaient comme un bouquet poetique
+compose de fleurs rares et veneneuses d'un parfum encore ignore. Ce fut
+un succes--succes d'ailleurs prepare par la _Revue des Deux-
+Mondes_ qui, en accueillant un an auparavant quelques poesies de
+Baudelaire, avait mis sa responsabilite a couvert par une note
+singulierement prudente. De nos jours une pareille note ressemblerait
+fort a une reclame deguisee:
+
+<< Ce qui nous parait ici meriter l'interet, disait-elle, c'est
+l'expression vive, curieuse, meme dans sa violence, de quelques
+defaillances, de quelques douleurs morales, que, sans les partager ni
+les discuter, on doit tenir a connaitre comme un des signes de notre
+temps. Il nous semble, d'ailleurs, qu'il est des cas ou la publicite
+n'est pas seulement un encouragement, ou elle peut avoir l'influence
+d'un conseil utile et appeler le vrai talent a se degager, a se
+fortifier, en elargissant ses voies, en etendant son horizon. >>
+
+C'etait se meprendre etrangement que de compter sur la publicite pour
+amener Baudelaire a resipiscence; le parquet imperial ne prit pas tant
+de menagements. Le livre a peine paru, fut defere aux tribunaux. Tandis
+que Baudelaire se hatait de recueillir en brochure les articles
+justificatifs d'Edmond Thierry, Barbey d'Aurevilly, Charles Asselineau,
+etc..., il sollicitait l'amitie de Sainte-Beuve et de Flaubert (tout
+recemment poursuivi pour avoir ecrit _Madame Bovary_), des moyens
+de defense dont les minutes ont ete conservees et dont il transmettait
+la teneur a son avocat, Me Chaix d'Est-Ange. Sur le requisitoire de M.
+Pinard (alors avocat general et plus tard ministre de l'Interieur), le
+delit d'offense a la morale religieuse fut ecarte, mais en raison de la
+prevention d'outrage a la morale publiques et aux bonnes moeurs, la
+Cour prononca la suppression de six pieces: _Lesbos, Femmes damnees,
+le Lethe, A celle qui est trop gaie, les Bijoux et les Metamorphoses du
+Vampire,_ et la condamnation a une amende de l'auteur et de
+l'editeur (21 aout 1857).
+
+Le dommage materiel ne fut pas considerable pour Malassis; l'edition
+etait presque epuisee lors de la saisie.
+
+Tout d'abord, Baudelaire voulut protester. On a retrouve dans ses
+papiers le brouillon de divers projets de prefaces qu'il abandonna lors
+de la reimpression a la fois diminuee et augmentee des _Fleurs du
+Mal_ en 1861. Cette mutilation de sa pensee par autorite de justice
+avait eu pour resultat de rendre les directeurs de journaux et de
+revues tres mefiants a son egard, lorsqu'il leur presentait quelques
+pages de prose ou des poesies nouvelles; sa situation pecuniaire s'en
+ressentit. Il travaillait lentement, a ses heures, toujours preoccupe
+d'atteindre l'ideale perfection et ne traitant d'ailleurs que des
+sujets auxquels le grand public etait alors (encore plus
+qu'aujourd'hui) completement etranger.
+
+Lorsque Baudelaire posa en 1862 sa candidature aux fauteuils
+academiques laisses vacants par la mort de Scribe et du Pere
+Lacordaire, il etait, dans sa pensee, de protester ainsi contre la
+condamnation des _Fleurs du Mal._ L'insucces de Baudelaire a
+l'Academie n'etait pas douteux. Ses amis, ses vrais amis, Alfred de
+Vigny et Sainte-Beuve, lui conseillerent de se desister, ce qu'il fit
+d'ailleurs en des termes dont on apprecia la modestie et la convenance.
+
+On a beaucoup parle de la vie douloureuse de Baudelaire: manque
+d'argent, sante precaire, absence de tendresse feminine, car sa
+maitresse Jeanne Duval, une jolie fille de couleur qu'il appelait son <<
+vase de tristesse >>, n'etait qu'une sotte dont le coeur et la pensee
+etaient loin de lui. Son seul esprit, son mechant esprit etait de
+tourner en ridicule les manies de son ami. Cependant elle etait
+charmante, nous dit Theodore de Banville, << elle portait bien sa brune
+tete ingenue et superbe, couronnee d'une chevelure violemment crespelee
+et dont la demarche de reine pleine d'une grace farouche, avait a la
+fois quelque chose de divin et de bestial >>. Et Banville ajoute: <<
+Baudelaire faisait parfois asseoir Jeanne devant lui dans un grand
+fauteuil; il la regardait avec amour et l'admirait longuement; il lui
+disait des vers dans une langue qu'elle ne savait pas. Certes, c'est la
+peut-etre le meilleur moyen de causer avec une femme dont les paroles
+detonneraient, sans doute, dans l'ardente symphonie que chante sa
+beaute; mais il est naturel aussi que la femme n'en convienne pas et
+s'etonne d'etre adoree au meme titre qu'une belle chatte. >>
+
+Baudelaire n'aima qu'elle et il l'aima exclusivement pour sa beaute,
+car depuis longtemps, peut-etre depuis toujours, il avait senti qu'il
+etait seul aupres d'elle, que les hommes sont irrevocablement seuls.
+Personne ne comprend personne. Nous n'avons d'autre demeure que nous-
+memes. Tout son dandysme fut fait de ce splendide isolement. Toutefois
+sa sensibilite etait d'autant plus profonde qu'elle semblait moins
+apparente. Rien ne la revelait. Il avait l'air froid, quelque peu
+distant, mais il subjuguait. Ses yeux couleur de tabac d'Espagne, son
+epaisse chevelure sombre, son elegance, son intelligence,
+l'enchantement de sa voix chaude et bien timbree, plus encore que son
+eloquence naturelle qui lui faisait developper des paradoxes avec une
+magnifique intelligence et on ne saurait dire quel magnetisme personnel
+qui se degageait de toutes les impressions refoulees au-dedans de lui,
+le rendaient extremement seduisant. Helas! toutes ces belles qualites
+ne le servirent point--du moins financierement--il ignorait l'art de
+monnayer son genie. Ainsi, pratiquement du moins, comme tant d'autres,
+il se trouva desservi par sa fierte, sa delicatesse, par le meilleur de
+lui-meme.
+
+Baudelaire habitait dans l'ile Saint-Louis, sur le quai d'Anjou, en ce
+vieil et triste hotel Pimodan plein de souvenirs somptueux et
+nostalgiques. Il avait choisi la un appartement compose de plusieurs
+pieces tres hautes de plafond et dont les fenetres s'ouvraient sur le
+fleuve qui roule ses eaux glauques et indifferentes au milieu de la vie
+morbide et fievreuse. Les pieces etaient tapissees d'un papier aux
+larges rayures rouges et noires, couleurs diaboliques, qui
+s'accordaient avec les draperies d'un lourd damas. Les meubles etaient
+antiques, voluptueux. De larges fauteuils, de paresseux divans
+invitaient a la reverie. Aux murs des lithographies et des tableaux
+signes de son ami Delacroix, pures merveilles presque sans importance
+alors, mais que se disputeraient aujourd'hui a coups de millions les
+princes de la finance americaine.
+
+Au temps de Baudelaire, c'est-a-dire vers le milieu du dix-neuvieme
+siecle, l'ile Saint-Louis ressemblait par la paix silencieuse qui
+regnait a travers ses rues et ses quais a certaines villes de province
+ou l'on va nu-tete chez le voisin, ou l'on s'attarde a bavarder au
+seuil des maisons et a y prendre le frais par les beaux soirs d'ete a
+l'heure ou la nuit tombe. Artistes et ecrivains allaient se dire
+bonjour sans quitter leur costume d'interieur et flanaient en neglige
+sur le quai Bourbon et sur le quai d'Anjou, si parfaitement deserts que
+c'etait une joie d'y regarder couler l'eau et d'y boire la lumiere.
+
+Un jour, Baudelaire, coiffe uniquement de sa noire chevelure, prenait
+un bain de soleil sur le quai d'Anjou, tout en croquant de delicieuses
+pommes de terre frites qu'il prenait une a une dans un cornet de
+papier, lorsque vinrent a passer en caleche decouverte de tres grandes
+dames amies de sa mere, l'ambassadrice, et qui s'amuserent beaucoup a
+voir ainsi le poete picorer une nourriture aussi democratique. L'une
+d'elles, une duchesse, fit arreter la voiture et appela Baudelaire.
+
+--<< C'est donc bien bon, demanda-t-elle ce que vous mangez la?
+
+--Goutez, madame, dit le poete en faisant les honneurs de son cornet de
+pommes de terre frites avec une grace supreme. >>
+
+Et il les amusa si bien par ce regal inattendu et par sa conversation
+qu'elles seraient restees la jusqu'a la fin du monde.
+
+Quelques jours plus tard, la duchesse rencontrant Baudelaire dans le
+salon d'une vieille parente a elle, lui demanda si elle n'aurait pas
+l'occasion de manger encore des pommes de terre frites.
+
+--<< Non, madame, repondit finement le poete, car elles sont, en effet,
+tres bonnes, mais seulement la premiere fois qu'on en mange. >>
+
+Cette petite anecdote racontee par les historiens du poete est devenue
+classique; mais nous n'avons pu resister au plaisir de la repeter ici.
+
+Baudelaire, plus ou moins pauvre, car la fortune laissee par son pere
+avait ete devoree rapidement, fut toujours plein de delicatesse et doue
+de cet esprit de finesse fait de belle humeur et d'ironie souriante.
+Cependant ses embarras d'argent devenus chroniques, aussi bien que son
+etat maladif, rendirent lamentables les dernieres annees du poete.
+Frappe de paralysie generale, ayant perdu la memoire des mots, apres
+une longue agonie, il s'eteignit a quarante-six ans. Sa mere et son ami
+Charles Asselineau etaient a son chevet. Ses oeuvres lui ont survecu,
+mais la place d'honneur qu'il meritait par son genie parmi les
+romantiques ne lui fut vraiment accordee qu'a l'aube de ce siecle. On
+l'avait tenu jusqu'alors pour un tres habile ciseleur de phrases, le
+Benvenuto Cellini des vers, mais c'etait presque un incompris, un
+nevrose.
+
+Il commenca, dit-on, par etonner les sots, mais il devait etonner bien
+davantage les gens d'esprit en laissant a la posterite ce livre
+immortel: _les Fleurs du Mal._
+
+
+Henry FRICHET.
+
+
+
+
+AU LECTEUR
+
+
+  La sottise, l'erreur, le peche, la lesine,
+  Occupent nos esprits et travaillent nos corps,
+  Et nous alimentons nos aimables remords,
+  Comme les mendiants nourrissent leur vermine.
+
+  Nos peches sont tetus, nos repentirs sont laches,
+  Nous nous faisons payer grassement nos aveux,
+  Et nous rentrons gaiment dans le chemin bourbeux,
+  Croyant par de vils pleurs laver toutes nos taches.
+
+  Sur l'oreiller du mal c'est Satan Trismegiste
+  Qui berce longuement notre esprit enchante,
+  Et le riche metal de notre volonte
+  Est tout vaporise par ce savant chimiste.
+
+  C'est le Diable qui tient les fils qui nous remuent!
+  Aux objets repugnants nous trouvons des appas;
+  Chaque jour vers l'Enfer nous descendons d'un pas,
+  Sans horreur, a travers des tenebres qui puent.
+
+  Ainsi qu'un debauche pauvre qui baise et mange
+  Le sein martyrise d'une antique catin,
+  Nous volons au passage un plaisir clandestin
+  Que nous pressons bien fort comme une vieille orange.
+
+  Serre, fourmillant, comme un million d'helminthes,
+  Dans nos cerveaux ribote un peuple de Demons,
+  Et, quand nous respirons, la Mort dans nos poumons
+  Descend, fleuve invisible, avec de sourdes plaintes.
+
+  Si le viol, le poison, le poignard, l'incendie,
+  N'ont pas encore brode de leurs plaisants desseins
+  Le canevas banal de nos piteux destins,
+  C'est que notre ame, helas! n'est pas assez hardie.
+
+  Mais parmi les chacals, les pantheres, les lices,
+  Les singes, les scorpions, les vautours, les serpents,
+  Les monstres glapissants, hurlants, grognants, rampants
+  Dans la menagerie infame de nos vices,
+
+  Il en est un plus laid, plus mechant, plus immonde!
+  Quoiqu'il ne pousse ni grands gestes ni grands cris,
+  Il ferait volontiers de la terre un debris
+  Et dans un baillement avalerait le monde;
+
+  C'est l'Ennui!--L'oeil charge d'un pleur involontaire,
+  Il reve d'echafauds en fumant son houka.
+  Tu le connais, lecteur, ce monstre delicat,
+  --Hypocrite lecteur,--mon semblable,--mon frere!
+
+
+
+
+  SPLEEN ET IDEAL
+
+  BENEDICTION
+
+
+  Lorsque, par un decret des puissances supremes,
+  Le Poete apparait en ce monde ennuye,
+  Sa mere epouvantee et pleine de blasphemes
+  Crispe ses poings vers Dieu, qui la prend en pitie:
+
+  << Ah! que n'ai-je mis bas tout un noeud de viperes,
+  Plutot que de nourrir cette derision!
+  Maudite soit la nuit aux plaisirs ephemeres
+  Ou mon ventre a concu mon expiation!
+
+  << Puisque tu m'as choisie entre toutes les femmes
+  Pour etre le degout de mon triste mari,
+  Et que je ne puis pas rejeter dans les flammes,
+  Comme un billet d'amour, ce monstre rabougri,
+
+  << Je ferai rejaillir la haine qui m'accable
+  Sur l'instrument maudit de tes mechancetes,
+  Et je tordrai si bien cet arbre miserable,
+  Qu'il ne pourra poussa ses boutons empestes! >>
+
+  Elle ravale ainsi l'ecume de sa haine,
+  Et, ne comprenant pas les desseins eternels,
+  Elle-meme prepare au fond de la Gehenne
+  Les buchers consacres aux crimes maternels.
+
+  Pourtant, sous la tutelle invisible d'un Ange,
+  L'Enfant desherite s'enivre de soleil,
+  Et dans tout ce qu'il boit et dans tout ce qu'il mange
+  Retrouve l'ambroisie et le nectar vermeil.
+
+  Il joue avec le vent, cause avec le nuage
+  Et s'enivre en chantant du chemin de la croix;
+  Et l'Esprit qui le suit dans son pelerinage
+  Pleure de le voir gai comme un oiseau des bois.
+
+  Tous ceux qu'il veut aimer l'observent avec crainte,
+  Ou bien, s'enhardissant de sa tranquillite,
+  Cherchent a qui saura lui tirer une plainte,
+  Et font sur lui l'essai de leur ferocite.
+
+  Dans le pain et le vin destines a sa bouche
+  Ils melent de la cendre avec d'impurs crachats;
+  Avec hypocrisie ils jettent ce qu'il touche,
+  Et s'accusent d'avoir mis leurs pieds dans ses pas.
+
+  Sa femme va criant sur les places publiques:
+  << Puisqu'il me trouve assez belle pour m'adorer,
+  Je ferai le metier des idoles antiques,
+  Et comme elles je veux me faire redorer;
+
+  << Et je me soulerai de nard, d'encens, de myrrhe,
+  De genuflexions, de viandes et de vins,
+  Pour savoir si je puis dans un coeur qui m'admire
+  Usurper en riant les hommages divins!
+
+  << Et, quand je m'ennuirai de ces farces impies,
+  Je poserai sur lui ma frele et forte main;
+  Et mes ongles, pareils aux ongles des harpies,
+  Sauront jusqu'a son coeur se frayer un chemin.
+
+  << Comme un tout jeune oiseau qui tremble et qui palpite,
+  J'arracherai ce coeur tout rouge de son sein,
+  Et, pour rassasier ma bete favorite,
+  Je le lui jetterai par terre avec dedain! >>
+
+  Vers le Ciel, ou son oeil voit un trone splendide,
+  Le Poete serein leve ses bras pieux,
+  Et les vastes eclairs de son esprit lucide
+  Lui derobent l'aspect des peuples furieux:
+
+  << Soyez beni, mon Dieu, qui donnez la souffrance
+  Comme un divin remede a nos impuretes,
+  Et comme la meilleure et la plus pure essence
+  Qui prepare les forts aux saintes voluptes!
+
+  << Je sais que vous gardez une place au Poete
+  Dans les rangs bienheureux des saintes Legions,
+  Et que vous l'invitez a l'eternelle fete
+  Des Trones, des Vertus, des Dominations.
+
+  << Je sais que la douleur est la noblesse unique
+  Ou ne mordront jamais la terre et les enfers,
+  Et qu'il faut pour tresser ma couronne mystique
+  Imposer tous les temps et tous les univers.
+
+  << Mais les bijoux perdus de l'antique Palmyre,
+  Les metaux inconnus, les perles de la mer,
+  Par votre main montes, ne pourraient pas suffire
+  A ce beau diademe eblouissant et clair;
+
+  << Car il ne sera fait que de pure lumiere,
+  Puisee au foyer saint des rayons primitifs,
+  Et dont les yeux mortels, dans leur splendeur entiere,
+  Ne sont que des miroirs obscurcis et plaintifs! >>
+
+
+
+
+  L'ALBATROS
+
+
+  Souvent, pour s'amuser, les hommes d'equipage
+  Prennent des albatros, vastes oiseaux des mers,
+  Qui suivent, indolents compagnons de voyage,
+  Le navire glissant sur les gouffres amers.
+
+  A peine les ont-ils deposes sur les planches,
+  Que ces rois de l'azur, maladroits et honteux,
+  Laissent piteusement leurs grandes ailes blanches
+  Comme des avirons trainer a cote d'eux.
+
+  Ce voyageur aile, comme il est gauche et veule!
+  Lui, naguere si beau, qu'il est comique et laid!
+  L'un agace son bec avec un brule-gueule,
+  L'autre mime, en boitant, l'infirme qui volait!
+
+  Le Poete est semblable au prince des nuees
+  Qui hante la tempete et se rit de l'archer;
+  Exile sur le sol au milieu des huees,
+  Ses ailes de geant l'empechent de marcher.
+
+
+
+
+  ELEVATION
+
+
+  Au-dessus des etangs, au-dessus des vallees,
+  Des montagnes, des bois, des nuages, des mers,
+  Par dela le soleil, par dela les ethers,
+  Par dela les confins des spheres etoilees,
+
+  Mon esprit, tu te meus avec agilite,
+  Et, comme un bon nageur qui se pame dans l'onde,
+  Tu sillonnes gaiment l'immensite profonde
+  Avec une indicible et male volupte.
+
+  Envole-toi bien loin de ces miasmes morbides,
+  Va te purifier dans l'air superieur,
+  Et bois, comme une pure et divine liqueur,
+  Le feu clair qui remplit les espaces limpides.
+
+  Derriere les ennuis et les vastes chagrins
+  Qui chargent de leur poids l'existence brumeuse,
+  Heureux celui qui peut d'une aile vigoureuse
+  S'elancer vers les champs lumineux et sereins!
+
+  Celui dont les pensers, comme des alouettes,
+  Vers les cieux le matin prennent un libre essor,
+  --Qui plane sur la vie et comprend sans effort
+  Le langage des fleurs et des choses muettes!
+
+
+
+
+  LES PHARES
+
+
+  Rubens, fleuve d'oubli, jardin de la paresse,
+  Oreiller de chair fraiche ou l'on ne peut aimer,
+  Mais ou la vie afflue et s'agite sans cesse,
+  Comme l'air dans le ciel et la mer dans la mer;
+
+  Leonard de Vinci, miroir profond et sombre,
+  Ou des anges charmants, avec un doux souris
+  Tout charge de mystere, apparaissent a l'ombre
+  Des glaciers et des pins qui ferment leur pays;
+
+  Rembrandt, triste hopital tout rempli de murmures,
+  Et d'un grand crucifix decore seulement,
+  Ou la priere en pleurs s'exhale des ordures,
+  Et d'un rayon d'hiver traverse brusquement;
+
+  Michel-Ange, lieu vague ou l'on voit des Hercules
+  Se meler a des Christ, et se lever tout droits
+  Des fantomes puissants, qui dans les crepuscules
+  Dechirent leur suaire en etirant leurs doigts;
+
+  Coleres de boxeur, impudences de faune,
+  Toi qui sus ramasser la beaute des goujats,
+  Grand coeur gonfle d'orgueil, homme debile et jaune,
+  Puget, melancolique empereur des forcats;
+
+  Watteau, ce carnaval ou bien des coeurs illustres,
+  Comme des papillons, errent en flamboyant,
+  Decors frais et legers eclaires par des lustres
+  Qui versent la folie a ce bal tournoyant;
+
+  Goya, cauchemar plein de choses inconnues,
+  De foetus qu'on fait cuire au milieu des sabbats,
+  De vieilles au miroir et d'enfants toutes nues,
+  Pour tenter les Demons ajustant bien leurs bas;
+
+  Delacroix, lac de sang hante des mauvais anges,
+  Ombrage par un bois de sapin toujours vert,
+  Ou, sous un ciel chagrin, des fanfares etranges
+  Passent, comme un soupir etouffe de Weber;
+
+  Ces maledictions, ces blasphemes, ces plaintes,
+  Ces extases, ces cris, ces pleurs, ces _Te Deum,_
+  Sont un echo redit par mille labyrinthes;
+  C'est pour les coeurs mortels un divin opium.
+
+  C'est un cri repete par mille sentinelles,
+  Un ordre renvoye par mille porte-voix;
+  C'est un phare allume sur mille citadelles,
+  Un appel de chasseurs perdus dans les grands bois!
+
+  Car c'est vraiment, Seigneur, le meilleur temoignage
+  Que nous puissions donner de notre dignite
+  Que cet ardent sanglot qui roule d'age en age
+  Et vient mourir au bord de votre eternite!
+
+
+
+
+  LA MUSE VENALE
+
+
+  O Muse de mon coeur, amante des palais,
+  Auras-tu, quand Janvier lachera ses Borees,
+  Durant les noirs ennuis des neigeuses soirees,
+  Un tison pour chauffer tes deux pieds violets?
+
+  Ranimeras-tu donc tes epaules marbrees
+  Aux nocturnes rayons qui percent les volets?
+  Sentant ta bourse a sec autant que ton palais,
+  Recolteras-tu l'or des voutes azurees?
+
+  Il te faut, pour gagner ton pain de chaque soir,
+  Comme un enfant de choeur, jouer de l'encensoir,
+  Chantes des _Te Deum_ auxquels tu ne crois guere,
+
+  Ou, saltimbanque a jeun, etaler les appas
+  Et ton rire trempe de pleurs qu'on ne voit pas,
+  Pour faire epanouir la rate du vulgaire.
+
+
+
+
+  L'ENNEMI
+
+
+  Ma jeunesse ne fut qu'un tenebreux orage,
+  Traverse ca et la par de brillants soleils;
+  Le tonnerre et la pluie ont fait un tel ravage
+  Qu'il reste en mon jardin bien peu de fruits vermeils.
+
+  Voila que j'ai touche l'automne des idees,
+  Et qu'il faut employer la pelle et les rateaux
+  Pour rassembler a neuf les terres inondees,
+  Ou l'eau creuse des trous grands comme des tombeaux.
+
+  Et qui sait si les fleurs nouvelles que je reve
+  Trouveront dans ce sol lave comme une greve
+  Le mystique aliment qui ferait leur vigueur?
+
+  --O douleur! o douleur! Le Temps mange la vie,
+  Et l'obscur Ennemi qui nous ronge le coeur
+  Du sang que nous perdons croit et se fortifie!
+
+
+
+
+  LA VIE ANTERIEURE
+
+
+  J'ai longtemps habite sous de vastes portiques
+  Que les soleils marins teignaient de mille feux,
+  Et que leurs grands piliers, droits et majestueux,
+  Rendaient pareils, le soir, aux grottes basaltiques.
+
+  Les houles, en roulant les images des cieux,
+  Melaient d'une facon solennelle et mystique
+  Les tout-puissants accords de leur riche musique
+  Aux couleurs du couchant reflete par mes yeux.
+
+  C'est la que j'ai vecu dans les voluptes calmes,
+  Au milieu de l'azur, des vagues, des splendeurs
+  Et des esclaves nus, tout impregnes d'odeurs,
+
+  Qui me rafraichissaient le front avec des palmes,
+  Et dont l'unique soin etait d'approfondir
+  Le secret douloureux qui me faisait languir.
+
+
+
+
+  BOHEMIENS EN VOYAGE
+
+
+  La tribu prophetique aux prunelles ardentes
+  Hier s'est mise en route, emportant ses petits
+  Sur son dos, ou livrant a leurs fiers appetits
+  Le tresor toujours pret des mamelles pendantes.
+
+  Les hommes vont a pied sous leurs armes luisantes
+  Le long des chariots ou les leurs sont blottis,
+  Promenant sur le ciel des yeux appesantis
+  Par le morne regret des chimeres absentes.
+
+  Du fond de son reduit sablonneux, le grillon,
+  Les regardant passer, redouble sa chanson;
+  Cybele, qui les aime, augmente ses verdures,
+
+  Fait couler le rocher et fleurir le desert
+  Devant ces voyageurs, pour lesquels est ouvert
+  L'empire familier des tenebres futures.
+
+
+
+
+  L'HOMME ET LA MER
+
+
+  Homme libre, toujours tu cheriras la mer!
+  La mer est ton miroir; tu contemples ton ame
+  Dans le deroulement infini de sa lame,
+  Et ton esprit n'est pas un gouffre moins amer.
+
+  Tu te plais a plonger au sein de ton image;
+  Tu l'embrasses des yeux et des bras, et ton coeur
+  Se distrait quelquefois de sa propre rumeur
+  Au bruit de cette plainte indomptable et sauvage.
+
+  Vous etes tous les deux tenebreux et discrets,
+  Homme, nul n'a sonde le fond de tes abimes;
+  O mer, nul ne connait tes richesses intimes,
+  Tant vous etes jaloux de garder vos secrets!
+
+  Et cependant voila des siecles innombrables
+  Que vous vous combattez sans pitie ni remord,
+  Tellement vous aimez le carnage et la mort,
+  O lutteurs eternels, o freres implacables!
+
+
+
+
+  DON JUAN AUX ENFERS
+
+
+  Quand don Juan descendit vers l'onde souterraine,
+  Et lorsqu'il eut donne son obole a Charon,
+  Un sombre mendiant, l'oeil fier comme Antisthene,
+  D'un bras vengeur et fort saisit chaque aviron.
+
+  Montrant leurs seins pendants et leurs robes ouvertes,
+  Des femmes se tordaient sous le noir firmament,
+  Et, comme un grand troupeau de victimes offertes,
+  Derriere lui trainaient un long mugissement.
+
+  Sganarelle en riant lui reclamait ses gages,
+  Tandis que don Luis avec un doigt tremblant
+  Montrait a tous les morts errant sur les rivages
+  Le fils audacieux qui railla son front blanc.
+
+  Frissonnant sous son deuil, la chaste et maigre Elvire,
+  Pres de l'epoux perfide et qui fui son amant
+  Semblait lui reclamer un supreme sourire
+  Ou brillat la douceur de son premier serment.
+
+  Tout droit dans son armure, un grand homme de pierre
+  Se tenait a la barre et coupait le flot noir;
+  Mais le calme heros, courbe sur sa rapiere,
+  Regardait le sillage et ne daignait rien voir.
+
+
+
+
+  CHATIMENT DE L'ORGUEIL
+
+
+  En ces temps merveilleux ou la Theologie
+  Fleurit avec le plus de seve et d'energie,
+  On raconte qu'un jour un docteur des plus grands
+  --Apres avoir force les coeurs indifferents,
+  Les avoir remues dans leurs profondeurs noires;
+  Apres avoir franchi vers les celestes gloires
+  Des chemins singuliers a lui-meme inconnus,
+  Ou les purs Esprits seuls peut-etre etaient venus,
+  --Comme un homme monte trop haut, pris de panique,
+  S'ecria, transporte d'un orgueil satanique:
+  << Jesus, petit Jesus! je t'ai pousse bien haut!
+  Mais, si j'avais voulu t'attaquer au defaut
+  De l'armure, ta honte egalerait ta gloire,
+  Et tu ne serais plus qu'un foetus derisoire! >>
+
+  Immediatement sa raison s'en alla.
+  L'eclat de ce soleil d'un crepe se voila;
+  Tout le chaos roula dans cette intelligence,
+  Temple autrefois vivant, plein d'ordre et d'opulence.
+  Sous les plafonds duquel tant de pompe avait lui.
+  Le silence et la nuit s'installerent en lui,
+  Comme dans un caveau dont la clef est perdue.
+  Des lors il fut semblable aux betes de la rue,
+  Et, quand il s'en allait sans rien voir, a travers
+  Les champs, sans distinguer les etes des hivers,
+  Sale, inutile et laid comme une chose usee,
+  Il faisait des enfants la joie et la risee.
+
+
+
+
+  LA BEAUTE
+
+
+  Je suis belle, o mortels! comme un reve de pierre,
+  Et mon sein, ou chacun s'est meurtri tour a tour,
+  Est fait pour inspirer au poete un amour
+  Eternel et muet ainsi que la matiere.
+
+  Je trone dans l'azur comme un sphinx incompris;
+  J'unis un coeur de neige a la blancheur des cygnes;
+  Je hais le mouvement qui deplace les lignes,
+  Et jamais je ne pleure et jamais je ne ris.
+
+  Les poetes, devant mes grandes attitudes.
+  Que j'ai l'air d'emprunter aux plus fiers monuments,
+  Consumeront leurs jours en d'austeres etudes;
+
+  Car j'ai, pour fasciner ces dociles amants,
+  De purs miroirs qui font toutes choses plus belles:
+  Mes yeux, mes larges yeux aux clartes eternelles!
+
+
+
+
+  L'IDEAL
+
+
+  Ce ne seront jamais ces beautes de vignettes,
+  Produits avaries, nes d'un siecle vaurien,
+  Ces pieds a brodequins, ces doigts a castagnettes,
+  Qui sauront satisfaire un coeur comme le mien.
+
+  Je laisse, a Gavarni, poete des chloroses,
+  Soa troupeau gazouillant de beautes d'hopital,
+  Car je ne puis trouver parmi ces pales roses
+  Une fleur qui ressemble a mon rouge ideal.
+
+  Ce qu'il faut a ce coeur profond comme un abime,
+  C'est vous, Lady Macbeth, ame puissante au crime,
+  Reve d'Eschyle eclos au climat des autans;
+
+  Ou bien toi, grand Nuit, fille de Michel-Ange,
+  Qui tors paisiblement dans une pose etrange
+  Tes appas faconnes aux bouches des Titans!
+
+
+
+
+  LE MASQUE
+
+  STATUE ALLEGORIQUE DANS LE GOUT DE LA RENAISSANCE
+
+  A ERNEST CHRISTOPHE
+  STATUAIRE
+
+
+  Contemplons ce tresor de graces florentines;
+  Dans l'ondulation de ce corps musculeux
+  L'Elegance et la Force abondent, soeurs divines.
+  Cette femme, morceau vraiment miraculeux,
+  Divinement robuste, adorablement mince,
+  Est faite pour troner sur des lits somptueux,
+  Et charmer les loisirs d'un pontife ou d'un prince.
+
+  --Aussi, vois ce souris fin et voluptueux
+  Ou la Fatuite promene son extase;
+  Ce long regard sournois, langoureux et moqueur;
+  Ce visage mignard, tout encadre de gaze,
+  Dont chaque trait nous dit avec un air vainqueur:
+  << La Volupte m'appelle et l'Amour me couronne! >>
+  A cet etre doue de tant de majeste
+  Vois quel charme excitant la gentillesse donne!
+  Approchons, et tournons autour de sa beaute.
+
+  O blaspheme de l'art! o surprise fatale!
+  La femme au corps divin, promettant le bonheur,
+  Par le haut se termine en monstre bicephale!
+
+  Mais non! Ce n'est qu'un masque, un decor suborneur,
+  Ce visage eclaire d'une exquise grimace,
+  Et, regarde, voici, crispee atrocement,
+  La veritable tete, et la sincere face
+  Renversee a l'abri de la face qui ment.
+  --Pauvre grande beaute! le magnifique fleuve
+  De tes pleurs aboutit dans mon coeur soucieux;
+  Ton mensonge m'enivre, et mon ame s'abreuve
+  Aux flots que la Douleur fait jaillir de tes yeux!
+
+  --Mais pourquoi pleure-t-elle? Elle, beaute parfaite
+  Qui mettrait a ses pieds le genre humain vaincu,
+  Quel mal mysterieux ronge son flanc d'athlete?
+
+  --Elle pleure, insense, parce qu'elle a vecu!
+  Et parce qu'elle vit! Mais ce qu'elle deplore
+  Surtout, ce qui la fait fremir jusqu'aux genoux,
+  C'est que demain, helas! il faudra vivre encore!
+  Demain, apres-demain et toujours!--comme nous!
+
+
+
+
+  HYMNE A LA BEAUTE
+
+
+  Viens-tu du ciel profond ou sors-tu de l'abime,
+  O Beaute? Ton regard, infernal et divin,
+  Verse confusement le bienfait et le crime,
+  Et l'on peut pour cela te comparer au vin.
+  Tu contiens dans ton oeil le couchant et l'aurore;
+
+  Tu repands des parfums comme un soir orageux;
+  Tes baisers sont un filtre et ta bouche une amphore
+  Qui font le heros lache et l'enfant courageux.
+  Sors-tu du gouffre noir ou descends-tu des astres?
+
+  Le Destin charme suit tes jupons comme un chien;
+  Tu semes au hasard la joie et les desastres,
+  Et tu gouvernes tout et ne reponds de rien.
+
+  Tu marches sur des morts. Beaute, dont tu te moques;
+  De tes bijoux l'Horreur n'est pas le moins charmant,
+  Et le Meurtre, parmi tes plus cheres breloques,
+  Sur ton ventre orgueilleux danse amoureusement.
+
+  L'ephemere ebloui vole vers toi, chandelle,
+  Crepite, flambe et dit: Benissons ce flambeau!
+  L'amoureux pantelant incline sur sa belle
+  A l'air d'un moribond caressant son tombeau.
+
+  Que tu viennes du ciel ou de l'enfer, qu'importe,
+  O Beaute! monstre enorme, effrayant, ingenu!
+  Si ton oeil, ton souris, ton pied, m'ouvrent la porte
+  D'un infini que j'aime et n'ai jamais connu?
+
+  De Satan ou de Dieu, qu'importe? Ange ou Sirene,
+  Qu'importe, si tu rends,--fee aux yeux de velours,
+  Rythme, parfum, lueur, o mon unique reine!--
+  L'univers moins hideux et les instants moins lourds?
+
+
+
+
+  LA CHEVELURE
+
+
+  O toison, moutonnant jusque sur l'encolure!
+  O boucles! O parfum charge de nonchaloir!
+  Extase! Pour peupler ce soir l'alcove obscure
+  Des souvenirs dormant dans cette chevelure,
+  Je la veux agiter dans l'air comme un mouchoir.
+
+  La langoureuse Asie et la brulante Afrique,
+  Tout un monde lointain, absent, presque defunt,
+  Vit dans tes profondeurs, foret aromatique!
+  Comme d'autres esprits voguent sur la musique,
+  Le mien, o mon amour! nage sur ton parfum.
+
+  J'irai la-bas ou l'arbre et l'homme, pleins de seve,
+  Se pament longuement sous l'ardeur des climats;
+  Fortes tresses, soyez la houle qui m'enleve!
+  Tu contiens, mer d'ebene, un eblouissant reve
+  De voiles, de rameurs, de flammes et de mats:
+
+  Un port retentissant ou mon ame peut boire
+  A grands flots le parfum, le son et la couleur;
+  Ou les vaisseaux, glissant dans l'or et dans la moire,
+  Ouvrent leurs vastes bras pour embrasser la gloire
+  D'un ciel pur ou fremit l'eternelle chaleur.
+
+  Je plongerai ma tete amoureuse d'ivresse
+  Dans ce noir ocean ou l'autre est enferme;
+  Et mon esprit subtil que le roulis caresse
+  Saura vous retrouver, o feconde paresse,
+  Infinis bercements du loisir embaume!
+
+  Cheveux bleus, pavillon de tenebres tendues,
+  Vous me rendez l'azur du ciel immense et rond;
+  Sur les bords duvetes de vos meches tordues
+  Je m'enivre ardemment des senteurs confondues
+  De l'huile de coco, du musc et du goudron.
+
+  Longtemps! toujours! ma main dans ta criniere lourde
+  Semera le rubis, la perle et le saphir,
+  Afin qu'a mon, desir tu ne sois jamais sourde!
+  N'es-tu pas l'oasis ou je reve, et la gourde
+  Ou je hume a longs traits le vin du souvenir?
+
+  Je t'adore a l'egal de la voute nocturne,
+  O vase de tristesse, o grande taciturne,
+  Et t'aime d'autant plus, belle, que tu me fuis,
+  Et que tu me parais, ornement de mes nuits,
+  Plus ironiquement accumuler les lieues
+  Qui separent mes bras des immensites bleues.
+
+  Je m'avance a l'attaque, et je grimpe aux assauts,
+  Comme apres un cadavre un choeur de vermisseaux,
+  Et je cheris, o bete implacable et cruelle,
+  Jusqu'a cette froideur par ou tu m'es plus belle!
+
+  Tu mettrais l'univers entier dans ta ruelle,
+  Femme impure! L'ennui rend ton ame cruelle.
+  Pour exercer tes dents a ce jeu singulier,
+  Il te faut chaque jour un coeur au ratelier.
+  Tes yeux, illumines ainsi que des boutiques
+  Ou des ifs flamboyants dans les fetes publiques,
+  Usent insolemment d'un pouvoir emprunte,
+  Sans connaitre jamais la loi de leur beaute.
+
+  Machine aveugle et sourde en cruaute feconde!
+  Salutaire instrument, buveur du sang du monde,
+  Comment n'as-tu pas honte, et comment n'as-tu pas
+  Devant tous les miroirs vu palir tes appas?
+  La grandeur de ce mal ou tu te crois savante
+  Ne t'a donc jamais fait reculer d'epouvante,
+  Quand la nature, grande en ses desseins caches,
+  De toi se sert, o femme, o reine des peches,
+  --De toi, vil animal,--pour petrir un genie?
+
+  O fangeuse grandeur, sublime ignominie!
+
+
+
+
+  SED NON SATIATA
+
+
+  Bizarre deite, brune comme les nuits,
+  Au parfum melange de musc et de havane,
+  OEuvre de quelque obi, le Faust de la savane,
+  Sorciere au flanc d'ebene, enfant des noirs minuits,
+
+  Je prefere au constance, a l'opium, au nuits,
+  L'elixir de ta bouche ou l'amour se pavane;
+  Quand vers toi mes desirs partent en caravane,
+  Tes yeux sont la citerne ou boivent mes ennuis.
+
+  Par ces deux grands yeux noirs, soupiraux de ton ame,
+  O demon sans pitie, verse-moi moins de flamme;
+  Je ne suis pas le Styx pour t'embrasser neuf fois,
+
+  Helas! et je ne puis, Megere libertine,
+  Pour briser ton courage et te mettre aux abois,
+  Dans l'enfer de ton lit devenir Proserpine!
+
+  Avec ses vetements ondoyants et nacres,
+  Meme quand elle marche, on croirait qu'elle danse,
+  Comme ces longs serpents que les jongleurs sacres
+  Au bout de leurs batons agitent en cadence.
+
+  Comme le sable morne et l'azur des deserts,
+  Insensibles tous deux a l'humaine souffrance,
+  Comme les longs reseaux de la houle des mers,
+  Elle se developpe avec indifference.
+
+  Ses yeux polis sont faits de mineraux charmants,
+  Et dans cette nature etrange et symbolique
+  Ou l'ange inviole se mele au sphinx antique,
+
+  Ou tout n'est qu'or, acier, lumiere et diamants,
+  Resplendit a jamais, comme un astre inutile,
+  La froide majeste de la femme sterile.
+
+
+
+
+  LE SERPENT QUI DANSE
+
+
+  Que j'aime voir, chere indolente,
+      De ton corps si beau,
+  Comme une etoile vacillante,
+      Miroiter la peau!
+
+  Sur ta chevelure profonde
+      Aux acres parfums,
+  Mer odorante et vagabonde
+      Aux flots bleus et bruns.
+
+  Comme un navire qui s'eveille
+      Au vent du matin,
+  Mon ame reveuse appareille
+      Pour un ciel lointain.
+
+  Tes yeux, ou rien ne se revele
+      De doux ni d'amer,
+  Sont deux bijoux froids ou se mele
+      L'or avec le fer.
+
+  A te voir marcher en cadence,
+      Belle d'abandon,
+  On dirait un serpent qui danse
+      Au bout d'un baton;
+
+  Sous le fardeau de ta paresse
+      Ta tete d'enfant
+  Se balance avec la mollesse
+      D'un jeune elephant,
+
+  Et son corps se penche et s'allonge
+      Comme un fin vaisseau
+  Qui roule bord sur bord, et plonge
+      Ses vergues dans l'eau.
+
+  Comme un flot grossi par la fonte
+      Des glaciers grondants,
+  Quand l'eau de ta bouche remonte
+      Au bord de tes dents,
+
+  Je crois boire un vin de Boheme,
+      Amer et vainqueur,
+  Un ciel liquide qui parseme
+      D'etoiles mon coeur!
+
+
+
+
+  UNE CHAROGNE
+
+
+  Rappelez-vous l'objet que nous vimes, mon ame,
+          Ce beau matin d'ete si doux:
+  Au detour d'un sentier une charogne infame
+          Sur un lit seme de cailloux,
+
+  Les jambes en l'air, comme une femme lubrique,
+          Brulante et suant les poisons,
+  Ouvrait d'une facon nonchalante et cynique
+          Son ventre plein d'exhalaisons.
+
+  Le soleil rayonnait sur cette pourriture,
+          Comme afin de la cuire a point,
+  Et de rendre au centuple a la grande Nature
+          Tout ce qu'ensemble elle avait joint.
+
+  Et le ciel regardait la carcasse superbe
+          Comme une fleur s'epanouir;
+  La puanteur etait si forte que sur l'herbe
+          Vous crutes vous evanouir.
+
+  Les mouches bourdonnaient sur ce ventre putride,
+          D'ou sortaient de noirs bataillons
+  De larves qui coulaient comme un epais liquide
+          Le long de ces vivants haillons.
+
+  Tout cela descendait, montait comme une vague,
+          Ou s'elancait en petillant;
+  On eut dit que le corps, enfle d'un souffle vague,
+          Vivait en se multipliant.
+
+  Et ce monde rendait une etrange musique
+      Comme l'eau courante et le vent,
+  Ou le grain qu'un vanneur d'un mouvement rythmique
+      Agite et tourne dans son van.
+
+  Les formes s'effacaient et n'etaient plus qu'un reve,
+      Une ebauche lente a venir
+  Sur la toile oubliee, et que l'artiste acheve
+      Seulement par le souvenir.
+
+  Derriere les rochers une chienne inquiete
+      Nous regardait d'un oeil fache,
+  Epiant le moment de reprendre au squelette
+      Le morceau qu'elle avait lache.
+
+  --Et pourtant vous serez semblable a cette ordure,
+      A cette horrible infection,
+  Etoile de mes yeux, soleil de ma nature,
+      Vous, mon ange et ma passion!
+
+  Oui! telle vous serez, o la reine des graces,
+      Apres les derniers sacrements,
+  Quand vous irez sous l'herbe et les floraisons grasses,
+      Moisir parmi les ossements.
+
+  Alors, o ma beaute, dites a la vermine
+      Qui vous mangera de baisers,
+  Que j'ai garde la forme et l'essence divine
+      De mes amours decomposes!
+
+
+
+
+  DE PROFUNDIS CLAMAVI
+
+
+  J'implore ta pitie. Toi, l'unique que j'aime,
+  Du fond du gouffre obscur ou mon coeur est tombe.
+  C'est un univers morne a l'horizon plombe,
+  Ou nagent dans la nuit l'horreur et le blaspheme;
+
+  Un soleil sans chaleur plane au-dessus six mois,
+  Et les six autres mois la nuit couvre la terre;
+  C'est un pays plus nu que la terre polaire;
+  Ni betes, ni ruisseaux, ni verdure, ni bois!
+
+  Or il n'est d'horreur au monde qui surpasse
+  La froide cruaute de ce soleil de glace
+  Et cette immense nuit semblable au vieux Chaos;
+
+  Je jalouse le sort des plus vils animaux
+  Qui peuvent se plonger dans un sommeil stupide,
+  Tant l'echeveau du temps lentement se devide!
+
+
+
+
+  LE VAMPIRE
+
+
+  Toi qui, comme un coup de couteau.
+  Dans mon coeur plaintif est entree;
+  Toi qui, forte comme un troupeau
+  De demons, vins, folle et paree,
+
+  De mon esprit humilie
+  Faire ton lit et ton domaine.
+  --Infame a qui je suis lie
+  Comme le forcat a la chaine,
+
+  Comme au jeu le joueur tetu,
+  Comme a la bouteille l'ivrogne,
+  Comme aux vermines la charogne,
+  --Maudite, maudite sois-tu!
+
+  J'ai prie le glaive rapide
+  De conquerir ma liberte,
+  Et j'ai dit au poison perfide
+  De secourir ma lachete.
+
+  Helas! le poison et le glaive
+  M'ont pris en dedain et m'ont dit:
+  << Tu n'es pas digne qu'on t'enleve
+  A ton esclavage maudit,
+
+  Imbecile!--de son empire
+  Si nos efforts te delivraient,
+  Tes baisers ressusciteraient
+  Le cadavre de ton vampire! >>
+
+  Une nuit que j'etais pres d'une affreuse Juive,
+  Comme au long d'un cadavre un cadavre etendu,
+  Je me pris a songer pres de ce corps vendu
+  A la triste beaute dont mon desir se prive.
+
+  Je me representai sa majeste native,
+  Son regard de vigueur et de graces arme,
+  Ses cheveux qui lui font un casque parfume,
+  Et dont le souvenir pour l'amour me ravive.
+
+  Car j'eusse avec ferveur baise ton noble corps,
+  Et depuis tes pieds frais jusqu'a tes noires tresses
+  Deroule le tresor des profondes caresses,
+
+  Si, quelque soir, d'un pleur obtenu sans effort
+  Tu pouvais seulement, o reine des cruelles,
+  Obscurcir la splendeur de tes froides prunelles.
+
+
+
+
+  REMORDS POSTHUME
+
+
+  Lorsque tu dormiras, ma belle tenebreuse,
+  Au fond d'un monument construit en marbre noir,
+  Et lorsque tu n'auras pour alcove et manoir
+  Qu'un caveau pluvieux et qu'une fosse creuse;
+
+  Quand la pierre, opprimant ta poitrine peureuse
+  Et tes flancs qu'assouplit un charmant nonchaloir,
+  Empechera ton coeur de battre et de vouloir,
+  Et tes pieds de courir leur course aventureuse,
+
+  Le tombeau, confident de mon reve infini,
+  --Car le tombeau toujours comprendra le poete,--
+  Durant ces longues nuits d'ou le somme est banni,
+
+  Te dira: << Que vous sert, courtisane imparfaite,
+  De n'avoir pas connu ce que pleurent les morts? >>
+  --Et le ver rongera ta peau comme un remords.
+
+
+
+
+  LE CHAT
+
+
+  Viens, mon beau chat, sur mon coeur amoureux:
+          Retiens les griffes de ta patte,
+  Et laisse-moi plonger dans tes beaux yeux,
+          Meles de metal et d'agate.
+
+  Lorsque mes doigts caressent a loisir
+          Ta tete et ton dos elastique,
+  Et que ma main s'enivre du plaisir
+          De palper ton corps electrique,
+
+  Je vois ma femme en esprit; son regard,
+          Comme le tien, aimable bete,
+  Profond et froid, coupe et fend comme un dard.
+
+          Et, des pieds jusques a la tete,
+  Un air subtil, un dangereux parfum
+          Nagent autour de son corps brun.
+
+
+
+
+  LE BALCON
+
+
+  Mere des souvenirs, maitresse des maitresses,
+  O toi, tous mes plaisirs, o toi, tous mes devoirs!
+  Tu te rappelleras la beaute des caresses,
+  La douceur du foyer et le charme des soirs,
+  Mere des souvenirs, maitresse des maitresses!
+
+  Les soirs illumines par l'ardeur du charbon,
+  Et les soirs au balcon, voiles de vapeurs roses;
+  Que ton sein m'etait doux! que ton coeur m'etait bon!
+  Nous avons dit souvent d'imperissables choses
+  Les soirs illumines par l'ardeur du charbon.
+
+  Que les soleils sont beaux dans les chaudes soirees!
+  Que l'espace est profond! que le coeur est puissant!
+  En me penchant vers toi, reine des adorees,
+  Je croyais respirer le parfum de ton sang.
+  Que les soleils sont beaux dans les chaudes soirees!
+
+  La nuit s'epaississait ainsi qu'une cloison,
+  Et mes yeux dans le noir devinaient tes prunelles
+  Et je buvais ton souffle, o douceur, o poison!
+  Et tes pieds s'endormaient dans mes mains fraternelles,
+  La nuit s'epaississait ainsi qu'une cloison.
+
+  Je sais l'art d'evoquer les minutes heureuses,
+  Et revis mon passe blotti dans tes genoux.
+  Car a quoi bon chercher tes beautes langoureuses
+  Ailleurs qu'en ton cher corps et qu'en ton coeur si doux?
+  Je sais l'art d'evoquer les minutes heureuses!
+
+  Ces serments, ces parfums, ces baisers infinis,
+  Renaitront-ils d'un gouffre interdit a nos sondes,
+  Comme montent au ciel les soleils rajeunis
+  Apres s'etre laces au fond des mers profondes!
+  --O serments! o parfums! o baisers infinis!
+
+
+
+
+  LE POSSEDE
+
+
+  Le soleil s'est couvert d'un crepe. Comme lui,
+  O Lune de ma vie! emmitoufle-toi d'ombre;
+  Dors ou fume a ton gre; sois muette, sois sombre,
+  Et plonge tout entiere au gouffre de l'Ennui;
+
+  Je t'aime ainsi! Pourtant, si tu veux aujourd'hui,
+  Comme un astre eclipse qui sort de la penombre,
+  Te pavaner aux lieux que la Folie encombre,
+  C'est bien! Charmant poignard, jaillis de ton etui!
+
+  Allume ta prunelle a la flamme des lustres!
+  Allume le desir dans les regards des rustres!
+  Tout de toi m'est plaisir, morbide ou petulant;
+
+  Sois ce que tu voudras, nuit noire, rouge aurore;
+  Il n'est pas une fibre en tout mon corps tremblant
+  Qui ne crie: _O mon cher Belzebuth, je t'adore!_
+
+
+
+
+  UN FANTOME
+
+  I
+
+  LES TENEBRES
+
+
+  Dans les caveaux d'insondable tristesse
+  Ou le Destin m'a deja relegue;
+  Ou jamais n'entre un rayon rose et gai;
+  Ou, seul avec la Nuit, maussade hotesse,
+
+  Je suis comme un peintre qu'un Dieu moqueur
+  Condamne a peindre, helas! sur les tenebres;
+  Ou, cuisinier aux appetits funebres,
+  Je fais bouillir et je mange mon coeur,
+
+  Par instants brille, et s'allonge, et s'etale
+  Un spectre fait de grace et de splendeur:
+  A sa reveuse allure orientale,
+
+  Quand il atteint sa totale grandeur,
+  Je reconnais ma belle visiteuse:
+  C'est Elle! sombre et pourtant lumineuse.
+
+
+  II
+
+  LE PARFUM
+
+
+  Lecteur, as-tu quelquefois respire
+  Avec ivresse et lente gourmandise
+  Ce grain d'encens qui remplit une eglise,
+  Ou d'un sachet le musc invetere?
+
+  Charme profond, magique, dont nous grise
+  Dans le present le passe restaure!
+  Ainsi l'amant sur un corps adore
+  Du souvenir cueille la fleur exquise.
+
+  De ses cheveux elastiques et lourds,
+  Vivant sachet, encensoir de l'alcove,
+  Une senteur montait, sauvage et fauve,
+
+  Et des habits, mousseline ou velours,
+  Tout impregnes de sa jeunesse pure,
+  Se degageait un parfum de fourrure.
+
+
+  III
+
+  LE CADRE
+
+
+  Comme un beau cadre ajoute a la peinture,
+  Bien qu'elle soit d'un pinceau tres vante,
+  Je ne sais quoi d'etrange et d'enchante
+  En l'isolant de l'immense nature.
+
+  Ainsi bijoux, meubles, metaux, dorure,
+  S'adaptaient juste a sa rare beaute;
+  Rien n'offusquait sa parfaite clarte,
+  Et tout semblait lui servir de bordure.
+
+  Meme on eut dit parfois qu'elle croyait
+  Que tout voulait l'aimer; elle noyait
+  Dans les baisers du satin et du linge
+
+  Son beau corps nu, plein de frissonnements,
+  Et, lente ou brusque, en tous ses mouvements,
+  Montrait la grace enfantine du singe.
+
+
+  IV
+
+  LE PORTRAIT
+
+
+  La Maladie et la Mort font des cendres
+  De tout le feu qui pour nous flamboya.
+  De ces grands yeux si fervents et si tendres,
+  De cette bouche ou mon coeur se noya,
+
+  De ces baisers puissants comme un dictame,
+  De ces transports plus vifs que des rayons.
+  Que reste-t-il? C'est affreux, o mon ame!
+  Rien qu'un dessin fort pale, aux trois crayons,
+
+  Qui, comme moi, meurt dans la solitude,
+  Et que le Temps, injurieux vieillard,
+  Chaque jour frotte avec son aile rude...
+
+  Noir assassin de la Vie et de l'Art,
+  Tu ne tueras jamais dans ma memoire
+  Celle qui fut mon plaisir et ma gloire!
+
+  Je te donne ces vers afin que, si mon nom
+  Aborde heureusement aux epoques lointaines
+  Et fait rever un soir les cervelles humaines,
+  Vaisseau favorise par un grand aquilon,
+
+  Ta memoire, pareille aux fables incertaines,
+  Fatigue le lecteur ainsi qu'un tympanon,
+  Et par un fraternel et mystique chainon
+  Reste comme pendue a mes rimes hautaines;
+
+  Etre maudit a qui de l'abime profond
+  Jusqu'au plus haut du ciel rien, hors moi, ne repond;
+  --O toi qui, comme une ombre a la trace ephemere,
+
+  Foules d'un pied leger et d'un regard serein
+  Les stupides mortels qui t'ont jugee amere,
+  Statue aux yeux de jais, grand ange au front d'airain!
+
+
+
+
+  SEMPER EADEM
+
+
+  << D'ou vous vient, disiez-vous, cette tristesse etrange,
+  Montant comme la mer sur le roc noir et nu? >>
+  --Quand notre coeur a fait une fois sa vendange,
+  Vivre est un mal! C'est un secret de tous connu,
+
+  Une douleur tres simple et non mysterieuse,
+  Et, comme votre joie, eclatante pour tous.
+  Cessez donc de chercher, o belle curieuse!
+  Et, bien que votre voix soit douce, taisez-vous!
+
+  Taisez-vous, ignorante! ame toujours ravie!
+  Bouche au rire enfantin! Plus encore que la Vie,
+  La Mort nous tient souvent par des liens subtils.
+
+  Laissez, laissez mon coeur s'enivrer d'un _mensonge,_
+  Plonger dans vos beaux yeux comme dans un beau songe,
+  Et sommeiller longtemps a l'ombre de vos cils!
+
+
+
+
+  TOUT ENTIERE
+
+
+  Le Demon, dans ma chambre haute,
+  Ce matin est venu me voir,
+  Et, tachant a me prendre en faute,
+  Me dit: << Je voudrais bien savoir,
+
+  Parmi toutes les belles choses
+  Dont est fait son enchantement,
+  Parmi les objets noirs ou roses
+  Qui composent son corps charmant,
+
+  Quel est le plus doux. >>--O mon ame!
+  Tu repondis a l'Abhorre:
+  << Puisqu'en elle tout est dictame,
+  Rien ne peut etre prefere.
+
+  Lorsque tout me ravit, j'ignore
+  Si quelque chose me seduit.
+  Elle eblouit comme l'Aurore
+  Et console comme la Nuit;
+
+  Et l'harmonie est trop exquise,
+  Qui gouverne tout son beau corps,
+  Pour que l'impuissante analyse
+  En note les nombreux accords.
+
+  O metamorphose mystique
+  De tous mes sens fondus en un!
+  Son haleine fait la musique,
+  Comme sa voix fait le parfum! >>
+
+  Que diras-tu ce soir, pauvre ame solitaire,
+  Que diras-tu, mon coeur, coeur autrefois fletri,
+  A la tres belle, a la tres bonne, a la tres chere,
+  Dont le regard divin t'a soudain refleuri?
+
+  --Nous mettrons noire orgueil a chanter ses louanges,
+  Rien ne vaut la douceur de son autorite;
+  Sa chair spirituelle a le parfum des Anges,
+  Et son oeil nous revet d'un habit de clarte.
+
+  Que ce soit dans la nuit et dans la solitude.
+  Que ce soit dans la rue et dans la multitude;
+  Son fantome dans l'air danse comme un flambeau.
+
+  Parfois il parle et dit: << Je suis belle, et j'ordonne
+  Que pour l'amour de moi vous n'aimiez que le Beau.
+  Je suis l'Ange gardien, la Muse et la Madone. >>
+
+
+
+
+  CONFESSION
+
+
+  Une fois, une seule, aimable et douce femme,
+      A mon bras votre bras poli
+  S'appuya (sur le fond tenebreux de mon ame
+      Ce souvenir n'est point pali).
+
+  Il etait tard; ainsi qu'une medaille neuve
+      La pleine lune s'etalait,
+  Et la solennite de la nuit, comme un fleuve,
+      Sur Paris dormant ruisselait.
+
+  Et le long des maisons, sous les portes cocheres,
+      Des chats passaient furtivement,
+  L'oreille au guet, ou bien, comme des ombres cheres,
+      Nous accompagnaient lentement.
+
+  Tout a coup, au milieu de l'intimite libre
+      Eclose a la pale clarte,
+  De vous, riche et sonore instrument ou ne vibre
+      Que la radieuse gaite,
+
+  De vous, claire et joyeuse ainsi qu'une fanfare
+      Dans le matin etincelant,
+  Une note plaintive, une note bizarre
+      S'echappa, tout en chancelant.
+
+  Comme une enfant chetive, horrible, sombre, immonde
+      Dont sa famille rougirait,
+  Et qu'elle aurait longtemps, pour la cacher au monde,
+      Dans un caveau mise au secret!
+
+  Pauvre ange, elle chantait, votre note criarde:
+      << Que rien ici-bas n'est certain,
+  Et que toujours, avec quelque soin qu'il se farde,
+      Se trahit l'egoisme humain;
+
+  Que c'est un dur metier que d'etre belle femme,
+      Et que c'est le travail banal
+  De la danseuse folle et froide qui se pame
+      Dans un sourire machinal;
+
+  Que batir sur les coeurs est une chose sotte,
+      Que tout craque, amour et beaute,
+  Jusqu'a ce que l'Oubli les jette dans sa hotte
+  Pour les rendre a l'Eternite! >>
+
+  J'ai souvent evoque cette lune enchantee,
+      Ce silence et cette langueur,
+  Et cette confidence horrible chuchotee
+      Au confessionnal du coeur.
+
+
+
+
+  LE FLACON
+
+
+  Il est de forts parfums pour qui toute matiere
+  Est poreuse. On dirait qu'ils penetrent le verre.
+  En ouvrant un coffret venu de l'orient
+  Dont la serrure grince et rechigne en criant,
+
+  Ou dans une maison deserte quelque armoire
+  Pleine de l'acre odeur des temps, poudreuse et noire,
+  Parfois on trouve un vieux flacon qui se souvient,
+  D'ou jaillit toute vive une ame qui revient.
+
+  Mille pensers dormaient, chrysalides funebres,
+  Fremissant doucement dans tes lourdes tenebres,
+  Qui degagent leur aile et prennent leur essor,
+  Teintes d'azur, glaces de rose, lames d'or.
+
+  Voila le souvenir enivrant qui voltige
+  Dans l'air trouble; les yeux se ferment; le Vertige
+  Saisit l'ame vaincue et la pousse a deux mains
+  Vers un gouffre obscurci de miasmes humains;
+
+  Il la terrasse au bord d'un gouffre seculaire,
+  Ou, Lazare odorant dechirant son suaire,
+  Se meut dans son reveil le cadavre spectral
+  D'un vieil amour ranci, charmant et sepulcral.
+
+  Ainsi, quand je serai perdu dans la memoire
+  Des hommes, dans le coin d'une sinistre armoire;
+  Quand on m'aura jete, vieux flacon desole,
+  Decrepit, poudreux, sale, abject, visqueux, fele,
+
+  Je serai ton cercueil, aimable pestilence!
+  Le temoin de ta force et de ta virulence,
+  Cher poison prepare par les anges! liqueur
+  Qui me ronge, o la vie et la mort de mon coeur!
+
+
+
+
+  LE POISON
+
+
+  Le vin sait revetir le plus sordide bouge
+      D'un luxe miraculeux,
+  Et fait surgir plus d'un portique fabuleux
+      Dans l'or de sa vapeur rouge,
+  Comme un soleil couchant dans un ciel nebuleux.
+
+  L'opium agrandit ce qui n'a pas de bornes,
+      Allonge l'illimite,
+  Approfondit le temps, creuse la volupte,
+      Et de plaisirs noirs et mornes
+  Remplit l'ame au dela de sa capacite.
+
+  Tout cela ne vaut pas le poison qui decoule
+      De tes yeux, de tes yeux verts,
+  Lacs ou mon ame tremble et se voit a l'envers...
+      Mes songes viennent en foule
+  Pour se desalterer a ces gouffres amers.
+
+  Tout cela ne vaut pas le terrible prodige
+      De ta salive qui mord,
+  Qui plonge dans l'oubli mon ame sans remord,
+      Et, charriant le vertige,
+  La roule defaillante aux rives de la mort!
+
+
+
+
+  LE CHAT
+
+  I
+
+
+  Dans ma cervelle se promene
+  Ainsi qu'en son appartement,
+  Un beau chat, fort, doux et charmant,
+  Quand il miaule, on l'entend a peine,
+
+  Tant son timbre est tendre et discret;
+  Mais que sa voix s'apaise ou gronde,
+  Elle est toujours riche et profonde.
+  C'est la son charme et son secret.
+
+  Cette voix, qui perle et qui filtre
+  Dans mon fond le plus tenebreux,
+  Me remplit comme un vers nombreux
+  Et me rejouit comme un philtre.
+
+  Elle endort les plus cruels maux
+  Et contient toutes les extases;
+  Pour dire les plus longues phrases,
+  Elle n'a pas besoin de mots.
+
+  Non, il n'est pas d'archet qui morde
+  Sur mon coeur, parfait instrument,
+  Et fasse plus royalement
+  Chanter sa plus vibrante corde
+
+  Que ta voix, chat mysterieux,
+  Chat seraphique, chat etrange,
+  En qui tout est, comme un ange,
+  Aussi subtil qu'harmonieux.
+
+
+  II
+
+
+  De sa fourrure blonde et brune
+  Sort un parfum si doux, qu'un soir
+  J'en fus embaume, pour l'avoir
+  Caressee une fois, rien qu'une.
+
+  C'est l'esprit familier du lieu;
+  Il juge, il preside, il inspire
+  Toutes choses dans son empire;
+  Peut-etre est-il fee, est-il dieu?
+
+  Quand mes yeux, vers ce chat que j'aime
+  Tires comme par un aimant,
+  Se retournent docilement,
+  Et que je regarde en moi-meme,
+
+  Je vois avec etonnement
+  Le feu de ses prunelles pales,
+  Clairs fanaux, vivantes opales,
+  Qui me contemplent fixement.
+
+
+
+
+  LE BEAU NAVIRE
+
+
+  Je veux te raconter, o molle enchanteresse,
+  Les diverses beautes qui parent ta jeunesse;
+      Je veux te peindre ta beaute
+  Ou l'enfance s'allie a la maturite.
+
+  Quand tu vas balayant l'air de ta jupe large,
+  Tu fais l'effet d'un beau vaisseau qui prend le large,
+      Charge de toile, et va roulant
+  Suivant un rythme doux, et paresseux, et lent.
+
+  Sur ton cou large et rond, sur tes epaules grasses,
+  Ta tete se pavane avec d'etranges graces;
+      D'un air placide et triomphant
+  Tu passes ton chemin, majestueuse enfant.
+
+  Je veux te raconter, o molle enchanteresse,
+  Les diverses beautes qui parent ta jeunesse;
+      Je veux te peindre ta beaute
+  Ou l'enfance s'allie a la maturite.
+
+  Ta gorge qui s'avance et qui pousse la moire,
+  Ta gorge triomphante est une belle armoire
+      Dont les panneaux bombes et clairs
+  Comme les boucliers accrochent des eclairs;
+
+  Boucliers provoquants, armes de pointes roses!
+  Armoire a doux secrets, pleine de bonnes choses,
+      De vins, de parfums, de liqueurs
+  Qui feraient delirer les cerveaux et les coeurs!
+
+  Quand tu vas balayant l'air de ta jupe large,
+  Tu fais l'effet d'un beau vaisseau qui prend le large,
+      Charge de toile, et va roulant
+  Suivant un rythme doux, et paresseux, et lent.
+
+  Tes nobles jambes sons les volants qu'elles chassent,
+  Tourmentent les desirs obscurs et les agacent
+      Comme deux sorcieres qui font
+  Tourner un philtre noir dans un vase profond.
+
+  Tes bras qui se joueraient des precoces hercules
+  Sont des boas luisants les solides emules,
+      Faits pour serrer obstinement,
+  Comme pour l'imprimer dans ton coeur, ton amant.
+
+  Sur ton cou large et rond, sur tes epaules grasses,
+  Ta tete se pavane avec d'etranches graces;
+      D'un air placide et triomphant
+  Tu passes ton chemin, majestueuse enfant.
+
+
+
+
+  L'IRREPARABLE
+
+  I
+
+
+  Pouvons-nous etouffer le vieux, le long Remords,
+      Qui vit, s'agite et se tortille,
+  Et se nourrit de nous comme le ver des morts,
+      Comme du chene la chenille?
+  Pouvons-nous etouffer l'implacable Remords?
+
+  Dans quel philtre, dans quel vin, dans quelle tisane
+      Noierons-nous ce vieil ennemi,
+  Destructeur et gourmand comme la courtisane,
+      Patient comme la fourmi?
+  Dans quel philtre?--dans quel vin?--dans quelle tisane?
+
+  Dis-le, belle sorciere, oh! dis, si tu le sais,
+      A cet esprit comble d'angoisse
+  Et pareil au mourant qu'ecrasent les blesses,
+      Que le sabot du cheval froisse,
+  Dis-le, belle sorciere, oh! dis, si tu le sais,
+
+  A cet agonisant que le loup deja flaire
+      Et que surveille le corbeau,
+  A ce soldat brise, s'il faut qu'il desespere
+      D'avoir sa croix et son tombeau;
+  Ce pauvre agonisant que le loup deja flaire!
+
+  Peut-on illuminer un ciel bourbeux et noir?
+      Peut-on dechirer des tenebres
+  Plus denses que la poix, sans matin et sans soir,
+      Sans astres, sans eclairs funebres?
+  Peut-on illuminer un ciel bourbeux et noir?
+
+  L'Esperance qui brille aux carreaux de l'Auberge
+      Est souillee, est morte a jamais!
+  Sans lune et sans rayons trouver ou l'on heberge
+      Les martyrs d'un chemin mauvais!
+  Le Diable a tout eteint aux carreaux de l'Auberge!
+
+  Adorable sorciere, aimes-tu les damnes!
+      Dis, connais-tu l'irremissible?
+  Connais-tu le Remords, aux traits empoisonnes,
+      A qui notre coeur sert de cible?
+  Adorable sorciere, aimes-tu les damnes?
+
+  L'irreparable ronge avec sa dent maudite
+      Notre ame, piteux monument,
+  Et souvent il attaque, ainsi que le termite,
+      Par la base le batiment.
+  L'irreparable ronge avec sa dent maudite!
+
+
+  II
+
+
+  J'ai vu parfois, au fond d'un theatre banal
+      Qu'enflammait l'orchestre sonore,
+  Une fee allumer dans un ciel infernal
+      Une miraculeuse aurore;
+  J'ai vu parfois au fond d'un theatre banal
+
+  Un etre qui n'etait que lumiere, or et gaze,
+      Terrasser l'enorme Satan
+  Mais mon coeur, que jamais ne visite l'extase
+      Est un theatre ou l'on attend
+  Toujours, toujours en vain, l'Etre aux ailes de gaze!
+
+
+
+
+  CAUSERIE
+
+
+  Vous etes un beau ciel d'automne, clair et rose!
+  Mais la tristesse en moi monte comme la mer,
+  Et laisse, en refluant, sur ma levre morose
+  Le souvenir cuisant de son limon amer.
+
+  --Ta main se glisse en vain sur mon sein qui se pame;
+  Ce qu'elle cherche, amie, est un lieu saccage
+  Par la griffe et la dent feroce de la femme.
+  Ne cherchez plus mon coeur; les betes l'ont mange.
+
+  Mon coeur est un palais fletri par la cohue;
+  On s'y soule, on s'y tue, on s'y prend aux cheveux.
+  --Un parfum nage autour de votre gorge nue!...
+
+  O Beaute, dur fleau des ames! tu le veux!
+  Avec tes yeux de feu, brillants comme des fetes!
+  Calcine ces lambeaux qu'ont epargnes les betes!
+
+
+
+
+  CHANT D'AUTOMNE
+
+  I
+
+
+  Bientot nous plongerons dans les froides tenebres;
+  Adieu, vive clarte de nos etes trop courts!
+  J'entends deja tomber avec des chocs funebres
+  Le bois retentissant sur le pave des cours.
+
+  Tout l'hiver va rentrer dans mon etre: colere,
+  Haine, frissons, horreur, labeur dur et force,
+  Et, comme le soleil dans son enfer polaire.
+  Mon coeur ne sera plus qu'un bloc rouge et glace.
+
+  J'ecoute en fremissant chaque buche qui tombe;
+  L'echafaud qu'on batit n'a pas d'echo plus sourd.
+  Mon esprit est pareil a la tour qui succombe
+  Sous les coups du belier infatigable et lourd.
+
+  Il me semble, berce par ce choc monotone,
+  Qu'on cloue en grande hate un cercueil quelque part...
+  Pour qui?--C'etait hier l'ete; voici l'automne!
+  Ce bruit mysterieux sonne comme un depart.
+
+
+  II
+
+
+  J'aime de vos longs yeux la lumiere verdatre,
+  Douce beaute, mais tout aujourd'hui m'est amer,
+  Et rien, ni votre amour, ni le boudoir, ni l'atre,
+  Ne me vaut le soleil rayonnant sur la mer.
+
+  Et pourtant aimez-moi, tendre coeur! soyez mere
+  Meme pour un ingrat, meme pour un mechant;
+  Amante ou soeur, soyez la douceur ephemere
+  D'un glorieux automne ou d'un soleil couchant.
+
+  Courte tache! La tombe attend; elle est avide!
+  Ah! laissez-moi, mon front pose sur vos genoux,
+  Gouter, en regrettant l'ete blanc et torride,
+  De l'arriere-saison le rayon jaune et doux!
+
+
+
+
+  CHANSON D'APRES-MIDI
+
+
+  Quoique tes sourcils mechants
+  Te donnent un air etrange
+  Qui n'est pas celui d'un ange,
+  Sorciere aux yeux allechants,
+
+  Je t'adore, o ma frivole,
+  Ma terrible passion!
+  Avec la devotion
+  Du pretre pour son idole.
+
+  Le desert et la foret
+  Embaument tes tresses rudes,
+  Ta tete a les attitudes
+  De l'enigme et du secret.
+
+  Sur ta chair le parfum rode
+  Comme autour d'un encensoir;
+  Tu charmes comme le soir,
+  Nymphe tenebreuse et chaude.
+
+  Ah! les philtres les plus forts
+  Ne valent pas ta paresse,
+  Et tu connais la caresse
+  Qui fait revivre les morts!
+
+  Tes hanches sont amoureuses
+  De ton dos et de tes seins,
+  Et tu ravis les coussins
+  Par tes poses langoureuses.
+
+  Quelquefois pour apaiser
+  Ta rage mysterieuse,
+  Tu prodigues, serieuse,
+  La morsure et le baiser;
+
+  Tu me dechires, ma brune,
+  Avec un rire moqueur,
+  Et puis tu mets sur mon coeur
+  Ton oeil doux comme la lune.
+
+  Sous tes souliers de satin,
+  Sous tes charmants pieds de soie,
+  Moi, je mets ma grande joie,
+  Mon genie et mon destin,
+
+  Mon ame par toi guerie,
+  Par toi, lumiere et couleur!
+  Explosion de chaleur
+  Dans ma noire Siberie!
+
+
+
+
+  SISINA
+
+
+  Imaginez Diane en galant equipage,
+  Parcourant les forets ou battant les halliers,
+  Cheveux et gorge au vent, s'enivrant de tapage,
+  Superbe et defiant les meilleurs cavaliers!
+
+  Avez-vous vu Theroigne, amante du carnage,
+  Excitant a l'assaut un peuple sans souliers,
+  La joue et l'oeil en feu, jouant son personnage,
+  Et montant, sabre au poing, les royaux escaliers?
+
+  Telle la Sisina! Mais la douce guerriere
+  A l'ame charitable autant que meurtriere,
+  Son courage, affole de poudre et de tambours,
+
+  Devant les suppliants sait mettre bas les armes,
+  Et son coeur, ravage par la flamme, a toujours,
+  Pour qui s'en montre digne, un reservoir de larmes.
+
+
+
+
+  A UNE DAME CREOLE
+
+
+  Au pays parfume que le soleil caresse,
+  J'ai connu sous un dais d'arbres tout empourpres
+  Et de palmiers, d'ou pleut sur les yeux la paresse,
+  Une dame creole aux charmes ignores.
+
+  Son teint est pale et chaud; la brune enchanteresse
+  A dans le col des airs noblement manieres;
+  Grande et svelte en marchant comme une chasseresse,
+  Son sourire est tranquille et ses yeux assures.
+
+  Si vous alliez, Madame, au vrai pays de gloire,
+  Sur les bords de la Seine ou de la verte Loire,
+  Belle digne d'orner les antiques manoirs,
+
+  Vous feriez, a l'abri des ombreuses retraites,
+  Germer mille sonnets dans le coeur des poetes,
+  Que vos grands yeux rendraient plus soumis que vos noirs.
+
+
+
+
+  LE REVENANT
+
+
+  Comme les anges a l'oeil fauve,
+  Je reviendrai dans ton alcove
+  Et vers toi glisserai sans bruit
+  Avec les ombres de la nuit;
+
+  Et je te donnerai, ma brune,
+  Des baisers froids comme la lune
+  Et des caresses de serpent
+  Autour d'une fosse rampant.
+
+  Quand viendra le matin livide,
+  Tu trouveras ma place vide,
+  Ou jusqu'au soir il fera froid.
+
+  Comme d'autres par la tendresse,
+  Sur ta vie et sur ta jeunesse,
+  Moi, je veux regner par l'effroi!
+
+
+
+
+  SONNET D'AUTOMNE
+
+
+  Ils me disent, tes yeux, clairs comme le cristal:
+  << Pour toi, bizarre amant, quel est donc mon merite? >>
+  --Sois charmante et tais-toi! Mon coeur, que tout irrite,
+  Excepte la candeur de l'antique animal,
+
+  Ne veut pas te montrer son secret infernal,
+  Berceuse dont la main aux longs sommeils m'invite,
+  Ni sa noire legende avec la flamme ecrite.
+  Je hais la passion et l'esprit me fait mal!
+
+  Aimons-nous doucement. L'Amour dans sa guerite,
+  Tenebreux, embusque, bande son arc fatal.
+  Je connais les engins de son vieil arsenal:
+
+  Crime, horreur et folie!--O pale marguerite!
+  Comme moi n'es-tu pas un soleil automnal,
+  O ma si blanche, o ma si froide Marguerite?
+
+
+
+
+  TRISTESSE DE LA LUNE
+
+
+  Ce soir, la lune reve avec plus de paresse;
+  Ainsi qu'une beaute, sur de nombreux coussins,
+  Qui d'une main distraite et legere caresse,
+  Avant de s'endormir, le contour de ses seins,
+
+  Sur le dos satine des molles avalanches,
+  Mourante, elle se livre aux longues pamoisons,
+  Et promene ses yeux sur les visions blanches
+  Qui montent dans l'azur comme des floraisons.
+
+  Quand parfois sur ce globe, en sa langueur oisive,
+  Elle laisse filer une larme furtive,
+  Un poete pieux, ennemi du sommeil,
+
+  Dans le creux de sa main prend cette larme pale,
+  Aux reflets irises comme un fragment d'opale,
+  Et la met dans son coeur loin des yeux du soleil.
+
+
+
+
+  LES CHATS
+
+
+  Les amoureux fervents et les savants austeres
+  Aiment egalement dans leur mure saison,
+  Les chats puissants et doux, orgueil de la maison,
+  Qui comme eux sont frileux et comme eux sedentaires.
+
+  Amis de la science et de la volupte,
+  Ils cherchent le silence et l'horreur des tenebres;
+  L'Erebe les eut pris pour ses coursiers funebres,
+  S'ils pouvaient au servage incliner leur fierte.
+
+  Ils prennent en songeant les nobles attitudes
+  Des grands sphinx allonges au fond des solitudes,
+  Qui semblent s'endormir dans un reve sans fin;
+
+  Leurs reins feconds sont pleins d'etincelles magiques,
+  Et des parcelles d'or, ainsi qu'un sable fin,
+  Etoilent vaguement leurs prunelles mystiques.
+
+
+
+
+  LA PIPE
+
+
+  Je suis la pipe d'un auteur;
+  On voit, a contempler ma mine
+  D'Abyssienne ou de Cafrine,
+  Que mon maitre est un grand fumeur.
+
+  Quand il est comble de douleur,
+  Je fume comme la chaumine
+  Ou se prepare la cuisine
+  Pour le retour du laboureur.
+
+  J'enlace et je berce son ame
+  Dans le reseau mobile et bleu
+  Qui monte de ma bouche en feu,
+
+  Et je roule un puissant dictame
+  Qui charme son coeur et guerit
+  De ses fatigues son esprit.
+
+
+
+
+  LA MUSIQUE
+
+
+  La musique souvent me prend comme une mer!
+      Vers ma pale etoile,
+  Sous un plafond de brume ou dans un vaste ether,
+      Je mets a la voile;
+
+  La poitrine en avant et les poumons gonfles
+      Comme de la toile,
+  J'escalade le dos des flots amonceles
+      Que la nuit me voile;
+
+  Je sens vibrer en moi toutes les passions
+      D'un vaisseau qui souffre;
+  Le bon vent, la tempete et ses convulsions
+
+      Sur l'immense gouffre
+  Me bercent.--D'autres fois, calme plat, grand mimoir
+      De mon desespoir!
+
+
+
+
+  SEPULTURE D'UN POETE MAUDIT
+
+
+  Si par une nuit lourde et sombre
+  Un bon chretien, par charite,
+  Derriere quelque vieux decombre
+  Enterre votre corps vante,
+
+  A l'heure ou les chastes etoiles
+  Ferment leurs yeux appesantis,
+  L'araignee y fera ses toiles,
+  Et la vipere ses petits;
+
+  Vous entendrez toute l'annee
+  Sur votre tete condamnee
+  Les cris lamentables des loups
+
+  Et des sorcieres fameliques,
+  Les ebats des vieillards lubriques
+  Et les complots des noirs filous.
+
+
+
+
+  LE MORT JOYEUX
+
+
+  Dans une terre grasse et pleine d'escargots
+  Je veux creuser moi-meme une fosse profonde,
+  Ou je puisse a loisir etaler mes vieux os
+  Et dormir dans l'oubli comme un requin dans l'onde.
+
+  Je hais les testaments et je hais les tombeaux;
+  Plutot que d'implorer une larme du monde,
+  Vivant, j'aimerais mieux inviter les corbeaux
+  A saigner tous les bouts de ma carcasse immonde.
+
+  O vers! noirs compagnons sans oreille et sans yeux,
+  Voyez venir a vous un mort libre et joyeux;
+  Philosophes viveurs, fils de la pourriture,
+
+  A travers ma ruine allez donc sans remords,
+  Et dites-moi s'il est encor quelque torture
+  Pour ce vieux corps sans ame et mort parmi les morts?
+
+
+
+
+  LA CLOCHE FELEE
+
+
+  Il est amer et doux, pendant les nuits d'hiver,
+  D'ecouter pres du feu qui palpite et qui fume
+  Les souvenirs lointains lentement s'elever
+  Au bruit des carillons qui chantent dans la brume.
+
+  Bienheureuse la cloche au gosier vigoureux
+  Qui, malgre sa vieillesse, alerte et bien portante,
+  Jette fidelement son cri religieux,
+  Ainsi qu'un vieux soldat qui veille sous la tente!
+
+  Moi, mon ame est felee, et lorsqu'en ses ennuis
+  Elle veut de ses chants peupler l'air froid des nuits,
+  Il arrive souvent que sa voix affaiblie
+
+  Semble le rale epais d'un blesse qu'on oublie
+  Au bord d'un lac de sang sous un grand tas de morts,
+  Et qui meurt, sans bouger, dans d'immenses efforts.
+
+
+
+
+  SPLEEN
+
+
+  Pluviose, irrite contre la vie entiere,
+  De son urne a grands flots vers un froid tenebreux
+  Aux pales habitants du voisin cimetiere
+  Et la mortalite sur les faubourgs brumeux.
+
+  Mon chat sur le carreau cherchant une litiere
+  Agite sans repos son corps maigre et galeux;
+  L'ame d'un vieux poete erre dans la gouttiere
+  Avec la triste voix d'un fantome frileux.
+
+  Le bourdon se lamente, et la buche enfumee
+  Accompagne en fausset la pendule enrhumee,
+  Cependant qu'en un jeu plein de sales parfums,
+
+  Heritage fatal d'une vieille hydropique,
+  Le beau valet de coeur et la dame de pique
+  Causent sinistrement de leurs amours defunts.
+  J'ai plus de souvenirs que si j'avais mille ans.
+
+  Un gros meuble a tiroirs encombre de bilans,
+  De vers, de billets doux, de proces, de romances,
+  Avec de lourds cheveux roules dans des quittances,
+  Cache moins de secrets que mon triste cerveau.
+  C'est une pyramide, un immense caveau,
+  Qui contient plus de morts que la fosse commune.
+  --Je suis un cimetiere abhorre de la lune,
+  Ou comme des remords se trainent de longs vers
+  Qui s'acharnent toujours sur mes morts les plus chers.
+  Je suis un vieux boudoir plein de roses fanees,
+  Ou git tout un fouillis de modes surannees,
+  Ou les pastels plaintifs et les pales Boucher,
+  Seuls, respirent l'odeur d'un flacon debouche.
+
+  Rien n'egale en longueur les boiteuses journees,
+  Quand sous les lourds flocons des neigeuses annees
+  L'ennui, fruit de la morne incuriosite,
+  Prend les proportions de l'immortalite.
+  --Desormais tu n'es plus, o matiere vivante!
+  Qu'un granit entoure d'une vague epouvante,
+  Assoupi dans le fond d'un Saharah brumeux!
+  Un vieux sphinx ignore du monde insoucieux,
+  Oublie sur la carte, et dont l'humeur farouche
+  Ne chante qu'aux rayons du soleil qui se couche.
+
+  Je suis comme le roi d'un pays pluvieux,
+  Riche, mais impuissant, jeune et pourtant tres vieux,
+  Qui, de ses precepteurs meprisant les courbettes,
+  S'ennuie avec ses chiens comme avec d'autres betes.
+  Rien ne peut l'egayer, ni gibier, ni faucon,
+  Ni son peuple mourant en face du balcon,
+  Du bouffon favori la grotesque ballade
+  Ne distrait plus le front de ce cruel malade;
+  Son lit fleurdelise se transforme en tombeau,
+  Et les dames d'atour, pour qui tout prince est beau,
+  Ne savent plus trouver d'impudique toilette
+  Pour tirer un souris de ce jeune squelette.
+  Le savant qui lui fait de l'or n'a jamais pu
+  De son etre extirper l'element corrompu,
+  Et dans ces bains de sang qui des Romains nous viennent
+  Et dont sur leurs vieux jours les puissants se souviennent,
+  Il n'a su rechauffer ce cadavre hebete
+  Ou coule au lieu de sang l'eau verte du Lethe.
+
+  Quand le ciel bas et lourd pese comme un couvercle
+  Sur l'esprit gemissant en proie aux longs ennuis,
+  Et que de l'horizon embrassant tout le cercle
+  Il nous verse un jour noir plus triste que les nuits;
+
+  Quand la terre est changee en un cachot humide,
+  Ou l'Esperance, comme une chauve-souris,
+  S'en va battant les murs de son aile timide
+  Et se cognant la tete a des plafonds pourris;
+
+  Quand la pluie etalant ses immenses trainees
+  D'une vaste prison imite les barreaux,
+  Et qu'un peuple muet d'infames araignees
+  Vient tendre ses filets au fond de nos cerveaux,
+
+  Des cloches tout a coup sautent avec furie
+  Et lancent vers le ciel un affreux hurlement,
+  Ainsi que des esprits errants et sans patrie
+  Qui se mettent a geindre opiniatrement.
+
+  --Et de longs corbillards, sans tambours ni musique,
+  Defilent lentement dans mon ame; l'Espoir,
+  Vaincu, pleure, et l'Angoisse atroce, despotique,
+  Sur mon crane incline plante son drapeau noir.
+
+
+
+
+  LE GOUT DU NEANT
+
+
+  Morne esprit, autrefois amoureux de la lutte,
+  L'Espoir, dont l'eperon attisait ton ardeur,
+  Ne veut plus t'enfourcher! Couche-toi sans pudeur,
+  Vieux cheval dont le pied a chaque obstacle butte.
+
+  Resigne-toi, mon coeur; dors ton sommeil de brute.
+
+  Esprit vaincu, fourbu! Pour toi, vieux maraudeur,
+  L'amour n'a plus de gout, non plus que la dispute;
+  Adieu donc, chants du cuivre et soupirs de la flute!
+  Plaisirs, ne tentez plus un coeur sombre et boudeur!
+
+  Le Printemps adorable a perdu son odeur!
+
+  Et le Temps m'engloutit minute par minute,
+  Comme la neige immense un corps pris de roideur;
+  Et je n'y cherche plus l'abri d'une cahute!
+  Je contemple d'en haut le globe en sa rondeur,
+
+  Avalanche, veux-tu m'emporter dans ta chute?
+
+
+
+
+  ALCHIMIE DE LA DOULEUR
+
+
+  L'un t'eclaire avec son ardeur
+  L'autre en toi met son deuil. Naturel
+  Ce qui dit a l'un: Sepulture!
+  Dit a l'autre: Vie et splendeur!
+
+  Hermes inconnu qui m'assistes
+  Et qui toujours m'intimidas,
+  Tu me rends l'egal de Midas,
+  Le plus triste des alchimistes;
+
+  Par toi je change l'or en fer
+  Et le paradis en enfer;
+  Dans le suaire des nuages
+
+  Je decouvre un cadavre cher.
+  Et sur les celestes rivages
+  Je batis de grands sarcophages.
+
+
+
+
+  LA PRIERE D'UN PAIEN
+
+
+  Ah! ne ralentis pas tes flammes;
+  Rechauffe mon coeur engourdi,
+  Volupte, torture des ames!
+  _Diva! supplicem exaudi!_
+
+  Deesse dans l'air repandue,
+  Flamme dans notre souterrain!
+  Exauce une ame morfondue,
+  Qui te consacre un chant d'airain.
+
+  Volupte, sois toujours ma reine!
+  Prends le masque d'une sirene
+  Faite de chair et de velours.
+
+  Ou verse-moi tes sommeils lourds
+  Dans le vin informe et mystique,
+  Volupte, fantome elastique!
+
+
+
+
+  LE COUVERCLE
+
+
+  En quelque lieu qu'il aille, ou sur mer ou sur terre,
+  Sous un climat de flamme ou sous un soleil blanc,
+  Serviteur de Jesus, courtisan de Cythere,
+  Mendiant tenebreux ou Cresus rutilant,
+
+  Citadin, campagnard, vagabond, sedentaire,
+  Que son petit cerveau soit actif ou soit lent,
+  Partout l'homme subit la terreur du mystere,
+  Et ne regarde en haut qu'avec un oeil tremblant.
+
+  En haut, le Ciel! ce mur de caveau qui l'etouffe,
+  Plafond illumine pour un opera bouffe
+  Ou chaque histrion foule un sol ensanglante,
+
+  Terreur du libertin, espoir du fol ermite;
+  Le Ciel! couvercle noir de la grande marmite
+  Ou bout l'imperceptible et vaste Humanite.
+
+
+
+
+  L'IMPREVU
+
+
+  Harpagon, qui veillait son pere agonisant,
+  Se dit, reveur, devant ces levres deja blanches;
+  << Nous avons au grenier un nombre suffisant,
+      Ce me semble, de vieilles planches? >>
+
+  Celimene roucoule et dit: << Mon coeur est bon,
+  Et naturellement, Dieu m'a faite tres belle. >>
+  --Son coeur! coeur racorni, fume comme un jambon,
+  Recuit a la flamme eternelle!
+
+  Un gazetier fumeux, qui se croit un flambeau,
+  Dit au pauvre, qu'il a noye dans les tenebres:
+  << Ou donc l'apercois-tu, ce createur du Beau,
+      Ce Redresseur que tu celebres? >>
+
+  Mieux que tous, je connais certains voluptueux
+  Qui baille nuit et jour, et se lamente et pleure,
+  Repetant, l'impuissant et le fat: << Oui, je veux
+      Etre vertueux, dans une heure! >>
+
+  L'horloge, a son tour, dit a voix basse: << Il est mur,
+  Le damne! J'avertis en vain la chair infecte.
+  L'homme est aveugle, sourd, fragile, comme un mur
+      Qu'habite et que ronge un insecte! >>
+
+  Et puis, Quelqu'un parait, que tous avaient nie,
+  Et qui leur dit, railleur et fier: << Dans mon ciboire,
+  Vous avez, que je crois, assez communie,
+      A la joyeuse Messe noire?
+
+  Chacun de vous m'a fait un temple dans son coeur;
+  Vous avez, en secret, baise ma fesse immonde!
+  Reconnaissez Satan a son rire vainqueur,
+      Enorme et laid comme le monde!
+
+  Avez-vous donc pu croire, hypocrites surpris,
+  Qu'on se moque du maitre, et qu'avec lui l'on triche,
+  Et qu'il soit naturel de recevoir deux prix.
+      D'aller au Ciel et d'etre riche?
+
+  Il faut que le gibier paye le vieux chasseur
+  Qui se morfond longtemps a l'affut de la proie.
+  Je vais vous emporter a travers l'epaisseur,
+      Compagnons de ma triste joie,
+
+  A travers l'epaisseur de la terre et du roc,
+  A travers les amas confus de votre cendre,
+  Dans un palais aussi grand que moi, d'un seul bloc,
+      Et qui n'est pas de pierre tendre;
+
+  Car il fait avec l'universel Peche,
+  Et contient mon orgueil, ma douleur et ma gloire!
+  --Cependant, tout en haut de l'univers juche,
+      Un Ange sonne la victoire
+
+  De ceux dont le coeur dit: << Que beni soit ton fouet,
+  Seigneur! que la douleur, o Pere, soit benie!
+  Mon ame dans tes mains n'est pas un vain jouet,
+      Et ta prudence est infinie. >>
+
+  Le son de la trompette est si delicieux,
+  Dans ces soirs solennels de celestes vendanges,
+  Qu'il s'infiltre comme une extase dans tous ceux
+      Dont elle chante les louanges.
+
+
+
+
+  L'EXAMEN DE MINUIT
+
+
+  La pendule, sonnant minuit,
+  Ironiquement nous engage
+  A nous rappeler quel usage
+  Nous fimes du jour qui s'enfuit:
+  --Aujourd'hui, date fatidique,
+  Vendredi, treize, nous avons,
+  Malgre tout ce que nous savons,
+  Mene le train d'un heretique.
+
+  Nous avons blaspheme Jesus,
+  Des Dieux le plus incontestable!
+  Comme un parasite a la table
+  De quelque monstrueux Cresus,
+  Nous avons, pour plaire a la brute,
+  Digne vassale des Demons,
+  Insulte ce que nous aimons
+  Et flatte ce qui nous rebute;
+
+  Contriste, servile bourreau,
+  Le faible qu'a tort on meprise;
+  Salue l'enorme Betise,
+  La Betise au front de taureau;
+  Baise la stupide Matiere
+  Avec grande devotion,
+  Et de la putrefaction
+  Beni la blafarde lumiere.
+
+  Enfin, nous avons, pour noyer
+  Le vertige dans le delire,
+  Nous, pretre orgueilleux de la Lyre,
+  Dont la gloire est de deployer
+  L'ivresse des choses funebres,
+  Bu sans soif et mange sans faim!...
+  --Vite soufflons la lampe, afin
+  De nous cacher dans les tenebres!
+
+
+
+
+  MADRIGAL TRISTE
+
+
+  Que m'importe que tu sois sage?
+  Sois belle! et sois triste! Les pleurs
+  Ajoutent un charme au visage,
+  Comme le fleuve au paysage;
+  L'orage rajeunit les fleurs.
+
+  Je t'aime surtout quand la joie
+  S'enfuit de ton front terrasse;
+  Quand ton coeur dans l'horreur se noie;
+  Quand sur ton present se deploie
+  Le nuage affreux du passe.
+
+  Je t'aime quand ton grand oeil verse
+  Une eau chaude comme le sang;
+  Quand, malgre ma main qui te berce,
+  Ton angoisse, trop lourde, perce
+  Comme un rale d'agonisant.
+  J'aspire, volupte divine!
+
+  Hymne profond, delicieux!
+  Tous les sanglots de ta poitrine,
+  Et crois que ton coeur s'illumine
+  Des perles que versent tes yeux!
+
+  Je sais que ton coeur, qui regorge
+  De vieux amours deracines,
+  Flamboie encor comme une forge,
+  Et que tu couves sous ta gorge
+  Un peu de l'orgueil des damnes;
+
+  Mais tant, ma chere, que tes reves
+  N'auront pas reflete l'Enfer,
+  Et qu'en un cauchemar sans treves,
+  Songeant de poisons et de glaives,
+  Eprise de poudre et de fer,
+
+  N'ouvrant a chacun qu'avec crainte,
+  Dechiffrant le malheur partout,
+  Te convulsant quand l'heure tinte,
+  Tu n'auras pas senti l'etreinte
+  De l'irresistible Degout,
+
+  Tu ne pourras, esclave reine
+  Qui ne m'aimes qu'avec effroi,
+  Dans l'horreur de la nuit malsaine
+  Me dire, l'ame de cris pleine:
+  << Je suis ton egale, o mon Roi! >>
+
+
+
+
+  L'AVERTISSEUR
+
+
+  Tout homme digne de ce nom
+  A dans le coeur un Serpent jaune,
+  Installe comme sur un trone,
+  Qui, s'il dit: << Je veux! >> repond: << Non! >>
+
+  Plonge tes yeux dans les yeux fixes
+  Des Satyresses ou des Nixes,
+  La Dent dit: << Pense a ton devoir! >>
+
+  Fais des enfants, plante des arbres >>.
+  Polis des vers, sculpte des marbres,
+  La Dent dit: << Vivras-tu ce soir? >>
+
+  Quoi qu'il ebauche ou qu'il espere,
+  L'homme ne vit pas un moment
+  Sans subir l'avertissement
+  De l'insupportable Vipere.
+
+
+
+
+  A UNE MALABARAISE
+
+
+  Tes pieds sont aussi fins que tes mains, et ta hanche
+  Est large a faire envie a la plus belle blanche;
+  A l'artiste pensif ton corps est doux et cher;
+  Tes grands yeux de velours sont plus noirs que ta chair
+  Aux pays chauds et bleus ou ton Dieu t'a fait naitre,
+  Ta tache est d'allumer la pipe de ton maitre,
+  De pourvoir les flacons d'eaux fraiches et d'odeurs,
+  De chasser loin du lit les moustiques rodeurs,
+  Et, des que le matin fait chanter les platanes,
+  D'acheter au bazar ananas et bananes.
+  Tout le jour, ou tu veux, tu menes tes pieds nus,
+  Et fredonnes tout bas de vieux airs inconnus;
+  Et quand descend le soir au manteau d'ecarlate,
+  Tu poses doucement ton corps sur une natte,
+  Ou tes reves flottants sont pleins de colibris,
+  Et toujours, comme toi, gracieux et fleuris.
+  Pourquoi, l'heureuse enfant, veux-tu voir notre France,
+  Ce pays trop peuple que fauche la souffrance,
+  Et, confiant ta vie aux bras forts des marins,
+  Faire de grands adieux a tes chers tamarins?
+  Toi, vetue a moitie de mousselines freles,
+  Frissonnante la-bas sous la neige et les greles,
+  Comme tu pleurerais tes loisirs doux et francs,
+  Si, le corset brutal emprisonnant tes flancs,
+  Il te fallait glaner ton souper dans nos fanges
+  Et vendre le parfum de tes charmes etranges,
+  L'oeil pensif, et suivant, dans nos sales brouillards,
+  Des cocotiers absents les fantomes epars!
+
+
+
+
+  LA VOIX
+
+
+  Mon berceau s'adossait a la bibliotheque,
+  Babel sombre, ou roman, science, fabliau,
+  Tout, la cendre latine et la poussiere grecque,
+  Se melaient. J'etais haut comme un in-folio.
+  Deux voix me parlaient. L'une, insidieuse et ferme,
+  Disait: << La Terre est un gateau plein de douceur;
+  Je puis (et ton plaisir serait alors sans terme!)
+  Te faire un appetit d'une egale grosseur. >>
+  Et l'autre: << Viens, oh! viens voyager dans les reves
+  Au dela du possible, au dela du connu! >>
+  Et celle-la chantait comme le vent des greves,
+  Fantome vagissant, on ne sait d'ou venu,
+  Qui caresse l'oreille et cependant l'effraie.
+  Je te repondis: << Oui! douce voix! >> C'est d'alors
+  Que date ce qu'on peut, helas! nommer ma plaie
+  Et ma fatalite. Derriere les decors
+  De l'existence immense, au plus noir de l'abime,
+  Je vois distinctement des mondes singuliers,
+  Et, de ma clairvoyance extatique victime,
+  Je traine des serpents qui mordent mes souliers.
+  Et c'est depuis ce temps que, pareil aux prophetes,
+  J'aime si tendrement le desert et la mer;
+  Que je ris dans les deuils et pleure dans les fetes,
+  Et trouve un gout suave au vin le plus amer;
+  Que je prends tres souvent les faits pour des mensonges
+  Et que, les yeux au ciel, je tombe dans des trous.
+  Mais la Voix me console et dit: << Garde des songes;
+  Les sages n'en ont pas d'aussi beaux que les fous! >>.
+
+
+
+
+  HYMNE
+
+
+  A la tres chere, a la tres belle
+  Qui remplit mon coeur de clarte,
+  A l'ange, a l'idole immortelle,
+  Salut en immortalite!
+
+  Elle se repand dans ma vie
+  Comme un air impregne de sel,
+  Et dans mon ame inassouvie,
+  Verse le gout de l'eternel.
+
+  Sachet toujours frais qui parfume
+  L'atmosphere d'un cher reduit,
+  Encensoir oublie qui fume
+  En secret a travers la nuit,
+
+  Comment, amour incorruptible,
+  T'exprimer avec verite?
+  Grain de musc qui gis, invisible,
+  Au fond de mon eternite!
+
+  A l'ange, a l'idole immortelle,
+  A la tres bonne, a la tres belle
+  Qui fait ma joie et ma sante,
+  Salut en immortalite!
+
+
+
+
+  LE REBELLE
+
+
+  Un Ange furieux fond du ciel comme un aigle,
+  Du mecreant saisit a plein poing les cheveux,
+  Et dit, le secouant: << Ta connaitras la regle!
+  (Car je suis ton bon Ange, entends-tu?) Je le veux!
+
+  Sache qu'il faut aimer, sans faire la grimace,
+  Le pauvre, le mechant, le tortu, l'hebete,
+  Pour que tu puisses faire a Jesus, quand il passe,
+  Un tapis triomphal avec ta charite.
+
+  Tel est l'Amour! Avant que ton coeur ne se blase,
+  A la gloire de Dieu rallume ton extase;
+  C'est la Volupte vraie aux durables appas! >>
+
+  Et l'Ange, chatiant autant, ma foi! qu'il aime,
+  De ses poings de geant torture l'anatheme;
+  Mais le damne repond toujours; << Je ne veux pas! >>
+
+
+
+
+  LE JET D'EAU
+
+
+  Tes beaux yeux sont las, pauvre amante!
+  Reste longtemps sans les rouvrir,
+  Dans cette pose nonchalante
+  Ou t'a surprise le plaisir.
+  Dans la cour le jet d'eau qui jase
+  Et ne se tait ni nuit ni jour,
+  Entretient doucement l'extase
+  Ou ce soir m'a plonge l'amour.
+
+      La gerbe epanouie
+        En mille fleurs,
+      Ou Phoebe rejouie
+        Met ses couleurs,
+      Tombe comme une pluie
+        De larges pleurs.
+
+  Ainsi ton ame qu'incendie
+  L'eclair brulant des voluptes
+  S'elance, rapide et hardie,
+  Vers les vastes cieux enchantes.
+  Puis, elle s'epanche, mourante,
+  En un flot de triste langueur,
+  Qui par une invisible pente
+  Descend jusqu'au fond de mon coeur.
+
+      La gerbe epanouie
+        En mille fleurs,
+      Ou Phoebe rejouie
+        Met ses couleurs,
+      Tombe comme une pluie
+        De larges pleurs.
+
+  0 toi, que la nuit rend si belle,
+  Qu'il m'est doux, penche vers tes seins,
+  D'ecouter la plainte eternelle
+  Qui sanglote dans les bassins!
+  Lune, eau sonore, nuit benie,
+  Arbres qui frissonnez autour,
+  Votre pure melancolie
+  Est le miroir de mon amour.
+
+      La gerbe epanouie
+        En mille fleurs,
+      Ou Phoebe rejouie
+        Met ses couleurs,
+      Tombe comme une pluie
+        De larges pleurs.
+
+
+
+
+  LE COUCHER DU SOLEIL ROMANTIQUE
+
+
+  Que le Soleil est beau quand tout frais il se leve,
+  Comme une explosion nous lancant son bonjour!
+  --Bienheureux celui-la qui peut avec amour
+  Saluer son coucher plus glorieux qu'un reve!
+
+  Je me souviens!... J'ai vu tout, fleur, source, sillon,
+  Se pamer sous son oeil comme un coeur qui palpite,..
+  --Courons vers l'horizon, il est tard, courons vite,
+  Pour attraper au moins un oblique rayon!
+
+  Mais je poursuis en vain le Dieu qui se retire;
+  L'irresistible Nuit etablit son empire,
+  Noire, humide, funeste et pleine de frissons;
+
+  Une odeur de tombeau dans les tenebres nage,
+  Et mon pied peureux froisse, au bord du marecage,
+  Des crapauds imprevus et de froids limacons.
+
+
+
+
+  LE GOUFFRE
+
+
+  Pascal avait son gouffre, avec lui se mouvant.
+  --Helas! tout est abime,--action, desir, reve,
+  Parole! et sur mon poil qui tout droit se releve
+  Mainte fois de la Peur je sens passer le vent.
+
+  En haut, en bas, partout, la profondeur, la greve,
+  Le silence, l'espace affreux et captivant...
+  Sur le fond de mes nuits Dieu de son doigt savant
+  Dessine un cauchemar multiforme et sans treve.
+
+  J'ai peur du sommeil comme on a peur d'un grand trou,
+  Tout plein de vague horreur, menant on ne sait ou;
+  Je ne vois qu'infini par toutes les fenetres,
+
+  Et mon esprit, toujours du vertige hante,
+  Jalouse du neant l'insensibilite.
+  --Ah! ne jamais sortir des Nombres et des Etres!
+
+
+
+
+  LES PLAINTES D'UN ICARE
+
+
+  Les amants des prostituees
+  Sont heureux, dispos et repus;
+  Quant a moi, mes bras sont rompus
+  Pour avoir etreint des nuees.
+
+  C'est grace aux astres non pareils,
+  Qui tout au fond du ciel flamboient,
+  Que mes yeux consumes ne voient
+  Que des souvenirs de soleils.
+
+  En vain j'ai voulu de l'espace,
+  Trouver la fin et le milieu;
+  Sous je ne sais quel oeil de feu
+  Je sens mon aile qui se casse;
+
+  Et brule par l'amour du beau,
+  Je n'aurai pas l'honneur sublime
+  De donner mon nom a l'abime
+  Qui me servira de tombeau.
+
+
+
+
+  RECUEILLEMENT
+
+
+  Sois sage, o ma Douleur, et tiens-toi plus tranquille,
+  Tu reclamais le Soir; il descend; le voici:
+  Une atmosphere obscure enveloppe la ville,
+  Aux uns portant la paix, aux autres le souci.
+
+  Pendant que des mortels la multitude vile,
+  Sous le fouet du Plaisir, ce bourreau sans merci,
+  Va cueillir des remords dans la fete servile,
+  Ma Douleur, donne-moi la main; viens par ici,
+
+  Loin d'eux. Vois se pencher les defuntes Annees,
+  Sur les balcons du ciel, en robes surannees;
+  Surgir du fond des eaux le Regret souriant;
+
+  Le Soleil moribond s'endormir sous une arche,
+  Et, comme un long linceul trainant a l'Orient,
+  Entends, ma chere, entends la douce Nuit qui marche.
+
+
+
+
+  L'HEAUTONTIMOROUMENOS
+
+  A. J. G. F.
+
+
+  Je te frapperai sans colere
+  Et sans haine,--comme un boucher!
+  Comme Moise le rocher,
+  --Et je ferai de ta paupiere,
+
+  Pour abreuver mon Sahara,
+  Jaillir les eaux de la souffrance,
+  Mon desir gonfle d'esperance
+  Sur tes pleurs sales nagera
+
+  Comme un vaisseau qui prend le large,
+  Et dans mon coeur qu'ils souleront
+  Tes chers sanglots retentiront
+  Comme un tambour qui bat la charge!
+
+  Ne suis-je pas un faux accord
+  Dans la divine symphonie,
+  Grace a la vorace Ironie
+  Qui me secoue et qui me mord?
+
+  Elle est dans ma voix, la criarde!
+  C'est tout mon sang, ce poison noir!
+  Je suis le sinistre miroir
+  Ou la megere se regarde.
+
+  Je suis la plaie et le couteau!
+  Je suis le soufflet et la joue!
+  Je suis les membres et la roue,
+  Et la victime et le bourreau!
+
+  Je suis de mon coeur le vampire,
+  --Un de ces grands abandonnes
+  Au rire eternel condamnes,
+  Et qui ne peuvent plus sourire!
+
+
+
+
+  L'IRREMEDIABLE
+
+  I
+
+
+  Une Idee, une Forme, un Etre
+  Parti de l'azur et tombe
+  Dans un Styx bourbeux et plombe
+  Ou nul oeil du Ciel ne penetre;
+
+  Un Ange, imprudent voyageur
+  Qu'a tente l'amour du difforme,
+  Au fond d'un cauchemar enorme
+  Se debattant comme un nageur,
+
+  Et luttant, angoisses funebres!
+  Contre un gigantesque remous
+  Qui va chantant comme les fous
+  Et pirouettant dans les tenebres;
+
+  Un malheureux ensorcele
+  Dans ses tatonnements futiles,
+  Pour fuir d'un lieu plein de reptiles,
+  Cherchant la lumiere et la cle;
+
+  Un damne descendant sans lampe,
+  Au bord d'un gouffre dont l'odeur
+  Trahit l'humide profondeur,
+  D'eternels escaliers sans rampe,
+
+  Ou veillent des monstres visqueux
+  Dont les larges yeux de phosphore
+  Font une nuit plus noire encore
+  Et ne rendent visibles qu'eux;
+
+  Un navire pris dans le pole,
+  Comme en un piege de cristal,
+  Cherchant par quel detroit fatal
+  Il est tombe dans cette geole;
+
+  --Emblemes nets, tableau parfait
+  D'une fortune irremediable,
+  Qui donne a penser que le Diable
+  Fait toujours bien tout ce qu'il fait!
+
+
+  II
+
+
+  Tete-a-tete sombre et limpide
+  Qu'un coeur devenu son miroir
+  Puits de Verite, clair et noir,
+  Ou tremble une etoile livide,
+
+  Un phare ironique, infernal,
+  Flambeau des graces sataniques,
+  Soulagement et gloire uniques,
+  --La conscience dans le Mal!
+
+
+
+
+  L'HORLOGE
+
+
+  Horloge dieu sinistre, effrayant, impassible,
+  Dont le doigt nous menace et nous dit: _Souviens-toi!_
+  Les bivrantes Douleurs dans ton coeur plein d'effroi
+  Se planteront bientot comme dans une cible;
+
+  Le Plaisir vaporeux fuira vers l'horizon
+  Ainsi qu'une sylphide au fond de la coulisse;
+  Chaque instant te devore un morceau du delice
+  A chaque homme accorde pour toute sa saison.
+
+  Trois mille six cents fois par heure, la Seconde
+  Chuchote: _Souviens-toi!_--Rapide, avec sa voix
+  D'insecte, Maintenant dit: Je sais Autrefois,
+  Et j'ai pompe ta vie avec ma trompe immonde!
+
+  _Remember! Souviens-toi!_ prodigue! _Esto memor!_
+  (Mon gosier de metal parle toutes les langues.)
+  Les minutes, mortel folatre, sont des gangues
+  Qu'il ne faut pas lacher sans en extraire l'or!
+
+  _Souviens-toi_ que le Temps est un joueur avide
+  Qui gagne sans tricher, a tout coup! c'est la loi.
+  Le jour decroit; la nuit augmente, _souviens-toi!_
+  Le gouffre a toujours soif; la clepsydre se vide.
+
+  Tantot sonnera l'heure ou le divin Hasard,
+  Ou l'auguste Vertu, ton epouse encor vierge,
+  Ou le Repentir meme (oh! la derniere auberge!),
+  Ou tout te dira: Meurs, vieux lache! il est trop tard! >>
+
+
+
+
+  TABLEAUX PARISIENS
+
+  LE SOLEIL
+
+
+  Le long du vieux faubourg, ou pendant aux masures
+  Les persiennes, abri des secretes luxures,
+  Quand le soleil cruel frappe a traits redoubles
+  Sur la ville et les champs, sur les toits et les bles.
+  Je vais m'exercer seul a ma fantasque escrime,
+  Flairant dans tous les coins les hasards de la rime.
+  Trebuchant sur les mots comme sur les paves,
+  Heurtant parfois des vers depuis longtemps reves.
+
+  Ce pere nourricier, ennemi des chloroses,
+  Eveille dans les champs les vers comme les roses;
+  Il fait s'evaporer les soucis vers le ciel,
+  Et remplit les cerveaux et les ruches de miel.
+  C'est lui qui rajeunit les porteurs de bequilles
+  Et les rend gais et doux comme des jeunes filles,
+  Et commande aux moissons de croitre et de murir
+  Dans le coeur immortel qui toujours veut fleurir!
+  Quand, ainsi qu'un poete, il descend dans les villes,
+  Il ennoblit le sort des choses les plus viles,
+  Et s'introduit en roi, sans bruit et sans valets,
+  Dans tous les hopitaux et dans tous les palais.
+
+
+
+
+  LA LUNE OFFENSEE
+
+
+  O Lune qu'adoraient discretement nos peres,
+  Du haut des pays bleus ou, radieux serail,
+  Les astres vont te suivre en pimpant attirail,
+  Ma vieille Cynthia, lampe de nos repaires,
+
+  Vois-tu les amoureux sur leurs grabats prosperes,
+  De leur bouche en dormant montrer le frais email?
+  Le poete buter du front sur son travail?
+  Ou sous les gazons secs s'accoupler les viperes?
+
+  Sous ton domino jaune, et d'un pied clandestin,
+  Vas-tu, comme jadis, du soir jusqu'au matin,
+  Baiser d'Endymion les graces surannees?
+
+  << --Je vois ta mere, enfant de ce siecle appauvri,
+  Qui vers son miroir penche un lourd amas d'annees,
+  Et platre artistement le sein qui t'a nourri! >>
+
+
+
+
+  A UNE MENDIANTE ROUSSE
+
+
+  Blanche fille aux cheveux roux,
+  Dont ta robe par ses trous
+  Laisse voir la pauvrete
+      Et la beaute,
+
+  Pour moi, poete chetif,
+  Ton jeune corps maladif
+  Plein de taches de rousseur
+      A sa douceur.
+
+  Tu portes plus galamment
+  Qu'une reine de roman
+  Ses cothurnes de velours
+      Tes sabots lourds.
+
+  Au lieu d'un haillon trop court,
+  Qu'un superbe habit de cour
+  Traine a plis bruyants et longs
+      Sur tes talons;
+
+  Et place de bas troues,
+  Que pour les yeux des roues
+  Sur ta jambe un poignard d'or
+      Reluise encor;
+
+  Que des noeuds mal attaches
+  Devoilent pour nos peches
+  Tes deux beaux seins, radieux
+      Comme des yeux;
+
+  Que pour te deshabiller
+  Tes bras se fassent prier
+  Et chassent a coups mutins
+      Les doigts lutins;
+
+  --Perles de la plus belle eau,
+  Sonnets de maitre Belleau
+  Par tes galants mis aux fers
+      Sans cesse offerts,
+
+  Valetaille de rimeurs
+  Te dediant leurs primeurs
+  Et contemplant ton soulier
+      Sous l'escalier,
+
+  Maint page epris du hasard,
+  Maint seigneur et maint Ronsard
+  Epieraient pour le deduit
+      Ton frais reduit!
+
+  Tu compterais dans tes lits
+  Plus de baisers que de lys
+  Et rangerais sous tes lois
+      Plus d'un Valois!
+
+  --Cependant tu vas gueusant
+  Quelque vieux debris gisant
+  Au seuil de quelque Vefour
+      De carrefour;
+
+  Tu vas lorgnant en dessous
+  Des bijoux de vingt-neuf sous
+  Dont je ne puis, oh! pardon!
+      Te faire don;
+
+  Va donc, sans autre ornement,
+  Parfum, perles, diamant,
+  Que ta maigre nudite,
+      O ma beaute!
+
+
+
+
+  LE CYGNE
+
+  A VICTOR HUGO
+
+  I
+
+
+  Andromaque, je pense a vous!--Ce petit fleuve,
+  Pauvre et triste miroir ou jadis resplendit
+  L'immense majeste de vos douleurs de veuve,
+  Ce Simois menteur qui par vos pleurs grandit,
+
+  A feconde soudain ma memoire fertile,
+  Comme je traversais le nouveau Carrousel.
+  --Le vieux Paris n'est plus (la forme d'une ville
+  Change plus vite, helas! que le coeur d'un mortel);
+
+  Je ne vois qu'en esprit tout ce camp de baraques,
+  Ces tas de chapiteaux ebauches et de futs,
+  Les herbes, les gros blocs verdis par l'eau des flasques
+  Et, brillant aux carreaux, le bric-a-brac confus.
+
+  La s'etalait jadis une menagerie;
+  La je vis, un matin, a l'heure ou sous les cieux
+  Clairs et froids le Travail s'eveille, ou la voirie
+  Pousse un sombre ouragan dans l'air silencieux,
+
+  Un cygne qui s'etait evade de sa cage,
+  Et, de ses pieds palmes frottant le pave sec,
+  Sur le sol raboteux trainait son grand plumage.
+  Pres d'un ruisseau sans eau la bete ouvrant le bec,
+
+  Baignait nerveusement ses ailes dans la poudre,
+  Et disait, le coeur plein de son beau lac natal:
+  << Eau, quand donc pleuvras-tu? quand tonneras-tu,
+  Je vois ce malheureux, mythe etrange et fatal, foudre?
+
+  Vers le ciel quelquefois, comme l'homme d'Ovide,
+  Vers le ciel ironique et cruellement bleu,
+  Sur son cou convulsif tendant sa tete avide,
+  Comme s'il adressait des reproches a Dieu!
+
+
+  II
+
+
+  Paris change, mais rien dans ma melancolie
+  N'a bouge! palais neufs, echafaudages, blocs,
+  Vieux faubourgs, tout pour moi devient allegorie,
+  Et mes chers souvenirs sont plus lourds que des rocs.
+
+  Aussi devant ce Louvre une image m'opprime:
+  Je pense a mon grand cygne, avec ses gestes fous,
+  Comme les exiles, ridicule et sublime,
+  Et ronge d'un desir sans treve! et puis a vous,
+
+  Andromaque, des bras d'un grand epoux tombee,
+  Vil betail, sous la main du superbe Pyrrhus,
+  Aupres d'un tombeau vide en extase courbee;
+  Veuve d'Hector, helas! et femme d'Helenus!
+
+  Je pense a la negresse, amaigrie et phtisique,
+  Pietinant dans la boue, et cherchant, l'oeil hagard,
+  Les cocotiers absents de la superbe Afrique
+  Derriere la muraille immense du brouillard;
+
+  A quiconque a perdu ce qui ne se retrouve
+  Jamais! jamais! a ceux qui s'abreuvent de pleurs
+  Et tettent la Douleur comme une bonne louve!
+  Aux maigres orphelins sechant comme des fleurs!
+
+  Ainsi dans la foret ou mon esprit s'exile
+  Un vieux Souvenir sonne a plein souffle du cor!
+  Je pense aux matelots oublies dans une ile,
+  Aux captifs, aux vaincus!... a bien d'autres encor!
+
+
+
+
+  LES SEPT VIEILLARDS
+
+  A VICTOR HUGO
+
+
+  Fourmillante cite, cite pleine de reves,
+  Ou le spectre en plein jour raccroche le passant!
+  Les mysteres partout coulent comme des seves
+  Dans les canaux etroits du colosse puissant.
+
+  Un matin, cependant que dans la triste rue
+  Les maisons, dont la brume allongeait la hauteur,
+  Simulaient les deux quais d'une riviere accrue,
+  Et que, decor semblable a l'ame de l'acteur,
+
+  Un brouillard sale et jaune inondait tout l'espace,
+  Je suivais, roidissant mes nerfs comme un heros
+  Et discutant avec mon ame deja lasse,
+  Le faubourg secoue par les lourds tombereaux.
+
+  Tout a coup, un vieillard dont les guenilles jaunes
+  Imitaient la couleur de ce ciel pluvieux,
+  Et dont l'aspect aurait fait pleuvoir les aumones,
+  Sans la mechancete qui luisait dans ses yeux,
+
+  M'apparut. On eut dit sa prunelle trempee
+  Dans le fiel; son regard aiguisait les frimas,
+  Et sa barbe a longs poils, roide comme une epee,
+  Se projetait, pareille a celle de Judas.
+
+  Il n'etait pas voute, mais casse, son echine
+  Faisant avec sa jambe un parfait angle droit,
+  Si bien que son baton, parachevant sa mine,
+  Lui donnait la tournure et le pas maladroit
+
+  D'un quadrupede infirme ou d'un juif a trois pattes.
+  Dans la neige et la boue il allait s'empetrant,
+  Comme s'il ecrasait des morts sous ses savates,
+  Hostile a l'univers plutot qu'indifferent.
+
+  Son pareil le suivait: barbe, oeil, dos, baton, loques,
+  Nul trait ne distinguait, du meme enfer venu,
+  Ce jumeau centenaire, et ces spectres baroques
+  Marchaient du meme pas vers un but inconnu.
+
+  A quel complot infame etais-je donc en butte,
+  Ou quel mechant hasard ainsi m'humiliait?
+  Car je comptai sept fois, de minute en minute,
+  Ce sinistre vieillard qui se multipliait!
+
+  Que celui-la qui rit de mon inquietude,
+  Et qui n'est pas saisi d'un frisson fraternel
+  Songe bien que malgre tant de decrepitude
+  Ces sept monstres hideux avaient l'air eternel!
+
+  Aurais-je, sans mourir, contemple le huitieme,
+  Sosie inexorable, ironique et fatal,
+  Degoutant Phenix, fils et pere de lui-meme?
+  --Mais je tournai le dos au cortege infernal.
+
+  Exaspere comme un ivrogne qui voit double,
+  Je rentrai, je fermai ma porte, epouvante,
+  Malade et morfondu, l'esprit fievreux et trouble,
+  Blesse par le mystere et par l'absurdite!
+
+  Vainement ma raison voulait prendre la barre;
+  La tempete en jouant deroutait ses efforts,
+  Et mon ame dansait, dansait, vieille gabarre
+  Sans mats, sur une mer monstrueuse et sans bords!
+
+
+
+
+  LES PETITES VIEILLES
+
+  A VICTOR HUGO
+
+  I
+
+
+  Dans les plis sinueux des vieilles capitales,
+  Ou tout, meme l'horreur, tourne aux enchantements,
+  Je guette, obeissant a mes humeurs fatales,
+  Des etres singuliers, decrepits et charmants.
+
+  Ces monstres disloques furent jadis des femmes,
+  Eponine ou Lais!--Monstres brises, bossus
+  Ou tordus, aimons-les! ce sont encor des ames.
+  Sous des jupons troues et sous de froids tissus
+
+  Ils rampent, flagelles par les bises iniques,
+  Fremissant au fracas roulant des omnibus,
+  Et serrant sur leur flanc, ainsi que des reliques,
+  Un petit sac brode de fleurs ou de rebus;
+
+  Ils trottent, tout pareils a des marionnettes;
+  Se trainent, comme font les animaux blesses,
+  Ou dansent, sans vouloir danser, pauvres sonnettes
+  Ou se pend un Demon sans pitie! Tout casses
+
+  Qu'ils sont, ils ont des yeux percants comme une vrille,
+  Luisants comme ces trous ou l'eau dort dans la nuit;
+  Ils ont les yeux divins de la petite fille
+  Qui s'etonne et qui rit a tout ce qui reluit.
+
+  --Avez-vous observe que maints cercueils de vieilles
+  Sont presque aussi petits que celui d'un enfant?
+  La Mort savante met dans ces bieres pareilles
+  Un symbole d'un gout bizarre et captivant,
+
+  Et lorsque j'entrevois un fantome debile
+  Traversant de Paris le fourmillant tableau,
+  Il me semble toujours que cet etre fragile
+  S'en va tout doucement vers un nouveau berceau;
+
+  A moins que, meditant sur la geometrie,
+  Je ne cherche, a l'aspect de ces membres discords,
+  Combien de fois il faut que l'ouvrier varie
+  La forme de la boite ou l'on met tous ces corps.
+
+  --Ces yeux sont des puits faits d'un million de larmes,
+  Des creusets qu'un metal refroidi pailleta...
+  Ces yeux mysterieux ont d'invincibles charmes
+  Pour celui que l'austere Infortune allaita!
+
+
+  II
+
+
+  De l'ancien Frascati Vestale enamouree;
+  Pretresse de Thalie, helas! dont le souffleur
+  Defunt, seul, sait le nom; celebre evaporee
+  Que Tivoli jadis ombragea dans sa fleur,
+
+  Toutes m'enivrent! mais parmi ces etres freles
+  Il en est qui, faisant de la douleur un miel,
+  Ont dit au Devouement qui leur pretait ses ailes:
+  << Hippogriffe puissant, mene-moi jusqu'au ciel! >>
+
+  L'une, par sa patrie au malheur exercee,
+  L'autre, que son epoux surchargea de douleurs,
+  L'autre, par son enfant Madone transpercee,
+  Toutes auraient pu faire un fleuve avec leurs pleurs!
+
+
+  III
+
+
+  Ah! que j'en ai suivi, de ces petites vieilles!
+  Une, entre autres, a l'heure ou le soleil tombant
+  Ensanglante le ciel de blessures vermeilles,
+  Pensive, s'asseyait a l'ecart sur un banc,
+
+  Pour entendre un de ces concerts, riches de cuivre,
+  Dont les soldats parfois inondent nos jardins,
+  Et qui, dans ces soirs dor ou l'on se sent revivre,
+  Versent quelque heroisme au coeur des citadins.
+
+  Celle-la droite encor, fiere et sentant la regle,
+  Humait avidement ce chant vif et guerrier;
+  Son oeil parfois s'ouvrait comme l'oeil d'un vieil aigle;
+  Son front de marbre avait l'air fait pour le laurier!
+
+
+  IV
+
+
+  Telles vous cheminez, stoiques et sans plaintes,
+  A travers le chaos des vivantes cites,
+  Meres au coeur saignant, courtisanes ou saintes,
+  Dont autrefois les noms par tous etaient cites.
+
+  Vous qui futes la grace ou qui futes la gloire,
+  Nul ne vous reconnait! un ivrogne incivil
+  Vous insulte en passant d'un amour derisoire;
+  Sur vos talons gambade un enfant lache et vil.
+
+  Honteuses d'exister, ombres ratatinees,
+  Peureuses, le dos bas, vous cotoyer les murs,
+  Et nul ne vous salue, etranges destinees!
+  Debris d'humanite pour l'eternite murs!
+
+  Mais moi, moi qui de loin tendrement vous surveille,
+  L'oeil inquiet, fixe sur vos pas incertains,
+  Tout comme si j'etais votre pere, o merveille!
+  Je goute a votre insu des plaisirs clandestins:
+
+  Je vois s'epanouir vos passions novices;
+  Sombres ou lumineux, je vis vos jours perdus;
+  Mon coeur multiplie jouit de tous vos vices!
+  Mon ame resplendit de toutes vos vertus!
+
+  Ruines! ma famille! o cerveaux congeneres!
+  Je vous fais chaque soir un solennel adieu!
+  Ou serez-vous demain, Eves octogenaires,
+  Sur qui pese la griffe effroyable de Dieu?
+
+
+
+
+  A UNE PASSANTE
+
+
+  La rue assourdissante autour de moi hurlait.
+  Longue, mince, en grand deuil, douleur majestueuse,
+  Une femme passa, d'une main fastueuse
+  Soulevant, balancant le feston et l'ourlet;
+
+  Agile et noble, avec sa jambe de statue.
+  Moi, je buvais, crispe comme un extravagant,
+  Dans son oeil, ciel livide ou germe l'ouragan,
+  La douceur qui fascine et le plaisir qui tue.
+
+  Un eclair... puis la nuit!--Fugitive beaute
+  Dont le regard m'a fait soudainement renaitre,
+  Ne te verrai-je plus que dans l'eternite?
+
+  Ailleurs, bien loin d'ici! trop tard! _jamais_ peut-etre!
+  Car j'ignore ou tu fuis, tu ne sais ou je vais,
+  O toi que j'eusse aimee, o toi qui le savais!
+
+
+
+
+  LE CREPUSCULE DU SOIR
+
+
+  Voici le soir charmant, ami du criminel;
+  Il vient comme un complice, a pas de loup; le ciel
+  Se ferme lentement comme une grande alcove,
+  Et l'homme impatient se change en bete fauve.
+
+  O soir, aimable soir, desire par celui
+  Dont les bras, sans mentir, peuvent dire: Aujourd'hui
+  Nous avons travaille!--C'est le soir qui soulage
+  Les esprits que devore une douleur sauvage,
+  Le savant obstine dont le front s'alourdit,
+  Et l'ouvrier courbe qui regagne son lit.
+
+  Cependant des demons malsains dans l'atmosphere
+  S'eveillent lourdement, comme des gens d'affaire,
+  Et cognent en volant les volets et l'auvent.
+  A travers les lueurs que tourmente le vent
+  La Prostitution s'allume dans les rues;
+  Comme une fourmiliere elle ouvre ses issues;
+
+  Partout elle se fraye un occulte chemin,
+  Ainsi que l'ennemi qui tente un coup de main;
+  Elle remue au sein de la cite de fange
+  Comme un ver qui derobe a l'Homme ce qu'il mange.
+  On entend ca et la les cuisines siffler,
+  Les theatres glapir, les orchestres ronfler;
+  Les tables d'hote, dont le jeu fait les delices,
+  S'emplissent de catins et d'escrocs, leurs complices,
+  Et les voleurs, qui n'ont ni treve ni merci,
+  Vont bientot commencer leur travail, eux aussi,
+  Et forcer doucement les portes et les caisses
+  Pour vivre quelques jours et vetir leurs maitresses.
+
+  Recueille-toi, mon ame, en ce grave moment,
+  Et ferme ton oreille a ce rugissement.
+  C'est l'heure ou les douleurs des malades s'aigrissent!
+  La sombre Nuit les prend a la gorge; ils finissent
+  Leur destinee et vont vers le gouffre commun;
+  L'hopital se remplit de leurs soupirs.--Plus d'un
+  Ne viendra plus chercher la soupe parfumee,
+  Au coin du feu, le soir, aupres d'une ame aimee.
+
+  Encore la plupart n'ont-ils jamais connu
+  La douceur du foyer et n'ont jamais vecu!
+
+
+
+
+  LE JEU
+
+
+  Dans des fauteuils fanes des courtisanes vieilles,
+  Pales, le sourcil peint, l'oeil calin et fatal,
+  Minaudant, et faisant de leurs maigres oreilles
+  Tomber un cliquetis de pierre et de metal;
+
+  Autour des verts tapis des visages sans levre,
+  Des levres sans couleur, des machoires sans dent,
+  Et des doigts convulses d'une infernale fievre,
+  Fouillant la poche vide ou le sein palpitant;
+
+  Sous de sales plafonds un rang de pales lustres
+  Et d'enormes quinquets projetant leurs lueurs
+  Sur des fronts tenebreux de poetes illustres
+  Qui viennent gaspiller leurs sanglantes sueurs:
+
+  --Voila le noir tableau qu'en un reve nocturne
+  Je vis se derouler sous mon oeil clairvoyant,
+  Moi-meme, dans un coin de l'antre taciturne,
+  Je me vis accoude, froid, muet, enviant,
+
+  Enviant de ces gens la passion tenace,
+  De ces vieilles putains la funebre gaite,
+  Et tous gaillardement trafiquant a ma face,
+  L'un de son vieil honneur, l'autre de sa beaute!
+
+  Et mon coeur s'effraya d'envier maint pauvre homme
+  Courant avec ferveur a l'abime beant,
+  Et qui, soul de son sang, prefererait en somme
+  La douleur a la mort et l'enfer au neant!
+
+
+
+
+  DANSE MACABRE
+
+  A ERNEST CHRISTOPHE
+
+
+  Fiere, autant qu'un vivant, de sa noble stature,
+  Avec son gros bouquet, son mouchoir et ses gants,
+  Elle a la nonchalance et la desinvolture
+  D'une coquette maigre aux airs extravagants.
+
+  Vit-on jamais au bal une taille plus mince?
+  Sa robe exageree, en sa royale ampleur,
+  S'ecroule abondamment sur un pied sec que pince
+  Un soulier pomponne, joli comme une fleur.
+
+  La ruche qui se joue au bord des clavicules,
+  Comme un ruisseau lascif qui se frotte au rocher,
+  Defend pudiquement des lazzi ridicules
+  Les funebres appas qu'elle tient a cacher.
+
+  Ses yeux profonds sont faits de vide et de tenebres
+  Et son crane, de fleurs artistement coiffe,
+  Oscille mollement sur ses freles vertebres.
+  --O charme d'un neant follement attife!
+
+  Aucuns t'appelleront une caricature,
+  Qui ne comprennent pas, amants ivres de chair,
+  L'elegance sans nom de l'humaine armature.
+  Tu reponds, grand squelette, a mon gout le plus cher!
+
+  Viens-tu troubler, avec ta puissante grimace,
+  La fete de la Vie? ou quelque vieux desir,
+  Eperonnant encor ta vivante carcasse,
+  Te pousse-t-il, credule, au sabbat du Plaisir?
+
+  Au chant des violons, aux flammes des bougies,
+  Esperes-tu chasser ton cauchemar moqueur,
+  Et viens-tu demander au torrent des orgies
+  De refraichir l'enfer allume dans ton coeur?
+
+  Inepuisable puits de sottise et de fautes!
+  De l'antique douleur eternel alambic!
+  A travers le treillis recourbe de tes cotes
+  Je vois, errant encor, l'insatiable aspic.
+
+  Pour dire vrai, je crains que ta coquetterie
+  Ne trouve pas un prix digne de ses efforts:
+  Qui, de ces coeurs mortels, entend la raillerie?
+  Les charmes de l'horreur n'enivrent que les forts.
+
+  Le gouffre de tes yeux, plein d'horribles pensees,
+  Exalte le vertige, et les danseurs prudents
+  Ne contempleront pas sans d'ameres nausees
+  Le sourire eternel de tes trente-deux dents.
+
+  Pourtant, qui n'a serre dans ses bras un squelette,
+  Et qui ne s'est nourri des choses du tombeau?
+  Qu'importe le parfum, l'habit ou la toilette?
+  Qui fait le degoute montre qu'il se croit beau.
+
+  Bayadere sans nez, irresistible gouge,
+  Dis donc a ces danseurs qui font les offusques:
+  << Fiers mignons, malgre l'art des poudres et du rouge,
+  Vous sentez tous la mort! O squelettes musques,
+
+  Antinous fletris, dandys a face glabre,
+  Cadavres vernisses, lovelaces chenus,
+  Le branle universel de la danse macabre
+  Vous entraine en des lieux qui ne sont pas connus!
+
+  Des quais froids de la Seine aux bords brulants du Gange,
+  Le troupeau mortel saute et se pame, sans voir
+  Dans un trou du plafond la trompette de l'Ange
+  Sinistrement beante ainsi qu'un tromblon noir.
+
+  En tout climat, sous ton soleil, la Mort t'admire
+  En tes contorsions, risible Humanite,
+  Et souvent, comme toi, se parfumant de myrrhe,
+  Mele son ironie a ton insanite! >>
+
+
+
+
+  L'AMOUR DU MENSONGE
+
+
+  Quand je te vois passer, o ma chere indolente,
+  Au chant des instruments qui se brise au plafond,
+  Suspendant ton allure harmonieuse et lente,
+  Et promenant l'ennui de ton regard profond;
+
+  Quand je contemple, aux feux du gaz qui le colore,
+  Ton front pale, embelli par un morbide attrait,
+  Ou les torches du soir allument une aurore,
+  Et tes yeux attirants comme ceux d'un portrait,
+
+  Je me dis: Qu'elle est belle! et bizarrement fraiche!
+  Le souvenir massif, royale et lourde tour,
+  La couronne, et son coeur, meurtri comme une peche,
+  Est mur, comme son corps, pour le savant amour.
+
+  Es-tu le fruit d'automne aux saveurs souveraines?
+  Es-tu vase funebre attendant quelques pleurs,
+  Parfum qui fait rever aux oasis lointaines,
+  Oreiller caressant, ou corbeille de fleurs?
+
+  Je sais qu'il est des yeux, des plus melancoliques,
+  Qui ne recelent point de secrets precieux;
+  Beaux ecrins sans joyaux, medaillons sans reliques,
+  Plus vides, plus profonds que vous-memes, o Cieux!
+
+  Mais ne suffit-il pas que tu sois l'apparence,
+  Pour rejouir un coeur qui fuit la verite?
+  Qu'importe ta betise ou ton indifference?
+  Masque ou decor, salut! J'adore ta beaute.
+
+  Je n'ai pas oublie, voisine de la ville,
+  Notre blanche maison, petite mais tranquille,
+  Sa Pomone de platre et sa vieille Venus
+  Dans un bosquet chetif cachant leurs membres nus;
+  Et le soleil, le soir, ruisselant et superbe,
+  Qui, derriere la vitre ou se brisait sa gerbe,
+  Semblait, grand oeil ouvert dans le ciel curieux,
+  Contempler nos diners longs et silencieux,
+  Repandant largement ses beaux reflets de cierge
+  Sur la nappe frugale et les rideaux de serge.
+
+  La servante au grand coeur dont vous etiez jalouse,
+  Et qui dort son sommeil sous une humble pelouse,
+  Nous devrions pourtant lui porter quelques fleurs.
+  Les morts, les pauvres morts ont de grandes douleurs,
+  Et quand Octobre souffle, emondeur des vieux arbres,
+  Son vent melancolique a, l'entour de leurs marbres,
+  Certe, ils doivent trouver les vivants bien ingrats,
+  De dormir, comme ils font, chaudement dans leurs draps,
+  Tandis que, devores de noires songeries,
+  Sans compagnon de lit, sans bonnes causeries,
+  Vieux squelettes geles travailles par le ver,
+  Ils sentent s'egoutter les neiges de l'hiver
+  Et le siecle couler, sans qu'amis ni famille
+  Remplacent les lambeaux qui pendent a leur grille.
+
+  Lorsque la buche siffle et chante, si le soir,
+  Calme, dans le fauteuil je la voyais s'asseoir,
+  Si, par une nuit bleue et froide de decembre,
+  Je la trouvais tapie en un coin de ma chambre,
+  Grave, et venant du fond de son lit eternel
+  Couver l'enfant grandi de son oeil maternel,
+  Que pourrais-je repondre a cette ame pieuse
+  Voyant tomber des pleurs de sa paupiere creuse?
+
+
+
+
+  BRUMES ET PLUIES
+
+
+  O fins d'automne, hivers, printemps trempes de boue,
+  Endormeuses saisons! je vous aime et vous loue
+  D'envelopper ainsi mon coeur et mon cerveau
+  D'un linceul vaporeux et d'un vague tombeau.
+
+  Dans cette grande plaine ou l'autan froid se joue,
+  Ou par les longues nuits la girouette s'enroue,
+  Mon ame mieux qu'au temps du tiede renouveau
+  Ouvrira largement ses ailes de corbeau.
+
+  Rien n'est plus doux au coeur plein de choses funebres,
+  Et sur qui des longtemps descendent les frimas,
+  O blafardes saisons, reines de nos climats!
+
+  Que l'aspect permanent de vos pales tenebres,
+  --Si ce n'est par un soir sans lune, deux a deux,
+  D'endormir la douleur sur un lit hasardeux.
+
+
+
+
+  LE VIN
+
+  L'AME DU VIN
+
+
+  Un soir, l'ame du vin chantait dans les bouteilles:
+  << Homme, vers toi je pousse, o cher desherite,
+  Sous ma prison de verre et mes cires vermeilles,
+  Un chant plein de lumiere et de fraternite!
+
+  Je sais combien il faut, sur la colline en flamme,
+  De peine, de sueur et de soleil cuisant
+  Pour engendrer ma vie et pour me donner l'ame;
+  Mais je ne serai point ingrat ni malfaisant,
+
+  Car j'eprouve une joie immense quand je tombe
+  Dans le gosier d'un homme use par ses travaux,
+  Et sa chaude poitrine est une douce tombe
+  Ou je me plais bien mieux que dans mes froids caveaux.
+
+  Entends-tu retentir les refrains des dimanches
+  Et l'espoir qui gazouille en mon sein palpitant?
+  Les coudes sur la table et retroussant tes manches,
+  Tu me glorifieras et tu seras content:
+
+  J'allumerai les yeux de ta femme ravie;
+  A ton fils je rendrai sa force et ses couleurs
+  Et serai pour ce frele athlete de la vie
+  L'huile qui raffermit les muscles des lutteurs.
+
+  En toi je tomberai, vegetale ambroisie,
+  Grain precieux jete par l'eternel Semeur,
+  Pour que de notre amour naisse la poesie
+  Qui jaillira vers Dieu comme une rare fleur! >>
+
+
+
+
+  LE VIN DES CHIFFONNIERS
+
+
+  Souvent, a la clarte rouge d'un reverbere
+  Dont le vent bat la flamme et tourmente le verre.
+  Au coeur d'un vieux faubourg, labyrinthe fangeux,
+  Ou l'humanite grouille en ferments orageux,
+
+  On voit un chiffonnier qui vient, hochant la tete,
+  Buttant, et se cognant aux murs comme un poete,
+  Et, sans prendre souci des mouchards, ses sujets,
+  Epanche tout son coeur en glorieux projets.
+
+  Il prete des serments, dicte des lois sublimes,
+  Terrasse les mechants, releve les victimes,
+  Et sous le firmament comme un dais suspendu
+  S'enivre des splendeurs de sa propre vertu.
+
+  Oui, ces gens harceles de chagrins de menage,
+  Moulus par le travail et tourmentes par l'age,
+  Ereintes et pliant sous un tas de debris,
+  Vomissement confus de l'enorme Paris,
+
+  Reviennent, parfumes d'une odeur de futailles,
+  Suivis de compagnons blanchis dans les batailles,
+  Dont la moustache pend comme les vieux drapeaux!
+  Les bannieres, les fleurs et les arcs triomphaux
+
+  Se dressent devant eux, solennelle magie!
+  Et dans l'etourdissante et lumineuse orgie
+  Des clairons, du soleil, des cris et du tambour,
+  Ils apportent la gloire au peuple ivre d'amour!
+
+  C'est ainsi qu'a travers l'Humanite frivole
+  Le vin roule de l'or, eblouissant Pactole;
+  Par le gosier de l'homme il chante ses exploits
+  Et regne par ses dons ainsi que les vrais rois.
+
+  Pour noyer la rancoeur et bercer l'indolence
+  De tous ces vieux maudits qui meurent en silence,
+  Dieu, touche de remords, avait fait le sommeil;
+  L'Homme ajouta le Vin, fils sacre du Soleil!
+
+
+
+
+  LE VIN DE L'ASSASSIN
+
+
+  Ma femme est morte, je suis libre!
+  Je puis donc boire tout mon soul.
+  Lorsque je rentrais sans un sou,
+  Ses cris me dechiraient la fibre.
+
+  Autant qu'un roi je suis heureux;
+  L'air est pur, le ciel admirable...
+  --Nous avions un ete semblable
+  Lorsque je devins amoureux!
+
+  --L'horrible soif qui me dechire
+  Aurait besoin pour s'assouvir
+  D'autant de vin qu'en peut tenir
+  Son tombeau;--ce n'est pas peu dire
+
+  Je l'ai jetee au fond d'un puits,
+  Et j'ai meme pousse sur elle
+  Tous les paves de la margelle.
+  --Je l'oublierai si je le puis!
+
+  Au nom des serments de tendresse,
+  Dont rien ne peut nous delier,
+  Et pour nous reconcilier
+  Comme au beau temps de notre ivresse,
+
+  J'implorai d'elle un rendez-vous,
+  Le soir, sur une route obscure,
+  Elle y vint! folle creature!
+  --Nous sommes tous plus ou moins fous!
+
+  Elle etait encore jolie,
+  Quoique bien fatiguee! et moi,
+  Je l'aimai trop;--voila pourquoi
+  Je lui dis: sors de cette vie!
+
+  Nul ne peut me comprendre. Un seul
+  Parmi ces ivrognes stupides
+  Songea-t-il dans ses nuits morbides
+  A faire du vin un linceul?
+
+  Cette crapule invulnerable
+  Comme les machines de fer,
+  Jamais, ni l'ete ni l'hiver,
+  N'a connu l'amour veritable,
+
+  Avec ses noirs enchantements,
+  Son cortege infernal d'alarmes,
+  Ses fioles de poison, ses larmes,
+  Ses bruits de chaine et d'ossements!
+
+  --Me voila libre et solitaire!
+  Je serai ce soir ivre-mort;
+  Alors, sans peur et sans remord,
+  Je me coucherai sur la terre,
+
+  Et je dormirai comme un chien.
+  Le chariot aux lourdes roues
+  Charge de pierres et de boues,
+  Le wagon enraye peut bien
+
+  Ecraser ma tete coupable,
+  Ou me couper par le milieu,
+  Je m'en moque comme de Dieu,
+  Du Diable ou de la Sainte Table!
+
+
+
+
+  LE VIN DU SOLITAIRE
+
+
+  Le regard singulier d'une femme galante
+  Qui se glisse vers nous comme le rayon blanc
+  Que la lune onduleuse envoie au lac tremblant,
+  Quand elle y veux baigner sa beaute nonchalante,
+
+  Le dernier sac d'ecus dans les doigts d'un joueur,
+  Un baiser libertin de la maigre Adeline,
+  Les sons d'une musique enervante et caline,
+  Semblable au cri lointain de l'humaine douleur,
+
+  Tout cela ne vaut pas, o bouteille profonde,
+  Les baumes penetrants que ta panse feconde
+  Garde au coeur altere du poete pieux;
+
+  Tu lui verses l'espoir, la jeunesse et la vie,
+  --Et l'orgueil, ce tresor de toute gueuserie,
+  Qui nous rend triomphants et semblables aux Dieux.
+
+
+
+
+  LE VIN DES AMANTS
+
+
+  Aujourd'hui l'espace est splendide!
+  Sans mors, sans eperons, sans bride,
+  Partons a cheval sur le vin
+  Pour un ciel feerique et divin!
+
+  Comme deux anges que torture
+  Une implacable calenture,
+  Dans le bleu cristal du matin
+  Suivons le mirage lointain!
+
+  Mollement balances sur l'aile
+  Du tourbillon intelligent,
+  Dans un delire parallele,
+
+  Ma soeur, cote a cote nageant,
+  Nous fuirons sans repos ni treves
+  Vers le paradis de mes reves!
+
+
+
+
+  UNE MARTYRE
+
+  DESSIN D'UN MAITRE INCONNU
+
+
+  Au milieu des flacons, des etoffes lamees
+      Et des meubles voluptueux,
+  Des marbres, des tableaux, des robes parfumees
+      Qui trament a plis sompteux,
+
+  Dans une chambre tiede ou, comme en une serre,
+      L'air est dangereux et fatal,
+  Ou des bouquets mourants dans leurs cercueils de verre,
+      Exhalent leur soupir final,
+
+  Un cadavre sans tete epanche, comme un fleuve,
+      Sur l'oreiller desaltere
+  Un sang rouge et vivant, dont la toile s'abreuve
+      Avec l'avidite d'un pre.
+
+  Semblable aux visions pales qu'enfante l'ombre
+      Et qui nous enchainent les yeux,
+  La tete, avec l'amas de sa criniere sombre
+      Et de ses bijoux precieux,
+
+  Sur la table de nuit, comme une renoncule,
+      Repose, et, vide de pensers,
+  Un regard vague et blanc comme le crepuscule
+      S'echappe des yeux revulses.
+
+  Sur le lit, le tronc nu sans scrupule etale
+      Dans le plus complet abandon
+  La secrete splendeur et la beaute fatale
+      Dont la nature lui fit don;
+
+  Un bas rosatre, orne de coins d'or, a la jambe
+      Comme un souvenir est reste;
+  La jarretiere, ainsi qu'un oeil secret qui flambe,
+      Darde un regard diamante.
+
+  Le singulier aspect de cette solitude
+      Et d'un grand portrait langoureux,
+  Aux yeux provocateurs comme son attitude,
+      Revele un amour tenebreux,
+
+  Une coupable joie et des fetes etranges
+      Pleines de baisers infernaux.
+  Dont se rejouissait l'essaim de mauvais anges
+      Nageant dans les plis des rideaux;
+
+  Et cependant, a voir la maigreur elegante
+      De l'epaule au contour heurte,
+  La hanche un peu pointue et la taille fringante
+      Ainsi qu'an reptile irrite,
+
+  Elle est bien jeune encor!--Son ame exasperee
+      Et ses sens par l'ennui mordus
+  S'etaient-ils entr'ouverts a la meute alteree
+      Des desirs errants et perdus?
+
+  L'homme vindicatif que tu n'as pu, vivante,
+      Malgre tant d'amour, assouvir,
+  Combla-t-il sur ta chair inerte et complaisante
+      L'immensite de son desir?
+
+  Reponds, cadavre impur! et par tes tresses roides
+      Te soulevant d'un bras fievreux,
+  Dis-moi, tete effrayante, as-tu sur tes dents froides,
+      Colle les supremes adieux?
+
+  --Loin du monde railleur, loin de la foule impure,
+      Loin des magistrats curieux,
+  Dors en paix, dors en paix, etrange creature,
+      Dans ton tombeau mysterieux;
+
+
+  Ton epoux court le monde, et ta forme immortelle
+      Veille pres de lui quand il dort;
+  Autant que toi sans doute il te sera fidele,
+      Et constant jusques a la mort.
+
+
+
+
+  FEMMES DAMNEES
+
+
+  Comme un betail pensif sur le sable couchees,
+  Elles tournent leurs yeux vers l'horizon des mers,
+  Et leurs pieds se cherchant et leurs mains rapprochees
+  Ont de douces langueurs et des frissons amers:
+
+  Les unes, coeurs epris des longues confidences,
+  Dans le fond des bosquets ou jasent les ruisseaux,
+  Vont epelant l'amour des craintives enfances
+  Et creusent le bois vert des jeunes arbrisseaux;
+
+  D'autres, comme des soeurs, marchent lentes et graves
+  A travers les rochers pleins d'apparitions,
+  Ou saint Antoine a vu surgir comme des laves
+  Les seins nus et pourpres de ses tentations;
+
+  Il en est, aux lueurs des resines croulantes,
+  Qui dans le creux muet des vieux antres paiens
+  T'appellent au secours de leurs fievres hurlantes,
+  O Bacchus, endormeur des remords anciens!
+
+  Et d'autres, dont la gorge aime les scapulaires,
+  Qui, recelant un fouet sous leurs longs vetements,
+  Melent dans le bois sombre et les nuits solitaires
+  L'ecume du plaisir aux larmes des tourments.
+
+  O vierges, o demons, o monstres, o martyres,
+  De la realite grands esprits contempteurs,
+  Chercheuses d'infini, devotes et satyres,
+  Tantot pleines de cris, tantot pleines de pleurs,
+
+  Vous que dans votre enfer mon ame a poursuivies,
+  Pauvres soeurs, je vous aime autant que je vous plains,
+  Pour vos mornes douleurs, vos soifs inassouvies,
+  Et les urnes d'amour dont vos grands coeurs sont pleins!
+
+
+
+
+  LES DEUX BONNES SOEURS
+
+
+  La Debauche et la Mort sont deux aimables filles,
+  Prodigues de baisers et riches de sante,
+  Dont le flanc toujours vierge et drape de guenilles
+  Sous l'eternel labeur n'a jamais enfante.
+
+  Au poete sinistre, ennemi des familles.
+  Favori de l'enfer, courtisan mal rente,
+  Tombeaux et lupanars montrent sous leurs charmilles
+  Un lit que le remords n'a jamais frequente.
+
+  Et la biere et l'alcove en blasphemes fecondes
+  Nous offrent tour a tour, comme deux bonnes soeurs,
+  De terribles plaisirs et d'affreuses douceurs.
+
+  Quand veux-tu m'enterrer, Debauche aux bras immondes?
+  O Mort, quand viendras-tu, sa rivale en attraits,
+  Sur ses myrtes infects entre tes noirs cypres?
+
+
+
+
+  ALLEGORIE
+
+
+  C'est une femme belle et de riche encolure,
+  Qui laisse dans son vin trainer sa chevelure.
+  Les griffes de l'amour, les poisons du tripot,
+  Tout glisse et tout s'emousse au granit de sa peau.
+  Elle rit a la Mort et nargue la Debauche,
+  Ces monstres dont la main, qui toujours gratte et fauche,
+  Dans ses jeux destructeurs a pourtant respecte
+  De ce corps ferme et droit la rude majeste.
+  Elle marche en deesse et repose en sultane;
+  Elle a dans le plaisir la foi mahometane,
+  Et dans ses bras ouverts que remplissent ses seins,
+  Elle appelle des yeux la race des humains.
+  Elle croit, elle sait, cette vierge infeconde
+  Et pourtant necessaire a la marche du monde,
+  Que la beaute du corps est un sublime don
+  Qui de toute infamie arrache le pardon;
+  Elle ignore l'Enfer comme le Purgatoire,
+  Et, quand l'heure viendra d'entrer dans la Nuit noire,
+  Elle regardera la face de la Mort,
+  Ainsi qu'un nouveau-ne,--sans haine et sans remord.
+
+
+
+
+  UN VOYAGE A CYTHERE
+
+
+  Mon coeur, comme un oiseau, voltigeait tout joyeux
+  Et planait librement a l'entour des cordages;
+  Le navire roulait sous un ciel sans nuages,
+  Comme un ange enivre du soleil radieux.
+
+  Quelle est cette ile triste et noire?--C'est Cythere,
+  Nous dit-on, un pays fameux dans les chansons,
+  Eldorado banal de tous les vieux garcons.
+  Regardez, apres tout, c'est une pauvre terre.
+
+  --Il des doux secrets et des fetes du coeur!
+  De l'antique Venus le superbe fantome
+  Au-dessus de tes mers plane comme un arome,
+  Et charge les esprits d'amour et de langueur.
+
+  Belle ile aux myrtes verts, pleine de fleurs ecloses,
+  Veneree a jamais par toute nation,
+  Ou les soupirs des coeurs en adoration
+  Roulent comme l'encens sur un jardin de roses
+
+  Ou le roucoulement eternel d'un ramier
+  --Cythere n'etait plus qu'un terrain des plus maigres,
+  Un desert rocailleux trouble par des cris aigres.
+  J'entrevoyais pourtant un objet singulier;
+
+  Ce n'etait pas un temple aux ombres bocageres,
+  Ou la jeune pretresse, amoureuse des fleurs,
+  Allait, le corps brule de secretes chaleurs,
+  Entre-baillant sa robe aux brises passageres;
+
+  Mais voila qu'en rasant la cote d'assez pres
+  Pour troubler les oiseaux avec nos voiles blanches
+  Nous vimes que c'etait un gibet a trois branches,
+  Du ciel se detachant en noir, comme un cypres.
+
+  De feroces oiseaux perches sur leur pature
+  Detruisaient avec rage un pendu deja mur,
+  Chacun plantant, comme un outil, son bec impur
+  Dans tous les coins saignants de cette pourriture;
+
+  Les yeux etaient deux trous, et du ventre effondre
+  Les intestins pesants lui coulaient sur les cuisses,
+  Et ses bourreaux gorges de hideuses delices
+  L'avaient a coups de bec absolument chatre.
+
+  Sous les pieds, un troupeau de jaloux quadrupedes,
+  Le museau releve, tournoyait et rodait;
+  Une plus grande bete au milieu s'agitait
+  Comme un executeur entoure de ses aides.
+
+  Habitant de Cythere, enfant d'un ciel si beau,
+  Silencieusement tu souffrais ces insultes
+  En expiation de tes infames cultes
+  Et des peches qui t'ont interdit le tombeau.
+
+  Ridicule pendu, tes douleurs sont les miennes!
+  Je sentis a l'aspect de tes membres flottants,
+  Comme un vomissement, remonter vers mes dents
+  Le long fleuve de fiel des douleurs anciennes;
+
+  Devant toi, pauvre diable au souvenir si cher,
+  J'ai senti tous les becs et toutes les machoires
+  Des corbeaux lancinants et des pantheres noires
+  Qui jadis aimaient tant a triturer ma chair.
+
+  --Le ciel etait charmant, la mer etait unie;
+  Pour moi tout etait noir et sanglant desormais,
+  Helas! et j'avais, comme en un suair epais,
+  Le coeur enseveli dans cette allegorie.
+
+  Dans ton ile, o Venus! je n'ai trouve debout
+  Qu'un gibet symbolique ou pendait mon image.
+  --Ah! Seigneur! donnez-moi la force et le courage
+  De contempler mon coeur et mon corps sans degout!
+
+
+
+
+  REVOLTE
+
+  ABEL ET CAIN
+
+  I
+
+
+  Race d'Abel, dors, bois et mange:
+  Dieu le sourit complaisamment,
+
+  Race de Cain, dans la fange
+  Rampe et meurs miserablement.
+
+  Race d'Abel, ton sacrifice
+  Flatte le nez du Seraphin!
+
+  Race de Cain, ton supplice
+  Aura-t-il jamais une fin?
+
+  Race d'Abel, vois tes semailles
+  Et ton betail venir a bien;
+
+  Race de Cain, tes entrailles
+  Hurlent la faim comme un vieux chien.
+
+  Race d'Abel, chauffe ton ventre
+  A ton foyer patriarcal;
+
+  Race de Cain, dans ton antre
+  Tremble de froid, pauvre chacal!
+  Race d'Abel, aime et pullule:
+  Ton or fait aussi des petits;
+
+  Race de Cain, coeur qui brule,
+  Prends garde a ces grands appetits.
+
+  Race d'Abel, tu crois et broutes
+  Comme les punaises des bois!
+
+  Race de Cain, sur les routes
+  Traine ta famille aux abois.
+
+
+  II
+
+
+  Ah! race d'Abel, ta charogne
+  Engraissera le sol fumant!
+
+  Race de Cain, ta besogne
+  N'est pas faite suffisamment;
+
+  Race d'Abel, voici ta honte:
+  Le fer est vaincu par l'epieu!
+
+  Race de Cain, au ciel monte
+  Et sur la terre jette Dieu!
+
+
+
+
+  LES LITANIES DE SATAN
+
+
+  O toi, le plus savant et le plus beau des Anges,
+  Dieu trahi par le sort et prive de louanges,
+
+  O Satan, prends pitie de ma longue misere!
+
+  O Prince de l'exil, a qui l'on a fait tort,
+  Et qui, vaincu, toujours te redresses plus fort,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui sais tout, grand roi des choses souterraines,
+  Guerisseur familier des angoisses humaines,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui, meme aux lepreux, aux parias maudits,
+  Enseignes par l'amour le gout du Paradis,
+
+  O Satan, prends pitie de ma longue misere!
+
+  O toi, qui de la Mort, ta vieille et forte amante,
+  Engendras l'Esperance,--une folle charmante!
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui fais au proscrit ce regard calme et haut
+  Qui damne tout un peuple autour d'un echafaud,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui sais en quel coin des terres envieuses
+  Le Dieu jaloux cacha les pierres precieuses,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi dont l'oeil clair connait les profonds arsenaux
+  Ou dort enseveli le peuple des metaux,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi dont la large main cache les precipices
+  Au somnambule errant au bord des edifices,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui, magiquement, assouplis les vieux os
+  De l'ivrogne attarde foule par les chevaux,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui, pour consoler l'homme frele qui souffre,
+  Nous appris a meler le salpetre et le soufre.
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui poses ta marque, o complice subtil,
+  Sur le front du Cresus impitoyable et vil,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Toi qui mets dans les yeux et dans le coeur des filles
+  Le culte de la plaie et l'amour des guenilles,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Baton des exiles, lampe des inventeurs,
+  Confesseur des pendus et des conspirateurs,
+
+  O Satan, prends pitie de ma longue misere!
+
+  Pere adoptif de ceux qu'en sa noire colere
+  Du Paradis terrestre a chasses Dieu le Pere,
+  O Satan, prends pitie de ma longue misere!
+
+
+
+
+  PRIERE
+
+
+  Gloire et louange a toi, Satan, dans les hauteurs
+  Du Ciel, ou tu regnas, et dans les profondeurs
+  De l'Enfer ou, vaincu, tu reves en silence!
+  Fais que mon ame un jour, sous l'Arbre de Science,
+  Pres de toi se repose, a l'heure ou sur ton front
+  Comme un Temple nouveau ses rameaux s'epandront!
+
+
+
+
+  LA MORT
+
+  LA MORT DES AMANTS
+
+
+  Nous aurons des lits pleins d'odeurs legeres,
+  Des divans profonds comme des tombeaux,
+  Et d'etranges fleurs sur des etageres,
+  Ecloses pour nous sous des cieux plus beaux.
+
+  Usant a l'envi leurs chaleurs dernieres,
+  Nos deux coeurs seront deux vastes flambeaux,
+  Qui reflechiront leurs doubles lumieres
+  Dans nos deux esprits, ces miroirs jumeaux.
+
+  Un soir fait de rose et de bleu mystique,
+  Nous echangerons un eclair unique,
+  Comme un long sanglot, tout charge d'adieux;
+
+  Et plus tard un Ange, entr'ouvrant les portes,
+  Viendra ranimer, fidele et joyeux,
+  Les miroirs ternis et les flammes mortes.
+
+
+
+
+  LA MORT DES PAUVRES
+
+
+  C'est la Mort qui console, helas! et qui fait vivre;
+  C'est le but de la vie, et c'est le seul espoir
+  Qui, comme un elixir, nous monte et nous enivre,
+  Et nous donne le coeur de marcher jusqu'au soir;
+
+  A travers la tempete, et la neige et le givre,
+  C'est la clarte vibrante a notre horizon noir;
+  C'est l'auberge fameuse inscrite sur le livre,
+  Ou l'on pourra manger, et dormir, et s'asseoir;
+
+  C'est un Ange qui tient dans ses doigts magnetiques
+  Le sommeil et le don des reves extatiques,
+  Et qui refait le lit des gens pauvres et nus;
+
+  C'est la gloire des Dieux, c'est le grenier mystique,
+  C'est la bourse du pauvre et sa patrie antique,
+  C'est le portique ouvert sur les Cieux inconnus!
+
+
+
+
+  LE REVE D'UN CURIEUX
+
+
+  Connais-tu, comme moi, la douleur savoureuse,
+  Et de toi fais-tu dire: << Oh! l'homme singulier! >>
+  --J'allais mourir. C'etait dans mon ame amoureuse,
+  Desir mele d'horreur, un mal particulier;
+
+  Angoisse et vif espoir, sans humeur factieuse.
+  Plus allait se vidant le fatal sablier,
+  Plus ma torture etait apre et delicieuse;
+  Tout mon coeur s'arrachait au monde familier.
+
+  J'etais comme l'enfant avide du spectacle,
+  Haissant le rideau comme on hait un obstacle...
+  Enfin la verite froide se revela:
+
+  J'etais mort sans surprise, et la terrible aurore
+  M'enveloppait.--Eh quoi! n'est-ce donc que cela?
+  La toile etait levee et j'attendais encore.
+
+
+
+
+  LE VOYAGE
+
+  A MAXIME DU CAMP
+
+  I
+
+
+  Pour l'enfant, amoureux de cartes et d'estampes,
+  L'univers est egal a son vaste appetit.
+  Ah! que le monde est grand a la clarte des lampes!
+  Aux yeux du souvenir que le monde est petit!
+
+  Un matin nous partons, le cerveau plein de flamme,
+  Le coeur gros de rancune et de desirs amers,
+  Et nous allons, suivant le rythme de la lame,
+  Bercant notre infini sur le fini des mers:
+
+  Les uns, joyeux de fuir une patrie infame;
+  D'autres, l'horreur de leurs berceaux, et quelques-uns,
+  Astrologues noyes dans les yeux d'une femme,
+  La Circe tyrannique aux dangereux parfums.
+
+  Pour n'etre pas changes en betes, ils s'enivrent
+  D'espace et de lumiere et de cieux embrases;
+  La glace qui les mord, les soleils qui les cuivrent,
+  Effacent lentement la marque des baisers.
+
+  Mais les vrais voyageurs sont ceux-la seuls qui partent
+  Pour partir; coeurs legers, semblables aux ballons,
+  De leur fatalite jamais ils ne s'ecartent,
+  Et, sans savoir pourquoi, disent toujours: Allons!
+
+  Ceux-la dont les desirs ont la forme des nues,
+  Et qui revent, ainsi qu'un conscrit le canon,
+  De vastes voluptes, changeantes, inconnues,
+  Et dont l'esprit humain n'a jamais su le nom!
+
+
+  II
+
+
+  Nous imitons, horreur! la toupie et la boule
+  Dans leur valse et leurs bonds; meme dans nos sommeils
+  La Curiosite nous tourmente et nous roule,
+  Comme un Ange cruel qui fouette des soleils.
+
+  Singuliere fortune ou le but se deplace,
+  Et, n'etant nulle part, peut etre n'importe ou!
+  Ou l'Homme, dont jamais l'esperance n'est lasse,
+  Pour trouver le repos court toujours comme un fou!
+
+  Notre ame est un trois-mats cherchant son Icarie;
+  Une voix retentit sur le pont: << Ouvre l'oeil! >>
+  Une voix de la hune, ardente et folle, crie:
+  << Amour... gloire... bonheur! >> Enfer! c'est un ecueil!
+
+  Chaque ilot signale par l'homme de vigie
+  Est un Eldorado promis par le Destin;
+  L'Imagination qui dresse son orgie
+  Ne trouve qu'un recit aux clartes du matin.
+
+  O le pauvre amoureux des pays chimeriques!
+  Faut-il le mettre aux fers, le jeter a la mer,
+  Ce matelot ivrogne, inventeur d'Ameriques
+  Dont le mirage rend le gouffre plus amer?
+
+  Tel le vieux vagabond, pietinant dans la boue,
+  Reve, le nez en l'air, de brillants paradis;
+  Son oeil ensorcele decouvre une Capoue
+  Partout ou la chandelle illumine un taudis.
+
+
+  III
+
+
+  Etonnants voyageurs! quelles nobles histoires
+  Nous lisons dans vos yeux profonds comme les mers!
+  Montrez-nous les ecrins de vos riches memoires,
+  Les bijoux merveilleux, faits d'astres et d'ethers.
+
+  Nous voulons voyager sans vapeur et sans voile!
+  Faites, pour egayer l'ennui de nos prisons,
+  Passer sur nos esprits, tendus comme une toile,
+  Vos souvenirs avec leurs cadres d'horizons.
+
+  Dites, qu'avez-vous vu?
+
+
+  IV
+
+
+                           << Nous avons vu des astres
+  Et des flots; nous avons vu des sables aussi;
+  Et, malgre bien des chocs et d'imprevus desastres,
+  Nous nous sommes souvent ennuyes, comme ici.
+
+  La gloire du soleil sur la mer violette,
+  La gloire des cites dans le soleil couchant,
+  Allumaient dans nos coeurs une ardeur inquiete
+  De plonger dans un ciel au reflet allechant.
+
+  Les plus riches cites, les plus grands paysages,
+  Jamais ne contenaient l'attrait mysterieux
+  De ceux que le hasard fait avec les nuages,
+  Et toujours le desir nous rendait soucieux!
+
+  --La jouissance ajoute au desir de la force.
+  Desir, vieil arbre a qui le plaisir sert d'engrais,
+  Cependant que grossit et durcit ton ecorce,
+  Tes branches veulent voir le soleil de plus pres!
+
+  Grandiras-tu toujours, grand arbre plus vivace
+  Que le cypres?--Pourtant nous avons, avec soin,
+  Cueilli quelques croquis pour votre album vorace,
+  Freres qui trouvez beau tout ce qui vient de loin!
+
+  Nous avons salue des idoles a trompe;
+  Des trones constelles de joyaux lumineux;
+  Des palais ouvrages dont la feerique pompe
+  Serait pour vos banquiers un reve ruineux;
+
+  Des costumes qui sont pour les yeux une ivresse;
+  Des femmes dont les dents et les ongles sont teints
+  Et des jongleurs savants que le serpent caresse. >>
+
+
+  V
+
+  Et puis, et puis encore?
+
+
+  VI
+
+
+                            << O cerveaux enfantins!
+  Pour ne pas oublier la chose capitale,
+  Nous avons vu partout, et sans l'avoir cherche,
+  Du haut jusques en bas de l'echelle fatale,
+  Le spectacle ennuyeux de l'immortel peche:
+
+  La femme, esclave vile, orgueilleuse et stupide,
+  Sans rire s'adorant et s'aimant sans degout:
+  L'homme, tyran goulu, paillard, dur et cupide,
+  Esclave de l'esclave et ruisseau dans l'egout;
+
+  Le bourreau qui jouit, le martyr qui sanglote;
+  La fete qu'assaisonne et parfume le sang;
+  Le poison du pouvoir enervant le despote,
+  Et le peuple amoureux du fouet abrutissant;
+
+  Plusieurs religions semblables a la notre,
+  Toutes escaladant le ciel; la Saintete,
+  Comme en un lit de plume un delicat se vautre,
+  Dans les clous et le crin cherchant la volupte;
+
+  L'Humanite bavarde, ivre de son genie,
+  Et, folle maintenant comme elle etait jadis,
+  Criant a Dieu, dans sa furibonde agonie:
+  << O mon semblable, o mon maitre, je te maudis! >>
+
+  Et les moins sots, hardis amants de la Demence,
+  Fuyant le grand troupeau parque par le Destin,
+  Et se refugiant dans l'opium immense!
+  --Tel est du globe entier l'eternel bulletin. >>
+
+
+  VII
+
+
+  Amer savoir, celui qu'on tire du voyage!
+  Le monde, monotone et petit, aujourd'hui,
+  Hier, demain, toujours, nous fait voir notre image;
+  Une oasis d'horreur dans un desert d'ennui!
+
+  Faut-il partir? rester? Si tu peux rester, reste;
+  Pars, s'il le faut. L'un court, et l'autre se tapit
+  Pour tromper l'ennemi vigilant et funeste,
+  Le Temps! Il est, helas! des coureurs sans repit,
+
+  Comme le Juif errant et comme les apotres,
+  A qui rien ne suffit, ni wagon ni vaisseau,
+  Pour fuir ce retiaire infame; il en est d'autres
+  Qui savent le tuer sans quitter leur berceau.
+
+  Lorsque enfin il mettra le pied sur notre echine,
+  Nous pourrons esperer et crier: En avant!
+  De meme qu'autrefois nous partions pour la Chine,
+  Les yeux fixes an large et les cheveux au vent,
+
+  Nous nous embarquerons sur la mer des Tenebres
+  Avec le coeur joyeux d'un jeune passager.
+  Entendez-vous ces voix, charmantes et funebres,
+  Qui chantent: << Par ici! vous qui voulez manger
+
+  Le Lotus parfume! c'est ici qu'on vendange
+  Les fruits miraculeux dont votre coeur a faim;
+  Venez vous enivrer de la couleur etrange
+  De cette apres-midi qui n'a jamais de fin? >>
+
+  A l'accent familier nous devinons le spectre;
+  Nos Pylades la-bas tendent leurs bras vers nous.
+  << Pour rafraichir ton coeur nage vers ton Electre! >>
+  Dit celle dont jadis nous baisions les genoux.
+
+
+  VIII
+
+
+  O Mort, vieux capitaine, il est temps! levons l'ancre!
+  Ce pays nous ennuie, o Mort! Appareillons!
+  Si le ciel et la mer sont noirs comme de l'encre,
+  Nos coeurs que tu connais sont remplis de rayons!
+
+  Verse-nous ton poison pour qu'il nous reconforte!
+  Nous voulons, tant ce feu nous brule le cerveau,
+  Plonger au fond du gouffre, Enfer ou Ciel, qu'importe?
+  Au fond de l'Inconnu pour trouver du _nouveau!_
+
+
+
+
+  PIECES CONDAMNEES
+
+  LES BIJOUX
+
+
+  La tres chere etait nue, et, connaissant mon coeur,
+  Elle n'avait garde que ses bijoux sonores,
+  Dont le riche attirail lui donnait l'air vainqueur
+  Qu'ont dans leurs jours heureux les esclaves des Maures
+
+  Quand il jette en dansant son bruit vif et moqueur,
+  Ce monde rayonnant de metal et de pierre
+  Me ravit en extase, et j'aime avec fureur
+  Les choses ou le son se mele a la lumiere.
+
+  Elle etait donc couchee, et se laissait aimer,
+  Et du haut du divan elle souriait d'aise
+  A mon amour profond et doux comme la mer
+  Qui vers elle montait comme vers sa falaise.
+
+  Les yeux fixes sur moi, comme un tigre dompte,
+  D'un air vague et reveur elle essayait des poses,
+  Et la candeur unie a la lubricite
+  Donnait un charme neuf a ses metamorphoses.
+
+  Et son bras et sa jambe, et sa cuisse et ses reins,
+  Polis comme de l'huile, onduleux comme un cygne,
+  Passaient devant mes yeux clairvoyants et sereins;
+  Et son ventre et ses seins, ces grappes de ma vigne
+
+  S'avancaient plus calins que les anges du mal,
+  Pour troubler le repos ou mon ame etait mise,
+  Et pour la deranger du rocher de cristal,
+  Ou calme et solitaire elle s'etait assise.
+
+  Je croyais voir unis par un nouveau dessin
+  Les hanches de l'Antiope au buste d'un imberbe,
+  Tant sa taille faisait ressortir son bassin.
+  Sur ce teint fauve et brun le fard etait superbe!
+
+  --Et la lampe s'etant resignee a mourir,
+  Comme le foyer seul illuminait la chambre,
+  Chaque fois qu'il poussait un flamboyant soupir,
+  Il inondait de sang cette peau couleur d'ambre!
+
+
+
+
+  LE LETHE
+
+
+  Viens sur mon coeur, ame cruelle et sourde,
+  Tigre adore, monstre aux airs indolents;
+  Je veux longtemps plonger mes doigts tremblants
+  Dans l'epaisseur de ta criniere lourde;
+
+  Dans tes jupons remplis de ton parfum
+  Ensevelir ma tete endolorie,
+  Et respirer, comme une fleur fletrie,
+  Le doux relent de mon amour defunt.
+
+  Je veux dormir! dormir plutot que vivre!
+  Dans un sommeil, douteux comme la mort,
+  J'etalerai mes baisers sans remord
+  Sur ton beau corps poli comme le cuivre.
+
+  Pour engloutir mes sanglots apaises
+  Rien ne me vaut l'abime de ta couche;
+  L'oubli puissant habite sur ta bouche,
+  Et le Lethe coule dans tes baisers.
+
+  A mon destin, desormais mon delice,
+  J'obeirai comme un predestine;
+  Martyr docile, innocent condamne,
+  Dont la ferveur attise le supplice,
+
+  Je sucerai, pour noyer ma rancoeur,
+  Le nepenthes et la bonne cigue
+  Aux bouts charmants de cette gorge aigue
+  Qui n'a jamais emprisonne de coeur.
+
+
+
+
+  A CELLE QUI EST TROP GAIE
+
+
+  Ta tete, ton geste, ton air
+  Sont beaux comme un beau paysage;
+  Le rire joue en ton visage
+  Comme un vent frais dans un ciel clair.
+
+  Le passant chagrin que tu froles
+  Est ebloui par la sante
+  Qui jaillit comme une clarte
+  De tes bras et de tes epaules.
+
+  Les retentissantes couleurs
+  Dont tu parsemes tes toilettes
+  Jettent dans l'esprit des poetes
+  L'image d'un ballet de fleurs.
+
+  Ces robes folles sont l'embleme
+  De ton esprit bariole;
+  Folle dont je suis affole,
+  Je te hais autant que je t'aime!
+
+  Quelquefois dans un beau jardin,
+  Ou je trainais mon atonie,
+  J'ai senti comme une ironie
+  Le soleil dechirer mon sein;
+
+  Et le printemps et la verdure
+  Ont tant humilie mon coeur
+  Que j'ai puni sur une fleur
+  L'insolence de la nature.
+
+  Ainsi, je voudrais, une nuit,
+  Quand l'heure des voluptes sonne,
+  Vers les tresors de ta personne
+  Comme un lache ramper sans bruit,
+
+  Pour chatier ta chair joyeuse,
+  Pour meurtrir ton sein pardonne,
+  Et faire a ton flanc etonne
+  Une blessure large et creuse,
+
+  Et, vertigineuse douceur!
+  A travers ces levres nouvelles,
+  Plus eclatantes et plus belles,
+  T'infuser mon venin, ma soeur!
+
+
+
+
+  LESBOS
+
+
+  Mere des jeux latins et des voluptes grecques,
+  Lesbos, ou les baisers languissants ou joyeux,
+  Chauds comme les soleils, frais comme les pasteques,
+  Font l'ornement des nuits et des jours glorieux,
+  --Mere des jeux latins et des voluptes grecques,
+
+  Lesbos, ou les baisers sont comme les cascades
+  Qui se jettent sans peur dans les gouffres sans fonds
+  Et courent, sanglotant et gloussant par saccades,
+  --Orageux et secrets, fourmillants et profonds;
+  Lesbos, ou les baisers sont comme les cascades!
+
+  Lesbos ou les Phrynes l'une l'autre s'attirent,
+  Ou jamais un soupir ne resta sans echo,
+  A l'egal de Paphos les etoiles t'admirent,
+  Et Venus a bon droit peut jalouser Sapho!
+  --Lesbos ou les Phrynes l'une l'autre s'attirent.
+
+  Lesbos, terre des nuits chaudes et langoureuses,
+  Qui font qu'a leurs miroirs, sterile volupte,
+  Les filles aux yeux creux, de leurs corps amoureuses,
+  Caressent les fruits murs de leur nubilite,
+  Lesbos, terre des nuits chaudes et langoureuses,
+
+  Laisse du vieux Platon se froncer l'oeil austere;
+  Tu tires ton pardon de l'exces des baisers,
+  Reine du doux empire, aimable et noble terre,
+  Et des raffinements toujours inepuises.
+  Laisse du vieux Platon se froncer l'oeil austere.
+
+  Tu tires ton pardon de l'eternel martyre
+  Inflige sans relache aux coeurs ambitieux
+  Qu'attire loin de nous le radieux sourire
+  Entrevue vaguement au bord des autres cieux;
+  Tu tires ton pardon de l'eternel martyre!
+
+  Qui des Dieux osera, Lesbos, etre ton juge,
+  Et condamner ton front pali dans les travaux,
+  Si ses balances d'or n'ont pese le deluge
+  De larmes qu'a la mer ont verse tes ruisseaux?
+  Qui des Dieux osera, Lesbos, etre ton juge?
+
+  Que nous veulent les lois du juste et de l'injuste?
+  Vierges au coeur sublime, honneur de l'archipel,
+  Votre religion comme une autre est auguste,
+  Et l'amour se rira de l'enfer et du ciel!
+  --Que nous veulent les lois du juste et de l'injuste?
+
+  Car Lesbos entre tous m'a choisi sur la terre
+  Pour chanter le secret de ses vierges en fleur,
+  Et je fus des l'enfance admis au noir mystere
+  Des rires effrenes meles au sombre pleur;,
+  Car Lesbos entre tous m'a choisi sur la terre,
+
+  Et depuis lors je veille au sommet de Leucate,
+  Comme une sentinelle, a l'oeil percant et sur,
+  Qui guette nuit et jour brick, tartane ou fregate,
+  Dont les formes au loin frissonnent dans l'azur,
+  --Et depuis lors je veille au sommet de Leucate
+
+  Pour savoir si la mer est indulgente et bonne,
+  Et parmi les sanglots dont le roc retentit
+  Un soir ramenera vers Lesbos qui pardonne
+  Le cadavre adore de Sapho qui partit
+  Pour savoir si la mer est indulgente et bonne!
+
+  De la male Sapho, l'amante et le poete,
+  Plus belle que Venus par ses mornes paleurs!
+  --L'oeil d'azur est vaincu par l'oeil noir que tachette
+  Le cercle tenebreux trace par les douleurs
+  De la male Sapho, l'amante et le poete!
+
+  --Plus belle que Venus se dressant sur le monde
+  Et versant les tresors de sa serenite
+  Et le rayonnement de sa jeunesse blonde
+  Sur le vieil Ocean de sa fille enchante;
+  Plus belle que Venus se dressant sur le monde!
+
+  --De Sapho qui mourut le jour de son blaspheme,
+  Quand, insultant le rite et le culte invente,
+  Elle fit son beau corps la pature supreme
+  D'un brutal dont l'orgueil punit l'impiete
+  De Sapho qui mourut le jour de son blaspheme.
+
+  Et c'est depuis ce temps que Lesbos se lamente,
+  Et, malgre les honneurs que lui rend l'univers,
+  S'enivre chaque nuit du cri de la tourmente
+  Que poussent vers les deux ses rivages deserts.
+  Et c'est depuis ce temps que Lesbos se lamente!
+
+
+
+
+  FEMMES DAMNEES
+
+
+  A la pale clarte des lampes languissantes,
+  Sur de profonds coussins tout impregnes d'odeur,
+  Hippolyte revait aux caresses puissantes
+  Qui levaient le rideau de sa jeune candeur.
+
+  Elle cherchait d'un oeil trouble par la tempete
+  De sa naivete le ciel deja lointain,
+  Ainsi qu'un voyageur qui retourne la tete
+  Vers les horizons bleus depasses le matin.
+
+  De ses yeux amortis les paresseuses larmes,
+  L'air brise, la stupeur, la morne volupte,
+  Ses bras vaincus, jetes comme de vaines armes,
+  Tout servait, tout parait sa fragile beaute.
+
+  Etendue a ses pieds, calme et pleine de joie,
+  Delphine la couvait avec des yeux ardents,
+  Comme un animal fort qui surveille une proie,
+  Apres l'avoir d'abord marquee avec les dents.
+
+  Beaute forte a genoux devant la beaute frele,
+  Superbe, elle humait voluptueusement
+  Le vin de son triomphe, et s'allongeait vers elle
+  Comme pour recueillir un doux remerciment.
+
+  Elle cherchait dans l'oeil de sa pale victime
+  Le cantique muet que chante le plaisir
+  Et cette gratitude infinie et sublime
+  Qui sort de la paupiere ainsi qu'un long soupir:
+
+  --<< Hippolyte, cher coeur, que dis-tu de ces choses?
+  Comprends-tu maintenant qu'il ne faut pas offrir
+  L'holocauste sacre de tes premieres roses
+  Aux souffles violents qui pourraient les fletrir?
+
+  Mes baisers sont legers comme ces ephemeres
+  Qui caressent le soir les grands lacs transparents,
+  Et ceux de ton amant creuseront leurs ornieres
+  Comme des chariots ou des socs dechirants;
+
+  Ils passeront sur toi comme un lourd attelage
+  De chevaux et de boeufs aux sabots sans pitie...
+  Hippolyte, o ma soeur! tourne donc ton visage,
+  Toi, mon ame et mon coeur, mon tout et ma moitie,
+
+  Tourne vers moi tes yeux pleins d'azur et d'etoiles!
+  Pour un de ces regards charmants, baume divin,
+  Des plaisirs plus obscurs je leverai les voiles,
+  Et je t'endormirai dans un reve sans fin! >>
+
+  Mais Hippolyte alors, levant sa jeune tete:
+  --<< Je ne suis point ingrate et ne me repens pas,
+  Ma Delphine, je souffre et je suis inquiete,
+  Comme apres un nocturne et terrible repas.
+
+  Je sens fondre sur moi de lourdes epouvantes
+  Et de noirs bataillons de fantomes epars,
+  Qui veulent me conduire en des routes mouvantes
+  Qu'un horizon sanglant ferme de toutes parts.
+
+  Avons-nous donc commis une action etrange?
+  Expliques, si tu peux, mon trouble et mon effroi:
+  Je frissonne de peur quand tu me dis: mon ange!
+  Et cependant je sens ma bouche aller vers toi.
+
+  Ne me regarde pas ainsi, toi, ma pensee,
+  Toi que j'aime a jamais, ma soeur d'election,
+  Quand meme tu serais une embuche dressee,
+  Et le commencement de ma perdition! >>
+
+  Delphine secouant sa criniere tragique,
+  Et comme trepignant sur le trepied de fer,
+  L'oeil fatal, repondit d'une voix despotique:
+  --<< Qui donc devant l'amour ose parler d'enfer?
+
+  Maudit soit a jamais le reveur inutile,
+  Qui voulut le premier dans sa stupidite,
+  S'eprenant d'un probleme insoluble et sterile,
+  Aux choses de l'amour meler l'honnetete!
+
+  Celui qui veut unir dans un accord mystique
+  L'ombre avec la chaleur, la nuit avec le jour,
+  Ne chauffera jamais son corps paralytique
+  A ce rouge soleil que l'on nomme l'amour!
+
+  Va, si tu veux, chercher un fiance stupide;
+  Cours offrir un coeur vierge a ses cruels baisers;
+  Et, pleine de remords et d'horreur, et livide,
+  Tu me rapporteras tes seins stigmatises;
+
+  On ne peut ici-bas contenter qu'un seul maitre! >>
+  Mais l'enfant, epanchant une immense douleur,
+  Cria soudain: << Je sens s'elargir dans mon etre
+  Un abime beant; cet abime est mon coeur,
+
+  Brulant comme un volcan, profond comme le vide;
+  Rien ne ressasiera ce monstre gemissant
+  Et ne refraichira la choif de l'Eumenide,
+  Qui, la torche a la main, le brule jusqu'au sang.
+
+  Que nos rideaux fermes nous separent du monde,
+  Et que la lassitude amene le repos!
+  Je veux m'aneantir dans ta gorge profonde,
+  Et trouver sur ton sein la fraicheur des tombeaux. >>
+
+  Descendez, descendez, lamentables victimes,
+  Descendez le chemin de l'enfer eternel;
+  Plongez au plus profond du gouffre ou tous les crimes,
+  Flagelles par un vent qui ne vient pas du ciel,
+
+  Bouillonnent pele-mele avec un bruit d'orage;
+  Ombres folles, courez au but de vos desirs;
+  Jamais vous ne pourrez assouvir votre rage,
+  Et votre chatiment naitra de vos plaisirs.
+
+  Jamais un rayon frais n'eclaira vos cavernes;
+  Par les fentes des murs des miasmes fievreux
+  Filent en s'enflammant ainsi que des lanternes
+  Et penetrent vos corps de leurs parfums affreux.
+
+  L'apre sterilite de votre jouissance
+  Altere votre soif et roidit votre peau,
+  Et le vent furibond de la concupiscence
+  Fait claquer votre chair ainsi qu'un vieux drapeau.
+
+  Loin des peuples vivants, errantes, condamnees,
+  A travers les deserts courez comme les loups;
+  Faites votre destin, ames desordonnees,
+  Et fuyez l'infini que vous portez en vous!
+
+
+
+
+  LES METAMORPHOSES DU VAMPIRE
+
+
+  La femme cependant de sa bouche de fraise,
+  En se tordant ainsi qu'un serpent sur la braise,
+  Et petrissant ses seins sur le fer de son busc,
+  Laissait couler ces mots tout impregnes de musc:
+  --<< Moi, j'ai la levre humide, et je sais la science
+  De perdre au fond d'un lit l'antique conscience.
+  Je seche tous les pleurs sur mes seins triomphants
+  Et fais rire les vieux du rire des enfants.
+  Je remplace, pour qui me voit nue et sans voiles,
+  La lune, le soleil, le ciel et les etoiles!
+  Je suis, mon cher savant, si docte aux voluptes,
+  Lorsque j'etouffe un homme en mes bras veloutes,
+  Ou lorsque j'abandonne aux morsures mon buste,
+  Timide et libertine, et fragile et robuste,
+  Que sur ces matelas qui se pame d'emoi
+  Les Anges impuissants se damneraient pour moi! >>
+
+  Quand elle eut de mes os suce toute la moelle,
+  Et que languissamment je me tournai vers elle
+  Pour lui rendre un baiser d'amour, je ne vis plus
+  Qu'une outre aux flancs gluants, toute pleine de pus!
+  Je fermai les deux yeux dans ma froide epouvante,
+  Et, quand je les rouvris a la clarte vivante,
+  A mes cotes, au lieu du mannequin puissant
+  Qui semblait avoir fait provision de sang,
+  Tremblaient confusement des debris de squelette,
+  Qui d'eux-memes rendaient le cri d'une girouette
+  Ou d'une enseigne, au bout d'une tringle de fer,
+  Que balance le vent pendant les nuits d'hiver.
+
+
+
+
+
+
+
+
+
+
+
+End of the Project Gutenberg EBook of Les Fleurs du Mal, by Charles Baudelaire
+
+*** END OF THIS PROJECT GUTENBERG EBOOK LES FLEURS DU MAL ***
+
+***** This file should be named 6099-8.txt or 6099-8.zip *****
+This and all associated files of various formats will be found in:
+        http://www.gutenberg.org/6/0/9/6099/
+
+Produced by Tonya Allen, Julie Barkley, Juliet Sutherland,
+Charles Franks and the Online Distributed Proofreading Team.
+
+
+Updated editions will replace the previous one--the old editions
+will be renamed.
+
+Creating the works from public domain print editions means that no
+one owns a United States copyright in these works, so the Foundation
+(and you!) can copy and distribute it in the United States without
+permission and without paying copyright royalties.  Special rules,
+set forth in the General Terms of Use part of this license, apply to
+copying and distributing Project Gutenberg-tm electronic works to
+protect the PROJECT GUTENBERG-tm concept and trademark.  Project
+Gutenberg is a registered trademark, and may not be used if you
+charge for the eBooks, unless you receive specific permission.  If you
+do not charge anything for copies of this eBook, complying with the
+rules is very easy.  You may use this eBook for nearly any purpose
+such as creation of derivative works, reports, performances and
+research.  They may be modified and printed and given away--you may do
+practically ANYTHING with public domain eBooks.  Redistribution is
+subject to the trademark license, especially commercial
+redistribution.
+
+
+
+*** START: FULL LICENSE ***
+
+THE FULL PROJECT GUTENBERG LICENSE
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full Project
+Gutenberg-tm License available with this file or online at
+  www.gutenberg.org/license.
+
+
+Section 1.  General Terms of Use and Redistributing Project Gutenberg-tm
+electronic works
+
+1.A.  By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement.  If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or destroy
+all copies of Project Gutenberg-tm electronic works in your possession.
+If you paid a fee for obtaining a copy of or access to a Project
+Gutenberg-tm electronic work and you do not agree to be bound by the
+terms of this agreement, you may obtain a refund from the person or
+entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B.  "Project Gutenberg" is a registered trademark.  It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement.  There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement.  See
+paragraph 1.C below.  There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this agreement
+and help preserve free future access to Project Gutenberg-tm electronic
+works.  See paragraph 1.E below.
+
+1.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
+or PGLAF), owns a compilation copyright in the collection of Project
+Gutenberg-tm electronic works.  Nearly all the individual works in the
+collection are in the public domain in the United States.  If an
+individual work is in the public domain in the United States and you are
+located in the United States, we do not claim a right to prevent you from
+copying, distributing, performing, displaying or creating derivative
+works based on the work as long as all references to Project Gutenberg
+are removed.  Of course, we hope that you will support the Project
+Gutenberg-tm mission of promoting free access to electronic works by
+freely sharing Project Gutenberg-tm works in compliance with the terms of
+this agreement for keeping the Project Gutenberg-tm name associated with
+the work.  You can easily comply with the terms of this agreement by
+keeping this work in the same format with its attached full Project
+Gutenberg-tm License when you share it without charge with others.
+
+1.D.  The copyright laws of the place where you are located also govern
+what you can do with this work.  Copyright laws in most countries are in
+a constant state of change.  If you are outside the United States, check
+the laws of your country in addition to the terms of this agreement
+before downloading, copying, displaying, performing, distributing or
+creating derivative works based on this work or any other Project
+Gutenberg-tm work.  The Foundation makes no representations concerning
+the copyright status of any work in any country outside the United
+States.
+
+1.E.  Unless you have removed all references to Project Gutenberg:
+
+1.E.1.  The following sentence, with active links to, or other immediate
+access to, the full Project Gutenberg-tm License must appear prominently
+whenever any copy of a Project Gutenberg-tm work (any work on which the
+phrase "Project Gutenberg" appears, or with which the phrase "Project
+Gutenberg" is associated) is accessed, displayed, performed, viewed,
+copied or distributed:
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
+from the public domain (does not contain a notice indicating that it is
+posted with permission of the copyright holder), the work can be copied
+and distributed to anyone in the United States without paying any fees
+or charges.  If you are redistributing or providing access to a work
+with the phrase "Project Gutenberg" associated with or appearing on the
+work, you must comply either with the requirements of paragraphs 1.E.1
+through 1.E.7 or obtain permission for the use of the work and the
+Project Gutenberg-tm trademark as set forth in paragraphs 1.E.8 or
+1.E.9.
+
+1.E.3.  If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any additional
+terms imposed by the copyright holder.  Additional terms will be linked
+to the Project Gutenberg-tm License for all works posted with the
+permission of the copyright holder found at the beginning of this work.
+
+1.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.
+
+1.E.5.  Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.
+
+1.E.6.  You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including any
+word processing or hypertext form.  However, if you provide access to or
+distribute copies of a Project Gutenberg-tm work in a format other than
+"Plain Vanilla ASCII" or other format used in the official version
+posted on the official Project Gutenberg-tm web site (www.gutenberg.org),
+you must, at no additional cost, fee or expense to the user, provide a
+copy, a means of exporting a copy, or a means of obtaining a copy upon
+request, of the work in its original "Plain Vanilla ASCII" or other
+form.  Any alternate format must include the full Project Gutenberg-tm
+License as specified in paragraph 1.E.1.
+
+1.E.7.  Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8.  You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works provided
+that
+
+- You pay a royalty fee of 20% of the gross profits you derive from
+     the use of Project Gutenberg-tm works calculated using the method
+     you already use to calculate your applicable taxes.  The fee is
+     owed to the owner of the Project Gutenberg-tm trademark, but he
+     has agreed to donate royalties under this paragraph to the
+     Project Gutenberg Literary Archive Foundation.  Royalty payments
+     must be paid within 60 days following each date on which you
+     prepare (or are legally required to prepare) your periodic tax
+     returns.  Royalty payments should be clearly marked as such and
+     sent to the Project Gutenberg Literary Archive Foundation at the
+     address specified in Section 4, "Information about donations to
+     the Project Gutenberg Literary Archive Foundation."
+
+- You provide a full refund of any money paid by a user who notifies
+     you in writing (or by e-mail) within 30 days of receipt that s/he
+     does not agree to the terms of the full Project Gutenberg-tm
+     License.  You must require such a user to return or
+     destroy all copies of the works possessed in a physical medium
+     and discontinue all use of and all access to other copies of
+     Project Gutenberg-tm works.
+
+- You provide, in accordance with paragraph 1.F.3, a full refund of any
+     money paid for a work or a replacement copy, if a defect in the
+     electronic work is discovered and reported to you within 90 days
+     of receipt of the work.
+
+- You comply with all other terms of this agreement for free
+     distribution of Project Gutenberg-tm works.
+
+1.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
+electronic work or group of works on different terms than are set
+forth in this agreement, you must obtain permission in writing from
+both the Project Gutenberg Literary Archive Foundation and Michael
+Hart, the owner of the Project Gutenberg-tm trademark.  Contact the
+Foundation as set forth in Section 3 below.
+
+1.F.
+
+1.F.1.  Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+public domain works in creating the Project Gutenberg-tm
+collection.  Despite these efforts, Project Gutenberg-tm electronic
+works, and the medium on which they may be stored, may contain
+"Defects," such as, but not limited to, incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other intellectual
+property infringement, a defective or damaged disk or other medium, a
+computer virus, or computer codes that damage or cannot be read by
+your equipment.
+
+1.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees.  YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3.  YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from.  If you
+received the work on a physical medium, you must return the medium with
+your written explanation.  The person or entity that provided you with
+the defective work may elect to provide a replacement copy in lieu of a
+refund.  If you received the work electronically, the person or entity
+providing it to you may choose to give you a second opportunity to
+receive the work electronically in lieu of a refund.  If the second copy
+is also defective, you may demand a refund in writing without further
+opportunities to fix the problem.
+
+1.F.4.  Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS', WITH NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5.  Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of damages.
+If any disclaimer or limitation set forth in this agreement violates the
+law of the state applicable to this agreement, the agreement shall be
+interpreted to make the maximum disclaimer or limitation permitted by
+the applicable state law.  The invalidity or unenforceability of any
+provision of this agreement shall not void the remaining provisions.
+
+1.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in accordance
+with this agreement, and any volunteers associated with the production,
+promotion and distribution of Project Gutenberg-tm electronic works,
+harmless from all liability, costs and expenses, including legal fees,
+that arise directly or indirectly from any of the following which you do
+or cause to occur: (a) distribution of this or any Project Gutenberg-tm
+work, (b) alteration, modification, or additions or deletions to any
+Project Gutenberg-tm work, and (c) any Defect you cause.
+
+
+Section  2.  Information about the Mission of Project Gutenberg-tm
+
+Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of computers
+including obsolete, old, middle-aged and new computers.  It exists
+because of the efforts of hundreds of volunteers and donations from
+people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come.  In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future generations.
+To learn more about the Project Gutenberg Literary Archive Foundation
+and how your efforts and donations can help, see Sections 3 and 4
+and the Foundation information page at www.gutenberg.org
+
+
+Section 3.  Information about the Project Gutenberg Literary Archive
+Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service.  The Foundation's EIN or federal tax identification
+number is 64-6221541.  Contributions to the Project Gutenberg
+Literary Archive Foundation are tax deductible to the full extent
+permitted by U.S. federal laws and your state's laws.
+
+The Foundation's principal office is located at 4557 Melan Dr. S.
+Fairbanks, AK, 99712., but its volunteers and employees are scattered
+throughout numerous locations.  Its business office is located at 809
+North 1500 West, Salt Lake City, UT 84116, (801) 596-1887.  Email
+contact links and up to date contact information can be found at the
+Foundation's web site and official page at www.gutenberg.org/contact
+
+For additional contact information:
+     Dr. Gregory B. Newby
+     Chief Executive and Director
+     gbnewby@pglaf.org
+
+Section 4.  Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg-tm depends upon and cannot survive without wide
+spread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine readable form accessible by the widest
+array of equipment including outdated equipment.  Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States.  Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements.  We do not solicit donations in locations
+where we have not received written confirmation of compliance.  To
+SEND DONATIONS or determine the status of compliance for any
+particular state visit www.gutenberg.org/donate
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States.  U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg Web pages for current donation
+methods and addresses.  Donations are accepted in a number of other
+ways including checks, online payments and credit card donations.
+To donate, please visit:  www.gutenberg.org/donate
+
+
+Section 5.  General Information About Project Gutenberg-tm electronic
+works.
+
+Professor Michael S. Hart was the originator of the Project Gutenberg-tm
+concept of a library of electronic works that could be freely shared
+with anyone.  For forty years, he produced and distributed Project
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+
+Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+keep eBooks in compliance with any particular paper edition.
+
+Most people start at our Web site which has the main PG search facility:
+
+     www.gutenberg.org
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.

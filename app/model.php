@@ -139,17 +139,18 @@ function mod_flag_from_toggle($intoggle) {
 }
 
 /**
- * return array of title
+ * return associative array of books title
+ * keys are book's id
  */
 function mod_get_allbooks_title(){
-    $sql = 'SELECT titlestr FROM books';
+    $sql = 'SELECT bookid, titlestr FROM books';
     $rs = queryf_all($sql);
     $rv = array();
     if (count($rs) == 0) {
         $rv []= '';
     } else {
         foreach ($rs as $book) {
-            $rv []= $book['titlestr'];
+            $rv [$book['bookid']] = $book['titlestr'];
         }
     }
     return $rv;
