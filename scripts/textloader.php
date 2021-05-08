@@ -54,7 +54,7 @@ switch ($CMD){
 }
 
 function loadAll(){
-    echo "LOADING ALL TEXT FILES...<BR>";
+    echo "LOADING  TEXT FILES<BR>\r\n";
     $flag = 0;
     $starttime = time();
 
@@ -124,11 +124,11 @@ function loadAll(){
     //load the unloaded text files if no error happens
     if($flag == 0){
         foreach ($textFilesTobeLoaded as $book_id => $file_path) {
-
+            $starttime_per_file = time();
             $text = file_get_contents($datapath . $file_path);
 
-            echo $file_path . ' len: ' . strlen($text);
-            echo "\n";
+            //echo $file_path . ' len: ' . strlen($text);
+            //echo "\n";
 
             $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $text);
             $chests = array();
@@ -178,7 +178,7 @@ function loadAll(){
             }
 
             util_assert($i == count($chests));
-            echo 'found ' . $i . ' chests' . "<br>\r\n";
+           // echo 'found ' . $i . ' chests' . "<br>\r\n";
 
             $sql = 'INSERT INTO chests (datastr, bookid)';
             $sql .= ' VALUES (%s, %d)';
@@ -248,27 +248,33 @@ function loadAll(){
             }
 
             //update the loaded textfile
+            $loadStatus = "";
             if(count($chests) == 0){
                 $sql = 'UPDATE books SET isLoaded = false WHERE bookid = %d';
                 $res = queryf($sql,$book_id);
                 if($res){
-                    echo $file_path." is not loaded! \r\n<BR>";
+                    $loadStatus = "not loaded! \r\n<BR>";
+
                 }
             }else{
                 $sql = 'UPDATE books SET isLoaded = true WHERE bookid = %d';
                 $res = queryf($sql,$book_id);
                 if($res){
-                    echo $file_path." is successfully loaded! \r\n<BR>";
+                    $loadStatus = "successfully loaded! \r\n<BR>";
                 }
             }
 
             //print loading status per textfile
-            echo "<br> ------------------------------------------------------<br>".
+            echo "<br>\r\n LOADING REPORT<br>\r\n ".
+                "<br>\r\n ------------------------------------------------------<br>\r\n".
                 "File Name: ". $file_path. "\r\n<br>".
                 "Number of characters: ". strlen($text). "\r\n<br>".
                 "Number of Chests: ". count($chests). "\r\n<br>".
                 "Number of tokens: ". count($toksarr). "\r\n<br>".
-                " ------------------------------------------------------<br>";
+                "Status: ". $loadStatus.
+                "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n<br>".
+                "Elapsed Time: ". time() - $starttime_per_file ."\r\n<br>".
+                " ------------------------------------------------------\r\n<br>";
 
 
         }
