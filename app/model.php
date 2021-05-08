@@ -155,6 +155,41 @@ function mod_get_allbooks_title(){
     }
     return $rv;
 }
+/**
+ * return associative array of loaded books title
+ * keys are book's id
+ */
+function mod_get_loadedBooks_title(){
+    $sql = 'SELECT bookid, titlestr FROM books WHERE isLoaded = true';
+    $rs = queryf_all($sql);
+    $rv = array();
+    if (count($rs) == 0) {
+        $rv []= '';
+    } else {
+        foreach ($rs as $book) {
+            $rv [$book['bookid']] = $book['titlestr'];
+        }
+    }
+    return $rv;
+}
+
+/**
+ * return id of the last inserted book
+ *
+ */
+function mod_get_lastBookId(){
+    $sql = 'SELECT bookid FROM books ORDER BY bookid DESC LIMIT 1';
+    $rs = queryf_all($sql);
+    $rv = array();
+    if (count($rs) == 0) {
+        $rv []= '';
+    } else {
+        foreach ($rs as $book) {
+            $rv [] = $book['bookid'];
+        }
+    }
+    return $rv;
+}
 
 /**
  * check if there is a guest user,

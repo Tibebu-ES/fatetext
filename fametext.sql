@@ -37,25 +37,11 @@ CREATE TABLE `books` (
   `bookid` bigint(20) NOT NULL,
   `titlestr` text NOT NULL,
   `authorstr` text NOT NULL,
-  `datapath` text NOT NULL
+  `datapath` text NOT NULL,
+  `isLoaded` boolean  DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `books`
---
 
-INSERT INTO `books` (`bookid`, `titlestr`, `authorstr`, `datapath`) VALUES
-(1, 'Suzy\'s Memoir', 'Todd Perry', 'http://thesuzy.com'),
-(2, 'TheSuzy.com Show', 'Conri Stonewall', 'http://thesuzy.com'),
-(3, 'TheSuzy Memoirs', 'Todd Perry', 'http://thesuzy.com'),
-(4, 'The Bible', 'BIBLICAL', 'http://www.gutenberg.org/ebooks/10'),
-(5, 'All Shakespeare', 'William Shakespeare', 'http://fametext.com'),
-(6, 'Meditations', 'Marcus Aurelius', 'http://fametext.com'),
-(7, 'The Aeneid', 'Virgil', 'http://fametext.com'),
-(8, 'The Iliad', 'Homer', 'http://fametext.com'),
-(9, 'The Republic', 'Plato', 'http://fametext.com'),
-(10, 'Politics', 'Aristotle', 'http://fametext.com'),
-(11, 'Poetry', 'Horace', 'http://fametext.com');
 
 -- --------------------------------------------------------
 
@@ -177,11 +163,7 @@ CREATE TABLE `users` (
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`bookid`);
+
 
 --
 -- Indexes for table `chests`
@@ -216,8 +198,18 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`userid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `books`
 --
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`bookid`);
+
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `bookid` bigint(20) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT for table `chests`
