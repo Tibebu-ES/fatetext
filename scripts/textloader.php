@@ -26,7 +26,7 @@ include($GLOBALS['FATEPATH'] . '/fate.php');
 //ini_set('memory_limit', '2GB');
 
 //set max execution time
-set_time_limit(6000);
+set_time_limit(0);
 
 $GLOBALS['DBVERBOSE'] = false;
 
@@ -60,8 +60,6 @@ function loadAll(){
 
     $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
     $files = scandir($datapath);
-    $file_path_arr = array();
-    $index = 0;
 
     $textFiles = array();
     $unLoadedTextFiles  = array();
@@ -105,6 +103,18 @@ function loadAll(){
 
         }
     }
+
+    //clear toks and chests entries of textfiles not completely loaded
+    foreach ($allTextFilesInBooksTable as $book_id => $bookTitle){
+        if(in_array($bookTitle,$unLoadedTextFiles)){
+            //
+            $sql = "DELETE FROM toks WHERE bookid = %d";
+            queryf($sql,$book_id);
+            $sql = "DELETE FROM chests WHERE bookid = %d";
+            queryf($sql,$book_id);
+        }
+    }
+
 
     //get texfiles ready tobe loaded - along with their id
     foreach ($allTextFilesInBooksTable as $book_id => $bookTitle){
