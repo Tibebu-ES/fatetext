@@ -254,7 +254,6 @@ function loadAll(){
                 $res = queryf($sql,$book_id);
                 if($res){
                     $loadStatus = "not loaded! \r\n<BR>";
-
                 }
             }else{
                 $sql = 'UPDATE books SET isLoaded = true WHERE bookid = %d';
@@ -264,8 +263,9 @@ function loadAll(){
                 }
             }
 
+            $elapsed_time_per_file = time() - $starttime_per_file;
             //print loading status per textfile
-            echo "<br>\r\n LOADING REPORT<br>\r\n ".
+            echo "<br> LOADING REPORT<br>\r\n ".
                 "<br>\r\n ------------------------------------------------------<br>\r\n".
                 "File Name: ". $file_path. "\r\n<br>".
                 "Number of characters: ". strlen($text). "\r\n<br>".
@@ -273,7 +273,7 @@ function loadAll(){
                 "Number of tokens: ". count($toksarr). "\r\n<br>".
                 "Status: ". $loadStatus.
                 "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n<br>".
-                "Elapsed Time: ". time() - $starttime_per_file ."\r\n<br>".
+                "Elapsed Time: ". $elapsed_time_per_file ."\r\n<br>".
                 " ------------------------------------------------------\r\n<br>";
 
 
