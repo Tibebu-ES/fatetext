@@ -20,181 +20,283 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-//include('../../scriptconfig.php');
+
 include('../serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 //ini_set('memory_limit', '2GB');
 
-//set max execution time
-set_time_limit(6000);
+set_time_limit(0);
 
 $GLOBALS['DBVERBOSE'] = false;
 
 define('MIN_LINE_LEN', 40);
 define('MIN_TOK_LEN', 5);
-define('BARD_BOOK_ID', 5);
-define('REPORT_MOD', 100);
 
-$starttime = time();
+define('REPORT_MOD', 1000);
+define('CMD_CLEAR_ALL', 1);
+define('CMD_LOAD_ALL', 2);
 
-$datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
-$files = scandir($datapath);
-$file_path_arr = array();
-$index = 0;
-
-//remove prev books whose id are > BARD_BOOK_ID
-$sql = 'DELETE FROM books WHERE bookid > %d';
-queryf($sql, BARD_BOOK_ID - 1);
-
-foreach ($files as $key => $file) {
-    $ext = pathinfo($file, PATHINFO_EXTENSION);
-    $file_name = pathinfo($file, PATHINFO_BASENAME);
-    $file_name_no_ext = pathinfo($file, PATHINFO_FILENAME);
-    $author = "";
-    if ($ext == "txt") {
-        $file_path_arr[BARD_BOOK_ID + $index] = $file_name;
-        // insert book info into book table
-        $sql = 'INSERT INTO books (bookid, titlestr,authorstr,datapath)';
-        $sql .= ' VALUES (%d, %s, %s, %s)';
-        queryf($sql, BARD_BOOK_ID + $index, $file_name_no_ext, $author, $datapath . '/' . $file_name);
-
-        $index++;
-    }
+//get script command
+$CMD = 0;
+if(isset($_GET['cmd'])){
+    $CMD = $_GET['cmd'];
 }
 
+switch ($CMD){
+    case CMD_CLEAR_ALL:
+        clearAll();
+        break;
+    case CMD_LOAD_ALL:
+        loadAll();
+        break;
+    default:
+        echo "THE SCRIPT COMMAND IS NOT RECOGNIZED";
+}
 
-$sql = 'DELETE FROM chests WHERE bookid > %d';
-queryf($sql, BARD_BOOK_ID - 1);
+function loadAll(){
+    echo "LOADING  TEXT FILES<BR>\r\n";
+    $flag = 0;
+    $starttime = time();
 
-$sql = 'DELETE FROM toks WHERE bookid > %d';
-queryf($sql, BARD_BOOK_ID - 1);
+    $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
+    $files = scandir($datapath);
 
-foreach ($file_path_arr as $book_id => $file_path) {
+    $textFiles = array();
+    $unLoadedTextFiles  = array();
+    $textFilesTobeLoaded = array();
 
-    $text = file_get_contents($datapath . $file_path);
 
-    echo $file_path . ' len: ' . strlen($text);
-    echo "\n";
-
-    $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $text);
-    $chests = array();
-
-    $cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
-    $cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
-    $cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
-
-    $charcounts = array();
-    $cclen = strlen($cleanchars);
-    for ($i = 0; $i < $cclen; $i++) {
-        $charcounts[$cleanchars[$i]] = true;
+    //get all textfiles in the $datapath
+    foreach ($files as $key => $file) {
+        $ext = pathinfo($file, PATHINFO_EXTENSION);
+        $file_name_no_ext = pathinfo($file, PATHINFO_FILENAME);
+        if ($ext == "txt") {
+            $textFiles[] = $file_name_no_ext;
+        }
     }
 
-    $i = 0;
-    $prevline = '';
-    $trip = array('', '', '');
-    foreach ($lines as $line) {
-        $linelen = strlen($line);
-        if (strlen($linelen) < 1) {
-            util_except("found empty line at i = $i");
+    //filter out textfiles already loaded
+    $loadedTextFiles = mod_get_loadedBooks_title();
+    foreach ($textFiles as $textFile){
+        if(!in_array($textFile, $loadedTextFiles)){
+            $unLoadedTextFiles[] = $textFile;
         }
+    }
 
-        if ($line[0] == '_') {
-            echo 'Skipping: ' . $line . "\n";
-            continue;
+
+    //insert unloaded textfiles into books table that are not already inserted
+    $allTextFilesInBooksTable = mod_get_allbooks_title(); //
+    foreach ($unLoadedTextFiles as $unLoadedTextFile){
+        if(!in_array($unLoadedTextFile, $allTextFilesInBooksTable)){
+            $author ="";
+            $txtFileDatapath = $datapath . '/' . $unLoadedTextFile.'.txt';
+            //insert into books table
+            $sql = 'INSERT INTO books (titlestr,authorstr,datapath)';
+            $sql .= ' VALUES ( %s, %s, %s)';
+            queryf($sql,  $unLoadedTextFile, $author, $txtFileDatapath);
+
         }
+    }
 
-        $line = $prevline . ' ' . $line;
-        $prevline = '';
-        if ($linelen < MIN_LINE_LEN) {
-            $prevline = $line;
-            continue;
-        }
 
-        /*if ($line != utf8_encode($line)) {
-          echo $line . "\n";
-          echo utf8_encode($line) . "\n\n";
-        }*/
-
-        $cleanline = '';
-        $linelen = strlen($line);
-        for ($j = 0; $j < $linelen; $j++) {
-            if (isset($charcounts[$line[$j]])) {
-                $cleanline .= $line[$j];
+    //clear toks and chests entries of textfiles not completely loaded and
+    //get texfiles ready tobe loaded - along with their id
+    $allTextFilesInBooksTable = mod_get_allbooks_title(); //
+    foreach ($allTextFilesInBooksTable as $book_id => $bookTitle){
+        if(in_array($bookTitle,$unLoadedTextFiles)){
+            $sql = 'DELETE FROM toks WHERE bookid ='.$book_id;
+            if(!unsafe_query($sql)){
+                $flag++;
             }
-        }
+            $sql = 'DELETE FROM chests WHERE bookid ='.$book_id;
+            if(!unsafe_query($sql)){
+                $flag++;
+            }
 
-        $chests [] = utf8_encode($cleanline);
-        $i++;
+            $textFilesTobeLoaded[$book_id] = $bookTitle.".txt";
+        }
     }
 
-    util_assert($i == count($chests));
-    echo 'found ' . $i . ' chests' . "\n";
 
-    $sql = 'INSERT INTO chests (datastr, bookid)';
-    $sql .= ' VALUES (%s, %d)';
+    //echo " LIST OF TEXT FILES READY TO BE LOADED <br>";
+    //var_dump($textFilesTobeLoaded);
 
-    $toksarr = array();
-    $i = 0;
-    foreach ($chests as $datastr) {
-        queryf($sql, $datastr, $book_id);
-        $lid = last_insert_id();
-        $i++;
+    //load the unloaded text files if no error happens
+    if($flag == 0){
+        foreach ($textFilesTobeLoaded as $book_id => $file_path) {
+            $starttime_per_file = time();
+            $text = file_get_contents($datapath . $file_path);
 
-        $toks = explode(" ", $datastr);
-        foreach ($toks as $tok) {
-            $toklen = strlen($tok);
+            //echo $file_path . ' len: ' . strlen($text);
+            //echo "\n";
 
-            $trimtok = '';
-            $started = false;
-            for ($j = 0; $j < $toklen; $j++) {
-                if (ctype_alpha($tok[$j])) {
-                    //accumulate characters until a non-alphabet char is seen
-                    $trimtok .= $tok[$j];
-                    $started = true;
-                } else {
-                    if ($started) {
-                        break;
+            $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $text);
+            $chests = array();
+
+            $cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
+            $cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
+            $cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+            $charcounts = array();
+            $cclen = strlen($cleanchars);
+            for ($i = 0; $i < $cclen; $i++) {
+                $charcounts[$cleanchars[$i]] = true;
+            }
+
+            $i = 0;
+            $prevline = '';
+            $trip = array('', '', '');
+            foreach ($lines as $line) {
+                $linelen = strlen($line);
+                if (strlen($linelen) < 1) {
+                    util_except("found empty line at i = $i");
+                }
+
+                if ($line[0] == '_') {
+                    echo 'Skipping: ' . $line . "\n";
+                    continue;
+                }
+
+                $line = $prevline . ' ' . $line;
+                $prevline = '';
+                if ($linelen < MIN_LINE_LEN) {
+                    $prevline = $line;
+                    continue;
+                }
+
+
+                $cleanline = '';
+                $linelen = strlen($line);
+                for ($j = 0; $j < $linelen; $j++) {
+                    if (isset($charcounts[$line[$j]])) {
+                        $cleanline .= $line[$j];
                     }
                 }
+
+                $chests [] = utf8_encode($cleanline);
+                $i++;
             }
 
-            $trimtok = strtolower($trimtok);
-            $trimtoklen = strlen($trimtok);
-            if ($trimtoklen >= MIN_TOK_LEN) {
-                if (!isset($toksarr[$trimtok])) {
-                    $toksarr[$trimtok] = array();
+            util_assert($i == count($chests));
+           // echo 'found ' . $i . ' chests' . "<br>\r\n";
+
+            $sql = 'INSERT INTO chests (datastr, bookid)';
+            $sql .= ' VALUES (%s, %d)';
+
+            $toksarr = array();
+            $i = 0;
+            foreach ($chests as $datastr) {
+                queryf($sql, $datastr, $book_id);
+                $lid = last_insert_id();
+                $i++;
+
+                $toks = explode(" ", $datastr);
+                foreach ($toks as $tok) {
+                    $toklen = strlen($tok);
+
+                    $trimtok = '';
+                    $started = false;
+                    for ($j = 0; $j < $toklen; $j++) {
+                        if (ctype_alpha($tok[$j])) {
+                            //accumulate characters until a non-alphabet char is seen
+                            $trimtok .= $tok[$j];
+                            $started = true;
+                        } else {
+                            if ($started) {
+                                break;
+                            }
+                        }
+                    }
+
+                    $trimtok = strtolower($trimtok);
+                    $trimtoklen = strlen($trimtok);
+                    if ($trimtoklen >= MIN_TOK_LEN) {
+                        if (!isset($toksarr[$trimtok])) {
+                            $toksarr[$trimtok] = array();
+                        }
+                        $toksarr[$trimtok][$lid] = true;
+                    }
+
+                } //end foreach toks
+
+                if ($i % REPORT_MOD == 0) {
+                   // echo "inserted $i chests into the db <br>\r\n";
                 }
-                $toksarr[$trimtok][$lid] = true;
+
+            } //end foreach chests
+
+
+            $sql = 'INSERT INTO toks (tokstr, chestidstr, bookid)';
+            $sql .= ' VALUES (%s, %s, %d)';
+
+
+            $i = 0;
+            foreach ($toksarr as $tok => $lids) {
+                $tripidstr = implode(' ', array_keys($lids));
+
+                //TODO what's this?
+                if ($tok == 'misunderstanding') {
+                    continue;
+                }
+
+                queryf($sql, $tok, $tripidstr, $book_id);
+                $i++;
+
+                if ($i % REPORT_MOD == 0) {
+                    //echo "inserted $i toks into the db<br>\r\n";
+                }
             }
 
-        } //end foreach toks
+            //update the loaded textfile
+            $loadStatus = "";
+            if(count($chests) == 0){
+                $sql = 'UPDATE books SET isLoaded = false WHERE bookid = %d';
+                $res = queryf($sql,$book_id);
+                if($res){
+                    $loadStatus = "not loaded! \r\n<BR>";
+                }
+            }else{
+                $sql = 'UPDATE books SET isLoaded = true WHERE bookid = %d';
+                $res = queryf($sql,$book_id);
+                if($res){
+                    $loadStatus = "successfully loaded! \r\n<BR>";
+                }
+            }
 
-        if ($i % REPORT_MOD == 0) {
-            echo "inserted $i chests into the db\n";
+            $elapsed_time_per_file = time() - $starttime_per_file;
+            //print loading status per textfile
+            echo "<br> LOADING REPORT<br>\r\n ".
+                "<br>\r\n ------------------------------------------------------<br>\r\n".
+                "File Name: ". $file_path. "\r\n<br>".
+                "Number of characters: ". strlen($text). "\r\n<br>".
+                "Number of Chests: ". count($chests). "\r\n<br>".
+                "Number of tokens: ". count($toksarr). "\r\n<br>".
+                "Status: ". $loadStatus.
+                "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n<br>".
+                "Elapsed Time: ". $elapsed_time_per_file ."\r\n<br>".
+                " ------------------------------------------------------\r\n<br>";
+
+
         }
-    } //end foreach chests
-
-    $sql = 'INSERT INTO toks (tokstr, chestidstr, bookid)';
-    $sql .= ' VALUES (%s, %s, %d)';
-
-    $i = 0;
-    foreach ($toksarr as $tok => $lids) {
-        $tripidstr = implode(' ', array_keys($lids));
-
-        //TODO what's this?
-        if ($tok == 'misunderstanding') {
-            continue;
-        }
-
-        queryf($sql, $tok, $tripidstr, $book_id);
-        $i++;
-
-        if ($i % REPORT_MOD == 0) {
-            echo "inserted $i toks into the db\n";
-        }
+    }else{
+        echo "Error loading text files";
     }
+
+
+    $elapsed = time() - $starttime;
+    echo "DONE in $elapsed seconds\n\n";
 
 }
 
-$elapsed = time() - $starttime;
-echo "DONE in $elapsed seconds\n\n";
+function clearAll(){
+    echo "clearing books,toks, gems and chests...... <br> ";
+    $sql = "TRUNCATE TABLE books";
+    queryf($sql);
+    $sql = "TRUNCATE TABLE toks";
+    queryf($sql);
+    $sql = "TRUNCATE TABLE chests";
+    queryf($sql);
+    $sql = "TRUNCATE TABLE gems";
+    queryf($sql);
+    echo "All loaded textfiles are cleared from the database ";
+}

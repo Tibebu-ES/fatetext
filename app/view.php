@@ -232,7 +232,7 @@ function gen_search_form($safe_text = '', $safe_custom = '', $istextarea = false
   $elem_arr = array();
 
   //dynamically populate drop-down options from the book table
-    $book_titles = mod_get_allbooks_title();
+    $book_titles = mod_get_loadedBooks_title();
     $option_arr = array(DEFAULT_CATEGORY => 'Random FATE',
         'CLEAR' => 'CLEAR Results',
         'CUSTOM' => 'CUSTOM Category');
