@@ -38,8 +38,8 @@ define('CMD_LOAD_ALL', 2);
 
 //get script command
 $CMD = 0;
-if(isset($_GET['cmd'])){
-    $CMD = $_GET['cmd'];
+if(isset($_POST['cmd'])){
+    $CMD = $_POST['cmd'];
 }
 
 switch ($CMD){
@@ -137,6 +137,9 @@ function loadAll(){
             $cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
             $cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
 
+            //new line characters
+            $newLineChars = array("\r\n","\r","\n");
+
             $charcounts = array();
             $cclen = strlen($cleanchars);
             for ($i = 0; $i < $cclen; $i++) {
@@ -168,7 +171,7 @@ function loadAll(){
                 $cleanline = '';
                 $linelen = strlen($line);
                 for ($j = 0; $j < $linelen; $j++) {
-                    if (isset($charcounts[$line[$j]])) {
+                    if (isset($charcounts[$line[$j]]) || in_array($line[$j],$newLineChars)) {
                         $cleanline .= $line[$j];
                     }
                 }
@@ -282,21 +285,28 @@ function loadAll(){
         echo "Error loading text files";
     }
 
-
     $elapsed = time() - $starttime;
     echo "DONE in $elapsed seconds\n\n";
 
 }
 
 function clearAll(){
-    echo "clearing books,toks, gems and chests...... <br> ";
+    $flag = 0;
+    echo "clearing books,toks and chests...... <br> ";
     $sql = "TRUNCATE TABLE books";
-    queryf($sql);
+    if(!queryf($sql)) $flag++;
     $sql = "TRUNCATE TABLE toks";
-    queryf($sql);
+    if(!queryf($sql)) $flag++;
     $sql = "TRUNCATE TABLE chests";
-    queryf($sql);
-    $sql = "TRUNCATE TABLE gems";
-    queryf($sql);
-    echo "All loaded textfiles are cleared from the database ";
+    if(!queryf($sql)) $flag++;
+
+    //$sql = "TRUNCATE TABLE gems";
+    //if(!queryf($sql)) $flag++;
+
+    if($flag == 0){
+        echo "All loaded textfiles are cleared from the database ";
+    }else{
+        echo "Error clearing loaded textfiles ";
+    }
+
 }

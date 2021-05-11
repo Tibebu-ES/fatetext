@@ -143,6 +143,7 @@ div.gem_step {
 }
 
 div.gem_text {
+  white-space:pre-wrap;
   padding: 10px;
   margin-right: 20px;
   border: dotted #000000 1px;
