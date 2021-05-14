@@ -23,12 +23,30 @@ SOFTWARE. */
 include('serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 
+/*To bypass the login and tos page, set this variable true;
+if it is set to false, the login and tos pages will appear*/
+$loginAsGuestEnable = true;
+
 //set $data[TEMPLATE_PAGE] = 'home' or 'login' by default
 fl();
 if (web_logged_in()) {
    $data = web_init_data('home');
 } else {
-   $data = web_init_data('login');
+  //if no user login before and if $loginAsGuestEnable is enabled
+  if($loginAsGuestEnable){
+    //login as a guest
+    $data = web_init_data('home');
+    $data['username'] = 'guest';
+    $data['password'] = 'guest';
+  //make sure if guest user is in the system - if not create one
+    mod_add_guest_user();
+    web_login_user($data);
+    $data['toscheck'] = true; //pass the termsof service page
+    con_tos_action($data);
+  }else{
+    //go to the login page
+    $data = web_init_data('login');
+  }
 }
 util_log('debug', 'web_init_data() done', LLDEBUG);
 
