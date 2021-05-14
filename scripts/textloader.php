@@ -36,6 +36,12 @@ define('REPORT_MOD', 1000);
 define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 
+//define default num of max textfiles to load at a time
+//to set the default num of max textfiles to load at a time, set an the api fiedl 'ntl'
+define('MAX_TEXT_LOAD',5);
+
+
+
 //get script command
 $CMD = 0;
 if(isset($_POST['cmd'])){
@@ -54,7 +60,22 @@ switch ($CMD){
 }
 
 function loadAll(){
-    echo "LOADING  TEXT FILES<BR>\r\n";
+    //variables for time reporting
+    $dirScanningTime =0;
+    $filteringOutLoadedTime =0;
+    $insertingIntoBooksTime =0;
+    $clearingInterupptedToksChestsTime =0;
+    $insertingIntoToksChestsTime = 0; //
+
+    echo "LOADING  TEXT FILES \r\n";
+    $numOfMaxTextFileToLoad = MAX_TEXT_LOAD;
+    if(isset($_POST['ntl'])){
+        $ntl = intval($_POST['ntl']);
+        if($ntl > 0){
+            $numOfMaxTextFileToLoad = $ntl;
+        }
+    }
+
     $flag = 0;
     $starttime = time();
 
@@ -67,6 +88,7 @@ function loadAll(){
 
 
     //get all textfiles in the $datapath
+    $dirScanningTime = time();
     foreach ($files as $key => $file) {
         $ext = pathinfo($file, PATHINFO_EXTENSION);
         $file_name_no_ext = pathinfo($file, PATHINFO_FILENAME);
@@ -74,17 +96,21 @@ function loadAll(){
             $textFiles[] = $file_name_no_ext;
         }
     }
+    $dirScanningTime = time() - $dirScanningTime;
 
     //filter out textfiles already loaded
+    $filteringOutLoadedTime = time();
     $loadedTextFiles = mod_get_loadedBooks_title();
     foreach ($textFiles as $textFile){
         if(!in_array($textFile, $loadedTextFiles)){
             $unLoadedTextFiles[] = $textFile;
         }
     }
+    $filteringOutLoadedTime = time() - $filteringOutLoadedTime;
 
 
     //insert unloaded textfiles into books table that are not already inserted
+    $insertingIntoBooksTime = time();
     $allTextFilesInBooksTable = mod_get_allbooks_title(); //
     foreach ($unLoadedTextFiles as $unLoadedTextFile){
         if(!in_array($unLoadedTextFile, $allTextFilesInBooksTable)){
@@ -97,32 +123,36 @@ function loadAll(){
 
         }
     }
+    $insertingIntoBooksTime = time() - $insertingIntoBooksTime;
 
 
     //clear toks and chests entries of textfiles not completely loaded and
     //get texfiles ready tobe loaded - along with their id
+    $clearingInterupptedToksChestsTime =  time();
+    //use nested query for time efficiency
+    $sql = 'DELETE FROM chests WHERE bookid IN ( SELECT bookid FROM books WHERE isLoaded = false)';
+    if(!unsafe_query($sql)){
+        $flag++;
+    }
+    $sql = 'DELETE FROM toks WHERE bookid IN ( SELECT bookid FROM books WHERE isLoaded = false)';
+    if(!unsafe_query($sql)){
+        $flag++;
+    }
+
     $allTextFilesInBooksTable = mod_get_allbooks_title(); //
     foreach ($allTextFilesInBooksTable as $book_id => $bookTitle){
         if(in_array($bookTitle,$unLoadedTextFiles)){
-            $sql = 'DELETE FROM toks WHERE bookid ='.$book_id;
-            if(!unsafe_query($sql)){
-                $flag++;
-            }
-            $sql = 'DELETE FROM chests WHERE bookid ='.$book_id;
-            if(!unsafe_query($sql)){
-                $flag++;
-            }
-
             $textFilesTobeLoaded[$book_id] = $bookTitle.".txt";
         }
     }
 
+    $clearingInterupptedToksChestsTime =  time() - $clearingInterupptedToksChestsTime;
 
-    //echo " LIST OF TEXT FILES READY TO BE LOADED <br>";
-    //var_dump($textFilesTobeLoaded);
 
     //load the unloaded text files if no error happens
+    $insertingIntoToksChestsTime = time();
     if($flag == 0){
+        $numOfTextFilesLoaded = 0;
         foreach ($textFilesTobeLoaded as $book_id => $file_path) {
             $starttime_per_file = time();
             $text = file_get_contents($datapath . $file_path);
@@ -268,25 +298,52 @@ function loadAll(){
 
             $elapsed_time_per_file = time() - $starttime_per_file;
             //print loading status per textfile
-            echo "<br> LOADING REPORT<br>\r\n ".
-                "<br>\r\n ------------------------------------------------------<br>\r\n".
-                "File Name: ". $file_path. "\r\n<br>".
-                "Number of characters: ". strlen($text). "\r\n<br>".
-                "Number of Chests: ". count($chests). "\r\n<br>".
-                "Number of tokens: ". count($toksarr). "\r\n<br>".
+            echo "\r\n -----------------------------------------------------\r\n".
+                "File Name: ". $file_path. "\r\n".
+                "Number of characters: ". strlen($text). "\r\n".
+                "Number of Chests: ". count($chests). "\r\n".
+                "Number of tokens: ". count($toksarr). "\r\n".
                 "Status: ". $loadStatus.
-                "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n<br>".
-                "Elapsed Time: ". $elapsed_time_per_file ."\r\n<br>".
-                " ------------------------------------------------------\r\n<br>";
+                "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n".
+                "Elapsed Time: ". $elapsed_time_per_file ." seconds\r\n".
+                " ------------------------------------------------------\r\n";
 
 
+            $numOfTextFilesLoaded++;
+            if($numOfTextFilesLoaded == $numOfMaxTextFileToLoad){
+                break;
+            }
         }
     }else{
         echo "Error loading text files";
     }
+    $insertingIntoToksChestsTime = time() - $insertingIntoToksChestsTime;
+
+    //print reports
+    echo "\r\n-------------------------------------SUMMARY---------------------------\r\n";
+    $remainingUnloadedTextFiles = count($textFilesTobeLoaded) - $numOfMaxTextFileToLoad;
+    echo $numOfMaxTextFileToLoad. " text files are loaded.\r\n";
+    if($remainingUnloadedTextFiles > 0){
+        echo $remainingUnloadedTextFiles. " text files remain.\r\n".
+            "Please run the text loading script again to load the remaining text files. \r\n".
+            "RUN THE SCRIPT AGAIN!!!!!!\r\n";
+    }else{
+        echo "All TEXT FILES ARE LOADED! \r\n";
+    }
 
     $elapsed = time() - $starttime;
     echo "DONE in $elapsed seconds\n\n";
+    echo "\r\n--------------------------------------------------------------------\r\n";
+
+    //print time report summary
+    echo "\r\n-------------------------------------SUMMARY---------------------------\r\n";
+    echo "Time to scan the datapath directory = ".$dirScanningTime." seconds \r\n";
+    echo "Time to filter out loaded text files = ".$filteringOutLoadedTime." seconds \r\n";
+    echo "Time to insert into books table = ".$insertingIntoBooksTime." seconds \r\n";
+    echo "Time to clear the interuppted textfile's chests and toks = ".$clearingInterupptedToksChestsTime." seconds \r\n";
+    echo "Time to insert into chests and toks table = ".$insertingIntoToksChestsTime." seconds \r\n";
+    echo "\r\n--------------------------------------------------------------------\r\n";
+
 
 }
 
