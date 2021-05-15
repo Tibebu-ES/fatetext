@@ -125,6 +125,9 @@ function mod_load_gem($gemid) {
   $rs = queryf_one($sql, $rv['chestid']);
   $rv['datastr'] = $rs['datastr'];
 
+  //The codes below are commented so that
+    //  only one sentence is shown each time at "Create"
+/*
   if ($rv['chestid'] > 1 && $rs['bookid'] > 4) {
     $sql = 'SELECT datastr FROM chests WHERE chestid = %d';
     $rs2 = queryf_one($sql, $rv['chestid'] - 1);
@@ -133,7 +136,7 @@ function mod_load_gem($gemid) {
     $rs2 = queryf_one($sql, $rv['chestid'] + 1);
     $rv['datastr'] .= ' ' . $rs2['datastr'];
   }
-
+*/
   $rv['chester'] = preg_replace('/' . $rv['tokstr'] . '/i',
                                 '_______', $rv['datastr']);
   return $rv;
