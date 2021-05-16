@@ -37,7 +37,7 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 
 //define default num of max textfiles to load at a time
-//to set the default num of max textfiles to load at a time, set an the api fiedl 'ntl'
+//to set the default num of max textfiles to load at a time, set an the api field 'ntl'
 define('MAX_TEXT_LOAD',5);
 
 
@@ -80,20 +80,34 @@ function loadAll(){
     $starttime = time();
 
     $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
-    $files = scandir($datapath);
+    //read poetry
+    $poetry_files = scandir($datapath.'poetry');
+    $prose_files = scandir($datapath.'prose');
 
+    //associative array stores both the poetry and prose; key = filename; value = textfiletype;i.e poetry/prose
     $textFiles = array();
     $unLoadedTextFiles  = array();
+
+    //this associative array holds the final list of textfiles that are ready to be loaded
+    //keys are the bookid, the values are 'textfiletype/filename' which is partial path; e.g 'poetry/filename'
     $textFilesTobeLoaded = array();
 
 
-    //get all textfiles in the $datapath
+    //get all poetry in the $datapath
     $dirScanningTime = time();
-    foreach ($files as $key => $file) {
+    foreach ($poetry_files as $key => $file) {
         $ext = pathinfo($file, PATHINFO_EXTENSION);
         $file_name_no_ext = pathinfo($file, PATHINFO_FILENAME);
         if ($ext == "txt") {
-            $textFiles[] = $file_name_no_ext;
+            $textFiles[$file_name_no_ext] = "poetry";
+        }
+    }
+    //get all prose in the $datapath
+    foreach ($prose_files as $key => $file) {
+        $ext = pathinfo($file, PATHINFO_EXTENSION);
+        $file_name_no_ext = pathinfo($file, PATHINFO_FILENAME);
+        if ($ext == "txt") {
+            $textFiles[$file_name_no_ext] = "prose";
         }
     }
     $dirScanningTime = time() - $dirScanningTime;
@@ -101,25 +115,25 @@ function loadAll(){
     //filter out textfiles already loaded
     $filteringOutLoadedTime = time();
     $loadedTextFiles = mod_get_loadedBooks_title();
-    foreach ($textFiles as $textFile){
-        if(!in_array($textFile, $loadedTextFiles)){
-            $unLoadedTextFiles[] = $textFile;
+    foreach ($textFiles as $fileName => $textFileType){
+        if(!in_array($fileName, $loadedTextFiles)){
+            $unLoadedTextFiles[$fileName] = $textFileType;
         }
     }
     $filteringOutLoadedTime = time() - $filteringOutLoadedTime;
 
-
-    //insert unloaded textfiles into books table that are not already inserted
+    //insert unloaded textfiles into books table that are not  inserted
     $insertingIntoBooksTime = time();
     $allTextFilesInBooksTable = mod_get_allbooks_title(); //
-    foreach ($unLoadedTextFiles as $unLoadedTextFile){
-        if(!in_array($unLoadedTextFile, $allTextFilesInBooksTable)){
+    foreach ($unLoadedTextFiles as $unLoadedTextFileName => $textFileType){
+        if(!in_array($unLoadedTextFileName, $allTextFilesInBooksTable)){
             $author ="";
-            $txtFileDatapath = $datapath . '/' . $unLoadedTextFile.'.txt';
+            $type = $textFileType;
+            $txtFileDatapath = $datapath . '/' . $textFileType . '/' . $unLoadedTextFileName.'.txt';
             //insert into books table
-            $sql = 'INSERT INTO books (titlestr,authorstr,datapath)';
-            $sql .= ' VALUES ( %s, %s, %s)';
-            queryf($sql,  $unLoadedTextFile, $author, $txtFileDatapath);
+            $sql = 'INSERT INTO books (titlestr,authorstr,datapath,type)';
+            $sql .= ' VALUES ( %s, %s, %s , %s)';
+            queryf($sql,  $unLoadedTextFileName, $author, $txtFileDatapath, $type);
 
         }
     }
@@ -140,14 +154,14 @@ function loadAll(){
     }
 
     $allTextFilesInBooksTable = mod_get_allbooks_title(); //
+    $unLoadedTextFiles_keys = array_keys($unLoadedTextFiles); //which is filenames only
     foreach ($allTextFilesInBooksTable as $book_id => $bookTitle){
-        if(in_array($bookTitle,$unLoadedTextFiles)){
-            $textFilesTobeLoaded[$book_id] = $bookTitle.".txt";
+        if(in_array($bookTitle,$unLoadedTextFiles_keys)){
+            $textFilesTobeLoaded[$book_id] = $unLoadedTextFiles[$bookTitle]."/".$bookTitle.".txt";
         }
     }
 
     $clearingInterupptedToksChestsTime =  time() - $clearingInterupptedToksChestsTime;
-
 
     //load the unloaded text files if no error happens
     $insertingIntoToksChestsTime = time();
@@ -156,6 +170,10 @@ function loadAll(){
         foreach ($textFilesTobeLoaded as $book_id => $file_path) {
             $starttime_per_file = time();
             $text = file_get_contents($datapath . $file_path);
+
+            //get the textfile type -- poetry or prose
+            $textFileType = explode("/", $file_path)[0];
+
 
             //echo $file_path . ' len: ' . strlen($text);
             //echo "\n";
@@ -201,6 +219,10 @@ function loadAll(){
                 $cleanline = '';
                 $linelen = strlen($line);
                 for ($j = 0; $j < $linelen; $j++) {
+                    //if the file type is prose replace the newline chars with spaces
+                    if($textFileType == 'prose'){
+                        str_replace($newLineChars," ",$line[$j]);
+                    }
                     if (isset($charcounts[$line[$j]]) || in_array($line[$j],$newLineChars)) {
                         $cleanline .= $line[$j];
                     }

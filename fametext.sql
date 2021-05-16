@@ -38,7 +38,8 @@ CREATE TABLE `books` (
   `titlestr` text NOT NULL,
   `authorstr` text NOT NULL,
   `datapath` text NOT NULL,
-  `isLoaded` boolean  DEFAULT false
+  `isLoaded` boolean  DEFAULT false,
+  `type`    text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
