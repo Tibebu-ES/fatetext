@@ -158,9 +158,10 @@ function mod_get_allbooks_title(){
 /**
  * return associative array of loaded books title
  * keys are book's id
+ * order alphabetically  by the books' title
  */
 function mod_get_loadedBooks_title(){
-    $sql = 'SELECT bookid, titlestr FROM books WHERE isLoaded = true';
+    $sql = 'SELECT bookid, titlestr FROM books WHERE isLoaded = true ORDER BY titlestr';
     $rs = queryf_all($sql);
     $rv = array();
     if (count($rs) == 0) {
