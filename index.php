@@ -34,8 +34,11 @@ if (web_logged_in()) {
 } else {
   //if no user login before and if $loginAsGuestEnable is enabled
   if($loginAsGuestEnable){
-    //login as a guest
-    $data = web_init_data('home');
+    //login as a guest and land on the search page
+    $data = web_init_data('search');
+    //when it lands on the search page, create or search a sentences
+    $data['cmd'] = "Create";
+
     $data['username'] = 'guest';
     $data['password'] = 'guest';
   //make sure if guest user is in the system - if not create one
@@ -43,6 +46,9 @@ if (web_logged_in()) {
     web_login_user($data);
     $data['toscheck'] = true; //pass the termsof service page
     con_tos_action($data);
+
+
+
   }else{
     //go to the login page
     $data = web_init_data('login');
@@ -53,7 +59,6 @@ util_log('debug', 'web_init_data() done', LLDEBUG);
 try {
 
   con_do_cmd($data);
-
 
   $ds = 'con_do_cmd(' . print_r($data, true) . ')';
   util_log('debug', 'finished: ' . $ds, LLDEBUG);
