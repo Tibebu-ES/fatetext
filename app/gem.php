@@ -23,9 +23,12 @@ SOFTWARE. */
 function mod_generate_gem($userid, $stxt, $category) {
   $book_filter = ' WHERE ';
 
-  if (!isset($category)) {
-    util_except('called generate_gem without a category');
+    //if category is empty set the default category which is FATE
+  if (!isset($category) || $category == '') {
+      $category = DEFAULT_CATEGORY;
+    //util_except('called generate_gem without a category');
   }
+
 
   switch ($category) {
    case 'CLEAR':
