@@ -3,7 +3,7 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define ('CMD_GET_ALL_TEXT_FILES', 3);
 //define ('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-define ('TEXTLOADER_URL', "https://www.questiontask.com/scripts/textloader.php");
+define ('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 ?>
 
 <html>
