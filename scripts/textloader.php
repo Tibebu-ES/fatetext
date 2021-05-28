@@ -20,7 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-
 include('../serverconfig.php');
 include($GLOBALS['FATEPATH'] . '/fate.php');
 //ini_set('memory_limit', '2GB');
@@ -33,12 +32,14 @@ define('MIN_LINE_LEN', 40);
 define('MIN_TOK_LEN', 5);
 
 define('REPORT_MOD', 1000);
+
 define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
+define ('CMD_GET_ALL_TEXT_FILES', 3);
 
 //define default num of max textfiles to load at a time
 //to set the default num of max textfiles to load at a time, set an the api field 'ntl'
-define('MAX_TEXT_LOAD',5);
+define('MAX_TEXT_LOAD',1);
 
 
 
@@ -55,8 +56,11 @@ switch ($CMD){
     case CMD_LOAD_ALL:
         loadAll();
         break;
+    case CMD_GET_ALL_TEXT_FILES:
+        getAllTextFiles();
+        break;
     default:
-        echo "THE SCRIPT COMMAND IS NOT RECOGNIZED";
+        echo "THE SCRIPT COMMAND ".$CMD. " IS NOT RECOGNIZED";
 }
 
 function loadAll(){
@@ -67,7 +71,7 @@ function loadAll(){
     $clearingInterupptedToksChestsTime =0;
     $insertingIntoToksChestsTime = 0; //
 
-    echo "LOADING  TEXT FILES \r\n";
+    //echo "LOADING  TEXT FILES \r\n";
     $numOfMaxTextFileToLoad = MAX_TEXT_LOAD;
     if(isset($_POST['ntl'])){
         $ntl = intval($_POST['ntl']);
@@ -319,6 +323,7 @@ function loadAll(){
             }
 
             $elapsed_time_per_file = time() - $starttime_per_file;
+ /*
             //print loading status per textfile
             echo "\r\n -----------------------------------------------------\r\n".
                 "File Name: ". $file_path. "\r\n".
@@ -329,7 +334,7 @@ function loadAll(){
                 "File Size: ".filesize($datapath . $file_path)." bytes "."\r\n".
                 "Elapsed Time: ". $elapsed_time_per_file ." seconds\r\n".
                 " ------------------------------------------------------\r\n";
-
+*/
 
             $numOfTextFilesLoaded++;
             if($numOfTextFilesLoaded == $numOfMaxTextFileToLoad){
@@ -337,13 +342,31 @@ function loadAll(){
             }
         }
     }else{
-        echo "Error loading text files";
+        //echo "Error loading text files";
     }
     $insertingIntoToksChestsTime = time() - $insertingIntoToksChestsTime;
 
+    $remainingUnloadedTextFiles = count($textFilesTobeLoaded) - $numOfMaxTextFileToLoad;
+
+    //prepare response
+    $allTextFilesInBooksTable = mod_get_allbooks_title();
+    $response = array();
+    if($flag == 0){
+        $response['status'] = true;
+        $response['unloadedTextFiles'] = $remainingUnloadedTextFiles;
+        $response['allTextFiles'] = count($allTextFilesInBooksTable);
+        $response['message'] = count($allTextFilesInBooksTable) - $remainingUnloadedTextFiles  ." of ". count($allTextFilesInBooksTable) ." text files are loaded!";
+    }else{
+        $response['status'] = false;
+        $response['message'] = "Something went wrong please try loading again.";
+    }
+
+    //send response
+    echo json_encode($response);
+
+/*
     //print reports
     echo "\r\n-------------------------------------SUMMARY---------------------------\r\n";
-    $remainingUnloadedTextFiles = count($textFilesTobeLoaded) - $numOfMaxTextFileToLoad;
     echo $numOfMaxTextFileToLoad. " text files are loaded.\r\n";
     if($remainingUnloadedTextFiles > 0){
         echo $remainingUnloadedTextFiles. " text files remain.\r\n".
@@ -365,13 +388,11 @@ function loadAll(){
     echo "Time to clear the interuppted textfile's chests and toks = ".$clearingInterupptedToksChestsTime." seconds \r\n";
     echo "Time to insert into chests and toks table = ".$insertingIntoToksChestsTime." seconds \r\n";
     echo "\r\n--------------------------------------------------------------------\r\n";
-
+*/
 
 }
-
 function clearAll(){
     $flag = 0;
-    echo "clearing books,toks and chests...... <br> ";
     $sql = "TRUNCATE TABLE books";
     if(!queryf($sql)) $flag++;
     $sql = "TRUNCATE TABLE toks";
@@ -383,9 +404,19 @@ function clearAll(){
     //if(!queryf($sql)) $flag++;
 
     if($flag == 0){
-        echo "All loaded textfiles are cleared from the database ";
+        $res["status"] = true;
+        $res["message"] = "All loaded textfiles are cleared from the database!";
+        echo json_encode($res);
     }else{
-        echo "Error clearing loaded textfiles ";
+        $res["status"] = false;
+        $res["message"] = "Error clearing loaded textfiles! ";
+        echo json_encode($res);
     }
 
 }
+
+function getAllTextFiles(){
+    $allTextFilesInBooksTable = mod_get_all_books(); //
+    echo json_encode($allTextFilesInBooksTable);
+}
+

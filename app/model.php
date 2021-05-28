@@ -173,6 +173,21 @@ function mod_get_loadedBooks_title(){
     }
     return $rv;
 }
+/**
+ * return array of loaded books object
+ * order alphabetically  by the books' title
+ *
+ */
+function mod_get_all_books(){
+    $sql = 'SELECT * FROM books  ORDER BY titlestr';
+    $rs = queryf_all($sql);
+    $rv = array();
+    foreach ($rs as $book) {
+        array_push($rv,$book);
+    }
+
+    return $rv;
+}
 
 /**
  * return id of the last inserted book
