@@ -2,6 +2,8 @@
 define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define ('CMD_GET_ALL_TEXT_FILES', 3);
+//define ('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
+define ('TEXTLOADER_URL', "https://www.questiontask.com/scripts/textloader.php");
 ?>
 
 <html>
@@ -23,9 +25,6 @@ define ('CMD_GET_ALL_TEXT_FILES', 3);
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!--import Jcircular progress bar plugin-->
-    <link href="circle-represent-percentage-jcirclize/css/jCirclize.css" rel="stylesheet">
-    <script src="circle-represent-percentage-jcirclize/dist/jquery.jCirclize.js"></script>
 
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
           rel = "stylesheet">
@@ -142,14 +141,13 @@ define ('CMD_GET_ALL_TEXT_FILES', 3);
         //remove previous active element
         $(obj).parent().find("li.active").removeClass("active");
         $(obj).addClass("active");
-
         $("#listOfBooks").show();
         $("#loadTextFiles").hide();
 
         //get the textfiles in the db
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/fatetext/scripts/textloader.php",
+            url: <?php echo '"'. TEXTLOADER_URL .'"'?>,
             data: { cmd: <?php echo CMD_GET_ALL_TEXT_FILES?> },
             success: function (data)  {
                 var listOfBooks = JSON.parse(data);
@@ -180,7 +178,7 @@ define ('CMD_GET_ALL_TEXT_FILES', 3);
         if(confirm){
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8081/fatetext/scripts/textloader.php",
+                url: <?php echo '"'. TEXTLOADER_URL .'"'?>,
                 data: { cmd: <?php echo CMD_CLEAR_ALL?> },
                 success: function (data)  {
                     var res = JSON.parse(data);
@@ -216,7 +214,7 @@ define ('CMD_GET_ALL_TEXT_FILES', 3);
         }
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/fatetext/scripts/textloader.php",
+            url: <?php echo '"'. TEXTLOADER_URL .'"'?>,
             data: { cmd: <?php echo CMD_LOAD_ALL?> },
             success: function (data)  {
                 var res = JSON.parse(data);
@@ -226,10 +224,11 @@ define ('CMD_GET_ALL_TEXT_FILES', 3);
                     var loadedTextFilesPerc = (totalTextFiles - unloadedTextFiles)/totalTextFiles * 100;
                     console.log("perc ="+loadedTextFilesPerc);
                       if(res.unloadedTextFiles > 0){
-                          var progressbar = $( "#progressbar-1" );
-                          var val = progressbar.progressbar( "value" ) || 0;
-                          progressbar.progressbar( "value", loadedTextFilesPerc );
+                          $( "#progressbar-1" ).progressbar( "value", loadedTextFilesPerc );
                           loadAllTextFilesHandler(obj,false);
+                      }else{
+                          $( "#progressbar-1" ).progressbar( "value", loadedTextFilesPerc );
+                          alert("Completed!");
                       }
                 }
                 $("#loadingProgress").text(res.message);

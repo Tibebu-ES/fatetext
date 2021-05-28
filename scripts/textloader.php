@@ -347,6 +347,9 @@ function loadAll(){
     $insertingIntoToksChestsTime = time() - $insertingIntoToksChestsTime;
 
     $remainingUnloadedTextFiles = count($textFilesTobeLoaded) - $numOfMaxTextFileToLoad;
+    if($remainingUnloadedTextFiles < 0){
+        $remainingUnloadedTextFiles = 0;
+    }
 
     //prepare response
     $allTextFilesInBooksTable = mod_get_allbooks_title();

@@ -146,13 +146,10 @@ function mod_get_allbooks_title(){
     $sql = 'SELECT bookid, titlestr FROM books';
     $rs = queryf_all($sql);
     $rv = array();
-    if (count($rs) == 0) {
-        $rv []= '';
-    } else {
         foreach ($rs as $book) {
             $rv [$book['bookid']] = $book['titlestr'];
         }
-    }
+
     return $rv;
 }
 /**
