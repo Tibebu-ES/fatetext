@@ -93,6 +93,29 @@ function mod_load_chest($chestid) {
   $rv = queryf_one($sql, $chestid);
   return $rv;
 }
+/**
+ * return bookid of the given chest
+ */
+function mod_get_book($chestid) {
+    $sql = 'SELECT bookid FROM chests WHERE chestid = %d';
+    $rv = queryf_one($sql, $chestid);
+    return $rv['bookid'];
+}
+
+/**
+ * return all chests id that belong to the given book
+*/
+function mod_load_all_chest_in_a_book($bookid) {
+    $sql = 'SELECT chestid FROM chests WHERE bookid = %d';
+    $rs = queryf_all($sql, $bookid);
+    $rv = array();
+    foreach ($rs as $chest) {
+        $rv [] = $chest['chestid'];
+    }
+    return $rv;
+}
+
+
 
 function mod_get_user_gems($userid, $maxgems = 0) {
   $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';

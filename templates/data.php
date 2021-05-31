@@ -32,27 +32,14 @@ $sub_header_str .= gen_i('Abstract');
 echo gen_p(gen_h(2, $sub_header_str));
 
 if (isset($data['chestid'])) {
-
-  $next_prev_str = '';
-  $chest_id = $data['chestid'];
-  $data_url = gen_url('data', 'chest');
-  $data_url .= gen_url_param('chestid', $chest_id - NUM_CON_ROWS);
-  $data_url .= gen_url_param('tokstr', $data['tokstr']);
-  //TODO bounds checking
-  if ($chest_id - (2 * NUM_CHAT_ROWS) > 0) {
-    $next_prev_str .= gen_link($data_url, '&lt;prev') . ' :: ';
-  }
-  $data_url = gen_url('data', 'chest');
-  $data_url .= gen_url_param('chestid', $chest_id + NUM_CON_ROWS);
-  $data_url .= gen_url_param('tokstr', $data['tokstr']);
-  $next_prev_str .= gen_link($data_url, 'next&gt;');
-  echo gen_p($next_prev_str);
-
-  $minid = max(1, $data['chestid'] - NUM_CON_ROWS);
-  $maxid = min(mod_max_chestid(), $data['chestid'] + NUM_CON_ROWS + 1);
-
-  for ($i = $minid; $i < $maxid; $i++) {
-    $chestdata = mod_load_chest($i);
+    echo gen_p("FULL TEXT DATA :");
+   //view full text
+    //get all chestda that belongs to the book which is the one $data['chestid'] belongs.
+    $bookId = mod_get_book($data['chestid']);
+    $chests_id = mod_load_all_chest_in_a_book($bookId);
+    $all_outstr = '';
+    foreach ( $chests_id as  $chest_id){
+    $chestdata = mod_load_chest($chest_id);
     $outstr = '';
     $toks = explode(' ', $chestdata['datastr']);
     foreach ($toks as $tok) {
@@ -71,15 +58,23 @@ if (isset($data['chestid'])) {
       }
       $outstr .=  $linkstr . ' ' . "\n";
     }
-    if ($i == $data['chestid']) {
-      echo gen_p('-------');
+    if ($chest_id == $data['chestid']) {
+      //echo gen_p('-------');
+        $all_outstr .= gen_p('-------');
     }
-    echo gen_p($outstr);
-    if ($i == $data['chestid']) {
-      echo gen_p('-------');
+        //echo gen_p($outstr);
+        $all_outstr .= gen_p($outstr);
+    if ($chest_id == $data['chestid']) {
+        //echo gen_p('-------');
+        $all_outstr .= gen_p('-------');
     }
 
   }
+    //print full text data in a div
+    echo gen_div( $all_outstr, 'full_text_viewer');
+
+
+
 
 } else {
 

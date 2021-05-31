@@ -194,3 +194,23 @@ div.title_content {
   display: table;
   clear: both;
 }
+
+div.full_text_viewer {
+  width:fit-content;
+  padding: 10px;
+  margin: 20px;
+  border: dotted darkred 1px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #FFFFFF;
+  color : black;
+}
+div.full_text_viewer  a{
+  color : black;
+}
+
+div.full_text_viewer  a.plain:hover{
+  color: darkred;
+  text-decoration: underline;
+  font-weight: bold;
+}
