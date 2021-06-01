@@ -197,20 +197,21 @@ div.title_content {
 
 div.full_text_viewer {
   width:fit-content;
+  white-space: pre-wrap;
   padding: 10px;
   margin: 20px;
   border: dotted darkred 1px;
-  max-height: 400px;
+  max-height: 300px;
   overflow-y: auto;
-  background-color: #FFFFFF;
-  color : black;
-}
-div.full_text_viewer  a{
-  color : black;
+
 }
 
-div.full_text_viewer  a.plain:hover{
+
+div.full_text_viewer #chestDiv{
   color: darkred;
-  text-decoration: underline;
   font-weight: bold;
+}
+
+div.full_text_viewer #chestDiv #tokSpan{
+ text-decoration: underline ;
 }
