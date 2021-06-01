@@ -30,6 +30,10 @@ util_assert(isset($data[TEMPLATE_CONTENT]),
   <head>
     <title><?php echo $page_title; ?></title>
       <link rel="stylesheet" href="css/fate.css" />
+      <!-- jQuery library -->
+      <script type="text/javascript" src="js/jquery-3.6.0.min.js"> </script>
+      <script type="text/javascript" src="js/general.js"> </script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
 <body>
 
@@ -140,5 +144,6 @@ if (web_logged_in()) {
   echo gen_two_cols($left_col, $right_col);
 }
 ?>
+
 
 </body></html>

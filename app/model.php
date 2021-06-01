@@ -101,6 +101,14 @@ function mod_get_book($chestid) {
     $rv = queryf_one($sql, $chestid);
     return $rv['bookid'];
 }
+/**
+ * return token string of the given tokenid
+ */
+function mod_get_token($tokenid) {
+    $sql = 'SELECT tokstr FROM toks WHERE tokid = %d';
+    $rv = queryf_one($sql, $tokenid);
+    return $rv['tokstr'];
+}
 
 /**
  * return all chests id that belong to the given book

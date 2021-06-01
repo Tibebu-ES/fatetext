@@ -18,7 +18,8 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. */ 
+SOFTWARE. */
+
 
 $curuser = web_get_user();
 $safe_text = '';
@@ -110,7 +111,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
         $sent_str = $gemdata['chester'];
         if (!$ttip_flag) {
-          $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
+         // $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
         }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
       }
@@ -217,6 +218,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $tempstr = 'Answer';
         if ($lastsaved != 0) {
           $tempstr .= ' (' . gen_b('at ') . gen_i(fd($lastsaved)) . ')';
+
         } else {
           $tempstr .= ' (this field is mutable)';
         }
@@ -225,7 +227,44 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
         echo gen_div($tempstr, 'gem_step');
 
+        //if it is step-3 -- append the full text-viewer
+        if ($stepvalue != '') {
+          if (isset($gemdata['chestid'])) {
+            //get blanked tok
+            $blankedTok = mod_get_token($gemdata['tokid']);
+            echo gen_p("FULL TEXT DATA :");
+            //view full text
+            //get all chestda that belongs to the book which is the one $data['chestid'] belongs.
+            $bookId = mod_get_book($gemdata['chestid']);
+            $chests_id = mod_load_all_chest_in_a_book($bookId);
+            $all_outstr = '';
+            foreach ( $chests_id as  $chest_id){
+              $chestdata = mod_load_chest($chest_id);
+              $outstr = $chestdata['datastr'];
+
+              if ($chest_id == $gemdata['chestid']) {
+                //echo gen_p('-------');
+                $all_outstr .= '<div id="chestDiv'.'">';
+                //get the blanked tokken and inclose it in a span
+                $blankedTokSpan = '<span id="tokSpan'.'">'.$blankedTok.'</span>';
+                $all_outstr .= str_replace(trim($blankedTok),$blankedTokSpan,$outstr);
+                $all_outstr .= '</div>';
+              }else{
+                $all_outstr .= $outstr;
+              }
+
+            }
+            //print full text data in a div
+            echo gen_div( $all_outstr, 'full_text_viewer');
+
+
+
+
+          }
+        }
+
       }
+
     }
   }
 
@@ -295,4 +334,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
   mod_log_search($stxt);
 } // end if $stxt != ''
 
+
+
 ?>
+
