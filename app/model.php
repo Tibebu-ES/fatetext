@@ -20,40 +20,46 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-function mod_get_hall_categories() {
+function mod_get_hall_categories()
+{
   $sql = 'SELECT category FROM hallart GROUP BY category';
   $rs = queryf_all($sql);
   $rv = array();
   if (count($rs) == 0) {
-    $rv []= 'American';
+    $rv[] = 'American';
   } else {
     foreach ($rs as $cat_arr) {
-      $rv []= $cat_arr['category'];
+      $rv[] = $cat_arr['category'];
     }
   }
   return $rv;
 }
 
-function mod_get_hall_art() {
+function mod_get_hall_art()
+{
   $sql = 'SELECT * FROM hallart ORDER BY artid DESC';
   $rs = queryf_all($sql);
   if (count($rs) == 0) {
-    $rs = array(array('artid' => '1',
-                      'category' => 'American',
-                      'datestr' => '01_01_21',
-                      'arturl' => 'http://thesuzy.com',
-                      'sumstr' => 'TheSuzy Trilogy by Todd Perry'));
+    $rs = array(array(
+      'artid' => '1',
+      'category' => 'American',
+      'datestr' => '01_01_21',
+      'arturl' => 'http://thesuzy.com',
+      'sumstr' => 'TheSuzy Trilogy by Todd Perry'
+    ));
   }
   return $rs;
 }
 
-function mod_max_tokid() {
+function mod_max_tokid()
+{
   $sql = 'SELECT MAX(tokid) as maxid FROM toks';
   $rs = queryf_one($sql);
   return $rs['maxid'];
 }
 
-function mod_max_chestid() {
+function mod_max_chestid()
+{
   $sql = 'SELECT MAX(chestid) as maxid FROM chests';
   $rs = queryf_one($sql);
   return $rs['maxid'];
@@ -61,7 +67,8 @@ function mod_max_chestid() {
 
 
 
-function mod_load_step($gemid, $whichint) {
+function mod_load_step($gemid, $whichint)
+{
   $sql = 'SELECT stepstr, datecreated FROM steps';
   $sql .= ' WHERE gemid = %d';
   $sql .= ' AND whichint = %d';
@@ -69,7 +76,8 @@ function mod_load_step($gemid, $whichint) {
   return $rs;
 }
 
-function mod_record_step($gemid, $guesstxt, $whichint) {
+function mod_record_step($gemid, $guesstxt, $whichint)
+{
   $nowtime = time();
   $sql = 'DELETE FROM steps WHERE gemid = %d AND whichint = %d';
   queryf($sql, $gemid, $whichint);
@@ -79,16 +87,27 @@ function mod_record_step($gemid, $guesstxt, $whichint) {
   queryf($sql, $gemid, $guesstxt, $whichint, $nowtime);
 }
 
-function mod_get_book_title($book_id) {
+function mod_get_book_title($book_id)
+{
   $sql = 'SELECT titlestr FROM books WHERE bookid = %d';
   $rs = queryf_one($sql, $book_id);
   //TODO error handling
   return $rs['titlestr'];
 }
 
+/**
+ * return book location - datapath
+ */
+function mod_get_book_path($book_id)
+{
+  $sql = 'SELECT datapath FROM books WHERE bookid = %d';
+  $rs = queryf_one($sql, $book_id);
+  //TODO error handling
+  return $rs['datapath'];
+}
 
-
-function mod_load_chest($chestid) {
+function mod_load_chest($chestid)
+{
   $sql = 'SELECT * FROM chests WHERE chestid = %d';
   $rv = queryf_one($sql, $chestid);
   return $rv;
@@ -96,36 +115,40 @@ function mod_load_chest($chestid) {
 /**
  * return bookid of the given chest
  */
-function mod_get_book($chestid) {
-    $sql = 'SELECT bookid FROM chests WHERE chestid = %d';
-    $rv = queryf_one($sql, $chestid);
-    return $rv['bookid'];
+function mod_get_book($chestid)
+{
+  $sql = 'SELECT bookid FROM chests WHERE chestid = %d';
+  $rv = queryf_one($sql, $chestid);
+  return $rv['bookid'];
 }
 /**
  * return token string of the given tokenid
  */
-function mod_get_token($tokenid) {
-    $sql = 'SELECT tokstr FROM toks WHERE tokid = %d';
-    $rv = queryf_one($sql, $tokenid);
-    return $rv['tokstr'];
+function mod_get_token($tokenid)
+{
+  $sql = 'SELECT tokstr FROM toks WHERE tokid = %d';
+  $rv = queryf_one($sql, $tokenid);
+  return $rv['tokstr'];
 }
 
 /**
  * return all chests id that belong to the given book
-*/
-function mod_load_all_chest_in_a_book($bookid) {
-    $sql = 'SELECT chestid FROM chests WHERE bookid = %d';
-    $rs = queryf_all($sql, $bookid);
-    $rv = array();
-    foreach ($rs as $chest) {
-        $rv [] = $chest['chestid'];
-    }
-    return $rv;
+ */
+function mod_load_all_chest_in_a_book($bookid)
+{
+  $sql = 'SELECT chestid FROM chests WHERE bookid = %d';
+  $rs = queryf_all($sql, $bookid);
+  $rv = array();
+  foreach ($rs as $chest) {
+    $rv[] = $chest['chestid'];
+  }
+  return $rv;
 }
 
 
 
-function mod_get_user_gems($userid, $maxgems = 0) {
+function mod_get_user_gems($userid, $maxgems = 0)
+{
   $sql = 'SELECT gems.tokid, datecreated, tokstr, gemid,';
   $sql .= ' wordcount, charcount, stepint FROM gems, toks';
   $sql .= ' WHERE userid = %d AND toks.tokid = gems.tokid';
@@ -141,7 +164,7 @@ function mod_get_user_gems($userid, $maxgems = 0) {
     $rs2 = queryf_one($sql, $row['gemid']);
     if (isset($rs2)) {
       if (strlen($rs2['stepstr']) > 4) {
-        $rv []= $row;
+        $rv[] = $row;
         if (count($rv) >= $maxgems) {
           break;
         }
@@ -151,111 +174,124 @@ function mod_get_user_gems($userid, $maxgems = 0) {
   return $rv;
 }
 
-function mod_log_search($logtxt) {
+function mod_log_search($logtxt)
+{
   $logtxt = '[' . fd(time()) . ']' . $logtxt . "\n";
   file_put_contents($GLOBALS['SLOGFILE'], $logtxt, FILE_APPEND);
 }
 
-function mod_flag_from_toggle($intoggle) {
+function mod_flag_from_toggle($intoggle)
+{
   switch ($intoggle) {
-   case TOGGLE_SPLASH_CMD: return FATE_SPLASH_FLAG;
-   case TOGGLE_CHAT_CMD: return CHAT_OPEN_FLAG;
-   case TOGGLE_TEXT_CMD: return TEXT_AREA_FLAG;
-   case TOGGLE_OPTION_CMD: return AUTHORTEXT_FLAG;
-   case TOGGLE_INVERTEDCS_CMD: return INVERTEDCS_FLAG;
-   case TOGGLE_TOOLTIP_CMD: return HIDETOOLTIP_FLAG;
+    case TOGGLE_SPLASH_CMD:
+      return FATE_SPLASH_FLAG;
+    case TOGGLE_CHAT_CMD:
+      return CHAT_OPEN_FLAG;
+    case TOGGLE_TEXT_CMD:
+      return TEXT_AREA_FLAG;
+    case TOGGLE_OPTION_CMD:
+      return AUTHORTEXT_FLAG;
+    case TOGGLE_INVERTEDCS_CMD:
+      return INVERTEDCS_FLAG;
+    case TOGGLE_TOOLTIP_CMD:
+      return HIDETOOLTIP_FLAG;
   }
   util_except('attempted to reference an unknown flag: '
-              . $intoggle);
+    . $intoggle);
 }
 
 /**
  * return associative array of books title
  * keys are book's id
  */
-function mod_get_allbooks_title(){
-    $sql = 'SELECT bookid, titlestr FROM books';
-    $rs = queryf_all($sql);
-    $rv = array();
-        foreach ($rs as $book) {
-            $rv [$book['bookid']] = $book['titlestr'];
-        }
+function mod_get_allbooks_title()
+{
+  $sql = 'SELECT bookid, titlestr FROM books';
+  $rs = queryf_all($sql);
+  $rv = array();
+  foreach ($rs as $book) {
+    $rv[$book['bookid']] = $book['titlestr'];
+  }
 
-    return $rv;
+  return $rv;
 }
 /**
  * return associative array of loaded books title
  * keys are book's id
  * order alphabetically  by the books' title
  */
-function mod_get_loadedBooks_title(){
-    $sql = 'SELECT bookid, titlestr FROM books WHERE isLoaded = true ORDER BY titlestr';
-    $rs = queryf_all($sql);
-    $rv = array();
-    if (count($rs) == 0) {
-        $rv []= '';
-    } else {
-        foreach ($rs as $book) {
-            $rv [$book['bookid']] = $book['titlestr'];
-        }
+function mod_get_loadedBooks_title()
+{
+  $sql = 'SELECT bookid, titlestr FROM books WHERE isLoaded = true ORDER BY titlestr';
+  $rs = queryf_all($sql);
+  $rv = array();
+  if (count($rs) == 0) {
+    $rv[] = '';
+  } else {
+    foreach ($rs as $book) {
+      $rv[$book['bookid']] = $book['titlestr'];
     }
-    return $rv;
+  }
+  return $rv;
 }
 /**
  * return array of loaded books object
  * order alphabetically  by the books' title
  *
  */
-function mod_get_all_books(){
-    $sql = 'SELECT * FROM books  ORDER BY titlestr';
-    $rs = queryf_all($sql);
-    $rv = array();
-    foreach ($rs as $book) {
-        array_push($rv,$book);
-    }
+function mod_get_all_books()
+{
+  $sql = 'SELECT * FROM books  ORDER BY titlestr';
+  $rs = queryf_all($sql);
+  $rv = array();
+  foreach ($rs as $book) {
+    array_push($rv, $book);
+  }
 
-    return $rv;
+  return $rv;
 }
 
 /**
  * return id of the last inserted book
  *
  */
-function mod_get_lastBookId(){
-    $sql = 'SELECT bookid FROM books ORDER BY bookid DESC LIMIT 1';
-    $rs = queryf_all($sql);
-    $rv = array();
-    if (count($rs) == 0) {
-        $rv []= '';
-    } else {
-        foreach ($rs as $book) {
-            $rv [] = $book['bookid'];
-        }
+function mod_get_lastBookId()
+{
+  $sql = 'SELECT bookid FROM books ORDER BY bookid DESC LIMIT 1';
+  $rs = queryf_all($sql);
+  $rv = array();
+  if (count($rs) == 0) {
+    $rv[] = '';
+  } else {
+    foreach ($rs as $book) {
+      $rv[] = $book['bookid'];
     }
-    return $rv;
+  }
+  return $rv;
 }
 
 /**
  * check if there is a guest user,
  * if there is no guest user create one
  */
-function mod_add_guest_user(){
-    $guestUserName = 'guest';
-    $guestUserPass = util_hashpass('guest');
-    $sql = 'SELECT userid FROM users WHERE username = %s and hashpass = %s';
-    $rs = queryf_one($sql, $guestUserName, $guestUserPass);
+function mod_add_guest_user()
+{
+  $guestUserName = 'guest';
+  $guestUserPass = util_hashpass('guest');
+  $sql = 'SELECT userid FROM users WHERE username = %s and hashpass = %s';
+  $rs = queryf_one($sql, $guestUserName, $guestUserPass);
+  if (isset($rs) && count($rs) > 0) {
+  } else {
+    //create one
+    //get the last user id
+    $lastUserId = 0;
+    $sql = 'SELECT userid FROM users ORDER BY userid DESC LIMIT 1';
+    $rs = queryf_one($sql);
     if (isset($rs) && count($rs) > 0) {
-    } else {
-        //create one
-        //get the last user id
-        $lastUserId = 0;
-        $sql = 'SELECT userid FROM users ORDER BY userid DESC LIMIT 1';
-        $rs = queryf_one($sql);
-        if(isset($rs) && count($rs) > 0){
-            $lastUserId = $rs['userid'] +1;
-        }
-        $sql = 'INSERT INTO users (userid, username, hashpass)';
-        $sql .= ' VALUES (%d, %s, %s)';
-        queryf($sql, $lastUserId,  $guestUserName, $guestUserPass);
+      $lastUserId = $rs['userid'] + 1;
     }
+    $sql = 'INSERT INTO users (userid, username, hashpass)';
+    $sql .= ' VALUES (%d, %s, %s)';
+    queryf($sql, $lastUserId,  $guestUserName, $guestUserPass);
+  }
 }

@@ -225,10 +225,13 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
           $blankedTok = mod_get_token($gemdata['tokid']);
           echo gen_p("FULL TEXT DATA :");
           //view full text
+
+          /*
           //get all chestda that belongs to the book which is the one $data['chestid'] belongs.
+          //fetch the text data from the database 
+          $all_outstr = '';
           $bookId = mod_get_book($gemdata['chestid']);
           $chests_id = mod_load_all_chest_in_a_book($bookId);
-          $all_outstr = '';
           foreach ($chests_id as  $chest_id) {
             $chestdata = mod_load_chest($chest_id);
             $outstr = $chestdata['datastr'];
@@ -246,6 +249,29 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
           }
           //print full text data in a div
           echo gen_div($all_outstr, 'full_text_viewer');
+          */
+
+          //get the text data directly from the textfile 
+          $textData = '';
+
+          $bookId = mod_get_book($gemdata['chestid']);
+          $bookPath = mod_get_book_path($bookId);
+          $textData = file_get_contents($bookPath);
+          if ($textData != '') {
+            //get the target sentence and guessed token - in the textdata and inclose them with html tag
+            $chest = mod_load_chest($gemdata['chestid']);
+            $chestData = $chest['datastr'];
+
+            $textData .= '<div id="chestDiv' . '">';
+            //get the blanked tokken and inclose it in a span
+            $blankedTokSpan = '<span id="tokSpan' . '">' . $blankedTok . '</span>';
+            $textData .= str_replace(trim($blankedTok), $blankedTokSpan, $chestData);
+            $textData .= '</div>';
+          } else {
+            $textData = "Error reading full text data, the file can't be found";
+          }
+          //print full text data in a div
+          echo gen_div($textData, 'full_text_viewer');
         }
 
 
