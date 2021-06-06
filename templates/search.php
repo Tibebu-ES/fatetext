@@ -262,11 +262,15 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
             $chest = mod_load_chest($gemdata['chestid']);
             $chestData = $chest['datastr'];
 
-            $textData .= '<div id="chestDiv' . '">';
+            //inclose the chest data  in chest div
+            $chestDataInDiv = '<div id="chestDiv' . '">' . $chestData . '</div>';
+            //
             //get the blanked tokken and inclose it in a span
             $blankedTokSpan = '<span id="tokSpan' . '">' . $blankedTok . '</span>';
-            $textData .= str_replace(trim($blankedTok), $blankedTokSpan, $chestData);
-            $textData .= '</div>';
+            $chestDataInDiv = str_replace(trim($blankedTok), $blankedTokSpan, $chestDataInDiv);
+
+            //find and replace 
+            $textData =  str_replace(trim($chestData), $chestDataInDiv, $textData);
           } else {
             $textData = "Error reading full text data, the file can't be found";
           }
