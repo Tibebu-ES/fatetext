@@ -51,13 +51,18 @@ if (isset($data['customtxt'])) {
 }
 
 $textarea = web_get_user_flag($curuser, TEXT_AREA_FLAG);
-echo gen_search_form($safe_text, $safe_custom, $textarea,
-                     $incat, true, false);
+echo gen_search_form(
+  $safe_text,
+  $safe_custom,
+  $textarea,
+  $incat,
+  true,
+  false
+);
 
 if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
   echo gen_p('The custom category was: "' . $safe_custom . '"');
-
 } else if ($stxt == '') {
 
   $guessdata = null;
@@ -86,7 +91,6 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
       $tempstr .= gen_div($gemdata['chester'], 'gem_text');
       $tempstr .= gen_p(gen_gem_guess_form($gemdata));
       echo gen_div($tempstr, 'gem_step');
-
     } else {
 
       util_assert(isset($guessdata));
@@ -111,7 +115,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $dataurl .= gen_url_param('tokstr', $gemdata['tokstr']);
         $sent_str = $gemdata['chester'];
         if (!$ttip_flag) {
-         // $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
+          // $sent_str = gen_link($dataurl, $gemdata['chester'], 'plain');
         }
         $tempstr = gen_p($tempstr) . gen_div($sent_str, 'gem_text');
       }
@@ -120,27 +124,31 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
       if ($gemdata['stepint'] == 1) {
 
         //TODO load these automatically from the DB
-        $auth_arr = array('Todd Perry' => 'Todd Perry',
-                          'Conri Stonewall' => 'Conri Stonewall',
-                          'BIBLICAL' => 'BIBLICAL',
-                          'William Shakespeare' => 'William Shakespeare',
-                          'Marcus Aurelius' => 'Marcus Aurelius',
-                          'Virgil' => 'Virgil',
-                          'Homer' => 'Homer',
-                          'Plato' => 'Plato',
-                          'Aristotle' => 'Aristotle',
-                          'Horace' => 'Horace');
-        $text_arr = array(4 => 'The Bible',
-                          1 => 'Suzy\'s Memoir',
-                          2 => 'TheSuzy.com Show',
-                          3 => 'TheSuzy Memoirs',
-                          5 => 'All Shakespeare',
-                          6 => 'Meditations',
-                          7 => 'The Aeneid',
-                          8 => 'The Iliad',
-                          9 => 'The Republic',
-                          10 => 'Politics',
-                          11 => 'Poetry');
+        $auth_arr = array(
+          'Todd Perry' => 'Todd Perry',
+          'Conri Stonewall' => 'Conri Stonewall',
+          'BIBLICAL' => 'BIBLICAL',
+          'William Shakespeare' => 'William Shakespeare',
+          'Marcus Aurelius' => 'Marcus Aurelius',
+          'Virgil' => 'Virgil',
+          'Homer' => 'Homer',
+          'Plato' => 'Plato',
+          'Aristotle' => 'Aristotle',
+          'Horace' => 'Horace'
+        );
+        $text_arr = array(
+          4 => 'The Bible',
+          1 => 'Suzy\'s Memoir',
+          2 => 'TheSuzy.com Show',
+          3 => 'TheSuzy Memoirs',
+          5 => 'All Shakespeare',
+          6 => 'Meditations',
+          7 => 'The Aeneid',
+          8 => 'The Iliad',
+          9 => 'The Republic',
+          10 => 'Politics',
+          11 => 'Poetry'
+        );
 
         $tempstr = 'Ask a question about the sentence, itself:';
         $tempstr = gen_p(gen_b('Step 2: ') . $tempstr);
@@ -155,17 +163,21 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
           $linestr .= gen_select_input('textguess', $text_arr);
           $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
           //NOTE: the optional text and auth guess are in $tempstr
-          $tempstr = gen_gem_quest_form($gemdata, $tempstr,
-                                        $data['one_line_chk']);
+          $tempstr = gen_gem_quest_form(
+            $gemdata,
+            $tempstr,
+            $data['one_line_chk']
+          );
         } else {
           $togglestr = 'O&nbsp;<br>P&nbsp;<br>T&nbsp;<br>';
-          $leftcol = gen_div(gen_link($toggleurl, $togglestr, 'plain'),
-                             'gem_step');
+          $leftcol = gen_div(
+            gen_link($toggleurl, $togglestr, 'plain'),
+            'gem_step'
+          );
           $rightcol = gen_gem_quest_form($gemdata, '', $data['one_line_chk']);
           $tempstr .= gen_two_cols($leftcol, $rightcol);
         }
         echo gen_div($tempstr, 'gem_step');
-
       } else {
 
         $questdata = mod_load_step($gemdata['gemid'], 2);
@@ -189,7 +201,7 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
         $optstr = PADDING_STR . 'AUTHOR guess: ';
         if ($auth_coin) {
-          $optstr .= gen_link(gen_url('coin'), 'correct!');        
+          $optstr .= gen_link(gen_url('coin'), 'correct!');
         } else {
           $optstr .= gen_i($gemdata['authstr']);
         }
@@ -197,15 +209,45 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
         $linestr = PADDING_STR . 'TEXT guess: ';
         if ($text_coin) {
-          $linestr .= gen_link(gen_url('coin'), 'correct!');        
+          $linestr .= gen_link(gen_url('coin'), 'correct!');
         } else {
           $linestr .= gen_i($gemdata['bookstr']);
         }
-        $linestr .= ' (TEXT: ' . gen_b($correct_text) . ')';        
+        $linestr .= ' (TEXT: ' . gen_b($correct_text) . ')';
 
         $tempstr .= gen_p($optstr . gen_span($linestr, 'nextline'));
         $tempstr .= gen_div($questdata['stepstr'], 'quest_text');
         echo gen_div($tempstr, 'gem_step');
+
+        //full text viewer goes here - after question is asked
+        if (isset($gemdata['chestid'])) {
+          //get blanked tok
+          $blankedTok = mod_get_token($gemdata['tokid']);
+          echo gen_p("FULL TEXT DATA :");
+          //view full text
+          //get all chestda that belongs to the book which is the one $data['chestid'] belongs.
+          $bookId = mod_get_book($gemdata['chestid']);
+          $chests_id = mod_load_all_chest_in_a_book($bookId);
+          $all_outstr = '';
+          foreach ($chests_id as  $chest_id) {
+            $chestdata = mod_load_chest($chest_id);
+            $outstr = $chestdata['datastr'];
+
+            if ($chest_id == $gemdata['chestid']) {
+              //echo gen_p('-------');
+              $all_outstr .= '<div id="chestDiv' . '">';
+              //get the blanked tokken and inclose it in a span
+              $blankedTokSpan = '<span id="tokSpan' . '">' . $blankedTok . '</span>';
+              $all_outstr .= str_replace(trim($blankedTok), $blankedTokSpan, $outstr);
+              $all_outstr .= '</div>';
+            } else {
+              $all_outstr .= $outstr;
+            }
+          }
+          //print full text data in a div
+          echo gen_div($all_outstr, 'full_text_viewer');
+        }
+
 
         $stepvalue = '';
         $lastsaved = 0;
@@ -218,7 +260,6 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $tempstr = 'Answer';
         if ($lastsaved != 0) {
           $tempstr .= ' (' . gen_b('at ') . gen_i(fd($lastsaved)) . ')';
-
         } else {
           $tempstr .= ' (this field is mutable)';
         }
@@ -226,48 +267,9 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
         $tempstr = gen_p(gen_b('Step 3: ') . $tempstr);
         $tempstr .= gen_gem_answer_form($gemdata, $stepvalue, $lastsaved);
         echo gen_div($tempstr, 'gem_step');
-
-        //if it is step-3 -- append the full text-viewer
-        if ($stepvalue != '') {
-          if (isset($gemdata['chestid'])) {
-            //get blanked tok
-            $blankedTok = mod_get_token($gemdata['tokid']);
-            echo gen_p("FULL TEXT DATA :");
-            //view full text
-            //get all chestda that belongs to the book which is the one $data['chestid'] belongs.
-            $bookId = mod_get_book($gemdata['chestid']);
-            $chests_id = mod_load_all_chest_in_a_book($bookId);
-            $all_outstr = '';
-            foreach ( $chests_id as  $chest_id){
-              $chestdata = mod_load_chest($chest_id);
-              $outstr = $chestdata['datastr'];
-
-              if ($chest_id == $gemdata['chestid']) {
-                //echo gen_p('-------');
-                $all_outstr .= '<div id="chestDiv'.'">';
-                //get the blanked tokken and inclose it in a span
-                $blankedTokSpan = '<span id="tokSpan'.'">'.$blankedTok.'</span>';
-                $all_outstr .= str_replace(trim($blankedTok),$blankedTokSpan,$outstr);
-                $all_outstr .= '</div>';
-              }else{
-                $all_outstr .= $outstr;
-              }
-
-            }
-            //print full text data in a div
-            echo gen_div( $all_outstr, 'full_text_viewer');
-
-
-
-
-          }
-        }
-
       }
-
     }
   }
-
 } else { //$stxt != ''
 
   $stoks = explode(' ', trim($stxt));
@@ -333,8 +335,3 @@ if ($incat == 'CUSTOM' && $data['cmd'] == 'Create') {
 
   mod_log_search($stxt);
 } // end if $stxt != ''
-
-
-
-?>
-
