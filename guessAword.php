@@ -168,19 +168,23 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
                 </div>
                 <div class="card-footer text-muted">
-                    <h6> Question: </h6>
-                    <p class="card-text" id="question-view"> Your question goes here </p>
-                    <form class="form-inline">
-                        <div class="col-md-12 d-flex">
-                            <div class="form-group mb-2">
-                                <input type="text" class="form-control" id="answerInput" placeholder="Answer">
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#step-final" type="button" id="answerButton" class="btn btn-primary mb-2 btn-sm" onclick="finish()">Answer</a>
-                                <a href="#" type="button" id="backButton3" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
-                            </div>
+                    <div style="margin-bottom: 10px;" class="row">
+                        <div class="col-md-6">
+                            <h6> Question: </h6>
+                            <p class="card-text" id="question-view"> Your question goes here </p>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <h6> Text: </h6>
+                            <p class="card-text" id="text-name-view"> Text name goes here </p>
+                        </div>
+                    </div>
+                    <div class="form row">
+                        <input type="text" class=" col-md-9 form-control" id="answerInput" placeholder="Answer">
+                        <div class="col-md-3">
+                            <a href="#step-final" type="button" id="answerButton" class="btn btn-primary mb-2 btn-sm" onclick="finish()">Answer</a>
+                            <a href="#" type="button" id="backButton3" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -343,8 +347,9 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     textContent = textContent.replace(sen, senWithSpan);
                     $("#full-text-view").html(textContent);
 
-                    //set the question view
+                    //set the question view- and the text-name-view 
                     $("#question-view").text($("input[name=model_question]").val());
+                    $("#text-name-view").text($("input[name=model_rtfn]").val());
 
                     //show step-3 div
                     $("#step-3").css('display', 'block');
