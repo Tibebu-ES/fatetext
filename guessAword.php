@@ -120,7 +120,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                                     <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
 
                                     <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-sm" onclick="step2()">Guess</button>
-                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">Restart</button>
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">Skip</button>
                                 </div>
                             </div>
                         </form>
@@ -161,11 +161,9 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     <h5 class="card-title">Step -3 : Answer your question</h5>
                 </div>
                 <div class="card-body">
-                    <div id="full-text-view" class="card-text">
+                    <div id="full-text-view" class="card-text col-md-auto">
                         <p>With supporting text below as a natural lead-in to additional content.</p>
                     </div>
-
-
                 </div>
                 <div class="card-footer text-muted">
                     <div style="margin-bottom: 10px;" class="row">
@@ -347,7 +345,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     textContent = textContent.replace(sen, senWithSpan);
                     $("#full-text-view").html(textContent);
 
-                    //set the question view- and the text-name-view 
+                    //set the question view- and the text-name-view
                     $("#question-view").text($("input[name=model_question]").val());
                     $("#text-name-view").text($("input[name=model_rtfn]").val());
 

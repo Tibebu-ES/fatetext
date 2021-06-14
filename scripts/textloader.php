@@ -436,7 +436,7 @@ function getAllTextFiles()
 function  generateFateTextModel()
 {
     $fateTextModel["rtfp"] = "Random fate text path";
-    $fateTextModel["rtfc"] = "Random fate text contetnt";
+    $fateTextModel["rtfc"] = "";
     $fateTextModel["rtfn"] = "Random fate text name";
     $fateTextModel["rtfs"] = "Random fate text sentence";
     $fateTextModel["rtfw"] = "Random fate text word";
@@ -446,11 +446,12 @@ function  generateFateTextModel()
     $fateTextModel["step"] = "Random fate text step";
 
 
-    //get all text files in the 
+    //get all text files in the
     $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
     $files = scandir($datapath);
+
     //random number
-    $randomNum = rand(0, count($files) - 1);
+    //$randomNum = rand(0, count($files) - 1); duplicate syntax
     $randomTextFound = false;
 
     while (!$randomTextFound) {
@@ -466,8 +467,8 @@ function  generateFateTextModel()
 
             //get random sentence
             $textContent = file_get_contents($datapath . $file_path);
-            $fateTextModel["rtfc"] = $textContent;
-            ////////////textcontent - into - array of sentences -- 
+
+            ////////////textcontent - into - array of sentences --
             $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $textContent);
             $chests = array();
 
@@ -533,6 +534,10 @@ function  generateFateTextModel()
                     $randomWordFound = true;
                     $fateTextModel["rtfw"] = $token;
                 }
+            }
+
+            foreach (file($datapath.$file_path) as $currentLine){
+                $fateTextModel["rtfc"] = $fateTextModel["rtfc"].$currentLine.'<br>';
             }
 
             $fateTextModel["step"] = 1;
