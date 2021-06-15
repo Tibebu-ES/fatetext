@@ -30,6 +30,7 @@ $GLOBALS['DBVERBOSE'] = false;
 
 define('MIN_LINE_LEN', 40);
 define('MIN_TOK_LEN', 5);
+define('MIN_SENTENCE_LEN', 20); //min number of words in the random sentence
 
 define('REPORT_MOD', 1000);
 
@@ -41,6 +42,9 @@ define('CMD_A_RANDOM_SENTENCE', 4);
 //define default num of max textfiles to load at a time
 //to set the default num of max textfiles to load at a time, set an the api field 'ntl'
 define('MAX_TEXT_LOAD', 1);
+
+//max number of times - to find a random word or sentence that matches the crieteries MIN_TOK_LEN, MIN_SENTENCE_LEN
+define('MAX_SEN_TOK_SEARCH', 100);
 
 
 
@@ -452,7 +456,7 @@ function  generateFateTextModel()
     $files = array();
     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($datapath)) as $filename) {
         if ($filename->isDir()) continue;
-        $filename = str_replace("\\","/",$filename);
+        $filename = str_replace("\\", "/", $filename);
         $files[] = $filename;
     }
 
@@ -471,80 +475,65 @@ function  generateFateTextModel()
             $fateTextModel["rtfn"] = $file_name;
 
             //get random sentence
-            $textContent = file_get_contents($datapath . $file_path);
+            $textContent = "";
+            foreach (file($datapath . $file_path) as $currentLine) {
+                $textContent = $textContent . $currentLine . '<br>';
+            }
+            $fateTextModel["rtfc"] = $textContent;
 
             ////////////textcontent - into - array of sentences --
-            $lines = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $textContent);
-            $chests = array();
-
-            $cleanchars = ' ~`#{}\!\"\$\%\&\'\(\)\,\-\.\/\:\;\<\=\>\?\@';
-            $cleanchars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\_';
-            $cleanchars .= 'abcdefghijklmnopqrstuvwxyz0123456789';
-
-            //new line characters
-            $newLineChars = array("\r\n", "\r", "\n");
-
-            $charcounts = array();
-            $cclen = strlen($cleanchars);
-            for ($i = 0; $i < $cclen; $i++) {
-                $charcounts[$cleanchars[$i]] = true;
-            }
-
-            $i = 0;
-            $prevline = '';
-            $trip = array('', '', '');
-            foreach ($lines as $line) {
-                $linelen = strlen($line);
-                if (strlen($linelen) < 1) {
-                    // util_except("found empty line at i = $i");
-                }
-
-                if ($line[0] == '_') {
-                    continue;
-                }
-
-                $line = $prevline . ' ' . $line;
-                $prevline = '';
-                if ($linelen < MIN_LINE_LEN) {
-                    $prevline = $line;
-                    continue;
-                }
-
-
-                $cleanline = '';
-                $linelen = strlen($line);
-                for ($j = 0; $j < $linelen; $j++) {
-                    if (isset($charcounts[$line[$j]]) || in_array($line[$j], $newLineChars)) {
-                        $cleanline .= $line[$j];
+            //@TODO: Scape expressions like 'Mr.', 'Mrs.', 'Dr.' 
+            $sentences = array();
+            if (preg_match_all('~.*?[?.!]~s', $textContent, $matches, PREG_PATTERN_ORDER)) {
+                $sentences = $matches[0];
+                //select a random sentence with words >= MIN_SENTENCE_LEN
+                $randomSenFound = false;
+                $count = 0;
+                while (!$randomSenFound) {
+                    $randomSenNum = rand(0, count($sentences) - 1);
+                    $ranSen = $sentences[$randomSenNum];
+                    $ranSenNumOfWords = count(explode(" ", $ranSen));
+                    if ($ranSenNumOfWords >= MIN_SENTENCE_LEN) {
+                        $fateTextModel["rtfs"] = $ranSen;
+                        //now tokenize the sentence and get a random word > MIN_TOK_LEN
+                        //tokenize the randomSentence $fateSentence["sentence"]
+                        $randomWordFound = false;
+                        $numOfTryToFindTok = 0;
+                        //$toks = explode(" ", $fateSentence["sentence"]);
+                        $words = preg_split('/( |\r\n)/', $fateTextModel["rtfs"], -1, PREG_SPLIT_NO_EMPTY);
+                        while (!$randomWordFound) {
+                            $randomWordNum = rand(0, count($words) - 1);
+                            $word = $words[$randomWordNum];
+                            if (strlen($word) >= MIN_TOK_LEN) {
+                                $fateTextModel["rtfw"] = $word;
+                                $randomWordFound = true;
+                                $randomSenFound = true;
+                            }
+                            //give up searching a word in the sentences if the number of search exccedes the max num of search allowed
+                            //try another sentence
+                            if ($numOfTryToFindTok > MAX_SEN_TOK_SEARCH) {
+                                $randomSenFound = false;
+                                break; //breaking out of the word searching loop
+                            }
+                            $numOfTryToFindTok++;
+                        }
                     }
+                    //give up searching sentence in the current text file if the number of search exccedes the max num of search allowed
+                    //try another text file 
+                    if ($count > MAX_SEN_TOK_SEARCH) {
+                        $randomTextFound = false;
+                        break; //breaking out of the sentence searching loop
+                    }
+
+                    $count++;
                 }
-
-                $chests[] = utf8_encode($cleanline);
-                $i++;
-            }
-            ////////////textcontent - into - array of sentences -- finished
-            if (count($chests) > 0) {
-                $randomSenNum = rand(0, count($chests) - 1);
-                $fateTextModel["rtfs"] = $chests[$randomSenNum];
+            } //if no sentences that matches the pattern is found, select another text file
+            else {
+                $randomTextFound = false;
+                continue;
             }
 
-            //tokenize the randomSentence $fateSentence["sentence"]
-            $randomWordFound = false;
-            //$toks = explode(" ", $fateSentence["sentence"]);
-            $toks = preg_split('/( |\r\n)/', $fateTextModel["rtfs"], -1, PREG_SPLIT_NO_EMPTY);
-            while (!$randomWordFound) {
-                $randomWordNum = rand(0, count($toks) - 1);
-                $token = $toks[$randomWordNum];
-                if (strlen($token) > MIN_TOK_LEN) {
-                    $randomWordFound = true;
-                    $fateTextModel["rtfw"] = $token;
-                }
-            }
-
-            foreach (file($datapath.$file_path) as $currentLine){
-                $fateTextModel["rtfc"] = $fateTextModel["rtfc"].$currentLine.'<br>';
-            }
-
+            //init fateTextModel attributes
             $fateTextModel["step"] = 1;
             $fateTextModel["guess"] = "";
             $fateTextModel["question"] = "";

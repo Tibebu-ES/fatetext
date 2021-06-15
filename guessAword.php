@@ -3,8 +3,8 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
-define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-
+define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
+//define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
 //Fate text model
 
 ?>
@@ -122,7 +122,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                                     <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
 
                                     <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-sm" onclick="step2()">Guess</button>
-                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">Skip</button>
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">New</button>
                                 </div>
                             </div>
                         </form>
@@ -239,7 +239,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
          */
         function generateFateTextModel() {
             $.ajax({
-                beforeSend: function(){
+                beforeSend: function() {
                     $("body").addClass("loading");
                 },
                 type: "POST",
@@ -248,7 +248,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
                 },
                 success: function(data) {
-
+                    //console.log(data);
                     var res = JSON.parse(data);
                     //set the model
                     $("input[name=model_rtfp]").val(res.rtfp);
@@ -260,10 +260,13 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     $("input[name=model_question]").val(res.question);
                     $("input[name=model_answer]").val(res.answer);
                     $("input[name=model_step]").val(res.step);
-                    //console.log(res.rtfn + $("input[name=model_rtfn]").val());
+
+                    //console.log(res.rtfc);
                     step1();
+
+
                 },
-                complete:function(data){
+                complete: function(data) {
                     // Hide image container
                     $("body").removeClass("loading");
                 }
