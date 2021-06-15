@@ -3,7 +3,7 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
-define('TEXTLOADER_URL', "http://www.questiontask.com/fatetext/scripts/textloader.php");
+define('TEXTLOADER_URL', "http://questiontask.com/fatetext/scripts/textloader.php");
 
 //Fate text model
 
