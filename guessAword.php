@@ -88,6 +88,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
     </nav>
 
     <div class="container">
+
+
         <form>
             <!-- fateTextModel -->
             <input type="text" style="display:none" name="model_rtfp">
@@ -107,7 +109,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
             <div class="col-md-6 col-sm-12" id="step-1" style="display:none">
                 <div class="card ">
                     <div class="card-header">
-                        <h5 class="card-title">Step -1 : Guess the balnked out word:</h5>
+                        <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text" id="random-sentence-view">With supporting text below as a natural lead-in to additional content.</p>
@@ -207,19 +209,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         //jquery
 
         $(document).ready(function() {
-
             init();
-
-            // Add remove loading class on body element based on Ajax request status
-            $(document).on({
-                ajaxStart: function() {
-                    $("body").addClass("loading");
-                },
-                ajaxStop: function() {
-                    $("body").removeClass("loading");
-                }
-            });
-
         });
 
 
@@ -241,9 +231,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
 
         function init() {
-            //
             generateFateTextModel();
-
         }
 
         /**
@@ -251,6 +239,9 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
          */
         function generateFateTextModel() {
             $.ajax({
+                beforeSend: function(){
+                    $("body").addClass("loading");
+                },
                 type: "POST",
                 url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
                 data: {
@@ -271,6 +262,10 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     $("input[name=model_step]").val(res.step);
                     //console.log(res.rtfn + $("input[name=model_rtfn]").val());
                     step1();
+                },
+                complete:function(data){
+                    // Hide image container
+                    $("body").removeClass("loading");
                 }
 
             });

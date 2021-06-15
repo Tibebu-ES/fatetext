@@ -446,12 +446,17 @@ function  generateFateTextModel()
     $fateTextModel["step"] = "Random fate text step";
 
 
-    //get all text files in the
+    //get all text files in the fatetexts & its subsdir
     $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
-    $files = scandir($datapath);
+
+    $files = array();
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($datapath)) as $filename) {
+        if ($filename->isDir()) continue;
+        $filename = str_replace("\\","/",$filename);
+        $files[] = $filename;
+    }
 
     //random number
-    //$randomNum = rand(0, count($files) - 1); duplicate syntax
     $randomTextFound = false;
 
     while (!$randomTextFound) {
