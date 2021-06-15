@@ -26,6 +26,7 @@ $GLOBALS['DBPASS'] = 'fatetext_123';
 $GLOBALS['DBNAME'] = 'questiontask_fatetext_db';
 $GLOBALS['LOGTABLE'] = 'log1';
 
+
 $GLOBALS['LOGLEVEL'] = 0;
 $GLOBALS['DBVERBOSE'] = true;
 $GLOBALS['SHOWERRMSG'] = true;

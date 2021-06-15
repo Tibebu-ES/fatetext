@@ -4,7 +4,6 @@ define('CMD_LOAD_ALL', 2);
 define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
-
 //Fate text model
 
 ?>
@@ -88,6 +87,8 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     </nav>
 
     <div class="container">
+
+
         <form>
             <!-- fateTextModel -->
             <input type="text" style="display:none" name="model_rtfp">
@@ -107,7 +108,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             <div class="col-md-6 col-sm-12" id="step-1" style="display:none">
                 <div class="card ">
                     <div class="card-header">
-                        <h5 class="card-title">Step -1 : Guess the balnked out word:</h5>
+                        <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text" id="random-sentence-view">With supporting text below as a natural lead-in to additional content.</p>
@@ -120,7 +121,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                                     <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
 
                                     <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-sm" onclick="step2()">Guess</button>
-                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">Restart</button>
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">New</button>
                                 </div>
                             </div>
                         </form>
@@ -161,11 +162,9 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     <h5 class="card-title">Step -3 : Answer your question</h5>
                 </div>
                 <div class="card-body">
-                    <div id="full-text-view" class="card-text">
+                    <div id="full-text-view" class="card-text col-md-auto">
                         <p>With supporting text below as a natural lead-in to additional content.</p>
                     </div>
-
-
                 </div>
                 <div class="card-footer text-muted">
                     <div style="margin-bottom: 10px;" class="row">
@@ -209,19 +208,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         //jquery
 
         $(document).ready(function() {
-
             init();
-
-            // Add remove loading class on body element based on Ajax request status
-            $(document).on({
-                ajaxStart: function() {
-                    $("body").addClass("loading");
-                },
-                ajaxStop: function() {
-                    $("body").removeClass("loading");
-                }
-            });
-
         });
 
 
@@ -243,9 +230,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
 
         function init() {
-            //
             generateFateTextModel();
-
         }
 
         /**
@@ -253,13 +238,16 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
          */
         function generateFateTextModel() {
             $.ajax({
+                beforeSend: function() {
+                    $("body").addClass("loading");
+                },
                 type: "POST",
                 url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
                 data: {
                     cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
                 },
                 success: function(data) {
-
+                    //console.log(data);
                     var res = JSON.parse(data);
                     //set the model
                     $("input[name=model_rtfp]").val(res.rtfp);
@@ -271,8 +259,15 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     $("input[name=model_question]").val(res.question);
                     $("input[name=model_answer]").val(res.answer);
                     $("input[name=model_step]").val(res.step);
-                    //console.log(res.rtfn + $("input[name=model_rtfn]").val());
+
+                    //console.log(res.rtfc);
                     step1();
+
+
+                },
+                complete: function(data) {
+                    // Hide image container
+                    $("body").removeClass("loading");
                 }
 
             });
@@ -347,7 +342,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     textContent = textContent.replace(sen, senWithSpan);
                     $("#full-text-view").html(textContent);
 
-                    //set the question view- and the text-name-view 
+                    //set the question view- and the text-name-view
                     $("#question-view").text($("input[name=model_question]").val());
                     $("#text-name-view").text($("input[name=model_rtfn]").val());
 
