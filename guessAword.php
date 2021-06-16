@@ -227,7 +227,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         });
 
         function enterEventHandler(event) {
-            if (event && event.which == 13) {
+            var KeyCode = event.KeyCode || event.which;
+            if (KeyCode === 13) {
                 var inputid = event.target.id;
                 if (inputid == "guessInput") {
                     step2();
@@ -236,7 +237,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                 } else if (inputid == "answerInput") {
                     finish();
                 }
-
+                event.preventDefault();
+                return false;
             }
         }
 
