@@ -72,6 +72,11 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         #full-text-view #senSpan #wordSpan {
             text-decoration: underline;
         }
+
+        #blankedWordSpan {
+            color: brown;
+            text-decoration: underline;
+        }
     </style>
 
 </head>
@@ -317,6 +322,13 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     $("input[name=model_step]").val(3);
                     $("#guessButton").addClass("disabled");
                     $("#guessInput").prop("readonly", true);
+
+                    //insert correct word in step 1
+                    var sen = $("input[name=model_rtfs]").val();
+                    var word = $("input[name=model_rtfw]").val();
+                    var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
+                    sen = sen.replace(word, blankedWordSpan);
+                    $("#random-sentence-view").html(sen);
                 }
             } else {
                 alert("Pleas provide your guess word");
