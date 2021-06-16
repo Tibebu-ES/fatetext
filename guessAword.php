@@ -123,7 +123,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                         <div class="row" style="float: right;">
                             <form class="form-inline">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
+                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word" onkeypress="return enterEventHandler(event)">
                                 </div>
                                 <div class="form-group ">
                                     <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-md" onclick="step2()">Guess</button>
@@ -146,7 +146,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                         <div class="row" style="float: right;">
                             <form class="form-inline">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control" id="questionInput" placeholder="Ask a question">
+                                    <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)" placeholder="Ask a question">
                                 </div>
                                 <div class="form-group">
                                     <a href="#step-3" style="margin:0px 5px 0px 10px" type="button" id="askButton" class="btn btn-primary  btn-md" onclick="step3()"> Ask</a>
@@ -187,7 +187,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                         <div class="row" style="float: right;">
                             <form class="form-inline">
                                 <div class="form-group ">
-                                    <input type="text" class=" form-control" id="answerInput" placeholder="Answer">
+                                    <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="Answer">
                                 </div>
                                 <div class="form-group">
                                     <a href="#step-final" style="margin:0px 5px 0px 10px" type="button" id="answerButton" class="btn btn-primary  btn-md" onclick="finish()">Answer</a>
@@ -222,8 +222,23 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
         $(document).ready(function() {
             init();
+
+
         });
 
+        function enterEventHandler(event) {
+            if (event && event.which == 13) {
+                var inputid = event.target.id;
+                if (inputid == "guessInput") {
+                    step2();
+                } else if (inputid == "questionInput") {
+                    step3();
+                } else if (inputid == "answerInput") {
+                    finish();
+                }
+
+            }
+        }
 
         function backToPreviousQuestion() {
             var step = $("input[name=model_step]").val();
