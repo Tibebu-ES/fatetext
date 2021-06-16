@@ -5,6 +5,7 @@ define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
+
 //Fate text model
 
 ?>
@@ -19,11 +20,13 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/textloader.css">
 
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous"/>
 
     <!-- jQuery library -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"> </script>
-
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <style>
         .overlay {
@@ -35,6 +38,10 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             left: 0;
             z-index: 999;
             background: rgba(255, 255, 255, 0.8) url("loader.gif") center no-repeat;
+        }
+
+        body{
+            background-color: #2f2f2f2f;
         }
 
         /* Turn off scrollbar when body element has the loading class */
@@ -78,322 +85,436 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 </head>
 
 <body>
-    <div class="overlay"></div>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Guess A Word </a>
-            </div>
-        </div>
-    </nav>
+<div class="overlay"></div>
 
-    <div class="container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Guess A Word</a>
 
-
-        <form>
-            <!-- fateTextModel -->
-            <input type="text" style="display:none" name="model_rtfp">
-            <input type="text" style="display:none" name="model_rtfc">
-            <input type="text" style="display:none" name="model_rtfn">
-            <input type="text" style="display:none" name="model_rtfs">
-            <input type="text" style="display:none" name="model_rtfw">
-            <input type="text" style="display:none" name="model_guess">
-            <input type="text" style="display:none" name="model_question">
-            <input type="text" style="display:none" name="model_answer">
-            <input type="text" style="display:none" name="model_step">
-        </form>
-
-
-        <div class="row">
-            <!-- step 1 -->
-            <div class="col-md-6 col-sm-12" id="step-1" style="display:none">
-                <div class="card ">
-                    <div class="card-header">
-                        <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text" id="random-sentence-view">With supporting text below as a natural lead-in to additional content.</p>
-
-                    </div>
-                    <div class="card-footer text-muted">
-                        <form class="form-inline">
-                            <div class="col-md-6 d-flex">
-                                <div class="form-group mb-2">
-                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
-
-                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-sm" onclick="step2()">Guess</button>
-                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">New</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- step 2 -->
-            <div class="col-md-6 col-sm-12 mt-sm-3" id="step-2" style="display:none">
-                <div class="card ">
-                    <div class="card-header">
-                        <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
-                    </div>
-                    <div class="card-body">
-                        <form class="form-inline">
-                            <div class="col-md-12 d-flex">
-                                <div class="form-group mb-2">
-                                    <input type="text" class="form-control" id="questionInput" placeholder="Ask a question">
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="#step-3" type="button" id="askButton" class="btn btn-primary mb-2 btn-sm" onclick="step3()"> Ask</a>
-                                    <a href="#" type="button" id="backButton2" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <br />
-
-        <!-- step 3 -->
-        <div class="row" id="step-3" style="display:none">
-            <div class="card ">
-                <div class="card-header">
-                    <h5 class="card-title">Step -3 : Answer your question</h5>
-                </div>
-                <div class="card-body">
-                    <div id="full-text-view" class="card-text col-md-auto">
-                        <p>With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <div style="margin-bottom: 10px;" class="row">
-                        <div class="col-md-6">
-                            <h6> Question: </h6>
-                            <p class="card-text" id="question-view"> Your question goes here </p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6> Text: </h6>
-                            <p class="card-text" id="text-name-view"> Text name goes here </p>
-                        </div>
-                    </div>
-                    <div class="form row">
-                        <input type="text" class=" col-md-9 form-control" id="answerInput" placeholder="Answer">
-                        <div class="col-md-3">
-                            <a href="#step-final" type="button" id="answerButton" class="btn btn-primary mb-2 btn-sm" onclick="finish()">Answer</a>
-                            <a href="#" type="button" id="backButton3" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <!-- step final -->
-        <div class="row" id="step-final" style="display:none">
-            <div class="card ">
-                <div class="card-header">
-                    <h5 class="card-title">Finished! Thank you for playing.</h5>
-                </div>
-                <div class="card-body">
-                    <h6> To play again press the restart button. </h6>
-                    <a type="button" href="#" class="btn btn-primary mb-2" onclick="restart()">Restart</a>
-                </div>
-            </div>
-        </div>
-
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="#exampleModal" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal" >
+                    History <i class="fa fa-history fa-"></i>
+                </a>
+            </li>
+        </ul>
 
     </div>
+</nav>
 
-    <script>
-        //jquery
 
-        $(document).ready(function() {
-            init();
+<div class="container">
+
+    <!-- Game History Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Recent Guesses</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Guess Question 5 - Sentence
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>step 1 - Guess Answer</div>
+                                    <div>step 2 - Ask Question Content</div>
+                                    <div>step 3 - Guessed Sentence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Guess Question 2 - Sentence
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>step 1 - Guess Answer</div>
+                                    <div>step 2 - Ask Question Content</div>
+                                    <div>step 3 - Guessed Sentence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Guess Question 3 - Sentence
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>step 1 - Guess Answer</div>
+                                    <div>step 2 - Ask Question Content</div>
+                                    <div>step 3 - Guessed Sentence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        Guess Question 4 - Sentence
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>step 1 - Guess Answer</div>
+                                    <div>step 2 - Ask Question Content</div>
+                                    <div>step 3 - Guessed Sentence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                                        Guess Question 7 - Sentence
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div>step 1 - Guess Answer</div>
+                                    <div>step 2 - Ask Question Content</div>
+                                    <div>step 3 - Guessed Sentence</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form>
+        <!-- fateTextModel -->
+        <input type="text" style="display:none" name="model_rtfp">
+        <input type="text" style="display:none" name="model_rtfc">
+        <input type="text" style="display:none" name="model_rtfn">
+        <input type="text" style="display:none" name="model_rtfs">
+        <input type="text" style="display:none" name="model_rtfw">
+        <input type="text" style="display:none" name="model_guess">
+        <input type="text" style="display:none" name="model_question">
+        <input type="text" style="display:none" name="model_answer">
+        <input type="text" style="display:none" name="model_step">
+    </form>
+
+
+    <div class="row">
+        <!-- step 1 -->
+        <div class="col-md-6 col-sm-12" id="step-1" style="display:none">
+            <div class="card ">
+                <div class="card-header">
+                    <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text" id="random-sentence-view">With supporting text below as a natural lead-in to
+                        additional content.</p>
+
+                </div>
+                <div class="card-footer text-muted">
+                    <form class="form-inline">
+                        <div class="col-md-6 d-flex">
+                            <div class="form-group mb-2">
+                                <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
+
+                                <button type="button" style="margin:0px 5px 0px 10px" id="guessButton"
+                                        class="btn btn-primary btn-sm" onclick="step2()">Guess
+                                </button>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="restart()">New</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- step 2 -->
+        <div class="col-md-6 col-sm-12 mt-sm-3" id="step-2" style="display:none">
+            <div class="card ">
+                <div class="card-header">
+                    <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
+                </div>
+                <div class="card-body">
+                    <form class="form-inline">
+                        <div class="col-md-12 d-flex">
+                            <div class="form-group mb-2">
+                                <input type="text" class="form-control" id="questionInput" placeholder="Ask a question">
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#step-3" type="button" id="askButton" class="btn btn-primary mb-2 btn-sm"
+                                   onclick="step3()"> Ask</a>
+                                <a href="#" type="button" id="backButton2"
+                                   class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <!-- step 3 -->
+    <div class="row" id="step-3" style="display:none">
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="card-title">Step -3 : Answer your question</h5>
+            </div>
+            <div class="card-body">
+                <div id="full-text-view" class="card-text col-md-auto">
+                    <p>With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div style="margin-bottom: 10px;" class="row">
+                    <div class="col-md-6">
+                        <h6> Question: </h6>
+                        <p class="card-text" id="question-view"> Your question goes here </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6> Text: </h6>
+                        <p class="card-text" id="text-name-view"> Text name goes here </p>
+                    </div>
+                </div>
+                <div class="form row">
+                    <input type="text" class=" col-md-9 form-control" id="answerInput" placeholder="Answer">
+                    <div class="col-md-3">
+                        <a href="#step-final" type="button" id="answerButton" class="btn btn-primary mb-2 btn-sm"
+                           onclick="finish()">Answer</a>
+                        <a href="#" type="button" id="backButton3" class="btn btn-primary mb-2 btn-sm btn-warning"
+                           onclick="backToPreviousQuestion()">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <!-- step final -->
+    <div class="row" id="step-final" style="display:none">
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="card-title">Finished! Thank you for playing.</h5>
+            </div>
+            <div class="card-body">
+                <h6> To play again press the restart button. </h6>
+                <a type="button" href="#" class="btn btn-primary mb-2" onclick="restart()">Restart</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    //jquery
+
+    $(document).ready(function () {
+        init();
+    });
+
+
+    function backToPreviousQuestion() {
+        var step = $("input[name=model_step]").val();
+        if (step == 3 || step == 2) {
+            $("#step-2").css('display', 'none');
+            $("#guessButton").removeClass("disabled");
+            $("#guessInput").prop("readonly", false);
+            $("input[name=model_step]").val(2);
+        } else if (step == 0) {
+            $("#step-3").css('display', 'none');
+            $("#askButton").removeClass("disabled");
+            ;
+            $("#questionInput").prop("readonly", false);
+            $("#backButton2").removeClass("disabled");
+            $("input[name=model_step]").val(3);
+        }
+    }
+
+
+    function init() {
+        generateFateTextModel();
+    }
+
+    /**
+     * generate a random sentence from one of the text files in the data directory
+     */
+    function generateFateTextModel() {
+        $.ajax({
+            beforeSend: function () {
+                $("body").addClass("loading");
+            },
+            type: "POST",
+            url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
+            data: {
+                cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
+            },
+            success: function (data) {
+                //console.log(data);
+                var res = JSON.parse(data);
+                //set the model
+                $("input[name=model_rtfp]").val(res.rtfp);
+                $("input[name=model_rtfc]").val(res.rtfc);
+                $("input[name=model_rtfn]").val(res.rtfn);
+                $("input[name=model_rtfs]").val(res.rtfs);
+                $("input[name=model_rtfw]").val(res.rtfw);
+                $("input[name=model_guess]").val(res.guess);
+                $("input[name=model_question]").val(res.question);
+                $("input[name=model_answer]").val(res.answer);
+                $("input[name=model_step]").val(res.step);
+
+                //console.log(res.rtfc);
+                step1();
+
+
+            },
+            complete: function (data) {
+                // Hide image container
+                $("body").removeClass("loading");
+            }
+
         });
+    }
 
+    /**
+     * prepare for step 1
+     */
+    function step1() {
+        //set the sentence view
+        var step = $("input[name=model_step]").val();
+        var sen = $("input[name=model_rtfs]").val();
+        var word = $("input[name=model_rtfw]").val();
+        sen = sen.replace(word, "__________");
 
-        function backToPreviousQuestion() {
+        if (step == 1 & sen != "") {
+            $("#random-sentence-view").html(sen);
+            //show step-1 div
+            $("#step-1").css('display', 'block');
+            $("input[name=model_step]").val(2);
+        }
+    }
+
+    /**
+     * step-2 , guessing word step handler
+     * get user guess word, set to the model
+     * view step 2 view
+     */
+    function step2() {
+        if ($('#guessInput').val() != '') {
             var step = $("input[name=model_step]").val();
-            if (step == 3 || step == 2) {
-                $("#step-2").css('display', 'none');
-                $("#guessButton").removeClass("disabled");
-                $("#guessInput").prop("readonly", false);
-                $("input[name=model_step]").val(2);
-            } else if (step == 0) {
-                $("#step-3").css('display', 'none');
-                $("#askButton").removeClass("disabled");;
-                $("#questionInput").prop("readonly", false);
-                $("#backButton2").removeClass("disabled");
+            if (step == 2) {
+                //get guess word and validate it then set the model
+                var guessWord = $("#guessInput").val();
+                $("input[name=model_guess]").val(guessWord);
+
+                //show step-2 div
+                $("#step-2").css('display', 'block');
                 $("input[name=model_step]").val(3);
+                $("#guessButton").addClass("disabled");
+                $("#guessInput").prop("readonly", true);
             }
+        } else {
+            alert("Pleas provide your guess word");
         }
+    }
 
+    /**
+     * step-3 , asking question step handler
+     * get user question, set to the model
+     * view step 3 view
+     */
+    function step3() {
+        if ($('#questionInput').val() != '') {
 
-        function init() {
-            generateFateTextModel();
-        }
-
-        /**
-         * generate a random sentence from one of the text files in the data directory
-         */
-        function generateFateTextModel() {
-            $.ajax({
-                beforeSend: function() {
-                    $("body").addClass("loading");
-                },
-                type: "POST",
-                url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
-                data: {
-                    cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
-                },
-                success: function(data) {
-                    //console.log(data);
-                    var res = JSON.parse(data);
-                    //set the model
-                    $("input[name=model_rtfp]").val(res.rtfp);
-                    $("input[name=model_rtfc]").val(res.rtfc);
-                    $("input[name=model_rtfn]").val(res.rtfn);
-                    $("input[name=model_rtfs]").val(res.rtfs);
-                    $("input[name=model_rtfw]").val(res.rtfw);
-                    $("input[name=model_guess]").val(res.guess);
-                    $("input[name=model_question]").val(res.question);
-                    $("input[name=model_answer]").val(res.answer);
-                    $("input[name=model_step]").val(res.step);
-
-                    //console.log(res.rtfc);
-                    step1();
-
-
-                },
-                complete: function(data) {
-                    // Hide image container
-                    $("body").removeClass("loading");
-                }
-
-            });
-        }
-
-        /**
-         * prepare for step 1
-         */
-        function step1() {
-            //set the sentence view
             var step = $("input[name=model_step]").val();
-            var sen = $("input[name=model_rtfs]").val();
-            var word = $("input[name=model_rtfw]").val();
-            sen = sen.replace(word, "__________");
 
-            if (step == 1 & sen != "") {
-                $("#random-sentence-view").html(sen);
-                //show step-1 div
-                $("#step-1").css('display', 'block');
-                $("input[name=model_step]").val(2);
+            if (step == 3) {
+                //get user question and validate it then set the model
+                var question = $("#questionInput").val();
+                $("input[name=model_question]").val(question);
+
+                //set the full text viewer
+                var textContent = $("input[name=model_rtfc]").val();
+                var sen = $("input[name=model_rtfs]").val();
+                var word = $("input[name=model_rtfw]").val();
+
+                var senWithSpan = "<span id='senSpan'>" + sen + "</span>";
+                var wordWithSpan = "<span id='wordSpan'>" + word + "</span>";
+                senWithSpan = senWithSpan.replace(word, wordWithSpan);
+
+                textContent = textContent.replace(sen, senWithSpan);
+                $("#full-text-view").html(textContent);
+
+                //set the question view- and the text-name-view
+                $("#question-view").text($("input[name=model_question]").val());
+                $("#text-name-view").text($("input[name=model_rtfn]").val());
+
+                //show step-3 div
+                $("#step-3").css('display', 'block');
+                $("input[name=model_step]").val(0);
+                $("#askButton").addClass("disabled");
+                $("#backButton2").addClass("disabled");
+                $("#questionInput").prop("readonly", true);
+
+                centerTargetSenInFullTextViewer();
             }
+        } else {
+            alert("Please write your question");
         }
+    }
 
-        /**
-         * step-2 , guessing word step handler
-         * get user guess word, set to the model
-         * view step 2 view
-         */
-        function step2() {
-            if ($('#guessInput').val() != '') {
-                var step = $("input[name=model_step]").val();
-                if (step == 2) {
-                    //get guess word and validate it then set the model
-                    var guessWord = $("#guessInput").val();
-                    $("input[name=model_guess]").val(guessWord);
+    function finish() {
 
-                    //show step-2 div
-                    $("#step-2").css('display', 'block');
-                    $("input[name=model_step]").val(3);
-                    $("#guessButton").addClass("disabled");
-                    $("#guessInput").prop("readonly", true);
-                }
-            } else {
-                alert("Pleas provide your guess word");
+        if ($("#answerInput").val() != '') {
+            var step = $("input[name=model_step]").val();
+            if (step == 0) {
+                //get user answer and validate it then set the model
+                var answer = $("#answerInput").val();
+                $("input[name=model_answer]").val(answer);
+
+
+                //show step-final div
+                $("#step-final").css('display', 'block');
+                $("input[name=model_step]").val(0);
+                $("#answerButton").addClass("disabled");
+                $("#backButton3").addClass("disabled");
+                $("#answerInput").prop("readonly", true);
+
             }
+        } else {
+            alert("Write your answer!");
         }
+    }
 
-        /**
-         * step-3 , asking question step handler
-         * get user question, set to the model
-         * view step 3 view
-         */
-        function step3() {
-            if ($('#questionInput').val() != '') {
+    function restart() {
+        location.reload();
+    }
 
-                var step = $("input[name=model_step]").val();
-
-                if (step == 3) {
-                    //get user question and validate it then set the model
-                    var question = $("#questionInput").val();
-                    $("input[name=model_question]").val(question);
-
-                    //set the full text viewer
-                    var textContent = $("input[name=model_rtfc]").val();
-                    var sen = $("input[name=model_rtfs]").val();
-                    var word = $("input[name=model_rtfw]").val();
-
-                    var senWithSpan = "<span id='senSpan'>" + sen + "</span>";
-                    var wordWithSpan = "<span id='wordSpan'>" + word + "</span>";
-                    senWithSpan = senWithSpan.replace(word, wordWithSpan);
-
-                    textContent = textContent.replace(sen, senWithSpan);
-                    $("#full-text-view").html(textContent);
-
-                    //set the question view- and the text-name-view
-                    $("#question-view").text($("input[name=model_question]").val());
-                    $("#text-name-view").text($("input[name=model_rtfn]").val());
-
-                    //show step-3 div
-                    $("#step-3").css('display', 'block');
-                    $("input[name=model_step]").val(0);
-                    $("#askButton").addClass("disabled");
-                    $("#backButton2").addClass("disabled");
-                    $("#questionInput").prop("readonly", true);
-
-                    centerTargetSenInFullTextViewer();
-                }
-            } else {
-                alert("Please write your question");
-            }
-        }
-
-        function finish() {
-
-            if ($("#answerInput").val() != '') {
-                var step = $("input[name=model_step]").val();
-                if (step == 0) {
-                    //get user answer and validate it then set the model
-                    var answer = $("#answerInput").val();
-                    $("input[name=model_answer]").val(answer);
-
-
-                    //show step-final div
-                    $("#step-final").css('display', 'block');
-                    $("input[name=model_step]").val(0);
-                    $("#answerButton").addClass("disabled");
-                    $("#backButton3").addClass("disabled");
-                    $("#answerInput").prop("readonly", true);
-
-                }
-            } else {
-                alert("Write your answer!");
-            }
-        }
-
-        function restart() {
-            location.reload();
-        }
-
-        function centerTargetSenInFullTextViewer() {
-            $('#full-text-view').animate({
-                scrollTop: $("#senSpan").offset().top - $("#full-text-view").offset().top - 100
-            }, 2000);
-        }
-    </script>
+    function centerTargetSenInFullTextViewer() {
+        $('#full-text-view').animate({
+            scrollTop: $("#senSpan").offset().top - $("#full-text-view").offset().top - 100
+        }, 2000);
+    }
+</script>
 
 </body>
 
