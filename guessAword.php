@@ -65,11 +65,15 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         }
 
         #full-text-view #senSpan {
-            color: darkred;
-            font-weight: bold;
+            color: brown;
         }
 
         #full-text-view #senSpan #wordSpan {
+            text-decoration: underline;
+        }
+
+        #blankedWordSpan {
+            color: brown;
             text-decoration: underline;
         }
     </style>
@@ -81,12 +85,12 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Guess A Word </a>
+                <a class="navbar-brand" onclick="restart()" href="#">Guess A Word </a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 20px;">
 
 
         <form>
@@ -103,10 +107,10 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         </form>
 
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5px;">
             <!-- step 1 -->
-            <div class="col-md-6 col-sm-12" id="step-1" style="display:none">
-                <div class="card ">
+            <div class="col-md-12 col-sm-12" id="step-1" style="display:none ;">
+                <div class="card text-white bg-dark">
                     <div class="card-header">
                         <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
                     </div>
@@ -115,88 +119,96 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
                     </div>
                     <div class="card-footer text-muted">
-                        <form class="form-inline">
-                            <div class="col-md-6 d-flex">
-                                <div class="form-group mb-2">
-                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word">
-
-                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-sm" onclick="step2()">Guess</button>
-                                    <button type="button" class="btn btn-warning btn-sm" onclick="restart()">New</button>
+                        <div class="row" style="float: right;">
+                            <form class="form-inline">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word" onkeypress="return enterEventHandler(event)">
                                 </div>
-                            </div>
-                        </form>
+                                <div class="form-group ">
+                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-md" onclick="step2()">Guess</button>
+                                    <button type="button" class="btn btn-warning btn-md" onclick="restart()">New</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="row" style="margin-bottom: 5px;">
             <!-- step 2 -->
-            <div class="col-md-6 col-sm-12 mt-sm-3" id="step-2" style="display:none">
-                <div class="card ">
+            <div class="col-md-12 col-sm-12 mt-sm-12" id="step-2" style="display:none">
+                <div class="card text-white bg-dark">
                     <div class="card-header">
                         <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
                     </div>
                     <div class="card-body">
-                        <form class="form-inline">
-                            <div class="col-md-12 d-flex">
-                                <div class="form-group mb-2">
-                                    <input type="text" class="form-control" id="questionInput" placeholder="Ask a question">
+                        <div class="row" style="float: right;">
+                            <form class="form-inline">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)" placeholder="Ask a question">
                                 </div>
-                                <div class="col-md-6">
-                                    <a href="#step-3" type="button" id="askButton" class="btn btn-primary mb-2 btn-sm" onclick="step3()"> Ask</a>
-                                    <a href="#" type="button" id="backButton2" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                <div class="form-group">
+                                    <a href="#step-3" style="margin:0px 5px 0px 10px" type="button" id="askButton" class="btn btn-primary  btn-md" onclick="step3()"> Ask</a>
+                                    <a href="#" type="button" id="backButton2" class="btn btn-primary  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
 
                     </div>
 
                 </div>
             </div>
         </div>
-        <br />
-
         <!-- step 3 -->
-        <div class="row" id="step-3" style="display:none">
-            <div class="card ">
-                <div class="card-header">
-                    <h5 class="card-title">Step -3 : Answer your question</h5>
-                </div>
-                <div class="card-body">
-                    <div id="full-text-view" class="card-text col-md-auto">
-                        <p>With supporting text below as a natural lead-in to additional content.</p>
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col-md-12 col-sm-12 mt-sm-12" id="step-3" style="display:none">
+                <div class="card text-white bg-dark ">
+                    <div class="card-header">
+                        <h5 class="card-title">Step -3 : Answer your question</h5>
                     </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <div style="margin-bottom: 10px;" class="row">
-                        <div class="col-md-6">
-                            <h6> Question: </h6>
-                            <p class="card-text" id="question-view"> Your question goes here </p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6> Text: </h6>
-                            <p class="card-text" id="text-name-view"> Text name goes here </p>
+                    <div class="card-body">
+                        <div id="full-text-view" class="card-text col-md-auto">
+                            <p>With supporting text below as a natural lead-in to additional content.</p>
                         </div>
                     </div>
-                    <div class="form row">
-                        <input type="text" class=" col-md-9 form-control" id="answerInput" placeholder="Answer">
-                        <div class="col-md-3">
-                            <a href="#step-final" type="button" id="answerButton" class="btn btn-primary mb-2 btn-sm" onclick="finish()">Answer</a>
-                            <a href="#" type="button" id="backButton3" class="btn btn-primary mb-2 btn-sm btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                    <div class="card-footer ">
+                        <div style="margin-bottom: 10px;" class="row">
+                            <div class="col-md-6">
+                                <h6> Question: </h6>
+                                <p class="card-text" id="question-view"> Your question goes here </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6> Text: </h6>
+                                <p class="card-text" id="text-name-view"> Text name goes here </p>
+                            </div>
+                        </div>
+                        <div class="row" style="float: right;">
+                            <form class="form-inline">
+                                <div class="form-group ">
+                                    <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="Answer">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#step-final" style="margin:0px 5px 0px 10px" type="button" id="answerButton" class="btn btn-primary  btn-md" onclick="finish()">Answer</a>
+                                    <a href="#" type="button" id="backButton3" class="btn btn-primary  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br />
         <!-- step final -->
-        <div class="row" id="step-final" style="display:none">
-            <div class="card ">
-                <div class="card-header">
-                    <h5 class="card-title">Finished! Thank you for playing.</h5>
-                </div>
-                <div class="card-body">
-                    <h6> To play again press the restart button. </h6>
-                    <a type="button" href="#" class="btn btn-primary mb-2" onclick="restart()">Restart</a>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 mt-sm-12" id="step-final" style="display:none">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">
+                        <h5 class="card-title">Finished! Thank you for playing.</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <a type="button" style="float: right;" href="#" class="btn btn-primary mb-2" onclick="restart()">Play again</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,8 +221,23 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
         $(document).ready(function() {
             init();
+
+
         });
 
+        function enterEventHandler(event) {
+            if (event && event.which == 13) {
+                var inputid = event.target.id;
+                if (inputid == "guessInput") {
+                    step2();
+                } else if (inputid == "questionInput") {
+                    step3();
+                } else if (inputid == "answerInput") {
+                    finish();
+                }
+
+            }
+        }
 
         function backToPreviousQuestion() {
             var step = $("input[name=model_step]").val();
@@ -309,6 +336,13 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     $("input[name=model_step]").val(3);
                     $("#guessButton").addClass("disabled");
                     $("#guessInput").prop("readonly", true);
+
+                    //insert correct word in step 1
+                    var sen = $("input[name=model_rtfs]").val();
+                    var word = $("input[name=model_rtfw]").val();
+                    var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
+                    sen = sen.replace(word, blankedWordSpan);
+                    $("#random-sentence-view").html(sen);
                 }
             } else {
                 alert("Pleas provide your guess word");
