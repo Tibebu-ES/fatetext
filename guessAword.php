@@ -86,7 +86,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Guess A Word </a>
+                <a class="navbar-brand" onclick="restart()" href="#">Guess A Word </a>
             </div>
         </div>
     </nav>
