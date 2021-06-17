@@ -55,7 +55,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         }
 
         .container {
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         #full-text-view {
@@ -66,7 +67,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         }
 
         #full-text-view #senSpan {
-            color: brown;
+            color: #ffc107;
+            font-weight: bold;
         }
 
         #full-text-view #senSpan #wordSpan {
@@ -74,7 +76,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         }
 
         #blankedWordSpan {
-            color: brown;
+            color: #ffc107;
+            font-weight: bold;
             text-decoration: underline;
         }
     </style>
@@ -91,7 +94,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         </div>
     </nav>
 
-    <div class="container" style="margin-bottom: 20px;">
+    <div class="container">
 
 
         <form>
@@ -111,7 +114,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         <div class="row" style="margin-bottom: 5px;">
             <!-- step 1 -->
             <div class="col-md-12 col-sm-12" id="step-1" style="display:none ;">
-                <div class="card text-white bg-dark">
+                <div class="card text-white bg-primary border-dark">
                     <div class="card-header">
                         <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
                     </div>
@@ -126,7 +129,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                                     <input type="text" class="form-control" id="guessInput" placeholder="Guess a word" onkeypress="return enterEventHandler(event)">
                                 </div>
                                 <div class="form-group ">
-                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-primary btn-md" onclick="step2()">Guess</button>
+                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-success btn-md" onclick="step2()">Guess</button>
                                     <button type="button" class="btn btn-warning btn-md" onclick="restart()">New</button>
                                 </div>
                             </form>
@@ -138,24 +141,25 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         <div class="row" style="margin-bottom: 5px;">
             <!-- step 2 -->
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-2" style="display:none">
-                <div class="card text-white bg-dark">
-                    <div class="card-header">
-                        <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row" style="float: right;">
-                            <form class="form-inline">
-                                <div class="form-group ">
-                                    <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)" placeholder="Ask a question">
-                                </div>
-                                <div class="form-group">
-                                    <a href="#step-3" style="margin:0px 5px 0px 10px" type="button" id="askButton" class="btn btn-primary  btn-md" onclick="step3()"> Ask</a>
-                                    <a href="#" type="button" id="backButton2" class="btn btn-primary  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
-                                </div>
-                            </form>
+                <div class="card text-white bg-primary border-dark">
+                    <div class="card-header row">
+                        <h5 class="col-md-8 card-title">Step -2 : Ask a question about the sentence, itself.</h5>
+                        <div class="col-md-4">
+                            <div class="row" style="float: right;">
+                                <form class="form-inline ">
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)" placeholder="Ask a question">
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="#step-3" style="margin:0px 5px 0px 10px" type="button" id="askButton" class="btn btn-success  btn-md" onclick="step3()"> Ask</a>
+                                        <a href="#" type="button" id="backButton2" class="btn  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
                     </div>
+
 
                 </div>
             </div>
@@ -164,11 +168,11 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
         <div class="row" style="margin-bottom: 5px;">
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-3" style="display:none">
-                <div class="card text-white bg-dark ">
+                <div class="card text-white bg-primary border-dark ">
                     <div class="card-header">
                         <h5 class="card-title">Step -3 : Answer your question</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body ">
                         <div id="full-text-view" class="card-text col-md-auto">
                             <p>With supporting text below as a natural lead-in to additional content.</p>
                         </div>
@@ -190,8 +194,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                                     <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="Answer">
                                 </div>
                                 <div class="form-group">
-                                    <a href="#step-final" style="margin:0px 5px 0px 10px" type="button" id="answerButton" class="btn btn-primary  btn-md" onclick="finish()">Answer</a>
-                                    <a href="#" type="button" id="backButton3" class="btn btn-primary  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                    <a href="#step-final" style="margin:0px 5px 0px 10px" type="button" id="answerButton" class="btn btn-success  btn-md" onclick="finish()">Answer</a>
+                                    <a href="#" type="button" id="backButton3" class="btn  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
                                 </div>
                             </form>
                         </div>
@@ -202,17 +206,15 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         <!-- step final -->
         <div class="row">
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-final" style="display:none">
-                <div class="card text-white bg-dark">
-                    <div class="card-header">
-                        <h5 class="card-title">Finished! Thank you for playing.</h5>
-                    </div>
-                    <div class="card-body">
-
-                        <a type="button" id="restartButton" style="float: right;" href="#" class="btn btn-primary mb-2" onclick="restart()">Play again</a>
+                <div class="card text-white bg-primary border-dark">
+                    <div class="card-header row">
+                        <h5 class="col-md-8 card-title">Finished! Thank you for playing.</h5>
+                        <a type="button" id="restartButton" style="float: right;" href="#" class="col-md-4 btn btn-success mb-2" onclick="restart()">Play again</a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row" id="endView"></div>
 
 
     </div>
@@ -285,7 +287,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
             if (step == 1 & sen != "") {
                 $("#random-sentence-view").html(sen);
                 //show step-1 div
-                $("#step-1").css('display', 'block');
+                $("#step-1").show("slow");
                 $("input[name=model_step]").val(2);
                 //auto focus guessinput 
                 $('#guessInput').focus();
@@ -305,7 +307,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                 $("input[name=model_guess]").val(guessWord);
 
                 //show step-2 div
-                $("#step-2").css('display', 'block');
+                $("#step-2").show("slow");
                 $("input[name=model_step]").val(3);
                 //auto focus questioninput 
                 $("#questionInput").focus();
@@ -354,7 +356,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                 $("#text-name-view").text($("input[name=model_rtfn]").val());
 
                 //show step-3 div
-                $("#step-3").css('display', 'block');
+                $("#step-3").show("slow");
                 $("input[name=model_step]").val(0);
                 //auto focus answerinput 
                 $("#answerInput").focus();
@@ -377,10 +379,15 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
 
                 //show step-final div
-                $("#step-final").css('display', 'block');
+                $("#step-final").show("slow");
                 $("input[name=model_step]").val(0);
-                //auto focus restart button 
+
+                //auto focus restart button
                 $("#restartButton").focus();
+                //slide to final div
+                $('html,body').animate({
+                    scrollTop: $("#step-final").offset().top
+                }, 'slow');
 
 
                 $("#answerButton").addClass("disabled");
@@ -428,13 +435,13 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
         function backToPreviousQuestion() {
             var step = $("input[name=model_step]").val();
             if (step == 3 || step == 2) {
-                $("#step-2").css('display', 'none');
+                $("#step-2").hide("slow");
                 $("#guessButton").removeClass("disabled");
                 $("#guessInput").prop("readonly", false);
                 $("#guessInput").val("");
                 $("input[name=model_step]").val(2);
             } else if (step == 0) {
-                $("#step-3").css('display', 'none');
+                $("#step-3").hide("slow");
                 $("#askButton").removeClass("disabled");;
                 $("#questionInput").prop("readonly", false);
                 $("#questionInput").val("");
