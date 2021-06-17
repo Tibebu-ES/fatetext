@@ -226,39 +226,6 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
         });
 
-        function enterEventHandler(event) {
-            var KeyCode = event.KeyCode || event.which;
-            if (KeyCode === 13) {
-                var inputid = event.target.id;
-                if (inputid == "guessInput") {
-                    step2();
-                } else if (inputid == "questionInput") {
-                    step3();
-                } else if (inputid == "answerInput") {
-                    finish();
-                }
-                event.preventDefault();
-                return false;
-            }
-        }
-
-        function backToPreviousQuestion() {
-            var step = $("input[name=model_step]").val();
-            if (step == 3 || step == 2) {
-                $("#step-2").css('display', 'none');
-                $("#guessButton").removeClass("disabled");
-                $("#guessInput").prop("readonly", false);
-                $("input[name=model_step]").val(2);
-            } else if (step == 0) {
-                $("#step-3").css('display', 'none');
-                $("#askButton").removeClass("disabled");;
-                $("#questionInput").prop("readonly", false);
-                $("#backButton2").removeClass("disabled");
-                $("input[name=model_step]").val(3);
-            }
-        }
-
-
         function init() {
             generateFateTextModel();
         }
@@ -289,6 +256,9 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     $("input[name=model_question]").val(res.question);
                     $("input[name=model_answer]").val(res.answer);
                     $("input[name=model_step]").val(res.step);
+
+                    //clear input fields 
+                    clearInputs();
 
                     //console.log(res.rtfc);
                     step1();
@@ -428,6 +398,49 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
             $('#full-text-view').animate({
                 scrollTop: $("#senSpan").offset().top - $("#full-text-view").offset().top - 100
             }, 2000);
+        }
+
+        /**
+         * clear guess/question/answer input fields
+         */
+        function clearInputs() {
+            $('#guessInput').val('')
+            $("#answerInput").val('');
+            $('#questionInput').val('');
+        }
+
+        function enterEventHandler(event) {
+            var KeyCode = event.KeyCode || event.which;
+            if (KeyCode === 13) {
+                var inputid = event.target.id;
+                if (inputid == "guessInput") {
+                    step2();
+                } else if (inputid == "questionInput") {
+                    step3();
+                } else if (inputid == "answerInput") {
+                    finish();
+                }
+                event.preventDefault();
+                return false;
+            }
+        }
+
+        function backToPreviousQuestion() {
+            var step = $("input[name=model_step]").val();
+            if (step == 3 || step == 2) {
+                $("#step-2").css('display', 'none');
+                $("#guessButton").removeClass("disabled");
+                $("#guessInput").prop("readonly", false);
+                $("#guessInput").val("");
+                $("input[name=model_step]").val(2);
+            } else if (step == 0) {
+                $("#step-3").css('display', 'none');
+                $("#askButton").removeClass("disabled");;
+                $("#questionInput").prop("readonly", false);
+                $("#questionInput").val("");
+                $("#backButton2").removeClass("disabled");
+                $("input[name=model_step]").val(3);
+            }
         }
     </script>
 
