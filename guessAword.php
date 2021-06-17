@@ -208,7 +208,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     </div>
                     <div class="card-body">
 
-                        <a type="button" style="float: right;" href="#" class="btn btn-primary mb-2" onclick="restart()">Play again</a>
+                        <a type="button" id="restartButton" style="float: right;" href="#" class="btn btn-primary mb-2" onclick="restart()">Play again</a>
                     </div>
                 </div>
             </div>
@@ -222,7 +222,6 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
         $(document).ready(function() {
             init();
-
 
         });
 
@@ -288,6 +287,8 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                 //show step-1 div
                 $("#step-1").css('display', 'block');
                 $("input[name=model_step]").val(2);
+                //auto focus guessinput 
+                $('#guessInput').focus();
             }
         }
 
@@ -297,29 +298,29 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
          * view step 2 view
          */
         function step2() {
-            if ($('#guessInput').val() != '') {
-                var step = $("input[name=model_step]").val();
-                if (step == 2) {
-                    //get guess word and validate it then set the model
-                    var guessWord = $("#guessInput").val();
-                    $("input[name=model_guess]").val(guessWord);
+            var step = $("input[name=model_step]").val();
+            if (step == 2) {
+                //get guess word and validate it then set the model
+                var guessWord = $("#guessInput").val();
+                $("input[name=model_guess]").val(guessWord);
 
-                    //show step-2 div
-                    $("#step-2").css('display', 'block');
-                    $("input[name=model_step]").val(3);
-                    $("#guessButton").addClass("disabled");
-                    $("#guessInput").prop("readonly", true);
+                //show step-2 div
+                $("#step-2").css('display', 'block');
+                $("input[name=model_step]").val(3);
+                //auto focus questioninput 
+                $("#questionInput").focus();
 
-                    //insert correct word in step 1
-                    var sen = $("input[name=model_rtfs]").val();
-                    var word = $("input[name=model_rtfw]").val();
-                    var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
-                    sen = sen.replace(word, blankedWordSpan);
-                    $("#random-sentence-view").html(sen);
-                }
-            } else {
-                alert("Pleas provide your guess word");
+                $("#guessButton").addClass("disabled");
+                $("#guessInput").prop("readonly", true);
+
+                //insert correct word in step 1
+                var sen = $("input[name=model_rtfs]").val();
+                var word = $("input[name=model_rtfw]").val();
+                var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
+                sen = sen.replace(word, blankedWordSpan);
+                $("#random-sentence-view").html(sen);
             }
+
         }
 
         /**
@@ -328,65 +329,64 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
          * view step 3 view
          */
         function step3() {
-            if ($('#questionInput').val() != '') {
 
-                var step = $("input[name=model_step]").val();
+            var step = $("input[name=model_step]").val();
 
-                if (step == 3) {
-                    //get user question and validate it then set the model
-                    var question = $("#questionInput").val();
-                    $("input[name=model_question]").val(question);
+            if (step == 3) {
+                //get user question and validate it then set the model
+                var question = $("#questionInput").val();
+                $("input[name=model_question]").val(question);
 
-                    //set the full text viewer
-                    var textContent = $("input[name=model_rtfc]").val();
-                    var sen = $("input[name=model_rtfs]").val();
-                    var word = $("input[name=model_rtfw]").val();
+                //set the full text viewer
+                var textContent = $("input[name=model_rtfc]").val();
+                var sen = $("input[name=model_rtfs]").val();
+                var word = $("input[name=model_rtfw]").val();
 
-                    var senWithSpan = "<span id='senSpan'>" + sen + "</span>";
-                    var wordWithSpan = "<span id='wordSpan'>" + word + "</span>";
-                    senWithSpan = senWithSpan.replace(word, wordWithSpan);
+                var senWithSpan = "<span id='senSpan'>" + sen + "</span>";
+                var wordWithSpan = "<span id='wordSpan'>" + word + "</span>";
+                senWithSpan = senWithSpan.replace(word, wordWithSpan);
 
-                    textContent = textContent.replace(sen, senWithSpan);
-                    $("#full-text-view").html(textContent);
+                textContent = textContent.replace(sen, senWithSpan);
+                $("#full-text-view").html(textContent);
 
-                    //set the question view- and the text-name-view
-                    $("#question-view").text($("input[name=model_question]").val());
-                    $("#text-name-view").text($("input[name=model_rtfn]").val());
+                //set the question view- and the text-name-view
+                $("#question-view").text($("input[name=model_question]").val());
+                $("#text-name-view").text($("input[name=model_rtfn]").val());
 
-                    //show step-3 div
-                    $("#step-3").css('display', 'block');
-                    $("input[name=model_step]").val(0);
-                    $("#askButton").addClass("disabled");
-                    $("#backButton2").addClass("disabled");
-                    $("#questionInput").prop("readonly", true);
+                //show step-3 div
+                $("#step-3").css('display', 'block');
+                $("input[name=model_step]").val(0);
+                //auto focus answerinput 
+                $("#answerInput").focus();
 
-                    centerTargetSenInFullTextViewer();
-                }
-            } else {
-                alert("Please write your question");
+                $("#askButton").addClass("disabled");
+                $("#backButton2").addClass("disabled");
+                $("#questionInput").prop("readonly", true);
+
+                centerTargetSenInFullTextViewer();
             }
+
         }
 
         function finish() {
-
-            if ($("#answerInput").val() != '') {
-                var step = $("input[name=model_step]").val();
-                if (step == 0) {
-                    //get user answer and validate it then set the model
-                    var answer = $("#answerInput").val();
-                    $("input[name=model_answer]").val(answer);
+            var step = $("input[name=model_step]").val();
+            if (step == 0) {
+                //get user answer and validate it then set the model
+                var answer = $("#answerInput").val();
+                $("input[name=model_answer]").val(answer);
 
 
-                    //show step-final div
-                    $("#step-final").css('display', 'block');
-                    $("input[name=model_step]").val(0);
-                    $("#answerButton").addClass("disabled");
-                    $("#backButton3").addClass("disabled");
-                    $("#answerInput").prop("readonly", true);
+                //show step-final div
+                $("#step-final").css('display', 'block');
+                $("input[name=model_step]").val(0);
+                //auto focus restart button 
+                $("#restartButton").focus();
 
-                }
-            } else {
-                alert("Write your answer!");
+
+                $("#answerButton").addClass("disabled");
+                $("#backButton3").addClass("disabled");
+                $("#answerInput").prop("readonly", true);
+
             }
         }
 
