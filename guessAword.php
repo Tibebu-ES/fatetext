@@ -125,11 +125,14 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                     <div class="card-footer text-muted">
                         <div class="row" style="float: right;">
                             <form class="form-inline">
-                                <div class="form-group ">
-                                    <input type="text" class="form-control" id="guessInput" placeholder="Guess a word" onkeypress="return enterEventHandler(event)">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="guessInput" placeholder="" onkeypress="return enterEventHandler(event)">
+                                    <div class="input-group-append">
+                                        <button id="guessButton" class="btn btn-success" onclick="step2()" type="button">Guess</button>
+                                    </div>
                                 </div>
                                 <div class="form-group ">
-                                    <button type="button" style="margin:0px 5px 0px 10px" id="guessButton" class="btn btn-success btn-md" onclick="step2()">Guess</button>
+
                                     <button type="button" class="btn btn-warning btn-md" onclick="restart()">New</button>
                                 </div>
                             </form>
@@ -147,12 +150,14 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                         <div class="col-md-4">
                             <div class="row" style="float: right;">
                                 <form class="form-inline ">
-                                    <div class="form-group ">
-                                        <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)" placeholder="Ask a question">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)">
+                                        <div class="input-group-append">
+                                            <button id="askButton" class="btn btn-success" onclick="step3()" type="button">Ask</button>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <a href="#step-3" style="margin:0px 5px 0px 10px" type="button" id="askButton" class="btn btn-success  btn-md" onclick="step3()"> Ask</a>
-                                        <a href="#" type="button" id="backButton2" class="btn  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                        <a href="#" type="button" id="backButton2" class="btn  btn-md btn-warning" onclick="backToPreviousStep()">Back</a>
                                     </div>
                                 </form>
                             </div>
@@ -191,11 +196,14 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                         <div class="row" style="float: right;">
                             <form class="form-inline">
                                 <div class="form-group ">
-                                    <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="Answer">
+                                    <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="">
+                                    <div class="input-group-append">
+                                        <button id="answerButton" class="btn btn-success" onclick="finish()" type="button">Answer</button>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <a href="#step-final" style="margin:0px 5px 0px 10px" type="button" id="answerButton" class="btn btn-success  btn-md" onclick="finish()">Answer</a>
-                                    <a href="#" type="button" id="backButton3" class="btn  btn-md btn-warning" onclick="backToPreviousQuestion()">Back</a>
+                                    <a href="#" type="button" id="backButton3" class="btn  btn-md btn-warning" onclick="backToPreviousStep()">Back</a>
                                 </div>
                             </form>
                         </div>
@@ -360,6 +368,10 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
                 $("input[name=model_step]").val(0);
                 //auto focus answerinput 
                 $("#answerInput").focus();
+                //slide to step-3 div
+                $('html,body').animate({
+                    scrollTop: $("#step-3").offset().top
+                }, 'slow');
 
                 $("#askButton").addClass("disabled");
                 $("#backButton2").addClass("disabled");
@@ -380,7 +392,7 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
                 //show step-final div
                 $("#step-final").show("slow");
-                $("input[name=model_step]").val(0);
+                $("input[name=model_step]").val(1);
 
                 //auto focus restart button
                 $("#restartButton").focus();
@@ -418,21 +430,48 @@ define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php"
 
         function enterEventHandler(event) {
             var KeyCode = event.KeyCode || event.which;
-            if (KeyCode === 13) {
-                var inputid = event.target.id;
-                if (inputid == "guessInput") {
-                    step2();
-                } else if (inputid == "questionInput") {
-                    step3();
-                } else if (inputid == "answerInput") {
-                    finish();
-                }
-                event.preventDefault();
-                return false;
+            if (KeyCode === 13) { //on enter key press
+                goToNextStep(event);
             }
         }
 
-        function backToPreviousQuestion() {
+        //handling backspace key and enter key -- back to previous step -- goto next step
+        //
+        $(document).keydown(function(event) {
+            var KeyCode = event.KeyCode || event.which;
+            if (KeyCode === 8) { //on backspace key press
+                backToPreviousStep();
+            } else if (KeyCode === 13) { //on enter key press
+                goToNextStep(event);
+            }
+
+        });
+        $(document).keypress(function(event) {
+            var KeyCode = event.KeyCode || event.which;
+            if (KeyCode === 8) { //on backspace key press
+                backToPreviousStep();
+            } else if (KeyCode === 13) { //on enter key press
+                goToNextStep(event);
+            }
+
+        });
+
+        function goToNextStep(event) {
+            var step = $("input[name=model_step]").val();
+            if (step == 2) {
+                step2();
+            } else if (step == 3) {
+                step3();
+            } else if (step == 0) {
+                finish();
+            } else if (step == 1) {
+                restart();
+            }
+            event.preventDefault();
+            return false;
+        }
+
+        function backToPreviousStep() {
             var step = $("input[name=model_step]").val();
             if (step == 3 || step == 2) {
                 $("#step-2").hide("slow");
