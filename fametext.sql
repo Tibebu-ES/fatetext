@@ -17,6 +17,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `guess_history`
+--
+
+CREATE TABLE `guess_history` (
+  `guess_id` bigint(20) NOT NULL,
+  `guess_sen` text NOT NULL,
+  `user_ans` varchar(255) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `guess_ans` varchar(255) NOT NULL,
+  `content` longtext NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `actions`
 --
 
