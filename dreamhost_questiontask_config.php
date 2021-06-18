@@ -24,7 +24,7 @@ $GLOBALS['DBHOST'] = 'mysql.questiontask.com';
 $GLOBALS['DBUSER'] = 'fate_db_user';
 $GLOBALS['DBPASS'] = 'fatetext_123';
 $GLOBALS['DBNAME'] = 'questiontask_fatetext_db';
-$GLOBALS['LOGTABLE'] = 'log1';;
+$GLOBALS['LOGTABLE'] = 'log1';
 
 
 $GLOBALS['LOGLEVEL'] = 0;
