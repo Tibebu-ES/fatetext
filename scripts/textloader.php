@@ -38,6 +38,8 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
+define('CMD_GET_RECENT_HISTORY', 5);
+define('CMD_ADD_CURRENT_GUESS', 6);
 
 //define default num of max textfiles to load at a time
 //to set the default num of max textfiles to load at a time, set an the api field 'ntl'
@@ -45,7 +47,6 @@ define('MAX_TEXT_LOAD', 1);
 
 //max number of times - to find a random word or sentence that matches the crieteries MIN_TOK_LEN, MIN_SENTENCE_LEN
 define('MAX_SEN_TOK_SEARCH', 100);
-
 
 
 //get script command
@@ -67,8 +68,47 @@ switch ($CMD) {
     case CMD_A_RANDOM_SENTENCE:
         generateFateTextModel();
         break;
+    case CMD_GET_RECENT_HISTORY:
+        getHistory();
+        break;
+    case CMD_ADD_CURRENT_GUESS:
+        addCurrentGuess();
+        break;
     default:
         echo "THE SCRIPT COMMAND " . $CMD . " IS NOT RECOGNIZED";
+}
+
+function getHistory()
+{
+    $sql = 'SELECT * FROM guess_history';
+    $sql .= ' ORDER BY created_at ASC limit 5';
+    $rs = queryf_all($sql);
+
+    $fateRecent = array();
+    foreach ($rs as $i => $fate){
+        $fateRecent[$i] = $fate;
+    }
+    echo json_encode($fateRecent);
+}
+
+function addCurrentGuess()
+{
+    if (isset($_POST['guess_sen']) && isset($_POST['user_ans'])
+        && isset($_POST['question']) && isset($_POST['guess_ans'])
+        && isset($_POST['content']) && isset($_POST['fileName'])) {
+
+        $guess_sen = $_POST['guess_sen'];
+        $user_ans = $_POST['user_ans'];
+        $question = $_POST['question'];
+        $guess_ans = $_POST['guess_ans'];
+        $content = $_POST['content'];
+        $fileName = $_POST['fileName'];
+
+        $sql = 'INSERT INTO guess_history (guess_sen, user_ans,question,guess_ans,content,file_name,created_at)';
+        $sql .= ' VALUES (%s, %s, %s, %s, %s, %s, %s)';
+
+        queryf($sql, $guess_sen, $user_ans, $question, $guess_ans, $content, $fileName, date('Y-m-d h:i:sa'));
+    }
 }
 
 function loadAll()
@@ -99,7 +139,7 @@ function loadAll()
 
     //associative array stores both the poetry and prose; key = filename; value = textfiletype;i.e poetry/prose
     $textFiles = array();
-    $unLoadedTextFiles  = array();
+    $unLoadedTextFiles = array();
 
     //this associative array holds the final list of textfiles that are ready to be loaded
     //keys are the bookid, the values are 'textfiletype/filename' which is partial path; e.g 'poetry/filename'
@@ -146,7 +186,7 @@ function loadAll()
             //insert into books table
             $sql = 'INSERT INTO books (titlestr,authorstr,datapath,type)';
             $sql .= ' VALUES ( %s, %s, %s , %s)';
-            queryf($sql,  $unLoadedTextFileName, $author, $txtFileDatapath, $type);
+            queryf($sql, $unLoadedTextFileName, $author, $txtFileDatapath, $type);
         }
     }
     $insertingIntoBooksTime = time() - $insertingIntoBooksTime;
@@ -154,7 +194,7 @@ function loadAll()
 
     //clear toks and chests entries of textfiles not completely loaded and
     //get texfiles ready tobe loaded - along with their id
-    $clearingInterupptedToksChestsTime =  time();
+    $clearingInterupptedToksChestsTime = time();
     //use nested query for time efficiency
     $sql = 'DELETE FROM chests WHERE bookid IN ( SELECT bookid FROM books WHERE isLoaded = false)';
     if (!unsafe_query($sql)) {
@@ -173,7 +213,7 @@ function loadAll()
         }
     }
 
-    $clearingInterupptedToksChestsTime =  time() - $clearingInterupptedToksChestsTime;
+    $clearingInterupptedToksChestsTime = time() - $clearingInterupptedToksChestsTime;
 
     //load the unloaded text files if no error happens
     $insertingIntoToksChestsTime = time();
@@ -364,7 +404,7 @@ function loadAll()
         $response['status'] = true;
         $response['unloadedTextFiles'] = $remainingUnloadedTextFiles;
         $response['allTextFiles'] = count($allTextFilesInBooksTable);
-        $response['message'] = count($allTextFilesInBooksTable) - $remainingUnloadedTextFiles  . " of " . count($allTextFilesInBooksTable) . " text files are loaded!";
+        $response['message'] = count($allTextFilesInBooksTable) - $remainingUnloadedTextFiles . " of " . count($allTextFilesInBooksTable) . " text files are loaded!";
     } else {
         $response['status'] = false;
         $response['message'] = "Something went wrong please try loading again.";
@@ -399,6 +439,7 @@ function loadAll()
     echo "\r\n--------------------------------------------------------------------\r\n";
 */
 }
+
 function clearAll()
 {
     $flag = 0;
@@ -437,7 +478,7 @@ function getAllTextFiles()
  * sentence
  * word
  */
-function  generateFateTextModel()
+function generateFateTextModel()
 {
     $fateTextModel["rtfp"] = "Random fate text path";
     $fateTextModel["rtfc"] = "";
@@ -482,7 +523,7 @@ function  generateFateTextModel()
             $fateTextModel["rtfc"] = $textContent;
 
             ////////////textcontent - into - array of sentences --
-            //@TODO: Scape expressions like 'Mr.', 'Mrs.', 'Dr.' 
+            ////TODO: Scape expressions like 'Mr.', 'Mrs.', 'Dr.'
             $sentences = array();
             if (preg_match_all('~.*?[?.!]~s', $textContent, $matches, PREG_PATTERN_ORDER)) {
                 $sentences = $matches[0];
@@ -519,7 +560,7 @@ function  generateFateTextModel()
                         }
                     }
                     //give up searching sentence in the current text file if the number of search exccedes the max num of search allowed
-                    //try another text file 
+                    //try another text file
                     if ($count > MAX_SEN_TOK_SEARCH) {
                         $randomTextFound = false;
                         break; //breaking out of the sentence searching loop
