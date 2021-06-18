@@ -92,7 +92,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <div class="overlay"></div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Guess A Word</a>
+            <a class="navbar-brand" href="#" onclick="restart()">Guess A Word</a>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
