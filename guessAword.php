@@ -3,6 +3,8 @@ define('CMD_CLEAR_ALL', 1);
 define('CMD_LOAD_ALL', 2);
 define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
+define('CMD_GET_RECENT_HISTORY', 5);
+define('CMD_ADD_CURRENT_GUESS', 6);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
 
@@ -20,9 +22,9 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/textloader.css">
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-          crossorigin="anonymous"/>
+    <!--    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"-->
+    <!--          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"-->
+    <!--          crossorigin="anonymous"/>-->
 
     <!-- jQuery library -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
@@ -40,7 +42,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             background: rgba(255, 255, 255, 0.8) url("loader.gif") center no-repeat;
         }
 
-        body{
+        body {
             background-color: #2f2f2f2f;
         }
 
@@ -87,14 +89,14 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 <body>
 <div class="overlay"></div>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Guess A Word</a>
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a href="#exampleModal" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal" >
-                    History <i class="fa fa-history fa-"></i>
+                <a href="#exampleModal" type="button" class="btn btn-outline-light" data-toggle="modal" d
+                   ata-target="#exampleModal" onclick="getRecentGuesses()">History <i class="fa fa-history fa-"></i>
                 </a>
             </li>
         </ul>
@@ -106,97 +108,21 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 <div class="container">
 
     <!-- Game History Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Recent Guesses</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Recent Fates</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Guess Question 5 - Sentence
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div>step 1 - Guess Answer</div>
-                                    <div>step 2 - Ask Question Content</div>
-                                    <div>step 3 - Guessed Sentence</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Guess Question 2 - Sentence
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div>step 1 - Guess Answer</div>
-                                    <div>step 2 - Ask Question Content</div>
-                                    <div>step 3 - Guessed Sentence</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Guess Question 3 - Sentence
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div>step 1 - Guess Answer</div>
-                                    <div>step 2 - Ask Question Content</div>
-                                    <div>step 3 - Guessed Sentence</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                        Guess Question 4 - Sentence
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div>step 1 - Guess Answer</div>
-                                    <div>step 2 - Ask Question Content</div>
-                                    <div>step 3 - Guessed Sentence</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingSeven">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
-                                        Guess Question 7 - Sentence
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div>step 1 - Guess Answer</div>
-                                    <div>step 2 - Ask Question Content</div>
-                                    <div>step 3 - Guessed Sentence</div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <!--  recent data -->
+
                     </div>
                 </div>
             </div>
@@ -332,6 +258,76 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         init();
     });
 
+    function getRecentGuesses() {
+        $.ajax({
+            type: "POST",
+            url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
+            data: {
+                cmd: <?php echo CMD_GET_RECENT_HISTORY ?>
+            },
+            success: function (data) {
+
+                $('#accordionExample').empty();
+                var res = JSON.parse(data);
+                var i;
+
+                if(res.length>0){
+                    for (i = 0; i < res.length; i++) {
+
+                        var tempSen = res[i].guess_sen.replace(res[i].guess_ans,"________");
+
+                        $('#accordionExample').append(
+                            `<div class="card">
+                            <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+                                Fate Word - <strong>${res[i].guess_ans}</strong>
+                                 </button>
+                            </h2>
+                        </div>
+                        <div id="collapse${i}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div>
+                                    <h6><u>Step 1: Question</u></h6><p>${tempSen}</p>
+                                    <h6><u>You Answered:</u> <span><strong>${res[i].user_ans}</strong></span></h6><br>
+                                </div>
+                                <div><h6><u>Step 2: Question about the sentence</u></h6><p><strong>${res[i].question}</strong></p></div>
+                                <div><h6><u>Step 3: The correct word</u></h6><p><strong>${res[i].guess_ans}<p></strong></div>
+                                <div><h6><u>Final step: File name</u></h6><p><strong>${res[i].file_name}.txt</strong></p></div>
+                        </div>
+                        </div>
+                    </div>`);
+                    }
+                }else{
+                    $('#accordionExample').append("<p>No records found!</p>");
+                }
+
+            }
+        });
+    }
+
+    function addCurrentGuess() {
+        $.ajax({
+            type: "POST",
+            url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
+            data: {
+                cmd: <?php echo CMD_ADD_CURRENT_GUESS ?>,
+                guess_sen: $("input[name=model_rtfs]").val(),
+                user_ans: $("input[name=model_guess]").val(),
+                question: $("input[name=model_question]").val(),
+                guess_ans: $("input[name=model_rtfw]").val(),
+                content: $("input[name=model_rtfc]").val(),
+                fileName: $("input[name=model_rtfn]").val()
+            },
+            success: function (data) {
+                //console.log(data);
+                //var res = JSON.parse(data);
+                console.log(data);
+            }
+        });
+    }
 
     function backToPreviousQuestion() {
         var step = $("input[name=model_step]").val();
@@ -499,6 +495,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 $("#backButton3").addClass("disabled");
                 $("#answerInput").prop("readonly", true);
 
+                addCurrentGuess();
             }
         } else {
             alert("Write your answer!");
