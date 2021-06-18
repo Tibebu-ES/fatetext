@@ -20,9 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-$GLOBALS['DBHOST'] = 'localhost';
-$GLOBALS['DBUSER'] = 'root';
-$GLOBALS['DBPASS'] = '';
+$GLOBALS['DBHOST'] = 'mysql.questiontask.com';
+$GLOBALS['DBUSER'] = 'fate_db_user';
+$GLOBALS['DBPASS'] = 'fatetext_123';
 $GLOBALS['DBNAME'] = 'questiontask_fatetext_db';
 $GLOBALS['LOGTABLE'] = 'log1';
 
@@ -42,8 +42,8 @@ $GLOBALS['FAMEURL'] = 'http://thesuzy.com';
 
 $GLOBALS['AGREEONLOGIN'] = true;
 
-$GLOBALS['SLOGFILE'] = $GLOBALS['SITE_URL'].'/fatelogs/searchlog.txt';
-$GLOBALS['LOGFILE'] = $GLOBALS['SITE_URL'].'/fatelogs/errorlog.txt';
+$GLOBALS['SLOGFILE'] = $GLOBALS['SITE_URL'] . '/fatelogs/searchlog.txt';
+$GLOBALS['LOGFILE'] = $GLOBALS['SITE_URL'] . '/fatelogs/errorlog.txt';
 
 
 $GLOBALS['FATEPATH'] = $GLOBALS['SITE_URL'];
