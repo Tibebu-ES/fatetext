@@ -471,7 +471,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         //
         $(document).keydown(function(event) {
             var KeyCode = event.KeyCode || event.which;
-            if (KeyCode === 8) { //on backspace key press
+            if (KeyCode === 8 && event.target.id != 'guessInput' && event.target.id != 'questionInput' && event.target.id != 'answerInput') { //on backspace key press
                 backToPreviousStep();
             } else if (KeyCode === 13) { //on enter key press
                 goToNextStep(event);
