@@ -40,6 +40,7 @@ define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
+define('CMD_GET_GUESS', 7);
 //define default num of max textfiles to load at a time
 //to set the default num of max textfiles to load at a time, set an the api field 'ntl'
 define('MAX_TEXT_LOAD', 1);
@@ -74,18 +75,27 @@ switch ($CMD) {
     case CMD_ADD_CURRENT_GUESS:
         addCurrentGuess();
         break;
+    case CMD_GET_GUESS:
+        $guess_id = $_POST['guess_id'];
+        getHistory($guess_id);
+        break;
     default:
         echo "THE SCRIPT COMMAND " . $CMD . " IS NOT RECOGNIZED";
 }
 
-function getHistory()
+function getHistory($guess_id = null)
 {
     $sql = 'SELECT * FROM guess_history';
-    $sql .= ' ORDER BY created_at DESC limit 5';
+    if ($guess_id != null) {
+        $sql .= ' WHERE guess_id ="' . $guess_id . '" ';
+    } else {
+        $sql .= ' ORDER BY created_at DESC ';
+    }
+
     $rs = queryf_all($sql);
 
     $fateRecent = array();
-    foreach ($rs as $i => $fate){
+    foreach ($rs as $i => $fate) {
         $fateRecent[$i] = $fate;
     }
     echo json_encode($fateRecent);
@@ -93,21 +103,24 @@ function getHistory()
 
 function addCurrentGuess()
 {
-    if (isset($_POST['guess_sen']) && isset($_POST['user_ans'])
-        && isset($_POST['question']) && isset($_POST['guess_ans'])
-        && isset($_POST['content']) && isset($_POST['fileName'])) {
+    if (
+        isset($_POST['guess_sen']) && isset($_POST['user_guess_wor']) && isset($_POST['guess_wor'])
+        && isset($_POST['question']) && isset($_POST['answer'])
+        && isset($_POST['content']) && isset($_POST['fileName'])
+    ) {
 
         $guess_sen = $_POST['guess_sen'];
-        $user_ans = $_POST['user_ans'];
+        $user_guess_wor = $_POST['user_guess_wor'];
+        $guess_wor = $_POST['guess_wor'];
         $question = $_POST['question'];
-        $guess_ans = $_POST['guess_ans'];
+        $answer = $_POST['answer'];
         $content = $_POST['content'];
         $fileName = $_POST['fileName'];
 
-        $sql = 'INSERT INTO guess_history (guess_sen, user_ans,question,guess_ans,content,file_name,created_at)';
-        $sql .= ' VALUES (%s, %s, %s, %s, %s, %s, %s)';
+        $sql = 'INSERT INTO guess_history (guess_sen, user_guess_wor,guess_wor,question,answer,content,file_name,created_at)';
+        $sql .= ' VALUES (%s, %s, %s, %s, %s, %s, %s, %s)';
 
-        queryf($sql, $guess_sen, $user_ans, $question, $guess_ans, $content, $fileName, date('Y-m-d h:i:sa'));
+        queryf($sql, $guess_sen,  $user_guess_wor,  $guess_wor, $question, $answer, $content, $fileName, date('Y-m-d h:i:sa'));
     }
 }
 

@@ -5,6 +5,7 @@ define('CMD_GET_ALL_TEXT_FILES', 3);
 define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
+define('CMD_GET_GUESS', 7);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
 
@@ -112,7 +113,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Recent Fates</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Past Games</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -413,7 +414,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
         }
 
-        function finish() {
+        function finish(logGuess = true) {
             var step = $("input[name=model_step]").val();
             if (step == 0) {
                 //get user answer and validate it then set the model
@@ -436,8 +437,10 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 $("#answerButton").addClass("disabled");
                 $("#backButton3").addClass("disabled");
                 $("#answerInput").prop("readonly", true);
+                if (logGuess) {
+                    addCurrentGuess();
+                }
 
-                addCurrentGuess();
             }
         }
 
@@ -545,7 +548,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                                Fate Word - <strong>${res[i].guess_ans}</strong>
+                             <strong>Game-${i+1} | ${res[i].created_at} | ${res[i].user_guess_wor}</strong>
                                  </button>
                             </h2>
                         </div>
@@ -553,12 +556,16 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                         data-parent="#accordionExample">
                             <div class="card-body">
                                 <div>
-                                    <h6><u>Step 1: Question</u></h6><p>${tempSen}</p>
-                                    <h6><u>You Answered:</u> <span><strong>${res[i].user_ans}</strong></span></h6><br>
+                                    <h6><u>Sentence </u></h6><p>${tempSen}</p>
+                                    <h6><u>Guess Word:</u> <span><strong>${res[i].user_guess_wor}</strong></span></h6><br>
+                                    <h6><u>Correct Word:</u> <span><strong>${res[i].guess_wor}</strong></span></h6><br>
                                 </div>
-                                <div><h6><u>Step 2: Question about the sentence</u></h6><p><strong>${res[i].question}</strong></p></div>
-                                <div><h6><u>Step 3: The correct word</u></h6><p><strong>${res[i].guess_ans}<p></strong></div>
-                                <div><h6><u>Final step: File name</u></h6><p><strong>${res[i].file_name}.txt</strong></p></div>
+                                <div>
+                                    <h6><u>Question about the sentence</u></h6><p><strong>${res[i].question}</strong></p>
+                                    <h6><u>Answer :</u> <span><strong>${res[i].answer}</strong></span></h6><br>
+                                </div>
+                                <div><h6><u>Text file :</u></h6><p><strong>${res[i].file_name}.txt</strong></p></div>
+                                <div><a class="btn btn-sm btn-primary" id="${res[i].guess_id}" href = "#" onclick="viewHistoryGame(this)"> View more</a></div>
                         </div>
                         </div>
                     </div>`);
@@ -578,9 +585,10 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 data: {
                     cmd: <?php echo CMD_ADD_CURRENT_GUESS ?>,
                     guess_sen: $("input[name=model_rtfs]").val(),
-                    user_ans: $("input[name=model_guess]").val(),
+                    user_guess_wor: $("input[name=model_guess]").val(),
+                    guess_wor: $("input[name=model_rtfw]").val(),
                     question: $("input[name=model_question]").val(),
-                    guess_ans: $("input[name=model_rtfw]").val(),
+                    answer: $("input[name=model_answer]").val(),
                     content: $("input[name=model_rtfc]").val(),
                     fileName: $("input[name=model_rtfn]").val()
                 },
@@ -590,6 +598,55 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     //console.log(data);
                 }
             });
+        }
+
+        //recreat a give history game
+        function viewHistoryGame(obj) {
+
+            var guessId = $(obj).attr('id');
+            //console.log("Viewing " + guessId);
+            //close the modal
+            $('#exampleModal').modal('hide');
+            //get the fateTextModel
+            $.ajax({
+                type: "POST",
+                url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
+                data: {
+                    cmd: <?php echo CMD_GET_GUESS ?>,
+                    guess_id: guessId
+                },
+                success: function(data) {
+                    //console.log(data);
+                    var res = JSON.parse(data);
+                    var guessFateTextModel = res[0];
+                    //console.log(JSON.stringify(guessFateTextModel));
+
+                    //set the model
+                    $("input[name=model_rtfc]").val(guessFateTextModel.content);
+                    $("input[name=model_rtfn]").val(guessFateTextModel.file_name);
+                    $("input[name=model_rtfs]").val(guessFateTextModel.guess_sen);
+                    $("input[name=model_rtfw]").val(guessFateTextModel.guess_wor);
+                    $("input[name=model_guess]").val(guessFateTextModel.user_guess_wor);
+                    $("input[name=model_question]").val(guessFateTextModel.question);
+                    $("input[name=model_answer]").val(guessFateTextModel.answer);
+                    $("input[name=model_step]").val(1);
+
+                    //clear input fields
+                    clearInputs();
+                    step1();
+                    //set the guessInput
+                    $("#guessInput").val(guessFateTextModel.user_guess_wor);
+                    step2();
+                    //set the user question
+                    $("#questionInput").val(guessFateTextModel.question);
+                    step3();
+                    //set the user answer 
+                    $("#answerInput").val(guessFateTextModel.answer);
+                    finish(false); //false is passed cuz there is no need to log again
+
+                }
+            });
+
         }
     </script>
 

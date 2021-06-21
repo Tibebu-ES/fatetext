@@ -21,11 +21,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `guess_history` (
-  `guess_id` bigint(20) NOT NULL,
+  `guess_id` bigint(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `guess_sen` text NOT NULL,
-  `user_ans` varchar(255) NOT NULL,
+  `user_guess_wor` varchar(255) NOT NULL,
+  `guess_wor` varchar(255) NOT NULL,
   `question` varchar(255) NOT NULL,
-  `guess_ans` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL,
   `content` longtext NOT NULL,
   `file_name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -258,14 +259,3 @@ ALTER TABLE `toks`
 ALTER TABLE `guess_history`
   MODIFY `guess_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `guess_history`
---
-ALTER TABLE `guess_history`
-  MODIFY `guess_id` bigint(20) NOT NULL AUTO_INCREMENT;
-
-  --
--- Indexes for table `guess_history`
---
-ALTER TABLE `guess_history`
-  ADD PRIMARY KEY (`guess_id`);
