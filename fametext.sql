@@ -251,3 +251,21 @@ ALTER TABLE `log1`
 --
 ALTER TABLE `toks`
   MODIFY `tokid` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `guess_history`
+--
+ALTER TABLE `guess_history`
+  MODIFY `guess_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `guess_history`
+--
+ALTER TABLE `guess_history`
+  MODIFY `guess_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+  --
+-- Indexes for table `guess_history`
+--
+ALTER TABLE `guess_history`
+  ADD PRIMARY KEY (`guess_id`);
