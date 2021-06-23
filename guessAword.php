@@ -325,7 +325,12 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             sen = sen.replace(word, "__________");
 
             if (step == 1 & sen != "") {
-                $("#random-sentence-view").html(sen);
+                //remove breaklines <br> at the begining of the sentence while displaying
+                var cleanSen = sen.replace(/^<br>/g, "").trim();
+                while (cleanSen.startsWith('<br>')) {
+                    cleanSen = cleanSen.replace(/^<br>/g, "");
+                }
+                $("#random-sentence-view").html(cleanSen);
                 //show step-1 div
                 $("#step-1").show("slow");
                 $("input[name=model_step]").val(2);
