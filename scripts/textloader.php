@@ -49,9 +49,9 @@ define('MAX_TEXT_LOAD', 1);
 define('MAX_SEN_TOK_SEARCH', 100);
 
 
-
 //get script command
 $CMD = 0;
+
 if (isset($_POST['cmd'])) {
     $CMD = $_POST['cmd'];
 }
@@ -70,7 +70,13 @@ switch ($CMD) {
         generateFateTextModel();
         break;
     case CMD_GET_RECENT_HISTORY:
-        getHistory();
+        if(isset($_POST['s_date']) && isset($_POST['e_date'])){
+            $s_date = $_POST['s_date'];
+            $e_date = $_POST['e_date'];
+            getHistory(null,$s_date,$e_date);
+        }else{
+            getHistory(null,null,null);
+        }
         break;
     case CMD_ADD_CURRENT_GUESS:
         addCurrentGuess();
@@ -83,12 +89,15 @@ switch ($CMD) {
         echo "THE SCRIPT COMMAND " . $CMD . " IS NOT RECOGNIZED";
 }
 
-function getHistory($guess_id = null)
+function getHistory($guess_id = null,$s_date,$e_date)
 {
     $sql = 'SELECT * FROM guess_history';
     if ($guess_id != null) {
-        $sql .= ' WHERE guess_id ="' . $guess_id . '" ';
+        $sql .= ' WHERE guess_id ="' . $guess_id . '"';
     } else {
+        if($s_date != null && $e_date != null){
+            $sql .= ' WHERE created_at BETWEEN \'' . $s_date . '\' AND \''.$e_date.'\'';
+        }
         $sql .= ' ORDER BY created_at DESC ';
     }
 
@@ -100,6 +109,7 @@ function getHistory($guess_id = null)
     }
     echo json_encode($fateRecent);
 }
+
 
 function addCurrentGuess()
 {
@@ -123,7 +133,6 @@ function addCurrentGuess()
         queryf($sql, $guess_sen,  $user_guess_wor,  $guess_wor, $question, $answer, $content, $fileName, date('Y-m-d h:i:sa'));
     }
 }
-
 
 function loadAll()
 {
@@ -453,6 +462,7 @@ function loadAll()
     echo "\r\n--------------------------------------------------------------------\r\n";
 */
 }
+
 function clearAll()
 {
     $flag = 0;
@@ -482,7 +492,6 @@ function getAllTextFiles()
     $allTextFilesInBooksTable = mod_get_all_books(); //
     echo json_encode($allTextFilesInBooksTable);
 }
-
 
 /**
  * return fate json object which has the following attributes
