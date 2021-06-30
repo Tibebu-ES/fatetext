@@ -24,9 +24,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/textloader.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
     <!-- jQuery library -->
@@ -139,13 +137,11 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                                 </div>
                             </div>
                             <div>
-                                <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
-                                        onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
+                                <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button" onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
                                 </button>
                             </div>
                             <div>
-                                <button id="allGuesses" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
-                                        onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
+                                <button id="allGuesses" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button" onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
                                 </button>
                             </div>
                         </div>
@@ -538,19 +534,19 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 $("#step-2").hide("slow");
                 $("#guessButton").removeClass("disabled");
                 $("#guessInput").prop("readonly", false);
-                $("#guessInput").val("");
+                // $("#guessInput").val("");
                 $("input[name=model_step]").val(2);
             } else if (step == 0) {
                 $("#step-3").hide("slow");
                 $("#askButton").removeClass("disabled");;
                 $("#questionInput").prop("readonly", false);
-                $("#questionInput").val("");
+                //$("#questionInput").val("");
                 $("#backButton2").removeClass("disabled");
                 $("input[name=model_step]").val(3);
             }
         }
 
-        function getRecentGuesses(s_date=null, e_date=null) {
+        function getRecentGuesses(s_date = null, e_date = null) {
             $.ajax({
                 type: "POST",
                 url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
@@ -678,12 +674,12 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         }
 
         function getFilteredHistory() {
-            if($("#startDate").val() != "" && $("#endDate").val() != ""){
+            if ($("#startDate").val() != "" && $("#endDate").val() != "") {
                 var d_format = "YYYY-MM-DD";
                 var s_date = moment(new Date($("#startDate").val())).format(d_format);
                 var e_date = moment(new Date($("#endDate").val())).format(d_format);
                 getRecentGuesses(s_date, e_date);
-            }else {
+            } else {
                 alert("Please select the range of the date");
             }
         }
