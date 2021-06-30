@@ -186,19 +186,14 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
                     </div>
                     <div class="card-footer text-muted">
-                        <div class="row" style="float: right;">
-                            <form class="form-inline">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="guessInput" placeholder="" onkeypress="return enterEventHandler(event)">
-                                    <div class="input-group-append">
-                                        <button id="guessButton" class="btn btn-success" onclick="step2()" type="button">Guess</button>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-
-                                    <button type="button" class="btn btn-warning btn-md" onclick="restart()">New</button>
-                                </div>
-                            </form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-warning btn-md" onclick="restart()">New</button>
+                            </div>
+                            <input type="text" class="form-control" id="guessInput" placeholder="" onkeypress="return enterEventHandler(event)">
+                            <div class="input-group-append">
+                                <button id="guessButton" class="btn btn-success" onclick="step2()" type="button">Guess</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,27 +203,20 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             <!-- step 2 -->
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-2" style="display:none">
                 <div class="card text-white bg-primary border-dark">
-                    <div class="card-header row">
-                        <h5 class="col-md-8 card-title">Step -2 : Ask a question about the sentence, itself.</h5>
-                        <div class="col-md-4">
-                            <div class="row" style="float: right;">
-                                <form class="form-inline ">
-                                    <div class="input-group ">
-                                        <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)">
-                                        <div class="input-group-append">
-                                            <button id="askButton" class="btn btn-success" onclick="step3()" type="button">Ask</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <a href="#" type="button" id="backButton2" class="btn  btn-md btn-warning" onclick="backToPreviousStep()">Back</a>
-                                    </div>
-                                </form>
+                    <div class="card-header">
+                        <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <a href="#" type="button" id="backButton2" class="btn btn-warning" onclick="backToPreviousStep()">Back</a>
+                            </div>
+                            <input type="text" class="form-control" id="questionInput" onkeypress="enterEventHandler(event)">
+                            <div class="input-group-append">
+                                <button id="askButton" class="btn btn-success" onclick="step3()" type="button">Ask</button>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -256,19 +244,14 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                                 <p class="card-text" id="text-name-view"> Text name goes here </p>
                             </div>
                         </div>
-                        <div class="row" style="float: right;">
-                            <form class="form-inline">
-                                <div class="form-group ">
-                                    <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="">
-                                    <div class="input-group-append">
-                                        <button id="answerButton" class="btn btn-success" onclick="finish()" type="button">Answer</button>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <a href="#" type="button" id="backButton3" class="btn  btn-md btn-warning" onclick="backToPreviousStep()">Back</a>
-                                </div>
-                            </form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <a href="#" type="button" id="backButton3" class="btn  btn-md btn-warning" onclick="backToPreviousStep()">Back</a>
+                            </div>
+                            <input type="text" class=" form-control" onkeypress="enterEventHandler(event)" id="answerInput" placeholder="">
+                            <div class="input-group-append">
+                                <button id="answerButton" class="btn btn-success" onclick="finish()" type="button">Answer</button>
+                            </div>
                         </div>
                     </div>
                 </div>
