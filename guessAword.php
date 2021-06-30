@@ -6,9 +6,9 @@ define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
 define('CMD_GET_GUESS', 7);
-define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
+//define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-
+define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 
 //Fate text model
 
@@ -103,7 +103,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="#exampleModal" type="button" class="btn btn-outline-light" data-toggle="modal" d ata-target="#exampleModal" onclick="getRecentGuesses()">History <i class="fa fa-history fa-"></i>
+                    <a href="#exampleModal" type="button" class="btn btn-outline-light" data-toggle="modal" d ata-target="#exampleModal" onclick="getRecentGuesses()">Past Games <i class="fa fa-history fa-"></i>
                     </a>
                 </li>
             </ul>
@@ -118,6 +118,32 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
                 <div class="modal-content">
+                    <div class="d-flex p-2 bg-light">
+                        <div class="form-check">
+                            <label for="for_guess"><strong>Guess</strong></label>
+                            <input id="f_guess" type="checkbox" class="form-control form-control-sm" name="for_guess">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_ans_word"><strong>Ans-Word</strong></label>
+                            <input id="f_aword" type="checkbox" class="form-control form-control-sm" name="for_ans_word">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_question"><strong>Question</strong></label>
+                            <input id="f_que" type="checkbox" class="form-control form-control-sm" name="for_question">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_ans_sen"><strong>Ans-Sen</strong></label>
+                            <input type="checkbox" class="form-control form-control-sm" name="for_ans_sen">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_src"><strong>Source</strong></label>
+                            <input id="f_src" type="checkbox" class="form-control form-control-sm" name="for_src">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_time"><strong>Time</strong></label>
+                            <input id="f_time" type="checkbox" class="form-control form-control-sm" name="for_time">
+                        </div>
+                    </div>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Past Games</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -286,7 +312,15 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 format: "mm-dd-yyyy",
             });
 
+            $('input[type=checkbox]').click(function(){
+                var ch_name = $(this).prop("name");
+                var ch_status = $(this).prop("checked");
+                printFormatedData(ch_name,ch_status);
+
+            });
+
         });
+
 
         function init() {
             generateFateTextModel();
