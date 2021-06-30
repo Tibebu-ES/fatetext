@@ -29,7 +29,7 @@ CREATE TABLE `guess_history` (
   `answer` varchar(255) NOT NULL,
   `content` longtext NOT NULL,
   `file_name` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 

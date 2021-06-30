@@ -70,25 +70,38 @@ switch ($CMD) {
         generateFateTextModel();
         break;
     case CMD_GET_RECENT_HISTORY:
-        getHistory();
-        break;
+        if(isset($_POST['s_date']) && isset($_POST['e_date'])){
+            $s_date = $_POST['s_date'];
+            $e_date = $_POST['e_date'];
+            getHistory(null,$s_date,$e_date);
+        }else{
+            getHistory(null,null,null);
+        }
     case CMD_ADD_CURRENT_GUESS:
         addCurrentGuess();
         break;
     case CMD_GET_GUESS:
-        $guess_id = $_POST['guess_id'];
-        getHistory($guess_id);
+        if(isset($_POST['s_date']) && isset($_POST['e_date'])){
+            $s_date = $_POST['s_date'];
+            $e_date = $_POST['e_date'];
+            getHistory(null,$s_date,$e_date);
+        }else{
+            getHistory(null,null,null);
+        }
         break;
     default:
         echo "THE SCRIPT COMMAND " . $CMD . " IS NOT RECOGNIZED";
 }
 
-function getHistory($guess_id = null)
+function getHistory($guess_id = null,$s_date,$e_date)
 {
     $sql = 'SELECT * FROM guess_history';
     if ($guess_id != null) {
-        $sql .= ' WHERE guess_id ="' . $guess_id . '" ';
+        $sql .= ' WHERE guess_id ="' . $guess_id . '"';
     } else {
+        if($s_date != null && $e_date != null){
+            $sql .= ' WHERE created_at BETWEEN \'' . $s_date . '\' AND \''.$e_date.'\'';
+        }
         $sql .= ' ORDER BY created_at DESC ';
     }
 
