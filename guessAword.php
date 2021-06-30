@@ -9,6 +9,7 @@ define('CMD_GET_GUESS', 7);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
 
+
 //Fate text model
 
 ?>
@@ -22,12 +23,17 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
     <!-- Bootstrap v4.3.1 CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/textloader.css">
-
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous"/>
 
 
     <!-- jQuery library -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"> </script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
 
 
     <style>
@@ -119,6 +125,31 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                         </button>
                     </div>
                     <div class="modal-body">
+
+                        <div class="d-flex">
+                            <div id="sandbox-container" class="m-1">
+                                <div class="input-group date">
+                                    <input id="startDate" type="text" class="form-control" placeholder="start"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+                            </div>
+
+                            <div id="sandbox-container" class="m-1">
+                                <div class="input-group date">
+                                    <input id="endDate" type="text" class="form-control" placeholder="end"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
+                                        onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
+                                </button>
+                            </div>
+                            <div>
+                                <button id="allGuesses" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
+                                        onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="accordion" id="accordionExample">
 
                             <!--  recent data -->
@@ -264,6 +295,13 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
         $(document).ready(function() {
             init();
+
+            $('#sandbox-container .input-group.date').datepicker({
+                orientation: "bottom auto",
+                autoclose: true,
+                todayHighlight: true,
+                format: "mm-dd-yyyy",
+            });
 
         });
 
@@ -529,12 +567,14 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             }
         }
 
-        function getRecentGuesses() {
+        function getRecentGuesses(s_date=null, e_date=null) {
             $.ajax({
                 type: "POST",
                 url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
                 data: {
-                    cmd: <?php echo CMD_GET_RECENT_HISTORY ?>
+                    cmd: <?php echo CMD_GET_RECENT_HISTORY ?>,
+                    s_date: <?php echo 's_date' ?>,
+                    e_date: <?php echo 'e_date' ?>
                 },
                 success: function(data) {
 
@@ -645,13 +685,24 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     //set the user question
                     $("#questionInput").val(guessFateTextModel.question);
                     step3();
-                    //set the user answer 
+                    //set the user answer
                     $("#answerInput").val(guessFateTextModel.answer);
                     finish(false); //false is passed cuz there is no need to log again
 
                 }
             });
 
+        }
+
+        function getFilteredHistory() {
+            if($("#startDate").val() != "" && $("#endDate").val() != ""){
+                var d_format = "YYYY-MM-DD";
+                var s_date = moment(new Date($("#startDate").val())).format(d_format);
+                var e_date = moment(new Date($("#endDate").val())).format(d_format);
+                getRecentGuesses(s_date, e_date);
+            }else {
+                alert("Please select the range of the date");
+            }
         }
     </script>
 
