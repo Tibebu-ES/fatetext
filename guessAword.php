@@ -146,6 +146,11 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                                     onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
                             </button>
                         </div>
+                        <div>
+                            <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
+                                    onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
+                            </button>
+                        </div>
                     </div>
 
 
