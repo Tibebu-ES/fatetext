@@ -8,8 +8,7 @@ define('CMD_ADD_CURRENT_GUESS', 6);
 define('CMD_GET_GUESS', 7);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-
-
+//define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 //Fate text model
 
 ?>
@@ -101,7 +100,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="#exampleModal" type="button" class="btn btn-outline-light" data-toggle="modal" d ata-target="#exampleModal" onclick="getRecentGuesses()">History <i class="fa fa-history fa-"></i>
+                    <a href="#exampleModal" type="button" class="btn btn-outline-light" data-toggle="modal" d ata-target="#exampleModal" onclick="getRecentGuesses()">Past Games <i class="fa fa-history fa-"></i>
                     </a>
                 </li>
             </ul>
@@ -121,6 +120,32 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                    </div>
+                    <div class="d-flex p-2 bg-light">
+                        <div class="form-check">
+                            <label for="for_guess"><strong>Guess</strong></label>
+                            <input id="for_guess" type="checkbox" class="form-control form-control-sm" name="for_guess">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_ans_word"><strong>Ans-Word</strong></label>
+                            <input id="f_aword" type="checkbox" class="form-control form-control-sm" name="for_ans_word">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_question"><strong>Question</strong></label>
+                            <input id="f_que" type="checkbox" class="form-control form-control-sm" name="for_question">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_ans_sen"><strong>Ans-Sen</strong></label>
+                            <input type="checkbox" class="form-control form-control-sm" name="for_ans_sen">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_src"><strong>Source</strong></label>
+                            <input id="f_src" type="checkbox" class="form-control form-control-sm" name="for_src">
+                        </div>
+                        <div class="form-check">
+                            <label for="for_time"><strong>Time</strong></label>
+                            <input id="f_time" type="checkbox" class="form-control form-control-sm" name="for_time">
+                        </div>
                     </div>
                     <div class="modal-body">
 
@@ -271,6 +296,8 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
     <script>
         //jquery
+        // only holds the filtered data
+        var temp_recent_games;
 
         $(document).ready(function() {
             init();
@@ -282,7 +309,93 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 format: "mm-dd-yyyy",
             });
 
+            let check_array = [];
+
+            $('input[type=checkbox]').click(function() {
+                let ch_name = $(this).prop("name");
+                let ch_status = $(this).prop("checked");
+
+                if (ch_status == true) {
+                    check_array.push(ch_name)
+                } else {
+                    check_array.splice(check_array.indexOf(ch_name), 1)
+                }
+                printFormatedData(check_array);
+            });
+
         });
+
+        function printFormatedData(c_arr) {
+
+            $('#accordionExample').empty();
+            let res = JSON.parse(temp_recent_games);
+            let i;
+
+            if (res.length > 0) {
+                for (i = 0; i < res.length; i++) {
+                    $('#accordionExample').append(headerFromater(c_arr, res, i));
+                }
+            } else {
+                $('#accordionExample').append("<p>No records found!</p>");
+            }
+        }
+
+        function headerFromater(c_arr, res, i) {
+            let data;
+            let tempSen = res[i].guess_sen.replace(res[i].guess_ans, "________");
+            data = `<div class="card">
+                            <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+                             <strong>` + getArrValue(c_arr, res, i, tempSen) + `  </strong>
+                                 </button>
+                            </h2>
+                        </div>
+                        <div id="collapse${i}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div>
+                                    <h6><u>Sentence </u></h6><p>${tempSen}</p>
+                                    <h6><u>Guess Word:</u> <span><strong>${res[i].user_guess_wor}</strong></span></h6><br>
+                                    <h6><u>Correct Word:</u> <span><strong>${res[i].guess_wor}</strong></span></h6><br>
+                                </div>
+                                <div>
+                                    <h6><u>Question about the sentence</u></h6><p><strong>${res[i].question}</strong></p>
+                                    <h6><u>Answer :</u> <span><strong>${res[i].answer}</strong></span></h6><br>
+                                </div>
+                                <div><h6><u>Text file :</u></h6><p><strong>${res[i].file_name}.txt</strong></p></div>
+                                <div><a class="btn btn-sm btn-primary" id="${res[i].guess_id}" href = "#" onclick="viewHistoryGame(this)"> View more</a></div>
+                        </div>
+                        </div>
+                    </div>`
+            return data;
+        }
+
+        function getArrValue(arr, res, j, tempSen) {
+
+            let temp = "";
+            if (arr.length != 0) {
+                for (let i in arr) {
+                    if (arr[i] == "for_guess")
+                        temp += res[j].guess_wor + " | "
+                    if (arr[i] == "for_ans_word")
+                        temp += res[j].user_guess_wor + " | "
+                    if (arr[i] == "for_question")
+                        temp += res[j].question + " | "
+                    if (arr[i] == "for_ans_sen")
+                        temp += res[j].answer + " | "
+                    if (arr[i] == "for_src")
+                        temp += res[j].file_name + ".txt" + " | "
+                    if (arr[i] == "for_time")
+                        temp += res[j].created_at + " | "
+                }
+            } else {
+                temp += res[j].user_guess_wor + " | " + res[j].question
+            }
+
+            return temp;
+        }
 
         function init() {
             generateFateTextModel();
@@ -558,6 +671,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 success: function(data) {
 
                     $('#accordionExample').empty();
+                    temp_recent_games = data;
                     var res = JSON.parse(data);
                     var i;
 
@@ -572,7 +686,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                             <strong>Game-${i+1} | ${res[i].created_at} | ${res[i].user_guess_wor}</strong>
+                             <strong> ${res[i].user_guess_wor} | ${res[i].question}</strong>
                                  </button>
                             </h2>
                         </div>
