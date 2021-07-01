@@ -6,9 +6,9 @@ define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
 define('CMD_GET_GUESS', 7);
-//define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
+define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
+//define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 //Fate text model
 
 ?>
@@ -23,9 +23,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/textloader.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
     <!-- jQuery library -->
@@ -164,13 +162,11 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                                 </div>
                             </div>
                             <div>
-                                <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
-                                        onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
+                                <button id="filter" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button" onclick="getFilteredHistory()"><i class="fa fa-filter" aria-hidden="true">&nbsp</i>
                                 </button>
                             </div>
                             <div>
-                                <button id="allGuesses" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button"
-                                        onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
+                                <button id="allGuesses" class="btn btn-lg btn-outline-dark ml-1 mt-2 p-1" type="button" onclick="getRecentGuesses()"><i class="fa fa-info-circle" aria-hidden="true">&nbsp</i>
                                 </button>
                             </div>
                         </div>
@@ -315,14 +311,14 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 
             let check_array = [];
 
-            $('input[type=checkbox]').click(function(){
+            $('input[type=checkbox]').click(function() {
                 let ch_name = $(this).prop("name");
                 let ch_status = $(this).prop("checked");
 
-                if(ch_status == true){
+                if (ch_status == true) {
                     check_array.push(ch_name)
-                }else{
-                    check_array.splice(check_array.indexOf(ch_name),1)
+                } else {
+                    check_array.splice(check_array.indexOf(ch_name), 1)
                 }
                 printFormatedData(check_array);
             });
@@ -337,14 +333,14 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 
             if (res.length > 0) {
                 for (i = 0; i < res.length; i++) {
-                    $('#accordionExample').append(headerFromater(c_arr,res,i));
+                    $('#accordionExample').append(headerFromater(c_arr, res, i));
                 }
             } else {
                 $('#accordionExample').append("<p>No records found!</p>");
             }
         }
 
-        function headerFromater(c_arr,res,i) {
+        function headerFromater(c_arr, res, i) {
             let data;
             let tempSen = res[i].guess_sen.replace(res[i].guess_ans, "________");
             data = `<div class="card">
@@ -352,7 +348,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                             <strong>` + getArrValue(c_arr,res,i,tempSen) + `  </strong>
+                             <strong>` + getArrValue(c_arr, res, i, tempSen) + `  </strong>
                                  </button>
                             </h2>
                         </div>
@@ -376,25 +372,25 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
             return data;
         }
 
-        function getArrValue(arr,res,j,tempSen) {
+        function getArrValue(arr, res, j, tempSen) {
 
             let temp = "";
-            if(arr.length != 0){
-                for(let i in arr){
-                    if(arr[i] == "for_guess")
-                        temp +=  res[j].guess_wor + " | "
-                    if(arr[i] == "for_ans_word")
-                        temp +=  res[j].user_guess_wor + " | "
-                    if(arr[i] == "for_question")
-                        temp +=  res[j].question + " | "
-                    if(arr[i] == "for_ans_sen")
-                        temp +=  res[j].answer + " | "
-                    if(arr[i] == "for_src")
-                        temp +=  res[j].file_name + ".txt" + " | "
-                    if(arr[i] == "for_time")
-                        temp +=  res[j].created_at + " | "
+            if (arr.length != 0) {
+                for (let i in arr) {
+                    if (arr[i] == "for_guess")
+                        temp += res[j].guess_wor + " | "
+                    if (arr[i] == "for_ans_word")
+                        temp += res[j].user_guess_wor + " | "
+                    if (arr[i] == "for_question")
+                        temp += res[j].question + " | "
+                    if (arr[i] == "for_ans_sen")
+                        temp += res[j].answer + " | "
+                    if (arr[i] == "for_src")
+                        temp += res[j].file_name + ".txt" + " | "
+                    if (arr[i] == "for_time")
+                        temp += res[j].created_at + " | "
                 }
-            }else {
+            } else {
                 temp += res[j].user_guess_wor + " | " + res[j].question
             }
 
@@ -663,7 +659,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
             }
         }
 
-        function getRecentGuesses(s_date=null, e_date=null) {
+        function getRecentGuesses(s_date = null, e_date = null) {
             $.ajax({
                 type: "POST",
                 url: <?php echo '"' . TEXTLOADER_URL . '"' ?>,
@@ -690,7 +686,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                             <strong>Game-${i+1} | ${res[i].created_at} | ${res[i].user_guess_wor}</strong>
+                             <strong> ${res[i].user_guess_wor} | ${res[i].question}</strong>
                                  </button>
                             </h2>
                         </div>
@@ -792,12 +788,12 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
         }
 
         function getFilteredHistory() {
-            if($("#startDate").val() != "" && $("#endDate").val() != ""){
+            if ($("#startDate").val() != "" && $("#endDate").val() != "") {
                 var d_format = "YYYY-MM-DD";
                 var s_date = moment(new Date($("#startDate").val())).format(d_format);
                 var e_date = moment(new Date($("#endDate").val())).format(d_format);
                 getRecentGuesses(s_date, e_date);
-            }else {
+            } else {
                 alert("Please select the range of the date");
             }
         }
