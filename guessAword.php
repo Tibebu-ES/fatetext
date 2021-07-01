@@ -6,9 +6,8 @@ define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
 define('CMD_GET_GUESS', 7);
-//define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
+define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 
 //Fate text model
 
