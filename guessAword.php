@@ -121,7 +121,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                     <div class="d-flex p-2 bg-light">
                         <div class="form-check">
                             <label for="for_guess"><strong>Guess</strong></label>
-                            <input id="f_guess" type="checkbox" class="form-control form-control-sm" name="for_guess">
+                            <input id="for_guess" type="checkbox" class="form-control form-control-sm" name="for_guess">
                         </div>
                         <div class="form-check">
                             <label for="for_ans_word"><strong>Ans-Word</strong></label>
@@ -301,6 +301,8 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 
     <script>
         //jquery
+        // only holds the filtered data
+        var temp_recent_games;
 
         $(document).ready(function() {
             init();
@@ -312,15 +314,93 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                 format: "mm-dd-yyyy",
             });
 
-            $('input[type=checkbox]').click(function(){
-                var ch_name = $(this).prop("name");
-                var ch_status = $(this).prop("checked");
-                printFormatedData(ch_name,ch_status);
+            let check_array = [];
 
+            $('input[type=checkbox]').click(function(){
+                let ch_name = $(this).prop("name");
+                let ch_status = $(this).prop("checked");
+
+                if(ch_status == true){
+                    check_array.push(ch_name)
+                }else{
+                    check_array.splice(check_array.indexOf(ch_name),1)
+                }
+                printFormatedData(check_array);
             });
 
         });
 
+        function printFormatedData(c_arr) {
+
+            $('#accordionExample').empty();
+            let res = JSON.parse(temp_recent_games);
+            let i;
+
+            if (res.length > 0) {
+                for (i = 0; i < res.length; i++) {
+                    $('#accordionExample').append(headerFromater(c_arr,res,i));
+                }
+            } else {
+                $('#accordionExample').append("<p>No records found!</p>");
+            }
+        }
+
+        function headerFromater(c_arr,res,i) {
+            let data;
+            let tempSen = res[i].guess_sen.replace(res[i].guess_ans, "________");
+            data = `<div class="card">
+                            <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+                             <strong>Game-${i+1}` + getArrValue(c_arr,res,i,tempSen) + `  </strong>
+                                 </button>
+                            </h2>
+                        </div>
+                        <div id="collapse${i}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div>
+                                    <h6><u>Sentence </u></h6><p>${tempSen}</p>
+                                    <h6><u>Guess Word:</u> <span><strong>${res[i].user_guess_wor}</strong></span></h6><br>
+                                    <h6><u>Correct Word:</u> <span><strong>${res[i].guess_wor}</strong></span></h6><br>
+                                </div>
+                                <div>
+                                    <h6><u>Question about the sentence</u></h6><p><strong>${res[i].question}</strong></p>
+                                    <h6><u>Answer :</u> <span><strong>${res[i].answer}</strong></span></h6><br>
+                                </div>
+                                <div><h6><u>Text file :</u></h6><p><strong>${res[i].file_name}.txt</strong></p></div>
+                                <div><a class="btn btn-sm btn-primary" id="${res[i].guess_id}" href = "#" onclick="viewHistoryGame(this)"> View more</a></div>
+                        </div>
+                        </div>
+                    </div>`
+            return data;
+        }
+
+        function getArrValue(arr,res,j,tempSen) {
+
+            let temp = "";
+            if(arr.length != 0){
+                for(let i in arr){
+                    if(arr[i] == "for_guess")
+                        temp += " | " + res[j].guess_wor
+                    if(arr[i] == "for_ans_word")
+                        temp += " | " + res[j].user_guess_wor
+                    if(arr[i] == "for_question")
+                        temp += " | " + res[j].question
+                    if(arr[i] == "for_ans_sen")
+                        temp += " | " + tempSen
+                    if(arr[i] == "for_src")
+                        temp += " | " + res[j].file_name + ".txt"
+                    if(arr[i] == "for_time")
+                        temp += " | " + res[j].created_at
+                }
+            }else {
+                temp += " | " + res[j].guess_wor + " | " + res[j].question
+            }
+
+            return temp;
+        }
 
         function init() {
             generateFateTextModel();
@@ -596,6 +676,7 @@ define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
                 success: function(data) {
 
                     $('#accordionExample').empty();
+                    temp_recent_games = data;
                     var res = JSON.parse(data);
                     var i;
 
