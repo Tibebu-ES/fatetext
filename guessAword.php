@@ -6,9 +6,9 @@ define('CMD_A_RANDOM_SENTENCE', 4);
 define('CMD_GET_RECENT_HISTORY', 5);
 define('CMD_ADD_CURRENT_GUESS', 6);
 define('CMD_GET_GUESS', 7);
-define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
+//define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
-
+define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
 //Fate text model
 
 ?>
@@ -117,6 +117,12 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Past Games</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="d-flex p-2 bg-light">
                         <div class="form-check">
                             <label for="for_guess"><strong>Guess</strong></label>
@@ -142,12 +148,6 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                             <label for="for_time"><strong>Time</strong></label>
                             <input id="f_time" type="checkbox" class="form-control form-control-sm" name="for_time">
                         </div>
-                    </div>
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Past Games</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
                     <div class="modal-body">
 
@@ -352,7 +352,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                             <strong>Game-${i+1}` + getArrValue(c_arr,res,i,tempSen) + `  </strong>
+                             <strong>` + getArrValue(c_arr,res,i,tempSen) + `  </strong>
                                  </button>
                             </h2>
                         </div>
@@ -382,20 +382,20 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             if(arr.length != 0){
                 for(let i in arr){
                     if(arr[i] == "for_guess")
-                        temp += " | " + res[j].guess_wor
+                        temp +=  res[j].guess_wor + " | "
                     if(arr[i] == "for_ans_word")
-                        temp += " | " + res[j].user_guess_wor
+                        temp +=  res[j].user_guess_wor + " | "
                     if(arr[i] == "for_question")
-                        temp += " | " + res[j].question
+                        temp +=  res[j].question + " | "
                     if(arr[i] == "for_ans_sen")
-                        temp += " | " + tempSen
+                        temp +=  res[j].answer + " | "
                     if(arr[i] == "for_src")
-                        temp += " | " + res[j].file_name + ".txt"
+                        temp +=  res[j].file_name + ".txt" + " | "
                     if(arr[i] == "for_time")
-                        temp += " | " + res[j].created_at
+                        temp +=  res[j].created_at + " | "
                 }
             }else {
-                temp += " | " + res[j].guess_wor + " | " + res[j].question
+                temp += res[j].user_guess_wor + " | " + res[j].question
             }
 
             return temp;
