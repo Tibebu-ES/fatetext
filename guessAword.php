@@ -650,8 +650,9 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 // $("#guessInput").val("");
                 $("input[name=model_step]").val(2);
             } else if (step == 0) {
+                $("#full-text-view").html("");
                 $("#step-3").hide("slow");
-                $("#askButton").removeClass("disabled");;
+                $("#askButton").removeClass("disabled");
                 $("#questionInput").prop("readonly", false);
                 //$("#questionInput").val("");
                 $("#backButton2").removeClass("disabled");
