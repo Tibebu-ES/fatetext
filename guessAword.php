@@ -456,10 +456,10 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
             if (step == 1 & sen != "") {
                 //remove breaklines <br> at the begining of the sentence while displaying
-                var cleanSen = sen.replace(/^<br>/g, "").trim();
-                while (cleanSen.startsWith('<br>')) {
-                    cleanSen = cleanSen.replace(/^<br>/g, "");
-                }
+                var cleanSen = sen.replace(/<br>/g, "").trim();
+                // while (cleanSen.startsWith('<br>')) {
+                //     cleanSen = cleanSen.replace(/^<br>/g, "");
+                // }
                 $("#random-sentence-view").html(cleanSen);
                 //show step-1 div
                 $("#step-1").show("slow");
