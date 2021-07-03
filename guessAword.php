@@ -68,6 +68,8 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         }
 
         #full-text-view {
+            margin: auto;
+            width: fit-content;
             padding: 10px;
             white-space: pre-wrap;
             max-height: 300px;
@@ -189,6 +191,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
             <input type="text" style="display:none" name="model_rtfp">
             <input type="text" style="display:none" name="model_rtfc">
             <input type="text" style="display:none" name="model_rtfn">
+            <input type="text" style="display:none" name="model_rtft">
             <input type="text" style="display:none" name="model_rtfs">
             <input type="text" style="display:none" name="model_rtfw">
             <input type="text" style="display:none" name="model_guess">
@@ -418,19 +421,20 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
                 },
                 success: function(data) {
-                    //console.log(data);
+                    console.log(data);
                     var res = JSON.parse(data);
                     //set the model
                     $("input[name=model_rtfp]").val(res.rtfp);
                     $("input[name=model_rtfc]").val(res.rtfc);
                     $("input[name=model_rtfn]").val(res.rtfn);
+                    $("input[name=model_rtft]").val(res.rtft);
                     $("input[name=model_rtfs]").val(res.rtfs);
                     $("input[name=model_rtfw]").val(res.rtfw);
                     $("input[name=model_guess]").val(res.guess);
                     $("input[name=model_question]").val(res.question);
                     $("input[name=model_answer]").val(res.answer);
                     $("input[name=model_step]").val(res.step);
-
+                    console.log(res.rtft);
                     //clear input fields
                     clearInputs();
 
@@ -459,7 +463,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
             if (step == 1 & sen != "") {
                 //remove breaklines <br> at the begining of the sentence while displaying
-                var cleanSen = sen.replace(/<br>/g, "").trim();
+                var cleanSen = sen.replace(/<br>/g, " ").trim();
                 // while (cleanSen.startsWith('<br>')) {
                 //     cleanSen = cleanSen.replace(/^<br>/g, "");
                 // }
@@ -589,7 +593,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
         function centerTargetSenInFullTextViewer() {
             $('#full-text-view').animate({
-                scrollTop: $("#senSpan").offset().top - $("#full-text-view").offset().top - 100
+                scrollTop: $("#senSpan").offset().top - $("#full-text-view").offset().top - 50
             }, 2000);
         }
 

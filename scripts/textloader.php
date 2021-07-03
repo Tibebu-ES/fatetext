@@ -46,7 +46,7 @@ define('CMD_GET_GUESS', 7);
 define('MAX_TEXT_LOAD', 1);
 
 //max number of times - to find a random word or sentence that matches the crieteries MIN_TOK_LEN, MIN_SENTENCE_LEN
-define('MAX_SEN_TOK_SEARCH', 100);
+define('MAX_SEN_TOK_SEARCH', 50);
 
 
 
@@ -70,37 +70,37 @@ switch ($CMD) {
         generateFateTextModel();
         break;
     case CMD_GET_RECENT_HISTORY:
-        if(isset($_POST['s_date']) && isset($_POST['e_date'])){
+        if (isset($_POST['s_date']) && isset($_POST['e_date'])) {
             $s_date = $_POST['s_date'];
             $e_date = $_POST['e_date'];
-            getHistory(null,$s_date,$e_date);
-        }else{
-            getHistory(null,null,null);
+            getHistory(null, $s_date, $e_date);
+        } else {
+            getHistory(null, null, null);
         }
     case CMD_ADD_CURRENT_GUESS:
         addCurrentGuess();
         break;
     case CMD_GET_GUESS:
-        if(isset($_POST['s_date']) && isset($_POST['e_date'])){
+        if (isset($_POST['s_date']) && isset($_POST['e_date'])) {
             $s_date = $_POST['s_date'];
             $e_date = $_POST['e_date'];
-            getHistory(null,$s_date,$e_date);
-        }else{
-            getHistory(null,null,null);
+            getHistory(null, $s_date, $e_date);
+        } else {
+            getHistory(null, null, null);
         }
         break;
     default:
         echo "THE SCRIPT COMMAND " . $CMD . " IS NOT RECOGNIZED";
 }
 
-function getHistory($guess_id = null,$s_date,$e_date)
+function getHistory($guess_id = null, $s_date, $e_date)
 {
     $sql = 'SELECT * FROM guess_history';
     if ($guess_id != null) {
         $sql .= ' WHERE guess_id ="' . $guess_id . '"';
     } else {
-        if($s_date != null && $e_date != null){
-            $sql .= ' WHERE created_at BETWEEN \'' . $s_date . '\' AND \''.$e_date.'\'';
+        if ($s_date != null && $e_date != null) {
+            $sql .= ' WHERE created_at BETWEEN \'' . $s_date . '\' AND \'' . $e_date . '\'';
         }
         $sql .= ' ORDER BY created_at DESC ';
     }
@@ -509,6 +509,7 @@ function  generateFateTextModel()
     $fateTextModel["rtfp"] = "Random fate text path";
     $fateTextModel["rtfc"] = "";
     $fateTextModel["rtfn"] = "Random fate text name";
+    $fateTextModel["rtft"] = "Random fate text type, prose or poetry";
     $fateTextModel["rtfs"] = "Random fate text sentence";
     $fateTextModel["rtfw"] = "Random fate text word";
     $fateTextModel["guess"] = "Random fate text guess";
@@ -521,11 +522,17 @@ function  generateFateTextModel()
     $datapath = $GLOBALS['FATEPATH'] . '/data/fatetexts/';
 
     $files = array();
-    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($datapath)) as $filename) {
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($datapath . 'prose/')) as $filename) {
         if ($filename->isDir()) continue;
         $filename = str_replace("\\", "/", $filename);
         $files[] = $filename;
     }
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($datapath . 'poetry/')) as $filename) {
+        if ($filename->isDir()) continue;
+        $filename = str_replace("\\", "/", $filename);
+        $files[] = $filename;
+    }
+
 
     //random number
     $randomTextFound = false;
@@ -535,15 +542,23 @@ function  generateFateTextModel()
         $randomFile = $files[$randomNum];
         $ext = pathinfo($randomFile, PATHINFO_EXTENSION);
         $file_name = pathinfo($randomFile, PATHINFO_FILENAME);
-        $file_path = pathinfo($randomFile, PATHINFO_BASENAME);
+        $file_path = $randomFile;
+        $file_path_sep = explode("/", $file_path);
+        $file_type = "";
+        if (count($file_path_sep) > 1) {
+            $file_type = $file_path_sep[count($file_path_sep) - 2];
+        }
+
         if ($ext == "txt") {
             $randomTextFound = true;
             $fateTextModel["rtfp"] = $file_path;
             $fateTextModel["rtfn"] = $file_name;
-
+            $fateTextModel["rtft"] =  $file_type;
+            //echo pathinfo($randomFile, PATHINFO_DIRNAME);
+            //return;
             //get random sentence
             $textContent = "";
-            foreach (file($datapath . $file_path) as $currentLine) {
+            foreach (file($file_path) as $currentLine) {
                 $textContent = $textContent . $currentLine . '<br>';
             }
             $fateTextModel["rtfc"] = $textContent;
