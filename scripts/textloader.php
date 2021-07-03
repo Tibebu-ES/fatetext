@@ -550,6 +550,7 @@ function  generateFateTextModel()
         }
 
         if ($ext == "txt") {
+            $log = "";
             $randomTextFound = true;
             $fateTextModel["rtfp"] = $file_path;
             $fateTextModel["rtfn"] = $file_name;
@@ -571,22 +572,28 @@ function  generateFateTextModel()
                 //select a random sentence with words >= MIN_SENTENCE_LEN
                 $randomSenFound = false;
                 $count = 0;
+                $log .= "Finding random sentence -- ";
                 while (!$randomSenFound) {
+                    $log .= " Try 1--";
                     $randomSenNum = rand(0, count($sentences) - 1);
                     $ranSen = $sentences[$randomSenNum];
                     $ranSenNumOfWords = count(explode(" ", $ranSen));
                     if ($ranSenNumOfWords >= MIN_SENTENCE_LEN) {
+                        $log .= " Sen found --";
                         $fateTextModel["rtfs"] = $ranSen;
                         //now tokenize the sentence and get a random word > MIN_TOK_LEN
                         //tokenize the randomSentence $fateSentence["sentence"]
                         $randomWordFound = false;
                         $numOfTryToFindTok = 0;
-                        //$toks = explode(" ", $fateSentence["sentence"]);
-                        $words = preg_split('/( |\r\n)/', $fateTextModel["rtfs"], -1, PREG_SPLIT_NO_EMPTY);
+                        //$toks = explode(" ", $fateSentence["sentence"]);   
+                        $words = preg_split("/[\s,-<>'\".([]+/", $fateTextModel["rtfs"], -1, PREG_SPLIT_NO_EMPTY);
+                        $log .= " Finding random word--";
                         while (!$randomWordFound) {
+                            $log .= " Try 1--";
                             $randomWordNum = rand(0, count($words) - 1);
                             $word = $words[$randomWordNum];
                             if (strlen($word) >= MIN_TOK_LEN) {
+                                $log .= " Word found --";
                                 $fateTextModel["rtfw"] = $word;
                                 $randomWordFound = true;
                                 $randomSenFound = true;
@@ -620,6 +627,7 @@ function  generateFateTextModel()
             $fateTextModel["guess"] = "";
             $fateTextModel["question"] = "";
             $fateTextModel["answer"] = "";
+            $fateTextModel["log"] = $log;
         }
     }
 

@@ -421,7 +421,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     cmd: <?php echo CMD_A_RANDOM_SENTENCE ?>
                 },
                 success: function(data) {
-                    console.log(data);
+                    //console.log(data);
                     var res = JSON.parse(data);
                     //set the model
                     $("input[name=model_rtfp]").val(res.rtfp);
@@ -434,7 +434,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                     $("input[name=model_question]").val(res.question);
                     $("input[name=model_answer]").val(res.answer);
                     $("input[name=model_step]").val(res.step);
-                    console.log(res.rtft);
+                    console.log(res.log);
                     //clear input fields
                     clearInputs();
 
@@ -500,9 +500,9 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 //insert correct word in step 1
                 var sen = $("input[name=model_rtfs]").val();
                 var word = $("input[name=model_rtfw]").val();
-                var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
+                var blankedWordSpan = "<span id='blankedWordSpan'>" + ' ' + word + "</span>";
                 sen = sen.replace(word, blankedWordSpan);
-                var cleanSen = sen.replace(/<br>/g, "").trim();
+                var cleanSen = sen.replace(/<br>/g, " ").trim();
                 $("#random-sentence-view").html(cleanSen);
             }
 
