@@ -495,7 +495,8 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
                 var word = $("input[name=model_rtfw]").val();
                 var blankedWordSpan = "<span id='blankedWordSpan'>" + word + "</span>";
                 sen = sen.replace(word, blankedWordSpan);
-                $("#random-sentence-view").html(sen);
+                var cleanSen = sen.replace(/<br>/g, "").trim();
+                $("#random-sentence-view").html(cleanSen);
             }
 
         }
