@@ -9,7 +9,7 @@ define('CMD_GET_GUESS', 7);
 define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost:8081/fatetext/scripts/textloader.php");
 //define('TEXTLOADER_URL', "http://localhost/fatetext/scripts/textloader.php");
-//Fate text model
+//Fate text model #ffc107
 
 ?>
 
@@ -75,16 +75,19 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         }
 
         #full-text-view #senSpan {
-            color: #ffc107;
-            font-weight: bold;
+            color: white;
+            background: blue;
+
         }
 
         #full-text-view #senSpan #wordSpan {
             text-decoration: underline;
+            font-weight: bold;
         }
 
         #blankedWordSpan {
-            color: #ffc107;
+            color: white;
+            background: blue;
             font-weight: bold;
             text-decoration: underline;
         }
@@ -94,7 +97,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
 <body>
     <div class="overlay"></div>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" onclick="restart()">Guess A Word</a>
 
@@ -198,7 +201,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         <div class="row" style="margin-bottom: 5px;">
             <!-- step 1 -->
             <div class="col-md-12 col-sm-12" id="step-1" style="display:none ;">
-                <div class="card text-white bg-primary border-dark">
+                <div class="card text-white bg-secondary  border-dark">
                     <div class="card-header">
                         <h5 class="card-title">Step -1 : Guess the blanked out word:</h5>
                     </div>
@@ -223,7 +226,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         <div class="row" style="margin-bottom: 5px;">
             <!-- step 2 -->
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-2" style="display:none">
-                <div class="card text-white bg-primary border-dark">
+                <div class="card text-white bg-secondary  border-dark">
                     <div class="card-header">
                         <h5 class="card-title">Step -2 : Ask a question about the sentence, itself.</h5>
                     </div>
@@ -245,7 +248,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
 
         <div class="row" style="margin-bottom: 5px;">
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-3" style="display:none">
-                <div class="card text-white bg-primary border-dark ">
+                <div class="card text-white bg-secondary  border-dark ">
                     <div class="card-header">
                         <h5 class="card-title">Step -3 : Answer your question</h5>
                     </div>
@@ -281,7 +284,7 @@ define('TEXTLOADER_URL', "http://www.questiontask.com/scripts/textloader.php");
         <!-- step final -->
         <div class="row">
             <div class="col-md-12 col-sm-12 mt-sm-12" id="step-final" style="display:none">
-                <div class="card text-white bg-primary border-dark">
+                <div class="card text-white bg-secondary  border-dark">
                     <div class="card-header row">
                         <h5 class="col-md-8 card-title">Finished! Thank you for playing.</h5>
                         <a type="button" id="restartButton" style="float: right;" href="#" class="col-md-4 btn btn-success mb-2" onclick="restart()">Play again</a>
